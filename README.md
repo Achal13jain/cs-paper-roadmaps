@@ -82,7 +82,7 @@ Don't have time to read everything? Each roadmap has a curated **10-paper minimu
 cs-paper-roadmaps/
 │
 ├── README.md                       ← you are here
-├── index.html                      ← interactive SPA (GitHub Pages)
+├── index.html                      ← interactive SPA 
 ├── CONTRIBUTING.md                 ← how to add a paper
 ├── LICENSE                         ← CC BY 4.0
 │
