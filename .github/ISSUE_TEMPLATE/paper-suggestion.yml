@@ -1,0 +1,120 @@
+name: 📚 Suggest a paper
+description: Propose adding a paper to a roadmap
+title: "[Paper] <paper title>"
+labels: ["paper-suggestion", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a paper. Before opening this, please confirm the four-point quality bar in [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md):
+        1. Foundational or frontier
+        2. Free, primary source available
+        3. Fits a real gap in the sequence
+        4. Has something specific to teach
+
+  - type: dropdown
+    id: roadmap
+    attributes:
+      label: Which roadmap?
+      options:
+        - LLMs & Transformers
+        - Computer Vision
+        - Reinforcement Learning
+        - Distributed Systems
+        - Graph Neural Networks
+        - Database Systems
+        - Cryptography
+        - Information Retrieval
+        - Computer Architecture
+        - Computational Biology
+        - Programming Languages
+        - (Proposing a new roadmap — see Discussions first)
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Paper title
+      placeholder: "Attention Is All You Need"
+    validations:
+      required: true
+
+  - type: input
+    id: authors
+    attributes:
+      label: Authors (et al. is fine)
+      placeholder: "Vaswani et al."
+    validations:
+      required: true
+
+  - type: input
+    id: institution
+    attributes:
+      label: Institution
+      placeholder: "Google Brain"
+
+  - type: input
+    id: date
+    attributes:
+      label: Publication date
+      placeholder: "Jun 2017"
+
+  - type: input
+    id: url
+    attributes:
+      label: Free primary source URL
+      description: arXiv, author page, OpenReview, or open conference archive. No paywalls.
+      placeholder: "https://arxiv.org/abs/1706.03762"
+    validations:
+      required: true
+
+  - type: textarea
+    id: tldr
+    attributes:
+      label: Proposed TL;DR
+      description: 1–2 sentences. What does the paper actually say?
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why read this?
+      description: 1–2 sentences. What role does it play in the field's intellectual lineage?
+
+  - type: input
+    id: prereqs
+    attributes:
+      label: Prerequisites
+      description: Comma- or semicolon-separated list of concepts the reader needs first.
+      placeholder: "Seq2seq with attention; matrix multiplication"
+
+  - type: textarea
+    id: takeaway
+    attributes:
+      label: Key takeaway
+      description: One sentence to remember if you forget the rest.
+
+  - type: dropdown
+    id: level
+    attributes:
+      label: Suggested level (0 = foundational, 7+ = bleeding edge)
+      options: ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: mvrp
+    attributes:
+      label: MVRP candidate?
+      options:
+        - label: I think this paper belongs on the Minimum Viable Reading Path (~5–10 highest-leverage papers)
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why does this fit a gap in the sequence?
+      description: Explain how the existing roadmap fails to cover what this paper teaches.
+    validations:
+      required: true

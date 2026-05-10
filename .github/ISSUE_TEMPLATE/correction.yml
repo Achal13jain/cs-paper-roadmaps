@@ -1,0 +1,50 @@
+name: ✏️ Correction
+description: Fix a wrong fact, broken link, or misleading summary
+title: "[Correction] <paper or section>"
+labels: ["correction"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type of correction
+      options:
+        - Wrong author / institution / date
+        - Broken or paywalled link
+        - Inaccurate TL;DR
+        - Inaccurate "why read this" note
+        - Wrong prerequisites
+        - Misleading key takeaway
+        - Wrong level assignment
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: paper
+    attributes:
+      label: Which paper?
+      placeholder: "Attention Is All You Need (LLMs roadmap, Level 1)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What does the site currently say?
+      description: Paste the current incorrect text, or describe what's wrong.
+    validations:
+      required: true
+
+  - type: textarea
+    id: corrected
+    attributes:
+      label: What should it say?
+      description: Provide the correction with a source if possible.
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source for the correction
+      description: arXiv, paper PDF, author page, etc.

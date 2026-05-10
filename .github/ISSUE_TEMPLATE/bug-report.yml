@@ -1,0 +1,45 @@
+name: 🐛 Site bug
+description: Something on the website is broken or rendering wrong
+title: "[Bug] <short description>"
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What's broken?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the site
+        2. Click on…
+        3. See…
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected to happen
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser & version
+      placeholder: "Chrome 120 / Firefox 121 / Safari 17"
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      placeholder: "Desktop 1920x1080 / iPhone 14 / iPad / Android phone"
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot (optional)
+      description: Drag-and-drop an image here if applicable.

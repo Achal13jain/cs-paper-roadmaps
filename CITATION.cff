@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "CS Paper Roadmaps: Curated Reading Lists for Computer Science"
+message: "If you reference this resource in academic work, please cite it as below."
+type: dataset
+authors:
+  - name: "CS Paper Roadmaps Contributors"
+    website: "https://github.com/Achal13jain/cs-paper-roadmaps"
+abstract: >-
+  Eleven curated, logically ordered reading paths through the foundational
+  and frontier papers of modern computing — sequenced so each builds on the
+  last, with TL;DRs, prerequisites, and key takeaways. Covers LLMs,
+  Computer Vision, Reinforcement Learning, Distributed Systems, Graph Neural
+  Networks, Database Systems, Cryptography, Information Retrieval, Computer
+  Architecture, Computational Biology, and Programming Languages.
+  258 papers across 11 fields, spanning 1936 – 2024.
+keywords:
+  - reading-list
+  - computer-science
+  - machine-learning
+  - paper-curation
+  - bibliography
+  - research-roadmap
+license: CC-BY-4.0
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+repository-code: "https://github.com/Achal13jain/cs-paper-roadmaps"
+url: "https://Achal13jain.github.io/cs-paper-roadmaps"
+year: 2026

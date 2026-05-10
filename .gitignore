@@ -1,0 +1,34 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+.cursor/
+
+# Local server cache
+.cache/
+node_modules/
+.parcel-cache/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment
+.env
+.env.local
+
+# Build output (we don't have one — but in case future tooling adds)
+dist/
+build/
+.netlify/
+.vercel/

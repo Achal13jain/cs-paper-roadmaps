@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Question or discussion
+    url: https://github.com/Achal13jain/cs-paper-roadmaps/discussions
+    about: Have a question, want to suggest a new roadmap, or just want to chat? Open a discussion.
+  - name: 📚 General feedback on the curation
+    url: https://github.com/Achal13jain/cs-paper-roadmaps/discussions/categories/curation
+    about: Disagree with the MVRP picks? Think a paper is misplaced? Discuss it first.
