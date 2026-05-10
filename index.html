@@ -133,6 +133,20 @@
     .mvrp-node { transition: all 0.25s ease; }
     .mvrp-node.is-mvp { border-color: #006b2c; background: #ECFDF5; }
     .mvrp-node:hover { transform: translateY(-2px); }
+    
+    .difficulty-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #eef2ee;
+      color: #3e4a3d;
+      border: 1px solid #d7ddd7;
+    }
+
     /* Smooth content swap */
     .roadmap-pane { animation: fadeUp 0.4s ease-out; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -240,7 +254,7 @@
             <span class="material-symbols-outlined text-h2 text-primary" data-weight="fill">menu_book</span>
           </div>
           <h1 class="font-h1 text-h1 text-on-surface mb-sm">CS Paper Roadmaps</h1>
-          <p class="font-h3 text-h3 text-on-surface-variant mb-lg max-w-2xl mx-auto font-normal">Curated, logically ordered reading lists for the major fields of computer science.</p>
+          <p class="font-h3 text-h3 text-on-surface-variant mb-lg max-w-2xl mx-auto font-normal">Curated and logically ordered reading paths across the major fields of computer science.</p>
           <div class="flex flex-wrap justify-center gap-sm mb-xl">
             <span class="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container border border-outline-variant rounded font-label-caps text-label-caps text-on-surface">
               <span class="material-symbols-outlined text-[14px]">description</span><span>Total papers: <strong id="stat-papers">258</strong></span>
@@ -268,12 +282,28 @@
               </div>
               <div class="flex flex-col space-y-xs">
                 <span class="font-label-caps text-label-caps text-on-surface bg-surface-container-high px-xs py-[2px] rounded w-max">Levels 4–5+</span>
-                <span class="font-body-sm text-body-sm text-on-surface-variant">State of the art, niche optimizations, and bleeding-edge research.</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">State of the art, niche optimizations, and frontier research.</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <section class="mb-xl bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+        <div class="flex items-start gap-md">
+          <div class="hidden sm:flex items-center justify-center w-12 h-12 rounded-circle bg-surface-container-high">
+            <span class="material-symbols-outlined text-primary">lightbulb</span>
+          </div>
+          <div>
+            <h3 class="font-h3 text-h3 text-on-surface mb-sm">How to Read These Roadmaps</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              These roadmaps are designed for progressive learning. Start with the MVRP (Minimum Viable Reading Path)
+              if you want fast conceptual coverage, then expand into the full roadmap for deeper understanding and historical context.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
 
       <!-- ACTIVE ROADMAP — populated by JS -->
       <div id="roadmap-pane"></div>
@@ -416,7 +446,7 @@ ROADMAPS.push({
       'Preference learning can be a one-stage classification problem rather than two-stage RL.'),
     p(18,6,true,'LLaMA: Open and Efficient Foundation Language Models','Touvron et al.','Meta AI','Feb 2023','https://arxiv.org/abs/2302.13971',
       'A family of 7B–65B Chinchilla-style models trained on public data, released to researchers.',
-      'The leak-and-release that broke open the closed-LLM monopoly and birthed the open-weight ecosystem.',
+      'The leak-and-release that catalyzed the modern open-weight LLM ecosystem and birthed the open-weight ecosystem.',
       'GPT-3; Chinchilla.',
       'A well-trained 7B model can rival GPT-3 — open weights matter.'),
     p(19,6,false,'Llama 2: Open Foundation and Fine-Tuned Chat Models','Touvron et al.','Meta AI','Jul 2023','https://arxiv.org/abs/2307.09288',
@@ -499,7 +529,7 @@ ROADMAPS.push({
       'Convolution + pooling + non-linearities is the right inductive bias for images.'),
     p(2,0,true,'ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)','Krizhevsky, Sutskever, Hinton','U Toronto','Sep 2012','https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf',
       'A deep CNN with ReLU, dropout, and dual-GPU training crushes ImageNet 2012 by a 10-point margin.',
-      'The shot heard round the world — the moment deep learning took over computer vision.',
+      'The landmark result that accelerated deep learning adoption in vision — the moment deep learning took over computer vision.',
       'LeNet; basic CUDA awareness.',
       'Big data + GPUs + ReLU + dropout was the unlock; the architecture was the easy part.'),
     p(3,1,false,'Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)','Simonyan, Zisserman','Oxford','Sep 2014','https://arxiv.org/abs/1409.1556',
@@ -624,7 +654,7 @@ ROADMAPS.push({
       'A bigger text encoder beats a bigger image decoder.'),
     p(27,7,true,'Segment Anything (SAM)','Kirillov et al.','Meta AI','Apr 2023','https://arxiv.org/abs/2304.02643',
       'A promptable segmentation foundation model trained on 1B masks across 11M images.',
-      'The "GPT moment" for segmentation — a single model that segments anything from any prompt.',
+      'The "major breakthrough moment" for segmentation — a single model that segments anything from any prompt.',
       'ViT; segmentation basics.',
       'Foundation models work in vision too — given the right task and a billion labels.'),
     p(28,7,false,'DINOv2: Learning Robust Visual Features without Supervision','Oquab et al.','Meta AI','Apr 2023','https://arxiv.org/abs/2304.07193',
