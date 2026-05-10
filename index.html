@@ -1,0 +1,2544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS Paper Roadmaps — Curated reading lists for computer science</title>
+  <meta name="description" content="11 curated, logically ordered reading lists covering 258 foundational and frontier papers in computer science." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#006b2c",
+            "primary-container": "#00873a",
+            "primary-fixed": "#7ffc97",
+            "primary-fixed-dim": "#62df7d",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#f7fff2",
+            "on-primary-fixed": "#002109",
+            "on-primary-fixed-variant": "#005320",
+            "secondary": "#565e74",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#dae2fd",
+            "on-secondary-container": "#5c647a",
+            "tertiary": "#4d5d73",
+            "on-tertiary": "#ffffff",
+            "background": "#f7f9fb",
+            "on-background": "#191c1e",
+            "surface": "#f7f9fb",
+            "surface-bright": "#f7f9fb",
+            "surface-dim": "#d8dadc",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f2f4f6",
+            "surface-container": "#eceef0",
+            "surface-container-high": "#e6e8ea",
+            "surface-container-highest": "#e0e3e5",
+            "on-surface": "#191c1e",
+            "on-surface-variant": "#3e4a3d",
+            "outline": "#6e7b6c",
+            "outline-variant": "#bdcaba",
+            "inverse-surface": "#2d3133",
+            "inverse-on-surface": "#eff1f3",
+            "inverse-primary": "#62df7d",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+            "circle": "9999px"
+          },
+          spacing: {
+            "xs": "0.25rem",
+            "sm": "0.5rem",
+            "md": "1rem",
+            "lg": "1.5rem",
+            "xl": "2.5rem",
+            "2xl": "4rem",
+            "container-max": "1200px",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "h1": ["Newsreader", "Georgia", "serif"],
+            "h2": ["Newsreader", "Georgia", "serif"],
+            "h3": ["Inter", "system-ui", "sans-serif"],
+            "paper-title": ["Newsreader", "Georgia", "serif"],
+            "body-md": ["Inter", "system-ui", "sans-serif"],
+            "body-sm": ["Inter", "system-ui", "sans-serif"],
+            "label-caps": ["Inter", "system-ui", "sans-serif"],
+            "code": ["ui-monospace", "SFMono-Regular", "monospace"]
+          },
+          fontSize: {
+            "h1": ["40px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "h2": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+            "h3": ["24px", { lineHeight: "1.4", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "paper-title": ["20px", { lineHeight: "1.5", fontWeight: "500" }],
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+            "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+            "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+            "code": ["14px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      user-select: none;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    html { scroll-behavior: smooth; }
+    html, body { overflow-x: hidden; max-width: 100vw; }
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    *:focus-visible { outline: 2px solid #006b2c; outline-offset: 2px; border-radius: 4px; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #bdcaba; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6e7b6c; }
+    /* Paper card detail expansion */
+    .paper-card .paper-detail { display: none; }
+    .paper-card.expanded .paper-detail { display: block; }
+    .paper-card.expanded { border-left-color: #006b2c !important; border-left-width: 4px !important; }
+    /* Sidebar item active state */
+    .sidebar-item.active {
+      background: rgba(0, 107, 44, 0.10);
+      color: #006b2c;
+      font-weight: 600;
+    }
+    .sidebar-item.active .material-symbols-outlined { color: #006b2c; }
+    .sidebar-item:not(.active):hover {
+      background: #e6e8ea;
+    }
+    /* Filter chip active */
+    .filter-chip.active {
+      background: rgba(0, 107, 44, 0.10);
+      color: #006b2c;
+      border-color: #006b2c;
+    }
+    /* MVRP node states */
+    .mvrp-node { transition: all 0.25s ease; }
+    .mvrp-node.is-mvp { border-color: #006b2c; background: #ECFDF5; }
+    .mvrp-node:hover { transform: translateY(-2px); }
+    /* Smooth content swap */
+    .roadmap-pane { animation: fadeUp 0.4s ease-out; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    /* Mobile sidebar drawer */
+    .sidebar-drawer { transition: transform 0.3s ease; }
+    @media (max-width: 1023px) {
+      .sidebar-drawer { transform: translateX(-100%); }
+      .sidebar-drawer.open { transform: translateX(0); }
+      .sidebar-backdrop { display: none; }
+      .sidebar-backdrop.open { display: block; }
+    }
+    .mvrp-track::-webkit-scrollbar { height: 6px; }
+
+    /* Top nav active state (scroll-spy applies .is-active) */
+    .top-nav-link.is-active {
+      color: #006b2c;
+      border-bottom-color: #006b2c;
+    }
+
+    /* Account for fixed 64px header on anchor jumps */
+    [id="top"], [id="roadmaps"], [id="mvrp"], [id="fields"], [id="contribute"], [id="roadmap-pane"] {
+      scroll-margin-top: 80px;
+    }
+  </style>
+  <meta property="og:title" content="CS Paper Roadmaps">
+  <meta property="og:description" content="258 curated papers across 11 fields of computer science, sequenced for reading.">
+  <meta property="og:image" content="https://Achal13jain.github.io/cs-paper-roadmaps/s.png">
+  <meta property="og:url" content="https://Achal13jain.github.io/cs-paper-roadmaps/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+
+<!-- TOP APP BAR -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-bright border-b border-outline-variant">
+  <div class="w-full max-w-container-max mx-auto flex justify-between items-center gap-sm px-md sm:px-lg py-sm">
+    <div class="flex items-center space-x-sm sm:space-x-md min-w-0 flex-shrink">
+      <button id="mobile-menu-btn" class="lg:hidden p-xs text-on-surface-variant hover:text-primary transition-colors flex-shrink-0" aria-label="Open menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <span class="material-symbols-outlined text-h3 text-primary flex-shrink-0" data-weight="fill">menu_book</span>
+      <span class="font-paper-title font-bold text-primary truncate text-base sm:text-paper-title">CS Paper Roadmaps</span>
+    </div>
+    <nav class="hidden md:flex space-x-lg" id="top-nav">
+      <a class="top-nav-link text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors pb-1 border-b-2 border-transparent" data-section="roadmaps" href="#roadmaps">Roadmaps</a>
+      <a class="top-nav-link text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors pb-1 border-b-2 border-transparent" data-section="mvrp" href="#mvrp">MVRP</a>
+      <a class="top-nav-link text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors pb-1 border-b-2 border-transparent" data-section="fields" href="#fields">Fields</a>
+      <a class="top-nav-link text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors pb-1 border-b-2 border-transparent" data-section="contribute" href="#contribute">Contribute</a>
+    </nav>
+    <div class="flex items-center space-x-sm">
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps" target="_blank" rel="noopener noreferrer" class="p-xs text-on-surface-variant hover:text-primary transition-colors" title="Star on GitHub" aria-label="Star on GitHub">
+        <span class="material-symbols-outlined">star</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile sidebar backdrop -->
+<div id="sidebar-backdrop" class="sidebar-backdrop fixed inset-0 bg-black/40 z-30 lg:hidden"></div>
+
+<div class="flex flex-1 pt-[64px]">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar-drawer flex flex-col fixed left-0 top-0 h-full p-md bg-surface-container-low border-r border-outline-variant w-64 pt-[80px] z-40 lg:translate-x-0">
+    <div class="mb-lg">
+      <div class="flex items-center space-x-sm mb-xs">
+        <span class="material-symbols-outlined text-h3 text-primary">school</span>
+        <h2 class="font-h3 text-h3 text-primary">Roadmap Index</h2>
+      </div>
+      <p class="font-body-sm text-body-sm text-on-surface-variant">11 fields · 258 papers</p>
+    </div>
+    <nav id="sidebar-nav" class="flex-1 space-y-xs overflow-y-auto pr-xs"></nav>
+    <div class="mt-auto space-y-md border-t border-outline-variant pt-md">
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps" target="_blank" rel="noopener noreferrer"
+         class="w-full py-sm bg-primary text-on-primary rounded-lg font-label-caps text-label-caps hover:bg-primary-container transition-colors flex justify-center items-center space-x-xs">
+        <span class="material-symbols-outlined text-[16px]">star</span>
+        <span>Star on GitHub</span>
+      </a>
+      <div class="space-y-xs">
+        <a class="flex items-center space-x-sm p-sm text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-all rounded-lg" href="#contribute">
+          <span class="material-symbols-outlined">edit_note</span>
+          <span>Contribute</span>
+        </a>
+        <a class="flex items-center space-x-sm p-sm text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high transition-all rounded-lg" href="#top">
+          <span class="material-symbols-outlined">info</span>
+          <span>About</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-1 lg:ml-64 p-md md:p-lg lg:p-xl w-full min-w-0">
+    <div class="max-w-container-max mx-auto w-full">
+
+      <!-- HERO -->
+      <section id="top" class="mb-2xl text-center bg-surface-container-lowest p-md md:p-lg lg:p-xl rounded-xl border border-outline-variant shadow-sm relative overflow-hidden scroll-mt-[80px]">
+        <div class="hidden sm:block absolute top-0 right-0 w-64 h-64 bg-primary-fixed/20 rounded-circle blur-3xl pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+        <div class="hidden sm:block absolute bottom-0 left-0 w-48 h-48 bg-primary-fixed/10 rounded-circle blur-3xl pointer-events-none -translate-x-1/2 translate-y-1/2"></div>
+        <div class="relative">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-surface-container-high rounded-circle mb-md">
+            <span class="material-symbols-outlined text-h2 text-primary" data-weight="fill">menu_book</span>
+          </div>
+          <h1 class="font-h1 text-h1 text-on-surface mb-sm">CS Paper Roadmaps</h1>
+          <p class="font-h3 text-h3 text-on-surface-variant mb-lg max-w-2xl mx-auto font-normal">Curated, logically ordered reading lists for the major fields of computer science.</p>
+          <div class="flex flex-wrap justify-center gap-sm mb-xl">
+            <span class="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container border border-outline-variant rounded font-label-caps text-label-caps text-on-surface">
+              <span class="material-symbols-outlined text-[14px]">description</span><span>Total papers: <strong id="stat-papers">258</strong></span>
+            </span>
+            <span class="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container border border-outline-variant rounded font-label-caps text-label-caps text-on-surface">
+              <span class="material-symbols-outlined text-[14px]">map</span><span>Roadmaps: <strong id="stat-roadmaps">11</strong></span>
+            </span>
+            <span class="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container border border-outline-variant rounded font-label-caps text-label-caps text-on-surface">
+              <span class="material-symbols-outlined text-[14px]">copyright</span><span>License: CC BY 4.0</span>
+            </span>
+            <span class="inline-flex items-center space-x-xs px-sm py-xs bg-surface-container border border-outline-variant rounded font-label-caps text-label-caps text-on-surface">
+              <span class="material-symbols-outlined text-[14px] text-primary">star</span><span>Free &amp; open</span>
+            </span>
+          </div>
+          <div class="text-left bg-surface p-md rounded-lg border border-outline-variant max-w-3xl mx-auto">
+            <h3 class="font-label-caps text-label-caps text-primary mb-md tracking-wider">HOW IT WORKS · THE LEVELS</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+              <div class="flex flex-col space-y-xs">
+                <span class="font-label-caps text-label-caps text-on-surface bg-surface-container-high px-xs py-[2px] rounded w-max">Level 0</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Foundational concepts. The essential prerequisites before diving deep.</span>
+              </div>
+              <div class="flex flex-col space-y-xs">
+                <span class="font-label-caps text-label-caps text-on-surface bg-surface-container-high px-xs py-[2px] rounded w-max">Levels 1–3</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Core architecture, seminal papers, and major structural improvements.</span>
+              </div>
+              <div class="flex flex-col space-y-xs">
+                <span class="font-label-caps text-label-caps text-on-surface bg-surface-container-high px-xs py-[2px] rounded w-max">Levels 4–5+</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">State of the art, niche optimizations, and bleeding-edge research.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVE ROADMAP — populated by JS -->
+      <div id="roadmap-pane"></div>
+
+    </div>
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer id="contribute" class="bg-surface-container-highest border-t border-outline-variant w-full mt-2xl lg:pl-64">
+  <div class="p-lg md:p-xl">
+    <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-md">
+      <div class="font-body-md text-body-md font-bold text-on-surface">CS Paper Roadmaps</div>
+      <div class="font-body-sm text-body-sm text-on-surface-variant text-center">© 2026 · CC BY 4.0 · Built for readers and researchers</div>
+      <nav class="flex flex-wrap justify-center gap-md">
+        <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors" href="https://github.com/Achal13jain/cs-paper-roadmaps" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors" href="https://github.com/Achal13jain/cs-paper-roadmaps/issues" target="_blank" rel="noopener noreferrer">Issues</a>
+        <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors" href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contribute</a>
+        <button id="cite-btn" type="button" class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors" title="Copy BibTeX citation to clipboard">Cite project</button>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script id="data-script">
+/* ============================================================
+   PAPER DATA — all 11 roadmaps
+   Free-access links: arXiv, author pages, or open repositories.
+   Authors / institutions / dates are best-effort; please verify
+   before publishing.
+   ============================================================ */
+
+// Global roadmap registry
+const ROADMAPS = [];
+
+// Helper to keep entries compact
+const p = (num, level, mvp, title, authors, inst, date, url, tldr, why, prereqs, takeaway) =>
+  ({ num, level, mvp, title, authors, inst, date, url, tldr, why, prereqs, takeaway });
+
+ROADMAPS.push({
+  id: 'llms', name: 'LLMs & Transformers', emoji: '🧠',
+  description: 'From the first dense word vectors to frontier reasoning models — the architectures, the scaling laws, and the alignment recipes that produced ChatGPT and its descendants.',
+  timeline: '2013 – 2024',
+  levels: [
+    { n: 0, name: 'Foundations', tagline: 'word vectors & seq2seq' },
+    { n: 1, name: 'The Transformer' },
+    { n: 2, name: 'Pretraining era' },
+    { n: 3, name: 'Scaling up' },
+    { n: 4, name: 'Scaling laws & compute' },
+    { n: 5, name: 'Alignment' },
+    { n: 6, name: 'Open weights' },
+    { n: 7, name: 'Reasoning & retrieval' },
+    { n: 8, name: 'Efficiency' },
+  ],
+  papers: [
+    p(1,0,false,'Efficient Estimation of Word Representations in Vector Space (Word2Vec)','Mikolov et al.','Google','Jan 2013','https://arxiv.org/abs/1301.3781',
+      'Learns dense word vectors via Skip-gram and CBOW objectives over huge text corpora.',
+      'The seed paper for distributed semantic representations — every embedding-based system traces back here.',
+      'Basic neural networks; softmax classification.',
+      'Words appearing in similar contexts end up close in vector space, and you can do arithmetic on meaning.'),
+    p(2,0,false,'GloVe: Global Vectors for Word Representation','Pennington, Socher, Manning','Stanford','Oct 2014','https://nlp.stanford.edu/pubs/glove.pdf',
+      'Factorises the global word co-occurrence matrix to learn vectors that capture linear semantic structure.',
+      'The other half of the embedding canon — useful contrast to Word2Vec\'s local-context approach.',
+      'Word2Vec; matrix factorisation.',
+      'Co-occurrence ratios, not raw counts, are what encode meaning.'),
+    p(3,0,false,'Sequence to Sequence Learning with Neural Networks','Sutskever, Vinyals, Le','Google','Sep 2014','https://arxiv.org/abs/1409.3215',
+      'Two stacked LSTMs encode a source sequence into a vector and decode the target sequence from it.',
+      'Establishes the encoder–decoder template that attention and Transformers later supercharged.',
+      'LSTMs; backprop through time.',
+      'You can pose almost any structured prediction task as sequence-to-sequence.'),
+    p(4,1,true,'Attention Is All You Need','Vaswani et al.','Google Brain','Jun 2017','https://arxiv.org/abs/1706.03762',
+      'Introduces the Transformer: an attention-only architecture with no recurrence or convolution.',
+      'The architectural blueprint underlying every modern LLM. Read it for the original framing.',
+      'Seq2seq with attention; matrix multiplication.',
+      'Self-attention is fully parallelisable, captures long-range dependencies, and scales beautifully.'),
+    p(5,2,false,'Deep Contextualized Word Representations (ELMo)','Peters et al.','Allen Institute for AI','Feb 2018','https://arxiv.org/abs/1802.05365',
+      'Trains a bidirectional LSTM language model and uses its hidden states as context-sensitive word features.',
+      'The first widely-used "context-aware" embedding, bridging static vectors and full pretraining.',
+      'Word2Vec; LSTMs.',
+      'The same word should have different vectors in different sentences.'),
+    p(6,2,true,'Improving Language Understanding by Generative Pre-Training (GPT-1)','Radford, Narasimhan, Salimans, Sutskever','OpenAI','Jun 2018','https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf',
+      'Decoder-only Transformer pretrained as a language model, then fine-tuned for downstream tasks.',
+      'The origin point of the GPT line and of "pretrain then fine-tune" as the dominant NLP recipe.',
+      'Transformer architecture; cross-entropy loss.',
+      'A single generative pretraining objective transfers to almost any NLP task.'),
+    p(7,2,false,'BERT: Pre-training of Deep Bidirectional Transformers','Devlin, Chang, Lee, Toutanova','Google','Oct 2018','https://arxiv.org/abs/1810.04805',
+      'Encoder-only Transformer pretrained with masked-language-modeling and next-sentence prediction.',
+      'Read against GPT-1 to understand the encoder-vs-decoder split that dominated 2018–2020 NLP.',
+      'Transformer architecture; GPT-1.',
+      'Bidirectional context (mask-fill) makes a far stronger representation than left-to-right alone.'),
+    p(8,3,true,'Language Models are Unsupervised Multitask Learners (GPT-2)','Radford et al.','OpenAI','Feb 2019','https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf',
+      'Scales GPT-1 to 1.5B parameters on a 40GB web corpus and shows surprising zero-shot abilities.',
+      'The first hint that scale alone unlocks new capabilities without task-specific training.',
+      'GPT-1; basic information theory.',
+      'A big enough language model is implicitly a multi-task learner.'),
+    p(9,3,false,'RoBERTa: A Robustly Optimized BERT Pretraining Approach','Liu et al.','Meta AI','Jul 2019','https://arxiv.org/abs/1907.11692',
+      'Trains BERT longer, on more data, with bigger batches and no NSP — and beats every BERT variant.',
+      'A masterclass in how much pretraining hyperparameters matter.',
+      'BERT.',
+      'Many architectural "improvements" are really just under-trained baselines.'),
+    p(10,3,true,'Language Models are Few-Shot Learners (GPT-3)','Brown et al.','OpenAI','May 2020','https://arxiv.org/abs/2005.14165',
+      'A 175B-parameter Transformer that performs many tasks via in-context examples, no gradient updates.',
+      'The paper that launched the modern era; in-context learning is the central abstraction of the LLM stack.',
+      'GPT-2; basic prompting.',
+      'At sufficient scale, "show, don\'t train" becomes a viable interface to a model.'),
+    p(11,3,false,'Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)','Raffel et al.','Google','Oct 2019','https://arxiv.org/abs/1910.10683',
+      'Casts every NLP task as text-to-text and pretrains a giant encoder-decoder on a clean web corpus (C4).',
+      'The clearest empirical study of pretraining design choices, plus the C4 dataset most LLMs still use.',
+      'BERT; seq2seq.',
+      'Unify your tasks as text-to-text and almost everything becomes simpler.'),
+    p(12,4,false,'Scaling Laws for Neural Language Models','Kaplan et al.','OpenAI','Jan 2020','https://arxiv.org/abs/2001.08361',
+      'Empirically derives smooth power-law relationships between loss, parameters, data, and compute.',
+      'Establishes that LLM progress is predictable and that you can budget compute analytically.',
+      'GPT-2; basic statistics.',
+      'Loss falls as a power law in compute — and the exponent tells you exactly how to spend it.'),
+    p(13,4,false,'Training Compute-Optimal Large Language Models (Chinchilla)','Hoffmann et al.','DeepMind','Mar 2022','https://arxiv.org/abs/2203.15556',
+      'Re-runs scaling laws and shows existing models are massively under-trained relative to their size.',
+      'Corrects Kaplan\'s recipe; sets the modern data-to-parameters ratio used by Llama and beyond.',
+      'Kaplan scaling laws.',
+      'For a fixed compute budget, you should scale parameters and tokens roughly equally.'),
+    p(14,4,false,'PaLM: Scaling Language Modeling with Pathways','Chowdhery et al.','Google','Apr 2022','https://arxiv.org/abs/2204.02311',
+      'A 540B dense Transformer trained on Google\'s Pathways system, surfacing emergent reasoning capabilities.',
+      'The high-water mark for dense models pre-Chinchilla and a careful study of capability emergence.',
+      'GPT-3; scaling laws.',
+      'Some abilities appear suddenly and only at scale — they aren\'t visible at smaller sizes.'),
+    p(15,5,true,'Training Language Models to Follow Instructions with Human Feedback (InstructGPT)','Ouyang et al.','OpenAI','Mar 2022','https://arxiv.org/abs/2203.02155',
+      'Fine-tunes GPT-3 with supervised demonstrations and PPO against a learned reward model (RLHF).',
+      'The recipe that turned a raw language model into a usable assistant — the real ChatGPT precursor.',
+      'GPT-3; basic RL (policy gradients).',
+      'A small amount of human feedback beats a huge amount of next-token training for usefulness.'),
+    p(16,5,false,'Constitutional AI: Harmlessness from AI Feedback','Bai et al.','Anthropic','Dec 2022','https://arxiv.org/abs/2212.08073',
+      'Replaces human preference labels with model-generated critiques guided by a written "constitution".',
+      'A scalable alternative to RLHF that frames alignment as supervisable principles, not just preferences.',
+      'InstructGPT; RLHF.',
+      'You can train safety using the model itself as the labeler — if the principles are explicit.'),
+    p(17,5,false,'Direct Preference Optimization (DPO)','Rafailov et al.','Stanford','May 2023','https://arxiv.org/abs/2305.18290',
+      'Derives a closed-form loss that fits a preference dataset directly, no reward model or PPO required.',
+      'Drastically simpler than RLHF; now the default for open-source preference tuning.',
+      'InstructGPT; KL divergence.',
+      'Preference learning can be a one-stage classification problem rather than two-stage RL.'),
+    p(18,6,true,'LLaMA: Open and Efficient Foundation Language Models','Touvron et al.','Meta AI','Feb 2023','https://arxiv.org/abs/2302.13971',
+      'A family of 7B–65B Chinchilla-style models trained on public data, released to researchers.',
+      'The leak-and-release that broke open the closed-LLM monopoly and birthed the open-weight ecosystem.',
+      'GPT-3; Chinchilla.',
+      'A well-trained 7B model can rival GPT-3 — open weights matter.'),
+    p(19,6,false,'Llama 2: Open Foundation and Fine-Tuned Chat Models','Touvron et al.','Meta AI','Jul 2023','https://arxiv.org/abs/2307.09288',
+      'Successor to LLaMA, with full RLHF chat variants, more pretraining data, and a permissive license.',
+      'The first commercially-usable competitive open model — a watershed for industry adoption.',
+      'LLaMA; InstructGPT.',
+      'Open + commercial-friendly + RLHF\'d turned out to be the unlock for adoption.'),
+    p(20,6,false,'Mistral 7B','Jiang et al.','Mistral AI','Oct 2023','https://arxiv.org/abs/2310.06825',
+      'A 7B model with grouped-query and sliding-window attention that beats Llama 2 13B on most benchmarks.',
+      'Demonstrates how much performance is left on the table by architectural choices at small scale.',
+      'Llama 2; attention variants.',
+      'Smarter attention beats bigger model size, dollar for dollar.'),
+    p(21,6,false,'Mixtral of Experts','Jiang et al.','Mistral AI','Jan 2024','https://arxiv.org/abs/2401.04088',
+      'A sparse mixture-of-experts model where each token routes to 2 of 8 expert FFNs per layer.',
+      'The clearest example of MoE at production scale; shows where dense scaling is heading.',
+      'Mistral 7B; Switch Transformer.',
+      'Activate only a fraction of parameters per token and you get bigger-model quality at smaller-model cost.'),
+    p(22,7,true,'Chain-of-Thought Prompting Elicits Reasoning in Large Language Models','Wei et al.','Google','Jan 2022','https://arxiv.org/abs/2201.11903',
+      'Adding "let\'s think step by step" exemplars to prompts massively improves multi-step reasoning.',
+      'The most influential prompting paper; reframes inference-time compute as a useful lever.',
+      'GPT-3; few-shot prompting.',
+      'Letting the model show its work makes it correct more often — and only at scale.'),
+    p(23,7,false,'ReAct: Synergizing Reasoning and Acting in Language Models','Yao et al.','Princeton, Google','Oct 2022','https://arxiv.org/abs/2210.03629',
+      'Interleaves chain-of-thought with tool calls, letting the model think and act in alternating steps.',
+      'The conceptual spine of every "agent" framework — read this before any agent paper.',
+      'Chain-of-Thought; basic API/tool concepts.',
+      'Reasoning and acting are stronger together than either alone.'),
+    p(24,7,true,'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)','Lewis et al.','Meta AI','May 2020','https://arxiv.org/abs/2005.11401',
+      'Combines a Transformer generator with a learned dense retriever over a non-parametric corpus.',
+      'The original RAG; the foundation of every "talk to your docs" system.',
+      'Transformers; basic retrieval (BM25 or DPR).',
+      'External memory beats trying to cram every fact into the weights.'),
+    p(25,7,false,'Self-Consistency Improves Chain of Thought Reasoning','Wang et al.','Google','Mar 2022','https://arxiv.org/abs/2203.11171',
+      'Sample many CoT trajectories and majority-vote the final answer, instead of greedy decoding.',
+      'A simple, free win on top of any CoT model — and the conceptual ancestor of test-time scaling.',
+      'Chain-of-Thought.',
+      'Many noisy answers can be aggregated into one good answer.'),
+    p(26,8,true,'LoRA: Low-Rank Adaptation of Large Language Models','Hu et al.','Microsoft','Jun 2021','https://arxiv.org/abs/2106.09685',
+      'Freezes the base model and trains low-rank update matrices added to its weights.',
+      'The technique that made fine-tuning huge models accessible to anyone with one GPU.',
+      'Linear algebra; fine-tuning basics.',
+      'Most fine-tuning lives in a low-rank subspace; you don\'t need to touch every weight.'),
+    p(27,8,false,'QLoRA: Efficient Finetuning of Quantized LLMs','Dettmers et al.','U Washington','May 2023','https://arxiv.org/abs/2305.14314',
+      'Combines 4-bit base model quantization with LoRA adapters and paged optimizers.',
+      'Brings 65B-parameter fine-tuning to a single consumer GPU.',
+      'LoRA; quantization basics.',
+      '4-bit + low-rank is enough to match full-precision fine-tuning quality.'),
+    p(28,8,false,'FlashAttention: Fast and Memory-Efficient Exact Attention','Dao et al.','Stanford','May 2022','https://arxiv.org/abs/2205.14135',
+      'A tiling-based, IO-aware attention kernel that reduces memory reads/writes without changing the math.',
+      'The kernel that\'s now under almost every Transformer in production.',
+      'Transformer attention; GPU memory hierarchy.',
+      'Optimising for memory bandwidth, not FLOPs, is the right move on modern GPUs.'),
+    p(29,8,true,'The Llama 3 Herd of Models','Llama Team','Meta AI','Jul 2024','https://arxiv.org/abs/2407.21783',
+      'A detailed engineering report on training Llama 3 (8B, 70B, 405B) on 15T tokens.',
+      'The most thorough open description of a frontier-grade training run — the new state of the art for open weights.',
+      'Llama 2; Chinchilla; modern alignment.',
+      'Frontier models are mostly an engineering problem now: data, infra, and post-training quality.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'cv', name: 'Computer Vision', emoji: '👁️',
+  description: 'From hand-engineered convnets on MNIST to general-purpose vision foundation models — the network designs, the loss functions, and the diffusion processes that built modern visual AI.',
+  timeline: '1998 – 2023',
+  levels: [
+    { n: 0, name: 'Foundations' },
+    { n: 1, name: 'Backbones & training tricks' },
+    { n: 2, name: 'Object detection' },
+    { n: 3, name: 'Segmentation' },
+    { n: 4, name: 'Generative models' },
+    { n: 5, name: 'Vision Transformers' },
+    { n: 6, name: 'Multimodal' },
+    { n: 7, name: 'Diffusion & foundation models' },
+  ],
+  papers: [
+    p(1,0,false,'Gradient-Based Learning Applied to Document Recognition (LeNet)','LeCun, Bottou, Bengio, Haffner','AT&T Labs','Nov 1998','http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf',
+      'A 7-layer convolutional network reads handwritten digits with weight sharing, pooling, and end-to-end training.',
+      'The blueprint for every modern CNN; everything that follows is a refinement of these ideas.',
+      'Backpropagation; basic image processing.',
+      'Convolution + pooling + non-linearities is the right inductive bias for images.'),
+    p(2,0,true,'ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)','Krizhevsky, Sutskever, Hinton','U Toronto','Sep 2012','https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf',
+      'A deep CNN with ReLU, dropout, and dual-GPU training crushes ImageNet 2012 by a 10-point margin.',
+      'The shot heard round the world — the moment deep learning took over computer vision.',
+      'LeNet; basic CUDA awareness.',
+      'Big data + GPUs + ReLU + dropout was the unlock; the architecture was the easy part.'),
+    p(3,1,false,'Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)','Simonyan, Zisserman','Oxford','Sep 2014','https://arxiv.org/abs/1409.1556',
+      'Stacks 3×3 convolutions to depths of 16 and 19 layers, showing depth itself is a strong prior.',
+      'The cleanest demonstration that depth matters and a perennial backbone for transfer learning.',
+      'AlexNet; basic CNN math.',
+      'Small kernels stacked deep beat large kernels stacked shallow.'),
+    p(4,1,false,'Going Deeper with Convolutions (GoogLeNet / Inception)','Szegedy et al.','Google','Sep 2014','https://arxiv.org/abs/1409.4842',
+      'Introduces the Inception module, mixing parallel kernels of multiple sizes within each block.',
+      'A counterpoint to VGG showing that smarter blocks beat brute-force depth.',
+      'VGG; computational complexity of conv.',
+      'Multi-scale features can live inside a single layer.'),
+    p(5,1,true,'Deep Residual Learning for Image Recognition (ResNet)','He, Zhang, Ren, Sun','Microsoft Research','Dec 2015','https://arxiv.org/abs/1512.03385',
+      'Adds identity skip connections so the network only has to learn residuals; trains 152-layer nets.',
+      'The single most important architectural idea after the convolution itself; appears in every modern net.',
+      'VGG; vanishing gradients.',
+      'If you can\'t train it deeper, give the gradient a shortcut.'),
+    p(6,1,false,'Densely Connected Convolutional Networks (DenseNet)','Huang, Liu, van der Maaten, Weinberger','Cornell','Aug 2016','https://arxiv.org/abs/1608.06993',
+      'Each layer receives inputs from every preceding layer, encouraging feature reuse.',
+      'Useful contrast to ResNet; clarifies what skip connections are actually doing.',
+      'ResNet.',
+      'Feature reuse, not just gradient flow, explains why skip connections help.'),
+    p(7,1,false,'Batch Normalization: Accelerating Deep Network Training','Ioffe, Szegedy','Google','Feb 2015','https://arxiv.org/abs/1502.03167',
+      'Normalises layer activations within each mini-batch, dramatically stabilising deep network training.',
+      'Pretty much every CNN since uses BN; understanding its dynamics is foundational.',
+      'CNN training basics.',
+      'Stabilising activation distributions during training is half the battle.'),
+    p(8,2,false,'Rich Feature Hierarchies for Accurate Object Detection (R-CNN)','Girshick, Donahue, Darrell, Malik','UC Berkeley','Nov 2013','https://arxiv.org/abs/1311.2524',
+      'Region proposals fed into a CNN and an SVM produce object detections.',
+      'The starting point of the modern detection pipeline.',
+      'AlexNet; selective search.',
+      'You can repurpose a classifier into a detector by feeding it proposals.'),
+    p(9,2,false,'Fast R-CNN','Girshick','Microsoft Research','Apr 2015','https://arxiv.org/abs/1504.08083',
+      'Reuses one CNN forward pass for all proposals via a region-of-interest pooling layer.',
+      'A clean lesson in how one architectural idea (RoI pooling) can collapse a whole pipeline.',
+      'R-CNN.',
+      'Compute features once, then crop them — don\'t re-run the CNN per proposal.'),
+    p(10,2,false,'Faster R-CNN: Towards Real-Time Detection with Region Proposal Networks','Ren, He, Girshick, Sun','Microsoft Research','Jun 2015','https://arxiv.org/abs/1506.01497',
+      'Replaces external proposals with a learned region proposal network sharing the detector\'s features.',
+      'The end-to-end detection paper; basis of two-stage detectors for years.',
+      'Fast R-CNN.',
+      'Make every component of the pipeline learnable.'),
+    p(11,2,false,'You Only Look Once (YOLO): Unified, Real-Time Object Detection','Redmon, Divvala, Girshick, Farhadi','U Washington','Jun 2015','https://arxiv.org/abs/1506.02640',
+      'Treats detection as a single regression problem from image to bounding boxes and classes.',
+      'The other branch of the detection family — single-stage, fast, deployable.',
+      'CNN basics.',
+      'Sometimes you should just predict the answer directly.'),
+    p(12,2,false,'Focal Loss for Dense Object Detection (RetinaNet)','Lin et al.','Facebook AI','Aug 2017','https://arxiv.org/abs/1708.02002',
+      'A modified cross-entropy that down-weights easy examples, fixing class imbalance in dense detectors.',
+      'A self-contained lesson in loss design; the focal loss now lives in many other domains too.',
+      'YOLO; cross-entropy.',
+      'When most examples are trivial, weight by difficulty.'),
+    p(13,3,false,'Fully Convolutional Networks for Semantic Segmentation','Long, Shelhamer, Darrell','UC Berkeley','Nov 2014','https://arxiv.org/abs/1411.4038',
+      'Replaces the final FC layers of a classification CNN with conv layers to produce per-pixel labels.',
+      'The simple, beautiful idea that turned classifiers into segmenters.',
+      'VGG; transposed conv.',
+      'A classifier without dense layers is a segmenter.'),
+    p(14,3,true,'U-Net: Convolutional Networks for Biomedical Image Segmentation','Ronneberger, Fischer, Brox','U Freiburg','May 2015','https://arxiv.org/abs/1505.04597',
+      'A symmetric encoder–decoder with skip connections that fuses low-level detail and high-level context.',
+      'Far more than a medical paper — U-Net is the backbone of modern diffusion models too.',
+      'FCN.',
+      'Symmetric encoder–decoder with skips is a remarkably general architecture.'),
+    p(15,3,false,'Mask R-CNN','He, Gkioxari, Dollár, Girshick','Facebook AI','Mar 2017','https://arxiv.org/abs/1703.06870',
+      'Adds a small fully-conv mask branch to Faster R-CNN, producing instance segmentation alongside detection.',
+      'Shows how a tiny architectural addition unlocks a whole new task.',
+      'Faster R-CNN.',
+      'Multi-task heads atop a shared backbone are absurdly effective.'),
+    p(16,4,false,'Generative Adversarial Networks','Goodfellow et al.','U Montreal','Jun 2014','https://arxiv.org/abs/1406.2661',
+      'A generator and discriminator play a minimax game; samples come from the generator at convergence.',
+      'A foundational generative-modeling idea; understanding GANs sharpens your intuition for diffusion.',
+      'Game theory basics; CNNs.',
+      'You can train a generator without a likelihood by pitting it against a learned critic.'),
+    p(17,4,false,'Unsupervised Representation Learning with DCGAN','Radford, Metz, Chintala','indico Research, NYU','Nov 2015','https://arxiv.org/abs/1511.06434',
+      'A set of architectural guidelines (strided conv, batch norm, no FC) that finally make GANs train stably.',
+      'The first pretty GAN samples and a study in how much architectural detail matters in adversarial training.',
+      'GANs.',
+      'GAN training is mostly a stability problem.'),
+    p(18,4,false,'A Style-Based Generator Architecture for GANs (StyleGAN)','Karras, Laine, Aila','NVIDIA','Dec 2018','https://arxiv.org/abs/1812.04948',
+      'Disentangles style and content via adaptive instance norm and a learned latent W space.',
+      'The pinnacle of GAN-era image quality and a beautiful study in disentanglement.',
+      'DCGAN.',
+      'Architectural inductive biases can produce semantically meaningful latent spaces for free.'),
+    p(19,5,false,'An Image is Worth 16×16 Words: Transformers for Image Recognition (ViT)','Dosovitskiy et al.','Google','Oct 2020','https://arxiv.org/abs/2010.11929',
+      'Splits an image into patches, treats them as tokens, and feeds them into a vanilla Transformer encoder.',
+      'The convergence point of NLP and vision — proves convolutions aren\'t architecturally necessary.',
+      'Transformer; ResNet.',
+      'With enough data, attention beats convolution at images.'),
+    p(20,5,false,'End-to-End Object Detection with Transformers (DETR)','Carion et al.','Facebook AI','May 2020','https://arxiv.org/abs/2005.12872',
+      'Detection as set prediction: a Transformer outputs a fixed set of boxes, matched via Hungarian loss.',
+      'A radical re-framing of detection that removed anchors, NMS, and most heuristics.',
+      'Transformer; Faster R-CNN.',
+      'Many "necessary" hand-tuned components turn out to be replaceable by attention + the right loss.'),
+    p(21,5,false,'Swin Transformer: Hierarchical Vision Transformer with Shifted Windows','Liu et al.','Microsoft Research Asia','Mar 2021','https://arxiv.org/abs/2103.14030',
+      'Restricts self-attention to local shifted windows, restoring CNN-like multi-scale efficiency.',
+      'The bridge between ViT\'s purity and a CNN\'s practical efficiency.',
+      'ViT.',
+      'Locality and hierarchy can be reintroduced into Transformers when compute is tight.'),
+    p(22,6,true,'Learning Transferable Visual Models From Natural Language Supervision (CLIP)','Radford et al.','OpenAI','Feb 2021','https://arxiv.org/abs/2103.00020',
+      'Trains image and text encoders contrastively on 400M web image-caption pairs.',
+      'The bedrock of modern multimodal AI; underlies retrieval, classification, and image-generation guidance.',
+      'Transformers; contrastive learning.',
+      'Natural language is a far more general supervision signal than fixed label sets.'),
+    p(23,6,false,'Zero-Shot Text-to-Image Generation (DALL-E)','Ramesh et al.','OpenAI','Feb 2021','https://arxiv.org/abs/2102.12092',
+      'A 12B-parameter Transformer trained autoregressively over discrete image-token + text-token sequences.',
+      'The first compelling text-to-image system and a clean conceptual ancestor of all diffusion T2I.',
+      'GPT-3; VQ-VAE.',
+      'You can model images as discrete tokens and generate them with a language model.'),
+    p(24,7,true,'Denoising Diffusion Probabilistic Models (DDPM)','Ho, Jain, Abbeel','UC Berkeley','Jun 2020','https://arxiv.org/abs/2006.11239',
+      'Trains a network to reverse a fixed Gaussian noising process, generating images by iterative denoising.',
+      'The paper that revived and re-formalised diffusion models. Read this before any T2I paper.',
+      'GANs; basic stochastic processes.',
+      'Reversing noise step-by-step is a simpler, more stable generative recipe than adversarial training.'),
+    p(25,7,false,'High-Resolution Image Synthesis with Latent Diffusion (Stable Diffusion)','Rombach et al.','LMU Munich','Dec 2021','https://arxiv.org/abs/2112.10752',
+      'Runs the diffusion process in a compressed VAE latent space, slashing compute by an order of magnitude.',
+      'The paper that put open-source text-to-image into millions of hands.',
+      'DDPM; VAE.',
+      'Don\'t diffuse pixels — diffuse a small, perceptually-equivalent latent representation.'),
+    p(26,7,false,'Photorealistic Text-to-Image Diffusion Models (Imagen)','Saharia et al.','Google Research','May 2022','https://arxiv.org/abs/2205.11487',
+      'Pairs a frozen large language model text encoder with a cascaded pixel-space diffusion decoder.',
+      'A clean, practical study showing that text-encoder quality dominates image-decoder size.',
+      'DDPM; CLIP.',
+      'A bigger text encoder beats a bigger image decoder.'),
+    p(27,7,true,'Segment Anything (SAM)','Kirillov et al.','Meta AI','Apr 2023','https://arxiv.org/abs/2304.02643',
+      'A promptable segmentation foundation model trained on 1B masks across 11M images.',
+      'The "GPT moment" for segmentation — a single model that segments anything from any prompt.',
+      'ViT; segmentation basics.',
+      'Foundation models work in vision too — given the right task and a billion labels.'),
+    p(28,7,false,'DINOv2: Learning Robust Visual Features without Supervision','Oquab et al.','Meta AI','Apr 2023','https://arxiv.org/abs/2304.07193',
+      'A self-supervised ViT trained on a curated 142M image dataset producing all-purpose features.',
+      'The strongest pure-vision foundation model — a counterpoint to CLIP\'s language-supervised approach.',
+      'ViT; self-supervised learning.',
+      'You can build vision foundation models without text — careful data and self-supervision suffice.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'rl', name: 'Reinforcement Learning', emoji: '🎯',
+  description: 'From dynamic programming and TD learning to AlphaGo and human-feedback fine-tuning — the policies, values, and self-play recipes that built modern decision-making systems.',
+  timeline: '1957 – 2024',
+  levels: [
+    { n: 0, name: 'Foundations' },
+    { n: 1, name: 'Classical algorithms' },
+    { n: 2, name: 'Deep RL' },
+    { n: 3, name: 'Value-based methods' },
+    { n: 4, name: 'Policy gradient methods' },
+    { n: 5, name: 'Continuous control' },
+    { n: 6, name: 'Self-play & planning' },
+    { n: 7, name: 'Frontier' },
+  ],
+  papers: [
+    p(1,0,false,'Learning to Predict by the Methods of Temporal Differences','Sutton','UMass','Aug 1988','http://incompleteideas.net/papers/sutton-88-with-erratum.pdf',
+      'Introduces TD learning, which updates predictions based on later predictions rather than waiting for outcomes.',
+      'The conceptual cornerstone of every value-based RL algorithm — Q-learning, DQN, AlphaGo all build on this.',
+      'Calculus; Markov chains.',
+      'Bootstrapping — learning a guess from a guess — is the central trick of value-based RL.'),
+    p(2,0,false,'Learning from Delayed Rewards (Q-Learning)','Watkins','Cambridge','May 1989','http://www.cs.rhul.ac.uk/~chrisw/new_thesis.pdf',
+      'Defines Q-learning: an off-policy TD algorithm that converges to the optimal action-value function.',
+      'The single most important classical RL algorithm; the conceptual ancestor of DQN.',
+      'TD learning; basic MDPs.',
+      'You can learn the optimal policy without knowing the environment\'s dynamics.'),
+    p(3,0,false,'Simple Statistical Gradient-Following Algorithms (REINFORCE)','Williams','Northeastern','May 1992','https://link.springer.com/article/10.1007/BF00992696',
+      'Derives the policy-gradient theorem and proposes REINFORCE for parameterised stochastic policies.',
+      'The starting point of policy-gradient methods; you can\'t understand PPO without it.',
+      'Calculus; basic probability.',
+      'You can do gradient descent on expected reward by sampling and weighting log-probabilities.'),
+    p(4,1,false,'Temporal Difference Learning and TD-Gammon','Tesauro','IBM','Mar 1995','https://www.csd.uwo.ca/~xling/cs346a/extra/tdgammon.pdf',
+      'A neural network trained by self-play TD reaches championship-level Backgammon.',
+      'The proof-of-concept that RL + neural nets + self-play can match human experts.',
+      'TD learning; neural network basics.',
+      'Self-play teaches the agent things no human dataset could.'),
+    p(5,1,false,'Policy Gradient Methods for Reinforcement Learning with Function Approximation','Sutton, McAllester, Singh, Mansour','AT&T Labs','Dec 1999','https://homes.cs.washington.edu/~todorov/courses/amath579/reading/PolicyGradient.pdf',
+      'Formalises the policy gradient theorem with function approximation, including actor–critic.',
+      'The theoretical foundation under modern actor–critic methods like A3C, PPO, SAC.',
+      'REINFORCE; multivariable calculus.',
+      'You can scale policy gradients to neural networks without breaking convergence guarantees.'),
+    p(6,2,true,'Playing Atari with Deep Reinforcement Learning (DQN)','Mnih et al.','DeepMind','Dec 2013','https://arxiv.org/abs/1312.5602',
+      'A CNN trained with Q-learning, experience replay, and a target network plays Atari from raw pixels.',
+      'The paper that launched deep RL. Read it carefully — every modern algorithm reuses these tricks.',
+      'Q-learning; AlexNet.',
+      'Replay buffer + target network are the duct tape that makes deep value-based RL stable.'),
+    p(7,2,false,'Human-Level Control through Deep Reinforcement Learning (Nature DQN)','Mnih et al.','DeepMind','Feb 2015','https://www.nature.com/articles/nature14236',
+      'The polished, full-detail DQN paper across 49 Atari games, with rigorous evaluation.',
+      'The reference implementation document; far more thorough than the workshop version.',
+      'DQN.',
+      'A single neural architecture, hyperparameters fixed, can reach human level across diverse tasks.'),
+    p(8,3,false,'Deep Reinforcement Learning with Double Q-learning','van Hasselt, Guez, Silver','DeepMind','Sep 2015','https://arxiv.org/abs/1509.06461',
+      'Decouples action selection from action evaluation in the Bellman target to fix DQN\'s overestimation bias.',
+      'A clean lesson in how a small mathematical fix can dramatically improve a real algorithm.',
+      'DQN.',
+      'The max in Q-learning is biased upward; you can fix it almost for free.'),
+    p(9,3,false,'Prioritized Experience Replay','Schaul, Quan, Antonoglou, Silver','DeepMind','Nov 2015','https://arxiv.org/abs/1511.05952',
+      'Samples replay transitions in proportion to their TD error rather than uniformly.',
+      'Important practical building block; understanding it sharpens your intuition for replay buffers.',
+      'DQN.',
+      'Not all transitions teach equally — sample the surprising ones more.'),
+    p(10,3,false,'Dueling Network Architectures for Deep RL','Wang et al.','DeepMind','Nov 2015','https://arxiv.org/abs/1511.06581',
+      'Splits the Q-network into separate state-value and advantage streams, recombined at the output.',
+      'A small architectural change that disproportionately helps; classic example of inductive bias in RL.',
+      'DQN.',
+      'Decompose Q into how good is this state plus how much better is this action than average.'),
+    p(11,3,false,'Rainbow: Combining Improvements in Deep RL','Hessel et al.','DeepMind','Oct 2017','https://arxiv.org/abs/1710.02298',
+      'Combines six DQN extensions (double, dueling, PER, noisy nets, distributional, n-step) into one agent.',
+      'The cleanest study of which DQN tricks actually compose, and which don\'t.',
+      'DQN; Double DQN; PER.',
+      'Most DQN improvements are complementary, not redundant.'),
+    p(12,4,false,'Asynchronous Methods for Deep Reinforcement Learning (A3C)','Mnih et al.','DeepMind','Feb 2016','https://arxiv.org/abs/1602.01783',
+      'Multiple parallel actor–critic workers update a shared model asynchronously, with no replay buffer.',
+      'Showed that on-policy parallelism is a viable alternative to off-policy replay.',
+      'Policy gradient; actor–critic.',
+      'Diversity from parallel actors substitutes for the diversity of a replay buffer.'),
+    p(13,4,false,'Trust Region Policy Optimization (TRPO)','Schulman, Levine, Abbeel, Jordan, Moritz','UC Berkeley','Feb 2015','https://arxiv.org/abs/1502.05477',
+      'Constrains policy updates to a trust region defined by KL divergence, with monotonic-improvement guarantees.',
+      'The theoretical underpinning of PPO — read TRPO to understand what PPO is approximating.',
+      'Policy gradient; KL divergence.',
+      'Limit how far the policy moves per update and you avoid catastrophic collapses.'),
+    p(14,4,true,'Proximal Policy Optimization (PPO)','Schulman et al.','OpenAI','Jul 2017','https://arxiv.org/abs/1707.06347',
+      'A simple clipped-objective approximation of TRPO that is far easier to implement and tune.',
+      'The default policy gradient method everywhere — including in RLHF for LLMs.',
+      'TRPO; basic optimisation.',
+      'A clipped surrogate objective gives 90% of TRPO\'s benefit at 10% of the complexity.'),
+    p(15,5,false,'Continuous Control with Deep Reinforcement Learning (DDPG)','Lillicrap et al.','DeepMind','Sep 2015','https://arxiv.org/abs/1509.02971',
+      'Combines DQN-style replay with a deterministic policy gradient for continuous-action control.',
+      'The first deep-RL algorithm to scale cleanly to continuous robotic-style action spaces.',
+      'DQN; deterministic policy gradient.',
+      'Off-policy + actor–critic + replay works in continuous spaces too.'),
+    p(16,5,false,'Soft Actor-Critic (SAC)','Haarnoja, Zhou, Abbeel, Levine','UC Berkeley','Jan 2018','https://arxiv.org/abs/1801.01290',
+      'A stochastic actor–critic that maximises reward plus policy entropy, dramatically improving robustness.',
+      'The current default for continuous-control benchmarks.',
+      'DDPG; entropy regularisation.',
+      'Encouraging entropy in the policy prevents premature convergence to brittle solutions.'),
+    p(17,6,true,'Mastering the Game of Go with Deep Neural Networks and Tree Search (AlphaGo)','Silver et al.','DeepMind','Jan 2016','https://www.nature.com/articles/nature16961',
+      'Combines policy and value networks with Monte Carlo tree search and human-game pretraining.',
+      'A turning point for AI in the public mind, and a beautiful integration of deep learning with classical search.',
+      'TD learning; CNNs; basic search algorithms.',
+      'Learned heuristics + planning is far more powerful than either alone.'),
+    p(18,6,false,'Mastering the Game of Go without Human Knowledge (AlphaGo Zero)','Silver et al.','DeepMind','Oct 2017','https://www.nature.com/articles/nature24270',
+      'Drops human expert games entirely; learns from random self-play only and surpasses every prior version.',
+      'Pure self-play turns out to be sufficient — and produces better play than human-bootstrapped systems.',
+      'AlphaGo.',
+      'Human data was a crutch, not a foundation.'),
+    p(19,6,false,'A General Reinforcement Learning Algorithm that Masters Chess, Shogi, and Go (AlphaZero)','Silver et al.','DeepMind','Dec 2017','https://arxiv.org/abs/1712.01815',
+      'A single algorithm masters three games tabula-rasa; no game-specific tricks.',
+      'Generalises AlphaGo Zero into a general algorithm — a pivotal step toward "general" RL.',
+      'AlphaGo Zero.',
+      'The same algorithm should work for any two-player perfect-information game.'),
+    p(20,6,false,'Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model (MuZero)','Schrittwieser et al.','DeepMind','Nov 2019','https://arxiv.org/abs/1911.08265',
+      'Learns its own model of the environment dynamics in latent space and plans within it.',
+      'Removes the requirement for a known simulator — model-based RL that actually scales.',
+      'AlphaZero.',
+      'You don\'t need the real rules of the game if you can learn a useful enough surrogate.'),
+    p(21,7,false,'Decision Transformer: Reinforcement Learning via Sequence Modeling','Chen et al.','UC Berkeley, FAIR','Jun 2021','https://arxiv.org/abs/2106.01345',
+      'Casts offline RL as conditional sequence modelling: predict next action given past states, actions, and target return.',
+      'A radical reframing of RL through the language-model lens.',
+      'Transformers; offline RL.',
+      'You can solve some RL problems by just doing supervised learning on past trajectories.'),
+    p(22,7,true,'Deep Reinforcement Learning from Human Preferences (RLHF)','Christiano et al.','OpenAI, DeepMind','Jun 2017','https://arxiv.org/abs/1706.03741',
+      'Learns a reward model from human comparisons of trajectory pairs and optimises it with PPO.',
+      'The conceptual blueprint behind InstructGPT and ChatGPT — read it once, recognise it everywhere.',
+      'PPO; basic preference learning.',
+      'Humans can label preferences far more reliably than they can specify reward functions.'),
+    p(23,7,false,'Mastering Diverse Domains through World Models (DreamerV3)','Hafner, Pasukonis, Ba, Lillicrap','U Toronto, DeepMind','Jan 2023','https://arxiv.org/abs/2301.04104',
+      'A single model-based agent with fixed hyperparameters mastering 150+ tasks, including Minecraft diamonds.',
+      'The strongest evidence to date that world-model RL is finally robust enough to be a default approach.',
+      'MuZero; recurrent world models.',
+      'A well-trained world model can replace a lot of hand-tuned RL machinery.'),
+    p(24,7,false,'Grandmaster Level in StarCraft II (AlphaStar)','Vinyals et al.','DeepMind','Oct 2019','https://www.nature.com/articles/s41586-019-1724-z',
+      'A multi-agent league produces grandmaster-level play in a real-time strategy game with imperfect information.',
+      'A frontier-scale demonstration of imperfect-information self-play.',
+      'AlphaZero; imitation learning.',
+      'Population-based training avoids self-play exploits and produces robust strategies.'),
+    p(25,7,false,'Discovering Faster Matrix Multiplication Algorithms with RL (AlphaTensor)','Fawzi et al.','DeepMind','Oct 2022','https://www.nature.com/articles/s41586-022-05172-4',
+      'Casts algorithm discovery as a single-player game and finds new matrix multiplication algorithms.',
+      'A glimpse of RL applied to mathematics rather than control.',
+      'AlphaZero; basic linear algebra.',
+      'Game-playing RL agents can rediscover and invent algorithms.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'distsys', name: 'Distributed Systems', emoji: '⚡',
+  description: 'From Lamport clocks to globally consistent transactions — the consensus protocols, storage architectures, and coordination primitives that make the cloud actually work.',
+  timeline: '1978 – 2022',
+  levels: [
+    { n: 0, name: 'Foundations' },
+    { n: 1, name: 'Consensus' },
+    { n: 2, name: 'CAP & tradeoffs' },
+    { n: 3, name: 'Storage' },
+    { n: 4, name: 'Coordination' },
+    { n: 5, name: 'Computation' },
+    { n: 6, name: 'Globally consistent' },
+    { n: 7, name: 'Production systems' },
+  ],
+  papers: [
+    p(1,0,true,'Time, Clocks, and the Ordering of Events in a Distributed System','Lamport','Massachusetts Computer Associates','Jul 1978','https://lamport.azurewebsites.net/pubs/time-clocks.pdf',
+      'Defines logical clocks and the happens-before relation for ordering events without synchronised time.',
+      'The single most-cited distributed-systems paper. Read it first; everything else assumes it.',
+      'Basic concurrency.',
+      'You don\'t need synchronised clocks — only a partial ordering of events.'),
+    p(2,0,false,'The Byzantine Generals Problem','Lamport, Shostak, Pease','SRI International','Jul 1982','https://lamport.azurewebsites.net/pubs/byz.pdf',
+      'Formalises consensus when some nodes can lie or behave arbitrarily, and proves bounds on tolerance.',
+      'Defines the worst-case adversary model that drives blockchain and high-assurance systems.',
+      'Lamport clocks; basic algorithms.',
+      'You can survive arbitrary failures iff fewer than one-third of nodes are faulty.'),
+    p(3,0,false,'End-to-End Arguments in System Design','Saltzer, Reed, Clark','MIT','Nov 1984','https://web.mit.edu/Saltzer/www/publications/endtoend/endtoend.pdf',
+      'Argues that functions like reliability and security belong at endpoints, not inside the network.',
+      'A foundational systems-design principle, far beyond just distributed systems.',
+      'TCP/IP basics.',
+      'Push correctness to the edges; let the middle stay simple.'),
+    p(4,0,false,'Impossibility of Distributed Consensus with One Faulty Process (FLP)','Fischer, Lynch, Paterson','MIT','Apr 1985','https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf',
+      'Proves that no deterministic asynchronous algorithm can guarantee consensus if even one process can crash.',
+      'The negative result every consensus designer must know — sets the boundary for what\'s possible.',
+      'Distributed algorithms basics; asynchronous models.',
+      'In a fully asynchronous network, you must give up either fault-tolerance or termination.'),
+    p(5,1,true,'The Part-Time Parliament (Paxos)','Lamport','Compaq, DEC','May 1998','https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf',
+      'A consensus protocol that tolerates crashes via majority quorums and ordered ballots.',
+      'The bedrock consensus protocol — every modern system either runs Paxos or a Paxos cousin.',
+      'FLP; majority voting.',
+      'Majorities of replicas can agree on a value despite asynchronous networks and crash failures.'),
+    p(6,1,false,'In Search of an Understandable Consensus Algorithm (Raft)','Ongaro, Ousterhout','Stanford','May 2014','https://raft.github.io/raft.pdf',
+      'A consensus protocol designed for understandability with explicit leader election and log replication.',
+      'Replaced Paxos in most production systems written after 2014. Easier to read, easier to implement.',
+      'Paxos.',
+      'A clearer protocol with the same guarantees is itself a research contribution.'),
+    p(7,2,false,'CAP Twelve Years Later: How the "Rules" Have Changed','Brewer','UC Berkeley','Feb 2012','https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/',
+      'Brewer revisits his CAP conjecture and clarifies the actual tradeoffs designers face during partitions.',
+      'Cleaner than the original CAP conjecture; corrects common misreadings.',
+      'Distributed systems basics.',
+      'CAP is about what you do during partitions, not a forced binary choice.'),
+    p(8,2,false,'A Comprehensive Study of CRDTs','Shapiro, Preguiça, Baquero, Zawirski','INRIA','Jan 2011','https://hal.inria.fr/inria-00555588/document',
+      'A taxonomy of conflict-free replicated data types that converge without coordination.',
+      'The cleanest reference on the data-type primitives behind eventually-consistent systems and collaborative editors.',
+      'Distributed systems basics; lattice theory.',
+      'Pick data types that mathematically can\'t conflict, and you can drop coordination.'),
+    p(9,3,false,'The Google File System','Ghemawat, Gobioff, Leung','Google','Oct 2003','https://research.google/pubs/the-google-file-system/',
+      'A petabyte-scale distributed file system optimised for large appends and commodity hardware failures.',
+      'The conceptual ancestor of HDFS and the storage layer of an entire generation of big-data stacks.',
+      'File system basics.',
+      'Design for failure as the common case, not the exception.'),
+    p(10,3,true,'Bigtable: A Distributed Storage System for Structured Data','Chang et al.','Google','Nov 2006','https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/',
+      'A sparse, distributed, persistent multi-dimensional sorted map built on GFS and Chubby.',
+      'The conceptual ancestor of HBase, Cassandra, and most modern wide-column NoSQL stores.',
+      'GFS; LSM-trees.',
+      'Sorted-string tables and a log-structured merge engine scale to petabytes.'),
+    p(11,3,false,'Dynamo: Amazon\'s Highly Available Key-value Store','DeCandia et al.','Amazon','Oct 2007','https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf',
+      'A masterless, eventually-consistent KV store using consistent hashing, vector clocks, and quorums.',
+      'The conceptual root of Cassandra, Riak, and the AP-side of NoSQL.',
+      'Consistent hashing; vector clocks.',
+      'Tuneable consistency on writes and reads is a more useful knob than a single consistency level.'),
+    p(12,3,false,'Cassandra: A Decentralized Structured Storage System','Lakshman, Malik','Facebook','Apr 2010','https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf',
+      'A wide-column store mixing Bigtable\'s data model with Dynamo\'s eventually-consistent ring.',
+      'The pragmatic distillation of two papers everyone reads — Bigtable plus Dynamo.',
+      'Bigtable; Dynamo.',
+      'You can fuse two seemingly opposing designs if you pick the right pieces of each.'),
+    p(13,4,false,'The Chubby Lock Service for Loosely-Coupled Distributed Systems','Burrows','Google','Nov 2006','https://research.google/pubs/the-chubby-lock-service-for-loosely-coupled-distributed-systems/',
+      'A coarse-grained distributed lock service implemented over Paxos for Google\'s coordination needs.',
+      'Codifies what a coordination primitive should look like — read this before ZooKeeper.',
+      'Paxos.',
+      'A reliable lock service is itself a foundational distributed primitive.'),
+    p(14,4,false,'ZooKeeper: Wait-free Coordination for Internet-scale Systems','Hunt, Konar, Junqueira, Reed','Yahoo!','Jun 2010','https://www.usenix.org/legacy/event/atc10/tech/full_papers/Hunt.pdf',
+      'A high-throughput coordination service exposing a hierarchical filesystem-like API over a replicated log.',
+      'The most-deployed coordination service of the last decade; understanding it sharpens your distributed-systems intuition.',
+      'Chubby; Paxos.',
+      'Expose coordination through familiar primitives (files, watches) and people will actually use it.'),
+    p(15,5,false,'MapReduce: Simplified Data Processing on Large Clusters','Dean, Ghemawat','Google','Dec 2004','https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/',
+      'A two-stage programming model with automatic parallelisation, fault tolerance, and data locality.',
+      'The paper that defined "big data" and seeded Hadoop, Spark, and the modern analytics stack.',
+      'Functional programming basics.',
+      'Reduce a complex distributed problem to two simple functions, and the framework handles the rest.'),
+    p(16,5,false,'Resilient Distributed Datasets: A Fault-Tolerant Abstraction (Spark)','Zaharia et al.','UC Berkeley','Apr 2012','https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf',
+      'An in-memory abstraction that recomputes lost partitions from lineage rather than checkpointing.',
+      'The paper that displaced MapReduce; required reading for anyone touching analytics infrastructure.',
+      'MapReduce; functional programming.',
+      'Logging deterministic transformations is enough to reconstruct lost state.'),
+    p(17,5,false,'Apache Flink: Stream and Batch Processing in a Single Engine','Carbone et al.','TU Berlin, data Artisans','Apr 2015','https://www.kth.se/social/files/57e9c8b1f276547a08a6abdb/Apache%20Flink%20Stream%20and%20Batch%20Processing%20in%20a%20Single%20Engine.pdf',
+      'A unified runtime for streaming and batch via consistent checkpointing and asynchronous barrier snapshots.',
+      'Best modern reference on what stream processing actually requires.',
+      'Spark; basic stream processing.',
+      'Batch is just a special case of streaming with bounded data.'),
+    p(18,5,false,'Mesos: A Platform for Fine-Grained Resource Sharing','Hindman et al.','UC Berkeley','Mar 2011','https://www.usenix.org/legacy/event/nsdi11/tech/full_papers/Hindman_new.pdf',
+      'A two-level scheduler that offers resources to higher-level frameworks rather than scheduling tasks itself.',
+      'The conceptual ancestor of Kubernetes; clarifies the design space of cluster schedulers.',
+      'Distributed systems basics.',
+      'Push policy decisions up to the framework; keep the cluster manager mechanism-only.'),
+    p(19,6,true,'Spanner: Google\'s Globally-Distributed Database','Corbett et al.','Google','Oct 2012','https://research.google/pubs/spanner-googles-globally-distributed-database/',
+      'A globally-distributed SQL database providing externally-consistent transactions via TrueTime.',
+      'The first system to make globally-consistent transactions practical — a watershed in DB design.',
+      'Bigtable; Paxos; clock synchronisation.',
+      'Tight clock bounds, plus a wait, give you serialisable distributed transactions.'),
+    p(20,6,false,'Calvin: Fast Distributed Transactions for Partitioned Database Systems','Thomson et al.','Yale','Jun 2012','http://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf',
+      'A deterministic database that orders all transactions globally before executing them in parallel.',
+      'A fundamentally different approach to transactions than 2PC — worth reading for the contrast.',
+      'Spanner; 2PC.',
+      'If you agree on the order of transactions first, you can run them without coordinating during execution.'),
+    p(21,7,false,'Kafka: A Distributed Messaging System for Log Processing','Kreps, Narkhede, Rao','LinkedIn','Jun 2011','http://notes.stephenholiday.com/Kafka.pdf',
+      'A distributed, partitioned, replicated commit log designed as the central nervous system of an org\'s data.',
+      'The paper that re-popularised the log as a foundational data abstraction.',
+      'Distributed systems basics.',
+      'A simple, durable, ordered append-only log is the right primitive for moving data around.'),
+    p(22,7,false,'Large-scale Cluster Management at Google with Borg','Verma et al.','Google','Apr 2015','https://research.google/pubs/large-scale-cluster-management-at-google-with-borg/',
+      'A decade of lessons from running Google\'s internal cluster manager — the predecessor to Kubernetes.',
+      'The most candid production-systems paper of the 2010s; required reading before designing any scheduler.',
+      'Mesos.',
+      'Most of the work in cluster management is operational, not algorithmic.'),
+    p(23,7,false,'Dapper, a Large-Scale Distributed Systems Tracing Infrastructure','Sigelman et al.','Google','Apr 2010','https://research.google/pubs/dapper-a-large-scale-distributed-systems-tracing-infrastructure/',
+      'A low-overhead, always-on tracing system that propagates span identifiers across RPC boundaries.',
+      'Sets the design template for OpenTelemetry, Jaeger, and every modern tracing system.',
+      'RPC basics.',
+      'Sample your traces, propagate context, and you can debug anything.'),
+    p(24,7,false,'Serverless Computing: One Step Forward, Two Steps Back','Hellerstein et al.','UC Berkeley','Dec 2018','https://arxiv.org/abs/1812.03651',
+      'A measured critique of FaaS that catalogues what serverless gets right and where it falls short.',
+      'A useful counterweight to vendor hype; sharpens your sense of what cloud abstractions should do.',
+      'Distributed systems basics; cloud architecture.',
+      'Stateless functions are easy; the hard problems are state, coordination, and shared memory.'),
+    p(25,7,false,'Anna: A KVS for Any Scale','Wu, Faleiro, Lin, Hellerstein','UC Berkeley','Apr 2018','https://www.cs.berkeley.edu/~chenggangwu/papers/anna_ieee18.pdf',
+      'A coordination-free, multi-master KV store that scales linearly across cores, machines, and regions.',
+      'A clean modern read on what coordination-free design buys you and where it bites.',
+      'Dynamo; CRDTs.',
+      'Lattice-based replication can give you both speed and consistency knobs.'),
+    p(26,7,false,'TLA+: Specifying Systems','Lamport','Microsoft Research','Jun 2002','https://lamport.azurewebsites.net/tla/book.html',
+      'A specification language and model checker for concurrent and distributed algorithms, with worked examples.',
+      'Less a paper than a discipline — distributed bugs become tractable when you can specify them.',
+      'Discrete math; first-order logic.',
+      'Specifying a system precisely catches bugs no test ever will.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'gnn', name: 'Graph Neural Networks', emoji: '🕸️',
+  description: 'From random-walk embeddings to molecular structure prediction — how neural networks learned to operate on graphs and unlocked science applications from drug discovery to AlphaFold.',
+  timeline: '2013 – 2024',
+  levels: [
+    { n: 0, name: 'Node embeddings' },
+    { n: 1, name: 'Spectral methods' },
+    { n: 2, name: 'Core GNN architectures' },
+    { n: 3, name: 'Theory & expressivity' },
+    { n: 4, name: 'Scaling' },
+    { n: 5, name: 'Specialised graphs' },
+    { n: 6, name: 'Frontier' },
+  ],
+  papers: [
+    p(1,0,false,'DeepWalk: Online Learning of Social Representations','Perozzi, Al-Rfou, Skiena','Stony Brook','Mar 2014','https://arxiv.org/abs/1403.6652',
+      'Treats random walks on graphs as sentences and applies Word2Vec to learn node embeddings.',
+      'The transfer of NLP techniques to graphs that opened the door to neural graph methods.',
+      'Word2Vec.',
+      'A graph and a corpus look the same once you sample walks.'),
+    p(2,0,false,'LINE: Large-scale Information Network Embedding','Tang et al.','Microsoft Research Asia','Mar 2015','https://arxiv.org/abs/1503.03578',
+      'Learns node embeddings preserving both first- and second-order proximity, with negative sampling.',
+      'Refines DeepWalk by being explicit about which graph structure to preserve.',
+      'DeepWalk.',
+      'Different proximity orders capture different aspects of network structure.'),
+    p(3,0,true,'node2vec: Scalable Feature Learning for Networks','Grover, Leskovec','Stanford','Jul 2016','https://arxiv.org/abs/1607.00653',
+      'Generalises DeepWalk with biased random walks that interpolate between BFS and DFS exploration.',
+      'The most-used random-walk embedding; conceptually clean way to tune local-vs-global emphasis.',
+      'DeepWalk.',
+      'Two hyperparameters let you tune between structural roles and community membership.'),
+    p(4,1,false,'Spectral Networks and Locally Connected Networks on Graphs','Bruna, Zaremba, Szlam, LeCun','NYU','Dec 2013','https://arxiv.org/abs/1312.6203',
+      'The first attempt to define convolution on graphs via the graph Laplacian and spectral filters.',
+      'Where graph convolutions began; understand it to follow why later methods spatial-localise.',
+      'Linear algebra; CNN basics; spectral graph theory.',
+      'Convolution on graphs is naturally defined in the frequency domain.'),
+    p(5,1,false,'Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering (ChebNet)','Defferrard, Bresson, Vandergheynst','EPFL','Jun 2016','https://arxiv.org/abs/1606.09375',
+      'Approximates spectral filters with K-th-order Chebyshev polynomials, giving K-hop locality.',
+      'The bridge from pure spectral methods to spatial GCNs.',
+      'Spectral GCN.',
+      'You can keep the spectral interpretation while making everything local and fast.'),
+    p(6,2,true,'Semi-Supervised Classification with Graph Convolutional Networks (GCN)','Kipf, Welling','U Amsterdam','Sep 2016','https://arxiv.org/abs/1609.02907',
+      'A first-order approximation of ChebNet that simplifies to a single neighbourhood-averaging layer.',
+      'The simplest, most-cited GNN; the conceptual baseline against which all others are measured.',
+      'ChebNet.',
+      'Most of the value of spectral GCNs is captured by a one-line update rule.'),
+    p(7,2,false,'Inductive Representation Learning on Large Graphs (GraphSAGE)','Hamilton, Ying, Leskovec','Stanford','Jun 2017','https://arxiv.org/abs/1706.02216',
+      'Samples and aggregates neighbour features so embeddings generalise to unseen nodes and graphs.',
+      'Lets GNNs work on dynamic and out-of-sample graphs — practically essential.',
+      'GCN.',
+      'Sampled neighbourhoods + learnable aggregators turn GNNs into inductive learners.'),
+    p(8,2,true,'Graph Attention Networks (GAT)','Veličković et al.','U Cambridge, FAIR','Oct 2017','https://arxiv.org/abs/1710.10903',
+      'Replaces uniform neighbourhood averaging with attention-weighted aggregation.',
+      'The "attention is all you need" moment for graphs — now a default building block.',
+      'GCN; attention mechanism.',
+      'Let nodes decide how much to weight each neighbour.'),
+    p(9,3,false,'Neural Message Passing for Quantum Chemistry (MPNN)','Gilmer et al.','Google Brain','Apr 2017','https://arxiv.org/abs/1704.01212',
+      'Unifies prior GNN variants under a generic message-passing framework and applies it to molecular properties.',
+      'The framework paper that gives every GNN a common language; foundational for chemistry applications.',
+      'GCN; basic chemistry useful.',
+      'Most GNNs are special cases of the same message-update-readout structure.'),
+    p(10,3,false,'How Powerful are Graph Neural Networks? (GIN)','Xu, Hu, Leskovec, Jegelka','MIT, Stanford','Oct 2018','https://arxiv.org/abs/1810.00826',
+      'Proves message-passing GNNs are at most as expressive as the 1-WL graph isomorphism test.',
+      'The cleanest theoretical lens on what GNNs can and cannot distinguish.',
+      'MPNN; graph isomorphism basics.',
+      'Sum aggregators with MLPs are maximally expressive within the message-passing class.'),
+    p(11,3,false,'Deep Graph Infomax (DGI)','Veličković et al.','U Cambridge','Sep 2018','https://arxiv.org/abs/1809.10341',
+      'Self-supervised GNN training by maximising mutual information between local and global graph summaries.',
+      'A clean, label-free objective for graph representation learning.',
+      'GCN; mutual information basics.',
+      'You can pretrain GNNs without labels by contrasting local and global views.'),
+    p(12,4,false,'Graph Convolutional Neural Networks for Web-Scale Recommender Systems (PinSAGE)','Ying et al.','Pinterest, Stanford','Jun 2018','https://arxiv.org/abs/1806.01973',
+      'A GCN variant deployed on 3B-node Pinterest graph using random-walk-based neighbour sampling.',
+      'The clearest case study of GNNs at production web scale.',
+      'GraphSAGE.',
+      'GNNs scale via clever sampling, not bigger machines.'),
+    p(13,4,false,'Cluster-GCN: An Efficient Algorithm for Training Deep and Large GCNs','Chiang et al.','UCLA, Google','May 2019','https://arxiv.org/abs/1905.07953',
+      'Uses graph clustering to form mini-batches that fit in memory while preserving local structure.',
+      'A practical recipe for training deep GCNs on large graphs without subsampling artefacts.',
+      'GCN; graph partitioning.',
+      'Cluster the graph first, then train per-cluster.'),
+    p(14,4,false,'GraphSAINT: Graph Sampling Based Inductive Learning Method','Zeng et al.','USC','Jul 2019','https://arxiv.org/abs/1907.04931',
+      'Samples subgraphs (not just neighbourhoods) and trains a full GCN on each, with bias correction.',
+      'A complementary scaling strategy to Cluster-GCN with cleaner statistical properties.',
+      'GraphSAGE.',
+      'Sampling subgraphs gives a less biased gradient than sampling per-node neighbourhoods.'),
+    p(15,5,false,'Modeling Relational Data with Graph Convolutional Networks (R-GCN)','Schlichtkrull et al.','U Amsterdam','Mar 2017','https://arxiv.org/abs/1703.06103',
+      'Extends GCNs to multi-relation graphs by parameterising different transforms per edge type.',
+      'The natural step from homogeneous to heterogeneous graphs; underlies most KG-embedding GNNs.',
+      'GCN; knowledge-graph basics.',
+      'Different edge types deserve different transformations.'),
+    p(16,5,false,'Heterogeneous Graph Attention Network (HAN)','Wang et al.','BUPT, Microsoft','Mar 2019','https://arxiv.org/abs/1903.07293',
+      'Two-level attention: node-level over neighbours and semantic-level over meta-paths.',
+      'Standard reference for working with heterogeneous (typed) graphs in practice.',
+      'GAT; meta-path concept.',
+      'In heterogeneous graphs, attend over both neighbours and relation types.'),
+    p(17,5,false,'SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions','Schütt et al.','TU Berlin','Jun 2017','https://arxiv.org/abs/1706.08566',
+      'Uses continuous-filter convolutions over molecular distances to predict quantum-mechanical properties.',
+      'A landmark in chemistry-aware GNNs; shows how physical priors integrate cleanly with message passing.',
+      'MPNN; basic quantum chemistry helpful.',
+      'Distances and physical symmetries belong inside the architecture, not learned from data.'),
+    p(18,5,false,'Directional Message Passing for Molecular Graphs (DimeNet)','Klicpera, Groß, Günnemann','TU Munich','Mar 2020','https://arxiv.org/abs/2003.03123',
+      'Adds bond-angle information to molecular GNNs via embeddings of edges, not just nodes.',
+      'A clean lesson in how the right inductive bias unlocks new tasks (geometry, energies).',
+      'SchNet.',
+      'Geometric primitives like angles and dihedrals belong in the architecture.'),
+    p(19,6,true,'Highly Accurate Protein Structure Prediction with AlphaFold 2','Jumper et al.','DeepMind','Jul 2021','https://www.nature.com/articles/s41586-021-03819-2',
+      'A geometry-aware Transformer/GNN hybrid (Evoformer) that predicts protein 3D structure to atomic accuracy.',
+      'A scientific result of historic magnitude — and a master class in domain-aware architecture design.',
+      'Transformers; GNNs; basic structural biology.',
+      'Hard scientific problems crack when you bake the right geometric and biological priors into the model.'),
+    p(20,6,false,'Do Transformers Really Perform Bad for Graph Representation? (Graphormer)','Ying et al.','Microsoft Research Asia','Jun 2021','https://arxiv.org/abs/2106.05234',
+      'Adds graph-aware positional and edge encodings to a vanilla Transformer; wins OGB benchmarks.',
+      'The cleanest demonstration that Transformers can be the right architecture for graphs too.',
+      'Transformers; GNNs.',
+      'Most graph inductive biases can be encoded as biases on attention scores.'),
+    p(21,6,false,'Recipe for a General, Powerful, Scalable Graph Transformer (GraphGPS)','Rampášek et al.','Mila, Valence Discovery','May 2022','https://arxiv.org/abs/2205.12454',
+      'A modular framework that combines local message passing with global attention and various positional encodings.',
+      'A useful taxonomy of graph-Transformer design choices.',
+      'GAT; Graphormer.',
+      'Local and global views of the graph are complementary; combine them explicitly.'),
+    p(22,6,false,'GFlowNet Foundations','Bengio et al.','Mila','Nov 2021','https://arxiv.org/abs/2111.09266',
+      'A new generative-modeling framework that samples diverse high-reward objects (e.g. molecules) proportionally to their reward.',
+      'A radical alternative to RL for combinatorial generation, especially for science applications.',
+      'RL; flow-based generative models.',
+      'Sometimes you want a sampler, not a maximiser — and the math is different.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'db', name: 'Database Systems', emoji: '🗄️',
+  description: 'From the relational model to learned indexes — the data structures, transaction protocols, and storage architectures that organise the world\'s information.',
+  timeline: '1970 – 2024',
+  levels: [
+    { n: 0, name: 'Foundations' },
+    { n: 1, name: 'Recovery & concurrency' },
+    { n: 2, name: 'Column stores & analytics' },
+    { n: 3, name: 'NoSQL & scale-out' },
+    { n: 4, name: 'Storage engines' },
+    { n: 5, name: 'Cloud-native databases' },
+    { n: 6, name: 'Modern frontiers' },
+  ],
+  papers: [
+    p(1,0,true,'A Relational Model of Data for Large Shared Data Banks','Codd','IBM','Jun 1970','https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf',
+      'Proposes the relational model: data as relations (tables), with set-theoretic operators for querying.',
+      'The single founding document of modern databases. Read it to see SQL\'s entire intellectual scaffolding in 11 pages.',
+      'Set theory; basic logic.',
+      'Separate the logical structure of data from how it\'s physically stored.'),
+    p(2,0,false,'System R: Relational Approach to Database Management','Astrahan et al.','IBM Research','Jun 1976','https://dsf.berkeley.edu/cs262/SystemR.pdf',
+      'Reports on the first full implementation of a relational system, including SQL, optimisation, and transactions.',
+      'The blueprint of every commercial RDBMS that followed.',
+      'Codd\'s relational model.',
+      'Almost every modern RDBMS architectural choice was made first in System R.'),
+    p(3,0,false,'The Notions of Consistency and Predicate Locks','Eswaran, Gray, Lorie, Traiger','IBM Research','Nov 1976','https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf',
+      'Defines serialisability and lays out the locking protocols for transactions.',
+      'The transaction-theory paper underlying every concurrency-control implementation.',
+      'Concurrency basics.',
+      'Two-phase locking + serialisability is the recipe for transactional correctness.'),
+    p(4,1,false,'ARIES: A Transaction Recovery Method','Mohan et al.','IBM Almaden','Mar 1992','https://cypress.cs.uchicago.edu/cs23030/papers/aries.pdf',
+      'Write-ahead logging with redo, undo, and physiological logging — the basis of every modern crash-recovery system.',
+      'The reference for how databases survive crashes; foundational for storage engineers.',
+      'Two-phase locking; B-trees.',
+      'Write-ahead logging plus carefully ordered redo/undo gives durability without giving up performance.'),
+    p(5,1,false,'Hekaton: SQL Server\'s Memory-Optimized OLTP Engine','Diaconu et al.','Microsoft','Jun 2013','https://www.microsoft.com/en-us/research/publication/hekaton-sql-servers-memory-optimized-oltp-engine/',
+      'A latch-free, lock-free in-memory OLTP engine that uses MVCC and compiled query plans.',
+      'A clean, modern industry account of in-memory transaction processing.',
+      'ARIES; concurrency control.',
+      'When everything fits in RAM, the entire database design changes.'),
+    p(6,2,false,'C-Store: A Column-Oriented DBMS','Stonebraker et al.','MIT, Brandeis, Brown','Sep 2005','https://web.stanford.edu/class/cs346/2015/cstore-vldb05.pdf',
+      'Argues that storing data by column, not row, is the right design for analytical workloads.',
+      'Read this against System R to see how analytical workloads pulled DB design in a new direction.',
+      'System R.',
+      'OLTP and analytics want fundamentally different storage layouts.'),
+    p(7,2,false,'The End of an Architectural Era (H-Store)','Stonebraker et al.','MIT, Brown','Sep 2007','http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf',
+      'A polemic against general-purpose RDBMSs, arguing for specialised in-memory engines.',
+      'A bracing critique that anticipates Hekaton, MemSQL, and most modern OLTP engines.',
+      'System R; basic OLTP.',
+      'General-purpose database architectures leave too much performance on the table.'),
+    p(8,2,false,'The Vertica Analytic Database: C-Store 7 Years Later','Lamb et al.','Vertica Systems','Aug 2012','https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf',
+      'A retrospective on what worked and didn\'t in commercialising C-Store.',
+      'A rare, candid post-mortem on translating a research prototype into a production system.',
+      'C-Store.',
+      'Real workloads break clean research designs in interesting and instructive ways.'),
+    p(9,3,true,'Bigtable: A Distributed Storage System for Structured Data','Chang et al.','Google','Nov 2006','https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/',
+      'A sparse, distributed, persistent multi-dimensional sorted map built atop GFS and Chubby.',
+      'A foundational system; deserves to be read once for distributed systems and once for databases.',
+      'GFS; LSM-trees.',
+      'A simple sorted-key data model plus an LSM scales to huge datasets.'),
+    p(10,3,false,'Dynamo: Amazon\'s Highly Available Key-value Store','DeCandia et al.','Amazon','Oct 2007','https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf',
+      'A masterless, eventually-consistent KV store that prioritises availability over consistency.',
+      'The conceptual ancestor of every AP-side NoSQL store.',
+      'Distributed systems basics; consistent hashing.',
+      'Tuneable consistency at the operation level beats a global setting.'),
+    p(11,3,false,'PNUTS: Yahoo!\'s Hosted Data Serving Platform','Cooper et al.','Yahoo!','Aug 2008','https://www.cs.umd.edu/~abadi/papers/pnuts.pdf',
+      'A geo-replicated database with per-record timeline consistency between strong and eventual.',
+      'A pragmatic middle-ground design between Dynamo and Spanner — clarifies the consistency spectrum.',
+      'Distributed systems basics.',
+      'Real applications usually want a consistency knob, not a fixed setting.'),
+    p(12,4,false,'The Log-Structured Merge-Tree (LSM-Tree)','O\'Neil, Cheng, Gawlick, O\'Neil','Northeastern, ATandT','Jun 1996','https://www.cs.umb.edu/~poneil/lsmtree.pdf',
+      'A write-optimised data structure that batches updates in memory and merges them to disk in sorted runs.',
+      'The foundational data structure of every modern KV store: RocksDB, LevelDB, Cassandra.',
+      'B-trees; basic algorithms.',
+      'Trade some read amplification for huge wins on write throughput.'),
+    p(13,4,false,'The Case for Learned Index Structures','Kraska, Beutel, Chi, Dean, Polyzotis','MIT, Google','Dec 2017','https://arxiv.org/abs/1712.01208',
+      'Replaces B-trees and Bloom filters with neural networks that learn the data\'s CDF.',
+      'A speculative-but-influential paper redefining what a data structure can be.',
+      'B-trees; basic ML.',
+      'A data structure is just a function; you might as well learn it.'),
+    p(14,5,true,'Spanner: Google\'s Globally-Distributed Database','Corbett et al.','Google','Oct 2012','https://research.google/pubs/spanner-googles-globally-distributed-database/',
+      'A globally-distributed SQL database with externally-consistent transactions powered by TrueTime.',
+      'The watershed paper that made global, strongly-consistent transactions practical.',
+      'Bigtable; Paxos.',
+      'Bound your clock skew, wait it out, and you can serialise transactions across continents.'),
+    p(15,5,false,'F1: A Distributed SQL Database That Scales','Shute et al.','Google','Aug 2013','https://research.google/pubs/f1-a-distributed-sql-database-that-scales/',
+      'The SQL layer atop Spanner that runs Google\'s AdWords business.',
+      'Companion piece to Spanner; shows the SQL engineering needed on top of a distributed KV layer.',
+      'Spanner; SQL internals.',
+      'Most apps want SQL even when they need a distributed KV — so build the SQL layer well.'),
+    p(16,5,false,'The Snowflake Elastic Data Warehouse','Dageville et al.','Snowflake','May 2016','https://event.cwi.nl/lsde/papers/p215-dageville-snowflake.pdf',
+      'Decouples compute and storage in the cloud, with elastic, billed-by-the-second virtual warehouses.',
+      'A clean modern reference on the cloud-native warehouse architecture now industry-standard.',
+      'C-Store; cloud architecture basics.',
+      'Decoupled compute and storage is the right shape for the cloud.'),
+    p(17,5,false,'CockroachDB: The Resilient Geo-Distributed SQL Database','Taft et al.','Cockroach Labs','Jun 2020','https://www.cockroachlabs.com/guides/whitepaper-cockroachdb-the-resilient-geo-distributed-sql-database/',
+      'An open-source SQL database that approximates Spanner\'s guarantees without atomic clocks.',
+      'A clear case study in re-implementing a research system as production-grade open source.',
+      'Spanner; Raft.',
+      'Hybrid logical clocks and careful engineering can substitute for TrueTime.'),
+    p(18,6,false,'DuckDB: An Embeddable Analytical Database','Raasveldt, Mühleisen','CWI Amsterdam','Jun 2019','https://www.duckdb.org/pdf/SIGMOD2019-demo-duckdb.pdf',
+      'An in-process columnar SQL engine designed for analytical queries on a single machine.',
+      'The "SQLite of analytics" — represents a real movement back toward single-node power.',
+      'C-Store.',
+      'Most analytical workloads fit on one big modern machine, and shouldn\'t pay distributed overhead.'),
+    p(19,6,false,'Photon: A Fast Query Engine for Lakehouse Systems','Behm et al.','Databricks','Jun 2022','https://15721.courses.cs.cmu.edu/spring2024/papers/16-vectorization2/p2326-saxena.pdf',
+      'A vectorised C++ execution engine for Apache Spark that beats hand-tuned warehouses on TPC-DS.',
+      'A modern reference on vectorised execution and the lakehouse architecture.',
+      'Spark; vectorised execution.',
+      'You can replace a slow JVM execution layer without breaking the rest of the stack.'),
+    p(20,6,false,'Self-Driving Database Management Systems','Pavlo et al.','CMU','Jan 2017','https://www.cs.cmu.edu/~pavlo/papers/p42-pavlo-cidr17.pdf',
+      'Argues for autonomous DBMSs that tune themselves using ML over their workloads.',
+      'A useful manifesto for where database operations is heading.',
+      'Database internals.',
+      'The DBMS itself is a control system that should learn its own configuration.'),
+    p(21,6,false,'FAISS: A Library for Efficient Similarity Search','Johnson, Douze, Jégou','Facebook AI','Feb 2017','https://arxiv.org/abs/1702.08734',
+      'GPU-accelerated billion-scale nearest-neighbour search via inverted indexes and product quantisation.',
+      'The reference work for vector search; foundation of every "vector database".',
+      'Linear algebra; basic IR.',
+      'Approximate nearest-neighbour search is mostly an indexing and quantisation problem.'),
+    p(22,6,false,'Lakehouse: A New Generation of Open Platforms','Armbrust et al.','Databricks','Jan 2021','https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf',
+      'Argues for unified data architectures combining the openness of lakes with the management of warehouses.',
+      'Frames the data-platform debate of the early 2020s.',
+      'Snowflake; data lakes basics.',
+      'Schema, transactions, and governance can live atop open file formats.'),
+    p(23,6,false,'RocksDB: Evolution of Development Priorities in a Key-Value Store','Dong et al.','Meta','Aug 2021','https://www.usenix.org/conference/fast21/presentation/dong',
+      'A retrospective on a decade of running RocksDB as a foundational storage engine inside Meta.',
+      'Honest reflections on what really matters in a long-lived storage engine.',
+      'LSM-tree.',
+      'Real-world priorities (efficiency, then features, then performance) shift dramatically over time.'),
+    p(24,6,false,'Vectorized Query Execution at Microsoft (SQL Server Batch Mode)','Larson et al.','Microsoft','Sep 2013','https://www.microsoft.com/en-us/research/wp-content/uploads/2013/09/Apollo3-VLDB-final.pdf',
+      'Adds batch-mode columnstore execution into SQL Server, mixing column and row processing in one engine.',
+      'Underrated production retrofit paper; useful contrast with the column-only DuckDB and Photon approaches.',
+      'C-Store; query execution basics.',
+      'You don\'t have to ditch your row engine — batch mode and column stores can coexist.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'crypto', name: 'Cryptography', emoji: '🔐',
+  description: 'From Shannon\'s information-theoretic secrecy to post-quantum lattices — the mathematical primitives, security definitions, and protocols that secure modern systems.',
+  timeline: '1948 – 2023',
+  levels: [
+    { n: 0, name: 'Foundations' },
+    { n: 1, name: 'Public-key revolution' },
+    { n: 2, name: 'Provable security' },
+    { n: 3, name: 'Symmetric & hashing' },
+    { n: 4, name: 'Advanced primitives' },
+    { n: 5, name: 'Privacy & deployed protocols' },
+    { n: 6, name: 'ZK, money & post-quantum' },
+  ],
+  papers: [
+    p(1,0,true,'Communication Theory of Secrecy Systems','Shannon','Bell Labs','Oct 1949','https://www.iacr.org/museum/shannon/shannon45.pdf',
+      'Defines perfect secrecy, the unicity distance, and the entropy framework for analysing ciphers.',
+      'The mathematical bedrock of cryptography; every modern security definition descends from this.',
+      'Probability; basic information theory.',
+      'Perfect secrecy requires a key as long as the message — and that\'s a theorem, not an opinion.'),
+    p(2,1,true,'New Directions in Cryptography (Diffie–Hellman)','Diffie, Hellman','Stanford','Nov 1976','https://ee.stanford.edu/~hellman/publications/24.pdf',
+      'Introduces public-key cryptography and key exchange without prior shared secrets.',
+      'The single most important paper in modern cryptography. Read it once and recognise it everywhere.',
+      'Modular arithmetic; basic group theory.',
+      'You can establish a shared secret over a public channel using only one-way mathematical operations.'),
+    p(3,1,false,'A Method for Obtaining Digital Signatures and Public-Key Cryptosystems (RSA)','Rivest, Shamir, Adleman','MIT','Feb 1978','https://people.csail.mit.edu/rivest/Rsapaper.pdf',
+      'The first concrete public-key cryptosystem, based on the difficulty of factoring large integers.',
+      'The first practical instantiation of Diffie–Hellman\'s vision; everywhere in deployed crypto.',
+      'Diffie–Hellman; modular exponentiation.',
+      'Hardness of factoring is enough to bootstrap encryption and digital signatures.'),
+    p(4,1,false,'A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms (ElGamal)','ElGamal','Stanford','Aug 1985','https://caislab.kaist.ac.kr/lecture/2010/spring/cs548/basic/B02.pdf',
+      'A public-key cryptosystem based on the discrete logarithm problem rather than factoring.',
+      'The conceptual ancestor of every elliptic-curve-based system in deployed crypto.',
+      'Diffie–Hellman; cyclic groups.',
+      'Hardness of discrete log is another viable foundation for public-key crypto.'),
+    p(5,2,false,'Probabilistic Encryption','Goldwasser, Micali','MIT','Apr 1984','https://groups.csail.mit.edu/cis/pubs/shafi/1984-jcss.pdf',
+      'Defines semantic security and shows that deterministic encryption can\'t achieve it.',
+      'The paper that brought rigour to "what does secure mean" — the start of modern provable security.',
+      'RSA; basic complexity theory.',
+      'Encryption must be randomised to be meaningfully secure.'),
+    p(6,2,false,'The Knowledge Complexity of Interactive Proof Systems (Zero-Knowledge)','Goldwasser, Micali, Rackoff','MIT, Tufts','May 1989','https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Zero%20Knowledge/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf',
+      'Defines zero-knowledge proofs: convincing a verifier that you know something without revealing what.',
+      'A foundational and counter-intuitive idea; the seed of every ZK protocol since.',
+      'Probability; complexity theory; basic crypto.',
+      'You can prove you know a secret while revealing exactly nothing about it.'),
+    p(7,2,false,'Random Oracles are Practical: A Paradigm for Designing Efficient Protocols','Bellare, Rogaway','UC Davis','Nov 1993','https://cseweb.ucsd.edu/~mihir/papers/ro.pdf',
+      'Models hash functions as ideal random oracles to enable proofs of practical schemes.',
+      'The proof technique that underlies most security arguments for deployed protocols.',
+      'Probabilistic encryption; hash functions.',
+      'Idealising hashes as random oracles makes practical schemes provably secure (with caveats).'),
+    p(8,3,false,'The Design of Rijndael (AES)','Daemen, Rijmen','KU Leuven','Aug 1999','https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Standards-and-Guidelines/documents/aes-development/Rijndael-ammended.pdf',
+      'A substitution-permutation block cipher selected as the AES standard in 2001.',
+      'The block cipher under nearly every TLS connection on Earth; useful design study.',
+      'Linear algebra over finite fields.',
+      'Simple, well-understood algebraic structure resists nearly two decades of cryptanalysis.'),
+    p(9,3,false,'The MD5 Message-Digest Algorithm','Rivest','MIT','Apr 1992','https://www.rfc-editor.org/rfc/rfc1321',
+      'A 128-bit hash function once ubiquitous; later broken by collision attacks.',
+      'A cautionary tale about hash design; useful contrast against SHA-2/SHA-3.',
+      'Basic block cipher constructions.',
+      'Cryptographic hashes age — every deployed primitive has a shelf life.'),
+    p(10,4,false,'Identity-Based Encryption from the Weil Pairing','Boneh, Franklin','Stanford','Aug 2001','https://crypto.stanford.edu/~dabo/papers/bfibe.pdf',
+      'A practical identity-based encryption scheme using bilinear pairings on elliptic curves.',
+      'The opening of the pairing-based crypto era; broad implications well beyond IBE.',
+      'Elliptic curves; basic algebraic geometry.',
+      'Bilinear pairings make new cryptographic capabilities possible.'),
+    p(11,4,false,'On Lattices, Learning with Errors, Random Linear Codes, and Cryptography','Regev','Tel Aviv U','May 2005','https://cims.nyu.edu/~regev/papers/qcrypto.pdf',
+      'Introduces the Learning With Errors problem and reduces lattice problems to it.',
+      'The hard problem under most post-quantum proposals; foundational for modern crypto.',
+      'Linear algebra; basic number theory.',
+      'Hard lattice problems are a sturdy alternative to factoring and discrete log — and may resist quantum attack.'),
+    p(12,4,false,'Fully Homomorphic Encryption Using Ideal Lattices','Gentry','IBM, Stanford','May 2009','https://crypto.stanford.edu/craig/craig-thesis.pdf',
+      'The first fully homomorphic encryption scheme — compute on ciphertexts without decrypting.',
+      'A landmark theoretical result and the seed of modern privacy-preserving computation.',
+      'Lattice-based crypto; bootstrapping concept.',
+      'You can do arbitrary computation on encrypted data — a problem that was open for 30 years.'),
+    p(13,5,false,'Differential Privacy','Dwork','Microsoft Research','Jul 2006','https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/dwork.pdf',
+      'A formal privacy definition based on indistinguishable behaviour on neighbouring datasets.',
+      'The privacy framework now used by the US Census, Apple, Google, and others.',
+      'Probability; basic statistics.',
+      'Privacy is best defined as a property of the algorithm, not of the data.'),
+    p(14,5,false,'The Second-Generation Onion Router (Tor)','Dingledine, Mathewson, Syverson','Free Haven, NRL','Aug 2004','https://svn.torproject.org/svn/projects/design-paper/tor-design.pdf',
+      'A low-latency anonymity network that routes traffic through encrypted overlay circuits.',
+      'A clean systems paper from the privacy world; what real-world anonymity actually requires.',
+      'Public-key crypto; networking basics.',
+      'Anonymity needs both layered encryption and a careful threat model.'),
+    p(15,5,false,'The Double Ratchet Algorithm (Signal)','Marlinspike, Perrin','Open Whisper Systems','Nov 2016','https://signal.org/docs/specifications/doubleratchet/',
+      'A protocol providing forward secrecy and post-compromise security via continuously-rotated keys.',
+      'The cryptography behind every secure messenger you actually use.',
+      'Diffie–Hellman; symmetric crypto.',
+      'You can recover security after key compromise if your protocol is designed for it.'),
+    p(16,6,true,'Bitcoin: A Peer-to-Peer Electronic Cash System','Nakamoto','—','Oct 2008','https://bitcoin.org/bitcoin.pdf',
+      'Combines hash-linked blocks, proof-of-work, and longest-chain consensus into a decentralised ledger.',
+      'Whatever you think of cryptocurrency, this paper redrew the map of distributed systems.',
+      'Hashing; digital signatures; basic distributed consensus.',
+      'Economic incentives plus a clever hash-chain solve Byzantine consensus without identities.'),
+    p(17,6,false,'Pinocchio: Nearly Practical Verifiable Computation (zk-SNARKs)','Parno, Howell, Gentry, Raykova','Microsoft Research','May 2013','https://eprint.iacr.org/2013/279.pdf',
+      'Succinct non-interactive arguments of knowledge with constant-size proofs and fast verification.',
+      'The proof system under most modern blockchain privacy and verifiable-computation systems.',
+      'Pairings; zero-knowledge proofs.',
+      'You can verify huge computations in milliseconds — once you accept a trusted setup.'),
+    p(18,6,false,'Scalable, Transparent, and Post-Quantum Secure Computational Integrity (zk-STARKs)','Ben-Sasson, Bentov, Horesh, Riabzev','Technion','Jun 2018','https://eprint.iacr.org/2018/046.pdf',
+      'Succinct, transparent (no trusted setup), post-quantum-secure proofs of arbitrary computation.',
+      'A cleaner, more future-proof alternative to SNARKs.',
+      'zk-SNARKs; hash-based crypto.',
+      'You can have succinct ZK proofs without trusted setup, at some cost in proof size.'),
+    p(19,6,false,'CRYSTALS-Kyber: A Lattice-Based Key Encapsulation Mechanism','Bos et al.','Various','Mar 2018','https://eprint.iacr.org/2017/634.pdf',
+      'A practical lattice-based KEM selected by NIST as a post-quantum standard.',
+      'The key-exchange algorithm that will replace ECDH in the next decade.',
+      'LWE; ring-LWE.',
+      'Module-LWE gives a clean, efficient post-quantum KEM.'),
+    p(20,6,false,'CRYSTALS-Dilithium: A Lattice-Based Digital Signature Scheme','Ducas et al.','Various','Aug 2018','https://eprint.iacr.org/2017/633.pdf',
+      'A lattice-based signature scheme standardised alongside Kyber by NIST.',
+      'The signature counterpart to Kyber; will eventually replace ECDSA and Ed25519.',
+      'Kyber; rejection sampling.',
+      'Lattice-based signatures are now competitive in size and speed with classical ones.'),
+    p(21,6,false,'How to Generate and Exchange Secrets (Yao\'s Garbled Circuits)','Yao','Princeton','Oct 1986','https://web.cs.ucdavis.edu/~rogaway/classes/227/spring05/book/yao.pdf',
+      'Introduces secure multiparty computation via garbled circuits, allowing joint computation on private inputs.',
+      'The foundation of modern MPC; conceptually still under every multi-party private computation.',
+      'Public-key crypto; oblivious transfer.',
+      'You can compute on multiple parties\' secret inputs without anyone learning anything but the result.'),
+    p(22,6,false,'Differentially Private Federated Learning','McMahan, Ramage, Talwar, Zhang','Google','Oct 2017','https://arxiv.org/abs/1710.06963',
+      'Combines federated learning with differential-privacy noise on aggregated updates.',
+      'A modern systems paper that synthesises classical DP with on-device training.',
+      'Differential privacy; federated learning.',
+      'Privacy mechanisms compose — and DP is the right composable primitive for federated systems.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'ir', name: 'Information Retrieval', emoji: '🔎',
+  description: 'From tf-idf to neural retrievers — how systems learned to find the right documents (and now the right passages) for a query, and how that became the foundation of modern search and RAG.',
+  timeline: '1972 – 2024',
+  levels: [
+    { n: 0, name: 'Classical IR' },
+    { n: 1, name: 'Probabilistic & language models' },
+    { n: 2, name: 'Web-scale & link analysis' },
+    { n: 3, name: 'Learning to rank' },
+    { n: 4, name: 'Neural IR' },
+    { n: 5, name: 'Generative & retrieval-augmented' },
+  ],
+  papers: [
+    p(1,0,true,'A Statistical Interpretation of Term Specificity and its Application in Retrieval','Spärck Jones','Cambridge','Oct 1972','https://www.staff.city.ac.uk/~sb317/papers/sparck_jones_72.pdf',
+      'Introduces inverse document frequency: rare terms carry more retrieval weight than common ones.',
+      'The idf in tf-idf comes from this short paper — IR\'s foundational quantitative idea.',
+      'Basic statistics.',
+      'How specific a term is matters at least as much as how often it appears.'),
+    p(2,0,false,'A Vector Space Model for Automatic Indexing','Salton, Wong, Yang','Cornell','Nov 1975','https://dl.acm.org/doi/10.1145/361219.361220',
+      'Represents documents and queries as vectors in a term space and ranks by cosine similarity.',
+      'The geometric framing of IR that everyone still uses; conceptual ancestor of every embedding-based retriever.',
+      'Linear algebra; basic NLP.',
+      'Documents are points in space; relevance is geometry.'),
+    p(3,0,false,'Relevance Weighting of Search Terms','Robertson, Spärck Jones','Cambridge','May 1976','https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.4630270302',
+      'Derives optimal term weights for retrieval under a probabilistic model of relevance.',
+      'The probabilistic foundation under BM25 and most classical IR systems.',
+      'tf-idf; probability theory.',
+      'Optimal weighting falls out of treating relevance as a probability.'),
+    p(4,1,false,'Indexing by Latent Semantic Analysis (LSI)','Deerwester et al.','Bellcore','Oct 1990','https://www.cs.bham.ac.uk/~pxt/IDA/lsa_ind.pdf',
+      'Uses singular value decomposition on the term-document matrix to capture latent topics.',
+      'The first attempt at semantic, dimensionality-reduced retrieval; the lineage to embeddings.',
+      'Vector space model; SVD.',
+      'Retrieval can happen in a low-dimensional latent space, not the original term space.'),
+    p(5,1,true,'Okapi at TREC-3 (BM25)','Robertson, Walker, Jones, Hancock-Beaulieu, Gatford','City U London','Nov 1994','https://trec.nist.gov/pubs/trec3/papers/city.ps.gz',
+      'A probabilistic ranking function with saturating term frequency and length normalisation.',
+      'Still the strongest non-neural baseline you can run; under-rated relative to its impact.',
+      'Probabilistic relevance.',
+      'A small handful of well-chosen heuristics gives a baseline that\'s remarkably hard to beat.'),
+    p(6,1,false,'A Language Modeling Approach to Information Retrieval','Ponte, Croft','UMass Amherst','Aug 1998','https://ciir-publications.cs.umass.edu/getpdf.php?id=82',
+      'Models each document as a language model and ranks by the likelihood it generated the query.',
+      'A clean re-framing of IR that connects retrieval to statistical NLP.',
+      'Probability; language modeling basics.',
+      'Documents that "could have generated" the query are the relevant ones.'),
+    p(7,2,true,'The Anatomy of a Large-Scale Hypertextual Web Search Engine (Google)','Brin, Page','Stanford','Apr 1998','http://infolab.stanford.edu/pub/papers/google.pdf',
+      'Describes the original Google: PageRank, anchor text, distributed crawling, repository design.',
+      'A founding document of the modern web. Still the clearest introduction to how a real search engine is built.',
+      'Vector space model; basic graph theory.',
+      'Web search needs both content signals and link signals; one isn\'t enough.'),
+    p(8,2,false,'The PageRank Citation Ranking: Bringing Order to the Web','Page, Brin, Motwani, Winograd','Stanford','Jan 1999','http://ilpubs.stanford.edu:8090/422/1/1999-66.pdf',
+      'Ranks pages by the stationary distribution of a random walk over the link graph.',
+      'A timeless trick for ranking by structural authority on any graph.',
+      'Linear algebra; Markov chains.',
+      'A page\'s importance is recursively the importance of pages that link to it.'),
+    p(9,2,false,'Authoritative Sources in a Hyperlinked Environment (HITS)','Kleinberg','IBM Almaden','Jan 1999','https://www.cs.cornell.edu/home/kleinber/auth.pdf',
+      'Identifies hubs and authorities via mutually-reinforcing link structure.',
+      'A useful conceptual contrast to PageRank — different framings of "authority on the web".',
+      'PageRank; eigenvectors.',
+      'Authority and hub-ness are dual concepts that emerge from link structure.'),
+    p(10,3,false,'Learning to Rank using Gradient Descent (RankNet)','Burges et al.','Microsoft Research','Aug 2005','https://www.microsoft.com/en-us/research/wp-content/uploads/2005/08/icml_ranking.pdf',
+      'A pairwise neural ranker trained on cross-entropy of relevance comparisons.',
+      'The first paper of the modern learning-to-rank era; conceptual seed of LambdaMART and beyond.',
+      'Neural network basics.',
+      'Treat ranking as a pairwise classification problem and you can learn it with gradient descent.'),
+    p(11,3,false,'From RankNet to LambdaRank to LambdaMART: An Overview','Burges','Microsoft Research','Jun 2010','https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf',
+      'Walks through the evolution of LTR algorithms used in production search engines.',
+      'A clean, self-contained narrative through three classic algorithms; the practical LTR canon.',
+      'RankNet; gradient boosting.',
+      'A principled non-smooth IR metric becomes trainable through pairwise lambda gradients.'),
+    p(12,4,false,'Learning Deep Structured Semantic Models (DSSM)','Huang et al.','Microsoft Research','Oct 2013','https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/cikm2013_DSSM_fullversion.pdf',
+      'Learns matching score between query and document via deep neural networks over character n-grams.',
+      'The first widely-influential neural retrieval paper; predates BERT-era methods by half a decade.',
+      'Neural networks; vector space model.',
+      'Even small dense networks beat lexical retrieval when trained on click data.'),
+    p(13,4,false,'A Deep Relevance Matching Model for Ad-hoc Retrieval (DRMM)','Guo, Fan, Ai, Croft','UMass Amherst','Oct 2016','https://arxiv.org/abs/1711.08611',
+      'Argues that retrieval is fundamentally about exact matching, not just semantic matching.',
+      'A useful corrective to early neural-IR enthusiasm; sharpens the design space.',
+      'DSSM; basic IR.',
+      'Strong neural retrievers must combine semantic and exact-match signals, not just one.'),
+    p(14,4,true,'Passage Re-ranking with BERT','Nogueira, Cho','NYU','Jan 2019','https://arxiv.org/abs/1901.04085',
+      'Fine-tunes BERT to score query-passage pairs, dramatically improving MS MARCO scores.',
+      'The "BERT just works" moment for IR; the start of the BERT-for-search wave.',
+      'BERT; basic IR metrics.',
+      'Cross-encoders trivially beat lexical baselines for re-ranking.'),
+    p(15,4,true,'Dense Passage Retrieval for Open-Domain Question Answering (DPR)','Karpukhin et al.','Facebook AI','Apr 2020','https://arxiv.org/abs/2004.04906',
+      'Trains dual BERT encoders to embed queries and passages into a shared space for nearest-neighbour retrieval.',
+      'The most-cited dense-retrieval paper; the dual-encoder pattern still dominates.',
+      'BERT; contrastive learning.',
+      'A dual encoder + contrastive loss gives you a strong, scalable dense retriever.'),
+    p(16,4,false,'ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction','Khattab, Zaharia','Stanford','Apr 2020','https://arxiv.org/abs/2004.12832',
+      'Encodes each token separately and scores with late MaxSim interaction at retrieval time.',
+      'A practical sweet spot between cross-encoder accuracy and dual-encoder speed.',
+      'BERT; DPR.',
+      'Late, fine-grained token-level interaction is much cheaper than full cross-attention.'),
+    p(17,4,false,'SPLADE: Sparse Lexical and Expansion Model for First-Stage Ranking','Formal, Piwowarski, Clinchant','Naver Labs','Jul 2021','https://arxiv.org/abs/2107.05720',
+      'Produces sparse expansion vectors over the BERT vocabulary, retrievable with classical inverted indexes.',
+      'The most pragmatic neural-IR design — neural quality with infrastructure that already exists.',
+      'BM25; BERT.',
+      'You can stay on inverted indexes and still get most of the neural-IR benefit.'),
+    p(18,5,true,'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)','Lewis et al.','Meta AI','May 2020','https://arxiv.org/abs/2005.11401',
+      'Combines a Transformer generator with a learned dense retriever over a non-parametric memory.',
+      'The paper that defines RAG and the foundation of every "talk to your docs" system.',
+      'BERT; DPR.',
+      'External memory beats trying to cram every fact into model weights.'),
+    p(19,5,false,'Transformer Memory as a Differentiable Search Index (DSI)','Tay et al.','Google Research','Feb 2022','https://arxiv.org/abs/2202.06991',
+      'Trains a single Transformer to map queries directly to document identifiers — no retriever, no index.',
+      'A radical reframing of search as pure sequence generation; influence is just starting.',
+      'BERT; T5.',
+      'A model can memorise an entire corpus into its weights and still retrieve from it.'),
+    p(20,5,false,'Text Embeddings by Weakly-Supervised Contrastive Pre-training (E5)','Wang et al.','Microsoft Research','Dec 2022','https://arxiv.org/abs/2212.03533',
+      'Trains general-purpose text embeddings with multi-stage contrastive training on weakly-supervised pairs.',
+      'A strong baseline for modern open-source embeddings; widely adopted.',
+      'DPR; contrastive learning.',
+      'Carefully-mined weak supervision is enough to train a top-tier general embedding model.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'arch', name: 'Computer Architecture', emoji: '🖥️',
+  description: 'From the von Neumann report to AI accelerators and side-channel attacks — the design choices, performance walls, and security boundaries shaping what software actually runs on.',
+  timeline: '1945 – 2023',
+  levels: [
+    { n: 0, name: 'Foundations' },
+    { n: 1, name: 'Pipelining & ILP' },
+    { n: 2, name: 'ISAs & cache coherence' },
+    { n: 3, name: 'Performance models' },
+    { n: 4, name: 'Power wall & multicore' },
+    { n: 5, name: 'Specialised hardware' },
+    { n: 6, name: 'Security & modern era' },
+  ],
+  papers: [
+    p(1,0,true,'First Draft of a Report on the EDVAC','von Neumann','U Pennsylvania','Jun 1945','https://library.si.edu/digital-library/book/firstdraftofrepo00vonn',
+      'Describes the stored-program computer architecture — instructions and data in the same memory.',
+      'Eighty years on, almost every machine you touch is still a von Neumann machine.',
+      'Basic logic and arithmetic.',
+      'Programs are data. The whole field flows from this one observation.'),
+    p(2,0,false,'Architecture of the IBM System/360','Amdahl, Blaauw, Brooks','IBM','Apr 1964','https://research.ibm.com/journal/rd/082/ibmrd0802C.pdf',
+      'Defines the System/360 ISA family with binary compatibility across multiple price-performance points.',
+      'The paper that invented the idea of an ISA as an enduring contract; foundation of x86, ARM, RISC-V.',
+      'Basic computer organisation.',
+      'Separating architecture from implementation lets you reuse software across decades of hardware.'),
+    p(3,1,false,'Slave Memories and Dynamic Storage Allocation (Caches)','Wilkes','Cambridge','Apr 1965','https://ieeexplore.ieee.org/document/4038025',
+      'Proposes a small fast "slave memory" between the CPU and main memory — the cache.',
+      'A single 1965 idea that still shapes every modern processor.',
+      'Memory hierarchy basics.',
+      'A small fast memory in front of a large slow one is the right shape of the storage system.'),
+    p(4,1,false,'An Efficient Algorithm for Exploiting Multiple Arithmetic Units (Tomasulo)','Tomasulo','IBM','Jan 1967','https://www.cs.cmu.edu/~410-f02/lectures/L18_LSE.pdf',
+      'A dynamic instruction scheduling algorithm with reservation stations and register renaming.',
+      'The conceptual core of every modern out-of-order processor.',
+      'Pipelining; dependencies.',
+      'Renaming destination registers eliminates false dependencies and unlocks ILP.'),
+    p(5,1,true,'The Case for the Reduced Instruction Set Computer (RISC)','Patterson, Ditzel','UC Berkeley','Oct 1980','https://dl.acm.org/doi/10.1145/641914.641917',
+      'Argues that simple, regular instruction sets enable faster pipelines and better compilers.',
+      'A short, sharp polemic that reshaped processor design for decades.',
+      'Pipelining; basic ISAs.',
+      'Simpler ISAs beat complex ones once you have a good compiler.'),
+    p(6,2,false,'A Study of Branch Prediction Strategies','Smith','UC Berkeley','Jan 1981','https://courses.cs.washington.edu/courses/csep548/06au/lectures/branchPred.pdf',
+      'Surveys static and dynamic branch predictors and shows how much performance hangs on getting them right.',
+      'Foundational for understanding why modern CPUs spend so many transistors on prediction.',
+      'Pipelining basics.',
+      'A few bits of state per branch can outperform any compiler-only static prediction.'),
+    p(7,2,false,'Cache Coherence Protocols (MESI)','Papamarcos, Patel','U Illinois','Jun 1984','https://dl.acm.org/doi/10.1145/773453.808204',
+      'Defines the four-state cache coherence protocol used by most modern multiprocessors.',
+      'Required reading for understanding how shared-memory multiprocessing actually works.',
+      'Caches; basic concurrency.',
+      'A small state machine per cache line can make multi-core memory look like single-core memory.'),
+    p(8,2,false,'The RISC-V Instruction Set Manual','Waterman, Asanović et al.','UC Berkeley','May 2011','https://riscv.org/technical/specifications/',
+      'A clean, modular, royalty-free open ISA designed for academic and industrial use.',
+      'The first ISA in decades that\'s actually open — already reshaping the chip industry.',
+      'RISC; ISA basics.',
+      'An ISA can be a public good — and the ecosystem benefits enormously from it.'),
+    p(9,3,false,'Roofline: An Insightful Visual Performance Model','Williams, Waterman, Patterson','UC Berkeley','Apr 2009','https://crd.lbl.gov/assets/pubs_presos/parlab08-roofline-talk.pdf',
+      'Plots achievable performance vs arithmetic intensity, exposing where memory or compute bounds you.',
+      'The single best mental model for "is this fast enough on this hardware".',
+      'Memory bandwidth; FLOPs.',
+      'Performance is bounded by the lower of compute roof and memory bandwidth roof.'),
+    p(10,3,false,'Computer Architecture: A Quantitative Approach (Hennessy & Patterson, Ch. 1 excerpt)','Hennessy, Patterson','Stanford, UC Berkeley','Jan 2017','https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1',
+      'The foundational textbook chapter on quantitative architecture analysis and Amdahl\'s law.',
+      'The discipline\'s standard reference; the chapter on principles is irreplaceable.',
+      'Basic computer organisation.',
+      'Architecture is a quantitative discipline; design choices need numbers attached.'),
+    p(11,4,true,'Dark Silicon and the End of Multicore Scaling','Esmaeilzadeh et al.','U Washington','Jun 2011','https://users.cs.utah.edu/~rajeev/cs7820/papers/darksilicon-isca2011.pdf',
+      'Argues that thermal limits force chips to leave huge fractions of silicon dark at any one moment.',
+      'The paper that named the wall. Required for understanding the post-Dennard-scaling era.',
+      'Dennard scaling; basic VLSI.',
+      'You can build the transistors but you can\'t power them all on at once.'),
+    p(12,4,false,'The Datacenter as a Computer','Barroso, Clidaras, Hölzle','Google','Jun 2013','https://research.google/pubs/the-datacenter-as-a-computer-an-introduction-to-the-design-of-warehouse-scale-machines-second-edition/',
+      'Reframes the datacenter as a single warehouse-scale machine to be designed, not a building of servers.',
+      'Reset the conversation about cloud and warehouse computing; still the cleanest framing.',
+      'Computer organisation; networking basics.',
+      'Treat the entire datacenter as one machine when you design it.'),
+    p(13,4,false,'A New Golden Age for Computer Architecture','Hennessy, Patterson','Stanford, UC Berkeley','Feb 2019','https://cacm.acm.org/research/a-new-golden-age-for-computer-architecture/',
+      'Argues domain-specific architectures and open ISAs are reviving the field after a fallow period.',
+      'A short, accessible state-of-the-field essay; the best modern intro for non-architects.',
+      'Roofline; ISA basics.',
+      'Domain-specific accelerators are the way out of the post-Dennard slump.'),
+    p(14,5,false,'NVIDIA Tesla: A Unified Graphics and Computing Architecture (CUDA)','Lindholm, Nickolls, Oberman, Montrym','NVIDIA','Apr 2008','https://ieeexplore.ieee.org/document/4523358',
+      'Describes the unified-shader architecture and the CUDA programming model.',
+      'The hardware and abstraction that made deep learning possible.',
+      'Computer organisation; SIMD.',
+      'GPUs aren\'t graphics cards anymore — they\'re a parallel computing primitive.'),
+    p(15,5,true,'In-Datacenter Performance Analysis of a Tensor Processing Unit (TPU)','Jouppi et al.','Google','Apr 2017','https://arxiv.org/abs/1704.04760',
+      'A retrospective on Google\'s first-generation TPU and its 15–30× perf/watt over GPUs for inference.',
+      'A landmark domain-specific architecture paper; the most influential industry-architecture paper of the 2010s.',
+      'Roofline; matrix multiply.',
+      'A purpose-built matrix multiplier annihilates a general-purpose accelerator on its target task.'),
+    p(16,5,false,'Eyeriss: A Spatial Architecture for Energy-Efficient CNN Inference','Chen, Krishna, Emer, Sze','MIT','Jan 2016','https://www.rle.mit.edu/eems/wp-content/uploads/2016/01/eyeriss_isscc_2016.pdf',
+      'A spatial accelerator with row-stationary dataflow that minimises off-chip memory accesses.',
+      'A canonical academic accelerator paper; teaches you how to think about accelerator dataflow.',
+      'CNN basics; memory hierarchy.',
+      'Where data flows on the chip matters more than how fast you can compute on it.'),
+    p(17,5,false,'Cerebras Wafer-Scale Engine','Lie','Cerebras','Aug 2021','https://www.cerebras.net/wp-content/uploads/2021/04/Cerebras-CS-2-Whitepaper.pdf',
+      'A single-chip processor occupying an entire 300mm wafer with 850k cores and 2.6T transistors.',
+      'A radical alternative to chiplets; useful for understanding the design space at the extreme.',
+      'TPU; multi-core architecture.',
+      'Sometimes the right answer is to make the chip way bigger, not smaller.'),
+    p(18,6,true,'Spectre Attacks: Exploiting Speculative Execution','Kocher et al.','Google Project Zero, Graz, Penn','Jan 2018','https://spectreattack.com/spectre.pdf',
+      'Speculative execution leaks data across security boundaries via cache side channels.',
+      'A class of vulnerabilities every modern CPU shares; remade hardware-security thinking.',
+      'Branch prediction; caches; basic OS.',
+      'Performance optimisations create observable side channels — even when "no instruction commits".'),
+    p(19,6,false,'Meltdown: Reading Kernel Memory from User Space','Lipp et al.','Graz U Tech','Jan 2018','https://meltdownattack.com/meltdown.pdf',
+      'A specific micro-architectural attack reading kernel memory from user space on most Intel CPUs.',
+      'The companion to Spectre; together they redefined hardware security.',
+      'Spectre; OS memory protection.',
+      'Out-of-order execution can briefly violate isolation in measurable ways.'),
+    p(20,6,false,'Chiplet Heterogeneous Integration','Naffziger et al.','AMD','Jul 2021','https://ieeexplore.ieee.org/document/9499852',
+      'Industry account of AMD\'s shift to chiplets and what it bought them in cost, yield, and flexibility.',
+      'A clear modern reference on a major industry trend.',
+      'VLSI basics; computer organisation.',
+      'Smaller dies, packaged together, often beat one big monolithic die.'),
+    p(21,6,false,'Scaling DNNs to Trillions of Parameters with GShard','Lepikhin et al.','Google','Jun 2020','https://arxiv.org/abs/2006.16668',
+      'A compiler and parallelism framework for sparsely-activated giant models, demonstrated on a 600B-parameter MoE.',
+      'A bridge between systems and architecture; underlies modern multi-thousand-GPU LLM training.',
+      'CUDA; collective communication.',
+      'For trillion-parameter models, the architecture is the compiler, the network, and the partitioning.'),
+    p(22,6,false,'Computer Architecture Performance Evaluation Methods','Eeckhout','Ghent U','Aug 2010','https://link.springer.com/book/10.1007/978-3-031-01734-2',
+      'A guide to simulators, benchmarks, and statistical rigour in evaluating processor designs.',
+      'Less famous than the architecture papers, but invaluable for actually doing the work.',
+      'Basic statistics; computer organisation.',
+      'Most architecture papers are wrong about something; methodology is how you avoid being one of them.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'compbio', name: 'Computational Biology', emoji: '🧬',
+  description: 'From dynamic-programming alignment to AlphaFold and protein design — how algorithms went from finding motifs in DNA to predicting and engineering biological structure.',
+  timeline: '1970 – 2024',
+  levels: [
+    { n: 0, name: 'Sequence alignment' },
+    { n: 1, name: 'Probabilistic models' },
+    { n: 2, name: 'Sequencing & assembly' },
+    { n: 3, name: 'Functional & single-cell analysis' },
+    { n: 4, name: 'Protein structure' },
+    { n: 5, name: 'Generative biology & frontier' },
+  ],
+  papers: [
+    p(1,0,true,'A General Method Applicable to the Search for Similarities (Needleman–Wunsch)','Needleman, Wunsch','Northwestern','Mar 1970','https://www.sciencedirect.com/science/article/abs/pii/0022283670900574',
+      'A dynamic-programming algorithm for global alignment of two biological sequences.',
+      'The first proper algorithm of computational biology; conceptual ancestor of every aligner.',
+      'Dynamic programming basics.',
+      'Optimal sequence alignment is solvable in O(mn) time with a single DP table.'),
+    p(2,0,false,'Identification of Common Molecular Subsequences (Smith–Waterman)','Smith, Waterman','Los Alamos, USC','Mar 1981','https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm',
+      'Adapts Needleman–Wunsch to local alignment by allowing zero scores in the DP table.',
+      'A small modification with huge consequences for finding conserved motifs and homology.',
+      'Needleman–Wunsch.',
+      'Local alignment is just global alignment with a non-negativity constraint.'),
+    p(3,0,true,'Basic Local Alignment Search Tool (BLAST)','Altschul, Gish, Miller, Myers, Lipman','NCBI','Oct 1990','https://www.sciencedirect.com/science/article/abs/pii/S0022283605803602',
+      'A heuristic algorithm trading some sensitivity for orders-of-magnitude speed over Smith–Waterman.',
+      'The most-used algorithm in all of biology; the workhorse of every database search.',
+      'Smith–Waterman; basic indexing.',
+      'A statistically-grounded heuristic can be the right answer when exact is too slow.'),
+    p(4,1,false,'Profile HMMs for Biological Sequence Analysis (HMMER)','Eddy','Washington U','Apr 1998','https://academic.oup.com/bioinformatics/article/14/9/755/259550',
+      'Builds a hidden Markov model per protein family for sensitive remote-homology searches.',
+      'The standard probabilistic framework for protein family detection.',
+      'BLAST; HMM basics.',
+      'A probabilistic model of a family beats a single best representative.'),
+    p(5,2,true,'Fast and Accurate Short Read Alignment with Burrows–Wheeler Transform (BWA)','Li, Durbin','Sanger Institute','Jul 2009','https://academic.oup.com/bioinformatics/article/25/14/1754/225615',
+      'Indexes the reference genome via the Burrows–Wheeler transform for fast NGS read alignment.',
+      'One of the most-used aligners in modern genomics — the BWT made it possible.',
+      'BLAST; suffix arrays.',
+      'A clever string-data structure makes a previously intractable problem trivial.'),
+    p(6,2,false,'Bowtie: Ultrafast and Memory-Efficient Alignment of Short DNA Sequences','Langmead, Trapnell, Pop, Salzberg','U Maryland, JHU','Mar 2009','https://genomebiology.biomedcentral.com/articles/10.1186/gb-2009-10-3-r25',
+      'Another BWT-based aligner with a focus on memory footprint and speed.',
+      'A useful contrast to BWA; both papers together define the modern read-alignment toolbox.',
+      'BWA; suffix arrays.',
+      'There\'s often more than one good way to apply a powerful new data structure.'),
+    p(7,2,false,'Velvet: Algorithms for De Novo Short Read Assembly','Zerbino, Birney','EMBL-EBI','Mar 2008','https://genome.cshlp.org/content/18/5/821',
+      'Uses de Bruijn graphs to assemble genomes from millions of short sequencing reads.',
+      'The de Bruijn graph idea is the conceptual core of every modern assembler.',
+      'Graph algorithms; basic genomics.',
+      'Genome assembly is an Eulerian path problem on a graph of k-mers.'),
+    p(8,2,false,'STAR: Ultrafast Universal RNA-seq Aligner','Dobin et al.','CSHL','Oct 2012','https://academic.oup.com/bioinformatics/article/29/1/15/272537',
+      'A spliced aligner that handles RNA-seq reads spanning exon-exon junctions efficiently.',
+      'The de facto standard RNA-seq aligner — read it before any expression analysis paper.',
+      'BWA; basic transcriptomics.',
+      'RNA-seq needs splice-aware alignment, not just genome-aware alignment.'),
+    p(9,3,false,'Moderated Estimation of Fold Change and Dispersion for RNA-Seq (DESeq2)','Love, Huber, Anders','EMBL','Dec 2014','https://genomebiology.biomedcentral.com/articles/10.1186/s13059-014-0550-8',
+      'A statistical framework for differential expression with shrinkage estimators for low-count noise.',
+      'The most-cited paper in modern transcriptomics — methodologically influential beyond its field.',
+      'Negative binomial distribution; basic GLMs.',
+      'Empirical-Bayes shrinkage gives stable inferences from noisy count data.'),
+    p(10,3,false,'UMAP: Uniform Manifold Approximation and Projection','McInnes, Healy, Melville','Tutte Institute','Feb 2018','https://arxiv.org/abs/1802.03426',
+      'A dimensionality-reduction algorithm with a manifold-learning theoretical foundation.',
+      'Quietly displaced t-SNE in single-cell biology and elsewhere — a major workflow shift.',
+      'PCA; basic topology useful.',
+      'Better assumptions about the data manifold give better low-dimensional embeddings.'),
+    p(11,3,false,'Comprehensive Integration of Single-Cell Data (Seurat v3)','Stuart et al.','NYGC, Columbia','Jun 2019','https://www.cell.com/cell/fulltext/S0092-8674(19)30559-8',
+      'A statistical framework for integrating single-cell datasets across conditions and modalities.',
+      'The standard analysis pipeline for one of the most-active areas of biology.',
+      'PCA; basic single-cell biology.',
+      'Anchor-based integration lets you compare cells across very different experiments.'),
+    p(12,3,false,'Massively Parallel Digital Transcriptional Profiling of Single Cells (Cell Ranger / 10x)','Zheng et al.','10x Genomics','Jan 2017','https://www.nature.com/articles/ncomms14049',
+      'Demonstrates droplet-based single-cell RNA sequencing at hundreds of thousands of cells per run.',
+      'The technology paper that made single-cell biology a mainstream field.',
+      'RNA-seq basics.',
+      'Massive throughput on cells, not just reads, opens new biological questions.'),
+    p(13,4,true,'Highly Accurate Protein Structure Prediction with AlphaFold','Jumper et al.','DeepMind','Jul 2021','https://www.nature.com/articles/s41586-021-03819-2',
+      'A geometry-aware Transformer architecture (Evoformer + structure module) predicting 3D protein structure to atomic accuracy.',
+      'A scientific landmark of historic magnitude; the protein-folding problem largely solved.',
+      'Transformers; basic structural biology.',
+      'Hard scientific problems crack when you bake the right geometric and biological priors into the model.'),
+    p(14,4,false,'Evolutionary-Scale Prediction of Atomic-Level Protein Structure (ESMFold)','Lin et al.','Meta AI','Mar 2023','https://www.science.org/doi/10.1126/science.ade2574',
+      'Uses a 15B-parameter protein language model (ESM-2) to predict structure directly from sequence.',
+      'Faster, simpler alternative to AlphaFold for many use cases; demonstrates the power of protein LLMs.',
+      'AlphaFold; protein language models.',
+      'A big enough language model implicitly learns structure from sequence alone.'),
+    p(15,4,false,'Accurate Prediction of Protein Structures and Interactions Using a 3-Track Network (RoseTTAFold)','Baek et al.','U Washington','Jul 2021','https://www.science.org/doi/10.1126/science.abj8754',
+      'A three-track network reasoning over sequence, distance, and structure simultaneously.',
+      'A useful counterpoint to AlphaFold; same problem, related but distinct architecture.',
+      'AlphaFold; basic graph nets.',
+      'Structure prediction benefits from reasoning over multiple representations in parallel.'),
+    p(16,5,true,'Robust Deep Learning–Based Protein Sequence Design Using ProteinMPNN','Dauparas et al.','U Washington','Sep 2022','https://www.science.org/doi/10.1126/science.add2187',
+      'A graph neural network that designs protein sequences to fold into a desired backbone.',
+      'A modern reference for inverse folding and the design half of computational protein engineering.',
+      'AlphaFold; GNNs.',
+      'Inverse design (give me a sequence for this shape) is the dual problem to folding.'),
+    p(17,5,false,'De Novo Design of Protein Structure and Function with RFdiffusion','Watson et al.','U Washington','Jul 2023','https://www.nature.com/articles/s41586-023-06415-8',
+      'A diffusion model that generates novel protein backbones for specified geometric constraints.',
+      'The "Stable Diffusion of biology" — generative protein design now actually works.',
+      'Diffusion models; protein design basics.',
+      'Diffusion is a remarkably general way to generate structured biological objects.'),
+    p(18,5,false,'Transfer Learning Enables Predictions in Network Biology (Geneformer)','Theodoris et al.','Harvard, Bayer','May 2023','https://www.nature.com/articles/s41586-023-06139-9',
+      'A Transformer pretrained on 30M single-cell transcriptomes and fine-tuned for downstream biology.',
+      'Foundation-model thinking finally hitting cell biology.',
+      'Transformers; single-cell RNA-seq.',
+      'Pretraining on rank-encoded gene expression yields strong biological transferability.'),
+    p(19,5,false,'Accurate Structure Prediction of Biomolecular Interactions with AlphaFold 3','Abramson et al.','DeepMind, Isomorphic Labs','May 2024','https://www.nature.com/articles/s41586-024-07487-w',
+      'Extends AlphaFold to predict protein–nucleic-acid, protein–ligand, and protein–protein complexes.',
+      'The current state of the art; redefines what computational structural biology can do.',
+      'AlphaFold; diffusion models.',
+      'A single foundation model can handle proteins, RNA, DNA, and small-molecule interactions.'),
+    p(20,5,false,'Language Models Generalize Beyond Natural Proteins','Hayes et al.','Meta AI / EvolutionaryScale','Jul 2024','https://www.science.org/doi/10.1126/science.ado7000',
+      'A protein language model designs novel functional proteins beyond known evolutionary distributions.',
+      'A glimpse of foundation-model-driven exploration of biological design space.',
+      'ESM; protein design basics.',
+      'Language models trained on natural proteins can imagine functional unnatural ones.'),
+  ]
+});
+
+ROADMAPS.push({
+  id: 'pl', name: 'Programming Languages', emoji: '🧩',
+  description: 'From Turing\'s computable numbers to verified compilers and dependent types — the type theories, semantics, and verification techniques that decide what counts as a correct program.',
+  timeline: '1936 – 2023',
+  levels: [
+    { n: 0, name: 'Foundations of computation' },
+    { n: 1, name: 'Languages & semantics' },
+    { n: 2, name: 'Type theory' },
+    { n: 3, name: 'Abstraction & effects' },
+    { n: 4, name: 'Memory & resources' },
+    { n: 5, name: 'Compilers' },
+    { n: 6, name: 'Verification' },
+  ],
+  papers: [
+    p(1,0,true,'On Computable Numbers, with an Application to the Entscheidungsproblem','Turing','Cambridge','Nov 1936','https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf',
+      'Defines a universal computing machine and proves the undecidability of the halting problem.',
+      'The founding document of computer science. Read it once carefully; everything else is footnotes.',
+      'Basic logic; mathematical maturity.',
+      'Computation has a universal model — and inherent limits no clever programming can escape.'),
+    p(2,0,false,'An Unsolvable Problem of Elementary Number Theory (Lambda Calculus)','Church','Princeton','Apr 1936','https://www.jstor.org/stable/2371045',
+      'Introduces the λ-calculus — function abstraction, application, and reduction — as a model of computation.',
+      'The conceptual ancestor of every functional language; required to read modern type-theory papers.',
+      'Basic logic.',
+      'Functions and substitution are enough to express any computation.'),
+    p(3,1,false,'Recursive Functions of Symbolic Expressions and Their Computation by Machine (LISP)','McCarthy','MIT','Apr 1960','http://www-formal.stanford.edu/jmc/recursive.pdf',
+      'Introduces LISP, with eval, apply, and the s-expression as both code and data.',
+      'A foundational language paper; the conceptual seed of every later language with first-class functions.',
+      'Lambda calculus; basic recursion.',
+      'A small set of primitives is enough to bootstrap an entire language.'),
+    p(4,1,true,'An Axiomatic Basis for Computer Programming (Hoare Logic)','Hoare','Queen\'s U Belfast','Oct 1969','https://www.cs.cmu.edu/~crary/819-f09/Hoare69.pdf',
+      'Introduces a formal logic for reasoning about program correctness with pre- and postconditions.',
+      'The foundation of program verification; you can\'t read modern verification papers without this.',
+      'First-order logic.',
+      'You can specify what a program does separately from how it does it, and prove they match.'),
+    p(5,1,false,'Communicating Sequential Processes','Hoare','Oxford','Aug 1978','https://www.cs.cmu.edu/~crary/819-f09/Hoare78.pdf',
+      'Models concurrency as communication between independent processes via synchronous channels.',
+      'The intellectual ancestor of Go\'s channels and Erlang\'s actor model.',
+      'Basic concurrency; first-order logic.',
+      'Concurrency is communication, not shared memory.'),
+    p(6,2,false,'Towards a Theory of Type Structure','Reynolds','Argonne','Mar 1974','https://www.cs.cmu.edu/~jcr/typestructure.pdf',
+      'Introduces System F (parametric polymorphism) and the underlying theory of polymorphic types.',
+      'The theoretical foundation under generics in every modern typed language.',
+      'Lambda calculus; basic type systems.',
+      'Polymorphism can be a precise type-theoretic concept, not just a programming convenience.'),
+    p(7,2,true,'A Theory of Type Polymorphism in Programming','Milner','Edinburgh','Aug 1978','https://www.research.ed.ac.uk/files/15143545/A_Theory_of_Type_Polymorphism_in_Programming.pdf',
+      'Proves type-correctness for polymorphic functional programs and introduces type inference.',
+      'The paper that gave us ML and the entire Hindley–Milner family of inferred type systems.',
+      'System F; unification.',
+      'Polymorphism plus type inference is decidable and practical.'),
+    p(8,2,false,'Principal Type-Schemes for Functional Programs (Damas–Milner)','Damas, Milner','Edinburgh','Jan 1982','https://web.cs.wpi.edu/~cs4536/c12/milner-damas_principal_types.pdf',
+      'Algorithm W — the type inference algorithm under every ML, Haskell, and Scala compiler.',
+      'The algorithmic backbone of every Hindley–Milner type system in production today.',
+      'Milner type polymorphism; unification.',
+      'Type inference is a constraint-solving problem with a clean algorithmic solution.'),
+    p(9,2,false,'A Syntactic Approach to Type Soundness','Wright, Felleisen','Rice U','Apr 1994','https://www.cs.cmu.edu/~rwh/courses/refinements/papers/WrightFelleisen94/wf.pdf',
+      'A clean technique for proving type soundness via progress and preservation lemmas.',
+      'The default proof structure for type soundness in modern PL papers; conceptually essential.',
+      'Operational semantics; basic type theory.',
+      'Type soundness is two lemmas: well-typed programs don\'t get stuck and types are preserved.'),
+    p(10,3,true,'Monads for Functional Programming','Wadler','U Glasgow','May 1992','https://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf',
+      'Shows how the category-theoretic notion of monad gives a clean handle on side effects in pure languages.',
+      'The conceptual unlock for I/O, state, and exceptions in pure functional languages.',
+      'Lambda calculus; basic Haskell helpful.',
+      'Side effects can be threaded through pure code as values of a parameterised type.'),
+    p(11,3,false,'Definitional Interpreters for Higher-Order Programming Languages','Reynolds','Argonne','Aug 1972','https://www.cs.tufts.edu/~nr/cs257/archive/john-reynolds/definterp.pdf',
+      'Introduces continuation-passing style and definitional interpreters as semantic specifications.',
+      'A foundational paper for understanding programming-language semantics and continuations.',
+      'Lambda calculus; basic interpreters.',
+      'You can specify a language\'s meaning by writing an interpreter for it in another language.'),
+    p(12,4,false,'Region-Based Memory Management','Tofte, Talpin','Copenhagen, INRIA','Feb 1997','https://www.irisa.fr/prive/talpin/papers/ic97.pdf',
+      'A static analysis that infers stack-like region annotations to manage memory without GC.',
+      'A conceptual ancestor of Rust\'s lifetimes and a beautiful application of type inference to memory.',
+      'Type theory; lambda calculus.',
+      'Compile-time region annotations can replace runtime garbage collection in a typed setting.'),
+    p(13,4,true,'RustBelt: Securing the Foundations of the Rust Programming Language','Jung, Jourdan, Krebbers, Dreyer','MPI-SWS','Jan 2018','https://plv.mpi-sws.org/rustbelt/popl18/paper.pdf',
+      'A formal Iris-based proof of soundness for a substantial subset of Rust\'s type system.',
+      'The right reference for understanding why Rust\'s ownership system is actually sound.',
+      'Region-based memory management; separation logic.',
+      'Even unsafe code can be encapsulated soundly inside a strongly-typed language.'),
+    p(14,5,false,'Efficiently Computing Static Single Assignment Form (SSA)','Cytron et al.','IBM Research','Oct 1991','https://c9x.me/compile/bib/ssa.pdf',
+      'An efficient algorithm for converting programs to SSA form using dominance frontiers.',
+      'The single most important compiler IR transformation; under every modern optimiser.',
+      'Compilers; control-flow graphs.',
+      'A canonical IR where every variable is assigned once unlocks dataflow analysis at scale.'),
+    p(15,5,true,'LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation','Lattner, Adve','U Illinois','Mar 2004','https://llvm.org/pubs/2004-01-30-CGO-LLVM.pdf',
+      'A compiler infrastructure designed for lifetime analysis and transformation, with a typed SSA IR.',
+      'The infrastructure under Clang, Rust, Swift, Julia, and most modern compilers.',
+      'SSA; basic compilers.',
+      'A clean, typed, modular IR is the right substrate for an entire family of language tools.'),
+    p(16,5,false,'A Catalogue of Optimizing Transformations','Allen, Cocke','IBM','Jan 1972','https://www.cse.psu.edu/~gxt29/historical/AllenCockeCatalogue.pdf',
+      'The original catalogue of compiler optimisations: constant folding, CSE, dead code, code motion.',
+      'Older than most readers, but the optimisation taxonomy is essentially unchanged.',
+      'Basic compilers.',
+      'Most "modern" compiler optimisations were already named and described in 1972.'),
+    p(17,6,false,'Liquid Types','Rondon, Kawaguchi, Jhala','UC San Diego','Jun 2008','https://goto.ucsd.edu/~rjhala/papers/liquid_types.pdf',
+      'Refinement types with logical predicates inferred via abstract interpretation.',
+      'A practical sweet spot between full dependent types and plain Hindley–Milner.',
+      'Type inference; basic logic.',
+      'Predicate-rich types can be inferred automatically — and that changes who can use them.'),
+    p(18,6,true,'CompCert: A Formally Verified Optimizing Compiler','Leroy','INRIA','Apr 2009','https://xavierleroy.org/publi/compcert-CACM.pdf',
+      'A C compiler whose every optimisation is formally proved correct in Coq.',
+      'A landmark in formal verification; proves you can verify a real-world piece of software.',
+      'Coq; semantics; compilers.',
+      'A real, optimising compiler can be proven correct from end to end.'),
+    p(19,6,false,'The Coq Proof Assistant: Reference Manual / Calculus of Inductive Constructions','Coquand, Huet, et al.','INRIA','Jan 1986','https://coq.inria.fr/refman/',
+      'The dependently-typed calculus and proof assistant that has formalised much of modern mathematics.',
+      'The most influential proof assistant of the last 30 years; the verification toolkit of choice.',
+      'Lambda calculus; type theory.',
+      'A dependently-typed language can serve simultaneously as a logic and a programming language.'),
+    p(20,6,false,'The Lean Theorem Prover (System Description)','de Moura, Kong, Avigad, van Doorn, von Raumer','Microsoft Research','Jul 2015','https://leanprover.github.io/papers/system.pdf',
+      'A modern dependently-typed proof assistant with a clean elaboration framework and serious automation.',
+      'The proof assistant of the future-decade; behind the formalisation of large mathematical results.',
+      'Coq; type theory.',
+      'A well-designed elaborator and tactic framework can make formal mathematics genuinely productive.'),
+  ]
+});
+</script>
+
+
+<script>
+/* ============================================================
+   ICON MAP — Material Symbols per roadmap
+   ============================================================ */
+const ROADMAP_ICONS = {
+  llms: 'language',
+  cv: 'visibility',
+  rl: 'psychology',
+  distsys: 'hub',
+  gnn: 'polyline',
+  db: 'database',
+  crypto: 'security',
+  ir: 'search',
+  arch: 'memory',
+  compbio: 'biotech',
+  pl: 'code'
+};
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const state = {
+  activeIdx: 0,
+  filters: { levels: new Set(), mvpOnly: false, search: '' },
+  mvrpShowAll: false
+};
+
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+function renderSidebar(){
+  const nav = $('#sidebar-nav');
+  nav.innerHTML = ROADMAPS.map((r, i) => {
+    const active = i === state.activeIdx;
+    return `
+    <a class="sidebar-item flex items-center justify-between p-sm font-label-caps text-label-caps text-on-surface-variant rounded-lg transition-all ${active?'active':''}"
+       href="#roadmaps" data-idx="${i}"
+       ${active ? 'aria-current="page"' : ''}
+       aria-label="${esc(r.name)}, ${r.papers.length} papers">
+      <span class="flex items-center space-x-sm min-w-0">
+        <span class="material-symbols-outlined flex-shrink-0" aria-hidden="true">${ROADMAP_ICONS[r.id] || 'article'}</span>
+        <span class="truncate">${esc(r.name)}</span>
+      </span>
+      <span class="text-on-surface-variant text-[10px] font-mono opacity-70 ml-xs flex-shrink-0" aria-hidden="true">${r.papers.length}</span>
+    </a>
+  `;}).join('');
+  // Click handling is set up once in init() via event delegation
+}
+
+/* ============================================================
+   ACTIVE ROADMAP
+   ============================================================ */
+function renderRoadmap(){
+  const r = ROADMAPS[state.activeIdx];
+  if (!r) return;
+  const pane = $('#roadmap-pane');
+  pane.innerHTML = `
+    <div class="roadmap-pane">
+      ${roadmapHeader(r)}
+      ${mvrpSection(r)}
+      ${filtersBar(r)}
+      <div id="levels-render"></div>
+    </div>
+  `;
+  bindRoadmapEvents(r);
+  renderLevels(r);
+  setupScrollSpy();
+}
+
+function roadmapHeader(r){
+  return `
+    <div id="roadmaps" class="mb-xl border-b border-outline-variant pb-md flex flex-col md:flex-row justify-between md:items-end gap-md">
+      <div>
+        <span class="font-label-caps text-label-caps text-primary mb-xs block">ACTIVE ROADMAP · ${String(state.activeIdx+1).padStart(2,'0')} / ${String(ROADMAPS.length).padStart(2,'0')}</span>
+        <h2 class="font-h2 text-h2 text-on-surface flex items-center gap-md">
+          <span class="material-symbols-outlined text-h2 text-primary">${ROADMAP_ICONS[r.id] || 'article'}</span>
+          ${esc(r.name)}
+        </h2>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-sm max-w-3xl">${esc(r.description)}</p>
+      </div>
+      <div class="md:text-right flex md:flex-col gap-md md:gap-xs flex-shrink-0">
+        <div>
+          <span class="font-label-caps text-label-caps text-on-surface-variant block mb-xs">TIMELINE</span>
+          <span class="font-body-md text-body-md font-medium text-on-surface">${esc(r.timeline)}</span>
+        </div>
+        <div>
+          <span class="font-label-caps text-label-caps text-on-surface-variant block mb-xs">PAPERS</span>
+          <span class="font-body-md text-body-md font-medium text-on-surface">${r.papers.length} across ${r.levels.length} levels</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   MVRP — Minimum Viable Reading Path (visual flow)
+   ============================================================ */
+function mvrpSection(r){
+  const mvpPapers = r.papers.filter(p => p.mvp).sort((a,b) => a.num - b.num);
+  if (!mvpPapers.length) return '';
+  const SHOW = 5;
+  const visible = state.mvrpShowAll ? mvpPapers : mvpPapers.slice(0, SHOW);
+  const remaining = mvpPapers.length - visible.length;
+
+  return `
+    <section id="mvrp" class="mb-2xl scroll-mt-[80px]">
+      <div class="flex items-center gap-sm mb-md">
+        <h3 class="font-h3 text-h3 text-on-surface">Minimum Viable Reading Path</h3>
+        <span class="font-label-caps text-label-caps text-primary bg-primary-fixed/30 px-sm py-xs rounded">MVRP</span>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+        The ${mvpPapers.length} papers that give you ~80% of the field's mental model. Stripped of nuance, ordered for reading.
+      </p>
+      <div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant overflow-x-auto mvrp-track">
+        <div class="flex items-start gap-0 min-w-max pb-sm">
+          ${visible.map((p, i) => `
+            <div class="flex items-center gap-0">
+              <button class="mvrp-node flex flex-col items-center w-32 group" data-num="${p.num}" title="${esc(p.title)}">
+                <div class="mvrp-node-circle w-12 h-12 bg-surface-container-high rounded-circle flex items-center justify-center border-2 border-primary mb-sm z-10 group-hover:bg-primary group-hover:text-on-primary transition-all">
+                  <span class="font-label-caps text-label-caps">L${p.level}</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-center font-medium px-xs leading-tight">${esc(shortTitle(p.title))}</span>
+              </button>
+              ${i < visible.length-1 || remaining > 0 ? `
+                <div class="flex items-center -mx-4 -mt-7">
+                  <div class="w-12 h-[2px] bg-outline-variant"></div>
+                  <span class="material-symbols-outlined text-[16px] text-outline-variant -ml-2">arrow_forward</span>
+                </div>
+              ` : ''}
+            </div>
+          `).join('')}
+          ${remaining > 0 ? `
+            <button id="mvrp-show-all" class="flex flex-col items-center w-32 group cursor-pointer" title="Show all ${mpvpLength(mvpPapers)} MVRP papers">
+              <div class="w-12 h-12 bg-surface border border-outline-variant border-dashed rounded-circle flex items-center justify-center mb-sm z-10 group-hover:border-primary group-hover:bg-primary-fixed/20 transition-all">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-primary">add</span>
+              </div>
+              <span class="font-body-sm text-body-sm text-center text-on-surface-variant italic group-hover:text-primary group-hover:not-italic transition-all">${remaining} more paper${remaining===1?'':'s'}</span>
+            </button>
+          ` : ''}
+          ${state.mvrpShowAll && mvpPapers.length > SHOW ? `
+            <div class="flex items-center -mx-4 -mt-7">
+              <div class="w-12 h-[2px] bg-transparent"></div>
+            </div>
+            <button id="mvrp-collapse" class="flex flex-col items-center w-32 group cursor-pointer" title="Show fewer">
+              <div class="w-12 h-12 bg-surface border border-outline-variant rounded-circle flex items-center justify-center mb-sm z-10 group-hover:border-primary transition-all">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-primary">remove</span>
+              </div>
+              <span class="font-body-sm text-body-sm text-center text-on-surface-variant italic">Show less</span>
+            </button>
+          ` : ''}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function mpvpLength(arr){ return arr.length; }
+
+function shortTitle(t){
+  if (t.length <= 28) return t;
+  // try to cut at colon, dash, or word boundary
+  const cut = t.indexOf(':');
+  if (cut > 0 && cut <= 30) return t.slice(0, cut);
+  const dash = t.indexOf(' — ');
+  if (dash > 0 && dash <= 30) return t.slice(0, dash);
+  return t.slice(0, 26).trim() + '…';
+}
+
+/* ============================================================
+   FILTERS
+   ============================================================ */
+function filtersBar(r){
+  const levelChips = r.levels.map(l => {
+    const active = state.filters.levels.has(l.n);
+    return `
+    <button class="filter-chip px-md py-xs bg-surface-container-high rounded-circle font-label-caps text-label-caps text-on-surface border border-outline-variant hover:bg-surface-container transition-colors ${active?'active':''}"
+            aria-pressed="${active?'true':'false'}"
+            data-level="${l.n}">L${l.n}</button>
+  `;}).join('');
+
+  const allActive = state.filters.levels.size===0 && !state.filters.mvpOnly;
+  return `
+    <div id="fields" class="mb-lg">
+      <!-- Search row -->
+      <div class="relative w-full mb-md">
+        <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">search</span>
+        <input id="search-input" type="text" placeholder="Search papers, authors, institutions, summaries…"
+               value="${esc(state.filters.search)}"
+               autocomplete="off" autocorrect="off" spellcheck="false"
+               aria-label="Search papers"
+               class="pl-xl pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-circle font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-full" />
+        ${state.filters.search ? `
+          <button id="search-clear" class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary" title="Clear search" aria-label="Clear search">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        ` : ''}
+      </div>
+      <!-- Chips row -->
+      <div class="flex items-center flex-wrap gap-sm" role="group" aria-label="Filter by level">
+        <button class="filter-chip px-md py-xs bg-surface-container-high rounded-circle font-label-caps text-label-caps text-on-surface border border-outline-variant hover:bg-surface-container transition-colors ${allActive?'active':''}"
+                aria-pressed="${allActive?'true':'false'}"
+                data-level="all">All Levels</button>
+        ${levelChips}
+        <label class="ml-sm flex items-center gap-xs cursor-pointer select-none px-md py-xs rounded-circle border border-outline-variant transition-colors ${state.filters.mvpOnly?'bg-primary-fixed/30 border-primary text-primary':'bg-surface-container-high text-on-surface'}">
+          <input type="checkbox" id="mvp-toggle" class="sr-only" ${state.filters.mvpOnly?'checked':''}>
+          <span class="material-symbols-outlined text-[14px]" aria-hidden="true">${state.filters.mvpOnly?'check_box':'check_box_outline_blank'}</span>
+          <span class="font-label-caps text-label-caps">MVRP only</span>
+        </label>
+      </div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+const prefersReducedMotion = () =>
+  window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const smoothScrollBehavior = () => prefersReducedMotion() ? 'auto' : 'smooth';
+
+let searchDebounceTimer = null;
+function debouncedRenderLevels(r){
+  clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(() => renderLevels(r), 100);
+}
+
+/* ============================================================
+   EVENT DELEGATION — bound ONCE in init(), no re-bind needed
+   ============================================================ */
+function setupGlobalEvents(){
+  const pane = $('#roadmap-pane');
+
+  // Click delegation
+  pane.addEventListener('click', e => {
+    const chip = e.target.closest('.filter-chip');
+    if (chip) return handleChipClick(chip);
+
+    if (e.target.closest('#search-clear')) return handleClearSearch();
+    if (e.target.closest('#mvrp-show-all')) return handleShowAllClick();
+    if (e.target.closest('#mvrp-collapse')) return handleCollapseClick();
+
+    const node = e.target.closest('.mvrp-node');
+    if (node) return handleMvrpNodeClick(node);
+
+    const summary = e.target.closest('.paper-summary');
+    if (summary) return handlePaperToggle(summary.closest('.paper-card'));
+  });
+
+  // Keyboard: Enter/Space toggles paper card if focus is on summary or its toggle
+  pane.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const summary = e.target.closest('.paper-summary');
+    if (summary && e.target.closest('.expand-toggle, .paper-summary')) {
+      // Don't intercept if user is interacting with a real link/button inside
+      if (e.target.tagName === 'A') return;
+      e.preventDefault();
+      handlePaperToggle(summary.closest('.paper-card'));
+    }
+  });
+
+  // Input delegation (search)
+  pane.addEventListener('input', e => {
+    if (e.target.id === 'search-input') handleSearchInput(e);
+  });
+
+  // Change delegation (mvp toggle)
+  pane.addEventListener('change', e => {
+    if (e.target.id === 'mvp-toggle') handleMvpToggle(e);
+  });
+}
+
+function handleChipClick(chip){
+  const r = ROADMAPS[state.activeIdx];
+  const v = chip.dataset.level;
+  if (v === 'all'){
+    if (state.filters.levels.size === 0 && !state.filters.mvpOnly && !state.filters.search) return;
+    state.filters.levels = new Set();
+    state.filters.mvpOnly = false;
+  } else {
+    const n = +v;
+    if (state.filters.levels.size === 1 && state.filters.levels.has(n)){
+      state.filters.levels = new Set();
+    } else {
+      state.filters.levels = new Set([n]);
+      state.filters.mvpOnly = false;
+    }
+  }
+  rerenderFiltersAndLevels(r);
+  if (state.filters.levels.size === 1){
+    const targetLevel = [...state.filters.levels][0];
+    requestAnimationFrame(() => {
+      const group = document.querySelector(`.level-group[data-level="${targetLevel}"]`);
+      if (group) group.scrollIntoView({ behavior: smoothScrollBehavior(), block: 'start' });
+    });
+  }
+}
+
+function handleMvpToggle(e){
+  const r = ROADMAPS[state.activeIdx];
+  state.filters.mvpOnly = e.target.checked;
+  if (state.filters.mvpOnly) state.filters.levels = new Set();
+  rerenderFiltersAndLevels(r);
+}
+
+function handleSearchInput(e){
+  const r = ROADMAPS[state.activeIdx];
+  state.filters.search = e.target.value;
+
+  // Manage clear button immediately (not debounced) for snappy feel
+  let clearBtn = document.getElementById('search-clear');
+  if (state.filters.search && !clearBtn){
+    const wrapper = e.target.parentElement;
+    const btn = document.createElement('button');
+    btn.id = 'search-clear';
+    btn.className = 'absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary';
+    btn.title = 'Clear search';
+    btn.setAttribute('aria-label', 'Clear search');
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">close</span>';
+    wrapper.appendChild(btn);
+  } else if (!state.filters.search && clearBtn){
+    clearBtn.remove();
+  }
+
+  // Debounce the filter+render — keeps typing snappy on long lists
+  debouncedRenderLevels(r);
+}
+
+function handleClearSearch(){
+  const r = ROADMAPS[state.activeIdx];
+  state.filters.search = '';
+  const input = $('#search-input');
+  if (input){
+    input.value = '';
+    input.focus();
+  }
+  const btn = $('#search-clear');
+  if (btn) btn.remove();
+  renderLevels(r);
+}
+
+function handleMvrpNodeClick(node){
+  const num = +node.dataset.num;
+  expandAndScrollToPaper(num);
+}
+
+function handleShowAllClick(){
+  const r = ROADMAPS[state.activeIdx];
+  state.mvrpShowAll = true;
+  rerenderMvrp(r);
+}
+
+function handleCollapseClick(){
+  const r = ROADMAPS[state.activeIdx];
+  state.mvrpShowAll = false;
+  rerenderMvrp(r);
+}
+
+function handlePaperToggle(card){
+  if (!card) return;
+  const expanded = card.classList.toggle('expanded');
+  const btn = card.querySelector('.expand-toggle');
+  if (btn) btn.setAttribute('aria-expanded', expanded);
+  const icon = card.querySelector('.expand-toggle .material-symbols-outlined');
+  if (icon) icon.textContent = expanded ? 'expand_less' : 'expand_more';
+}
+
+/* ============================================================
+   LEGACY BIND (kept for safety; now a no-op since delegation handles everything)
+   ============================================================ */
+function bindRoadmapEvents(_r){ /* delegation handles all events */ }
+
+function rerenderMvrp(r){
+  const old = document.getElementById('mvrp');
+  if (!old) return;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = mvrpSection(r);
+  const fresh = tmp.firstElementChild;
+  old.replaceWith(fresh);
+  // Re-bind events on the new section + everything else
+  bindRoadmapEvents(r);
+  setupScrollSpy();
+}
+
+function clearSearch(r){
+  state.filters.search = '';
+  const input = $('#search-input');
+  if (input) {
+    input.value = '';
+    input.focus();
+  }
+  const btn = $('#search-clear');
+  if (btn) btn.remove();
+  renderLevels(r);
+}
+
+function rerenderFiltersAndLevels(r){
+  // Capture search input focus state before destroying it
+  const active = document.activeElement;
+  const wasSearchFocused = active && active.id === 'search-input';
+  const cursorStart = wasSearchFocused ? active.selectionStart : null;
+  const cursorEnd = wasSearchFocused ? active.selectionEnd : null;
+
+  // Re-render filters bar (chip active states change) and level list
+  const wrap = $('#roadmap-pane');
+  const oldBar = wrap.querySelector('#fields');
+  const tmp = document.createElement('div');
+  tmp.innerHTML = filtersBar(r);
+  oldBar.replaceWith(tmp.firstElementChild);
+  bindRoadmapEvents(r);
+  renderLevels(r);
+  setupScrollSpy();
+
+  // Restore search focus + cursor position
+  if (wasSearchFocused) {
+    const newInput = $('#search-input');
+    if (newInput) {
+      newInput.focus();
+      try {
+        if (cursorStart !== null) newInput.setSelectionRange(cursorStart, cursorEnd);
+      } catch (_) { /* ignore */ }
+    }
+  }
+}
+
+/* ============================================================
+   LEVEL GROUPS + PAPER CARDS
+   ============================================================ */
+function renderLevels(r){
+  const target = $('#levels-render');
+  if (!target) return;
+
+  const filtered = r.papers.filter(p => {
+    if (state.filters.mvpOnly && !p.mvp) return false;
+    if (state.filters.levels.size && !state.filters.levels.has(p.level)) return false;
+    if (state.filters.search) {
+      const q = state.filters.search.toLowerCase();
+      const hay = (p.title+' '+p.authors+' '+p.inst+' '+p.tldr+' '+p.takeaway).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  if (!filtered.length) {
+    target.innerHTML = `
+      <div class="text-center py-2xl text-on-surface-variant">
+        <span class="material-symbols-outlined text-[48px] text-outline-variant block mb-sm">filter_list_off</span>
+        <p class="font-body-md text-body-md italic">No papers match these filters.</p>
+      </div>`;
+    return;
+  }
+
+  // Group by level (preserve roadmap-defined order)
+  const byLevel = {};
+  filtered.forEach(p => {
+    (byLevel[p.level] = byLevel[p.level] || []).push(p);
+  });
+  Object.keys(byLevel).forEach(k => byLevel[k].sort((a,b) => a.num - b.num));
+
+  target.innerHTML = `
+    <div class="space-y-xl">
+      ${r.levels
+        .filter(l => byLevel[l.n] && byLevel[l.n].length)
+        .map(l => `
+          <div class="level-group scroll-mt-[80px]" data-level="${l.n}">
+            <div class="flex items-center gap-sm mb-md">
+              <span class="px-sm py-xs bg-surface-container border border-outline-variant rounded font-label-caps text-label-caps text-on-surface flex-shrink-0">Level ${l.n}</span>
+              <h3 class="font-h3 text-h3 text-on-surface">${esc(l.name)}</h3>
+              ${l.tagline ? `<span class="font-body-sm text-body-sm italic text-on-surface-variant">— ${esc(l.tagline)}</span>` : ''}
+              <div class="h-[1px] flex-1 bg-outline-variant ml-md"></div>
+              <span class="font-label-caps text-label-caps text-on-surface-variant flex-shrink-0">${byLevel[l.n].length} ${byLevel[l.n].length===1?'paper':'papers'}</span>
+            </div>
+            <div class="space-y-md">
+              ${byLevel[l.n].map((p, idx) => paperCard(p, l.n === r.levels[0].n && idx === 0)).join('')}
+            </div>
+          </div>
+        `).join('')}
+    </div>
+  `;
+  // Click/keyboard expand handled via delegation in setupGlobalEvents
+}
+
+function paperCard(p, expandedDefault){
+  const tags = pickTags(p);
+  const detailId = `paper-${p.num}-detail`;
+  const safeTitle = esc(p.title).replace(/"/g, '&quot;');
+  return `
+    <article id="paper-${p.num}" class="paper-card bg-surface-container-lowest border-l-4 ${p.mvp?'border-l-primary':'border-l-outline-variant'} border border-outline-variant rounded-r-xl shadow-sm hover:shadow transition-shadow ${expandedDefault?'expanded':''}">
+      <div class="paper-summary p-lg cursor-pointer flex justify-between items-start gap-md">
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-sm mb-xs flex-wrap">
+            <span class="font-code text-code text-on-surface-variant" aria-hidden="true">${String(p.num).padStart(2,'0')}</span>
+            ${p.mvp ? `<span class="font-label-caps text-label-caps text-primary bg-primary-fixed/30 px-xs py-[2px] rounded inline-flex items-center gap-xs"><span class="material-symbols-outlined text-[12px]" aria-hidden="true">bolt</span>MVRP</span>` : ''}
+          </div>
+          <h4 class="font-paper-title text-paper-title text-on-surface mb-xs">${esc(p.title)}</h4>
+          <div class="flex items-center flex-wrap gap-x-md gap-y-xs font-label-caps text-label-caps text-on-surface-variant mb-sm">
+            <span>${esc(p.authors)}</span>
+            <span aria-hidden="true">•</span>
+            <span>${esc(p.inst)}</span>
+            <span aria-hidden="true">•</span>
+            <span>${esc(p.date)}</span>
+          </div>
+          ${tags.length ? `
+            <div class="flex flex-wrap gap-xs">
+              ${tags.map(t => `<span class="px-xs py-[2px] bg-surface-container text-on-surface-variant rounded font-label-caps text-label-caps">${esc(t)}</span>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+        <button class="expand-toggle text-on-surface-variant hover:text-primary flex-shrink-0 mt-xs"
+                aria-expanded="${expandedDefault?'true':'false'}"
+                aria-controls="${detailId}"
+                aria-label="${expandedDefault?'Hide':'Show'} details for ${safeTitle}">
+          <span class="material-symbols-outlined" aria-hidden="true">${expandedDefault?'expand_less':'expand_more'}</span>
+        </button>
+      </div>
+      <div id="${detailId}" class="paper-detail px-lg pb-lg pt-0 border-t border-outline-variant/30">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-lg mt-md">
+          <div class="md:col-span-2 space-y-md">
+            <div>
+              <span class="font-label-caps text-label-caps text-primary block mb-xs">TL;DR</span>
+              <p class="font-body-md text-body-md text-on-surface font-paper-title">${esc(p.tldr)}</p>
+            </div>
+            <div>
+              <span class="font-label-caps text-label-caps text-on-surface-variant block mb-xs">WHY READ THIS</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">${esc(p.why)}</p>
+            </div>
+          </div>
+          <div class="space-y-md bg-surface-bright p-md rounded-lg border border-outline-variant">
+            <div>
+              <span class="font-label-caps text-label-caps text-on-surface-variant block mb-xs">PREREQUISITES</span>
+              <ul class="font-body-sm text-body-sm text-on-surface-variant list-disc pl-md space-y-[2px]">
+                ${parsePrereqs(p.prereqs).map(item => `<li>${esc(item)}</li>`).join('')}
+              </ul>
+            </div>
+            <div>
+              <span class="font-label-caps text-label-caps text-on-surface-variant block mb-xs">KEY TAKEAWAY</span>
+              <p class="font-body-sm text-body-sm text-on-surface-variant italic">"${esc(p.takeaway)}"</p>
+            </div>
+            <div class="pt-sm">
+              <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center justify-center w-full py-sm bg-primary text-on-primary rounded font-label-caps text-label-caps hover:bg-primary-container transition-colors">
+                <span class="material-symbols-outlined mr-xs text-[16px]" aria-hidden="true">open_in_new</span>
+                View paper
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+// Extract prereqs as bullet list (split on "; " or ", " or ".")
+function parsePrereqs(s){
+  if (!s) return [];
+  return String(s)
+    .replace(/\.$/,'')
+    .split(/[;]\s*|,\s+(?=[A-Z])/)
+    .map(x => x.trim())
+    .filter(Boolean);
+}
+
+// Pick a couple of tags from the paper (institution + level)
+function pickTags(p){
+  return [p.inst, `Level ${p.level}`].filter(Boolean);
+}
+
+function expandAndScrollToPaper(num){
+  // Make sure all filters off so the paper is visible
+  if (state.filters.search || state.filters.mvpOnly || state.filters.levels.size) {
+    state.filters = { levels: new Set(), mvpOnly: false, search: '' };
+    renderRoadmap();
+    // Wait a tick for re-render
+    setTimeout(() => doExpand(num), 50);
+  } else {
+    doExpand(num);
+  }
+}
+function doExpand(num){
+  const card = document.getElementById('paper-' + num);
+  if (!card) return;
+  card.classList.add('expanded');
+  const btn = card.querySelector('.expand-toggle');
+  if (btn) btn.setAttribute('aria-expanded', 'true');
+  const icon = card.querySelector('.expand-toggle .material-symbols-outlined');
+  if (icon) icon.textContent = 'expand_less';
+  card.scrollIntoView({ behavior: smoothScrollBehavior(), block: 'center' });
+}
+
+/* ============================================================
+   SCROLL SPY — top nav active state tracks visible section
+   ============================================================ */
+let scrollSpyObserver = null;
+function setupScrollSpy(){
+  if (scrollSpyObserver) scrollSpyObserver.disconnect();
+  if (!('IntersectionObserver' in window)) return;
+
+  // Map of section id → top nav link
+  const links = $$('.top-nav-link');
+  const sections = links
+    .map(link => ({ id: link.dataset.section, link, el: document.getElementById(link.dataset.section) }))
+    .filter(s => s.el);
+
+  if (!sections.length) return;
+
+  // Track which sections are currently visible
+  const visibleSet = new Set();
+
+  scrollSpyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      if (entry.isIntersecting) visibleSet.add(id);
+      else visibleSet.delete(id);
+    });
+
+    // Pick the topmost visible section as "active"
+    let active = null;
+    let bestTop = Infinity;
+    visibleSet.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top;
+      if (top < bestTop) { bestTop = top; active = id; }
+    });
+
+    // Fallback: if nothing visible, keep current
+    if (!active) {
+      // Find the last section whose top is above the trigger line
+      sections.forEach(s => {
+        if (s.el.getBoundingClientRect().top < 100) active = s.id;
+      });
+    }
+
+    links.forEach(link => {
+      const isActive = link.dataset.section === active;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }, {
+    rootMargin: '-80px 0px -50% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(s => scrollSpyObserver.observe(s.el));
+}
+
+/* ============================================================
+   MOBILE SIDEBAR
+   ============================================================ */
+function toggleMobileSidebar(){
+  $('#sidebar').classList.toggle('open');
+  $('#sidebar-backdrop').classList.toggle('open');
+}
+function closeMobileSidebar(){
+  $('#sidebar').classList.remove('open');
+  $('#sidebar-backdrop').classList.remove('open');
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  if (!ROADMAPS.length) return;
+
+  // Populate global stats from data
+  const totalPapers = ROADMAPS.reduce((a, r) => a + r.papers.length, 0);
+  $('#stat-papers').textContent = totalPapers;
+  $('#stat-roadmaps').textContent = ROADMAPS.length;
+
+  renderSidebar();
+  renderRoadmap();
+  setupGlobalEvents();
+
+  // Sidebar nav delegation
+  $('#sidebar-nav').addEventListener('click', e => {
+    const item = e.target.closest('.sidebar-item');
+    if (!item) return;
+    e.preventDefault();
+    state.activeIdx = +item.dataset.idx;
+    state.filters = { levels: new Set(), mvpOnly: false, search: '' };
+    state.mvrpShowAll = false;
+    renderSidebar();
+    renderRoadmap();
+    closeMobileSidebar();
+    requestAnimationFrame(() => {
+      const target = document.getElementById('roadmaps');
+      if (target) target.scrollIntoView({ behavior: smoothScrollBehavior(), block: 'start' });
+    });
+  });
+
+  // Mobile menu
+  $('#mobile-menu-btn').addEventListener('click', toggleMobileSidebar);
+  $('#sidebar-backdrop').addEventListener('click', closeMobileSidebar);
+
+  // Close mobile sidebar when any anchor link inside it is clicked
+  $('#sidebar').addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a) closeMobileSidebar();
+  });
+
+  // Cite project button — copies BibTeX to clipboard
+  const citeBtn = $('#cite-btn');
+  if (citeBtn) citeBtn.addEventListener('click', async (e) => {
+    const totalPapers = ROADMAPS.reduce((a, r) => a + r.papers.length, 0);
+    const bibtex = [
+      '@misc{cspaperroadmaps2026,',
+      '  author       = {{CS Paper Roadmaps Contributors}},',
+      '  title        = {CS Paper Roadmaps: Curated Reading Lists for Computer Science},',
+      '  year         = {2026},',
+      `  note         = {${totalPapers} papers across ${ROADMAPS.length} roadmaps. Licensed CC BY 4.0.},`,
+      '  howpublished = {\\url{https://github.com/Achal13jain/cs-paper-roadmaps}}',
+      '}'
+    ].join('\n');
+    try {
+      await navigator.clipboard.writeText(bibtex);
+      const orig = e.currentTarget.textContent;
+      e.currentTarget.textContent = '✓ BibTeX copied';
+      e.currentTarget.classList.add('text-primary');
+      setTimeout(() => {
+        e.currentTarget.textContent = orig;
+        e.currentTarget.classList.remove('text-primary');
+      }, 1800);
+    } catch (err) {
+      // Fallback: show text in a prompt for manual copy
+      window.prompt('Copy this BibTeX entry:', bibtex);
+    }
+  });
+
+  // Honor URL hash on first load (e.g. someone shares /page#mvrp)
+  if (location.hash) {
+    const id = location.hash.slice(1);
+    requestAnimationFrame(() => {
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'auto', block: 'start' });
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>
+</html>
