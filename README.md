@@ -1,17 +1,19 @@
-# 📚 CS Paper Roadmaps
+# CS Paper Roadmaps
 
 > Curated, logically ordered reading lists for 10 major areas of computer science — every paper sequenced so each one builds on the last, with TL;DRs, prerequisites, and key takeaways.
 
 <br/>
 
-[![Papers](https://img.shields.io/badge/total%20papers-250%2B-16a34a?style=flat-square)](https://github.com/yourusername/cs-paper-roadmaps)
-[![Roadmaps](https://img.shields.io/badge/roadmaps-10-16a34a?style=flat-square)](https://github.com/yourusername/cs-paper-roadmaps)
-[![License](https://img.shields.io/badge/license-CC%20BY%204.0-16a34a?style=flat-square)](LICENSE)
+[![Papers](https://img.shields.io/badge/total%20papers-250%2B-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
+[![Roadmaps](https://img.shields.io/badge/roadmaps-10-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
+[![License](https://img.shields.io/badge/license-CC%20BY%204.0-16a34a?style=flat-square)](LICENSE-CONTENT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-16a34a?style=flat-square)](CONTRIBUTING.md)
 
 <br/>
 
-🌐 **[Browse the interactive website →](https://yourusername.github.io/cs-paper-roadmaps)**
+![CS Paper Roadmaps Preview](s.png)
+
+🌐 **[Browse the interactive website →](https://Achal13jain.github.io/cs-paper-roadmaps)**
 
 > The website lets you filter papers by level, expand TL;DRs inline, and track your minimum viable reading path — all in one page.
 
@@ -19,25 +21,7 @@
 
 ---
 
-## 🗺️ The Roadmaps
-
-| Field | Papers | Levels | Timeline | Roadmap |
-|---|---|---|---|---|
-| 🧠 LLMs & Transformers | 29 | 9 | 2013 – 2024 | [View →](roadmaps/llms-transformers.md) |
-| 👁️ Computer Vision | 28 | 8 | 1998 – 2023 | [View →](roadmaps/computer-vision.md) |
-| 🎯 Reinforcement Learning | 25 | 8 | 1957 – 2024 | [View →](roadmaps/reinforcement-learning.md) |
-| ⚡ Distributed Systems | 26 | 8 | 1978 – 2022 | [View →](roadmaps/distributed-systems.md) |
-| 🕸️ Graph Neural Networks | 22 | 7 | 2013 – 2024 | [View →](roadmaps/graph-neural-networks.md) |
-| 🗄️ Database Systems | 24 | 7 | 1970 – 2024 | [View →](roadmaps/databases.md) |
-| 🔐 Cryptography | 22 | 7 | 1948 – 2023 | [View →](roadmaps/cryptography.md) |
-| 🔎 Information Retrieval | 20 | 6 | 1972 – 2024 | [View →](roadmaps/information-retrieval.md) |
-| 🖥️ Computer Architecture | 22 | 7 | 1945 – 2023 | [View →](roadmaps/computer-architecture.md) |
-| 🧬 Computational Biology | 20 | 6 | 1970 – 2024 | [View →](roadmaps/computational-biology.md) |
-| 🧩 Programming Languages | 20 | 7 | 1936 – 2023 | [View →](roadmaps/programming-languages.md) |
-
----
-
-## 💡 How to Use This
+## How to Use This
 
 Each roadmap is structured as a series of levels — **start at your current knowledge level** and read forward.
 
@@ -62,7 +46,7 @@ Every paper entry includes:
 
 ---
 
-## 🔥 Minimum Viable Reading Paths
+## Minimum Viable Reading Paths
 
 Don't have time to read everything? Each roadmap has a curated **10-paper minimum viable path** — the papers that give you 80% of the understanding with 30% of the effort.
 
@@ -76,7 +60,7 @@ Don't have time to read everything? Each roadmap has a curated **10-paper minimu
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 cs-paper-roadmaps/
@@ -84,21 +68,8 @@ cs-paper-roadmaps/
 ├── README.md                       ← you are here
 ├── index.html                      ← interactive SPA 
 ├── CONTRIBUTING.md                 ← how to add a paper
-├── LICENSE                         ← CC BY 4.0
-│
-├── roadmaps/
-│   ├── llms-transformers.md
-│   ├── computer-vision.md
-│   ├── reinforcement-learning.md
-│   ├── distributed-systems.md
-│   ├── graph-neural-networks.md
-│   ├── databases.md
-│   ├── cryptography.md
-│   ├── information-retrieval.md
-│   ├── computer-architecture.md
-│   ├── computational-biology.md
-│   └── programming-languages.md
-│
+├── LICENSE-CODE                    ← MIT license for code
+├── LICENSE-CONTENT                 ← CC BY 4.0 license for content
 └── .github/
     ├── ISSUE_TEMPLATE/
     │   └── add-paper.md            ← suggest a paper via issue
@@ -107,14 +78,14 @@ cs-paper-roadmaps/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are very welcome. If you know a paper that belongs in a roadmap, a TL;DR that could be sharper, or a new field that deserves its own list — please open a PR.
 
 **To add a paper:**
 
 1. Fork the repo
-2. Find the right roadmap file in `/roadmaps/`
+2. Add or edit roadmap entries in the `index.html` data block using the existing format.
 3. Add the paper in the correct level, following the existing format:
    ```markdown
    | # | Paper Title | Authors · Institution | Mon YYYY | [arXiv](link) |
@@ -131,7 +102,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 **Why not just use Semantic Scholar / Papers With Code?**
 
@@ -151,15 +122,15 @@ Absolutely. All content is under CC BY 4.0 — you can use, adapt, and share it 
 
 ---
 
-## ⭐ Star History
+## Star History
 
 If you find this useful, starring the repo is the best way to help others discover it.
 
 ---
 
-## 📜 License
+## License
 
-All bibliographic information (titles, authors, dates) and links are factual and not subject to copyright. All original commentary, TL;DRs, and descriptions in this repository are licensed under [CC BY 4.0](LICENSE).
+All bibliographic information (titles, authors, dates) and links are factual and not subject to copyright. All original commentary, TL;DRs, and descriptions in this repository are licensed under [CC BY 4.0](LICENSE-CONTENT).
 
 All linked papers remain the intellectual property of their respective authors and publishers. This repository contains no paper content — only links and original commentary.
 
@@ -169,6 +140,6 @@ All linked papers remain the intellectual property of their respective authors a
 
 Made with the belief that great research should be accessible to everyone.
 
-[Website](https://yourusername.github.io/cs-paper-roadmaps) · [Contribute](CONTRIBUTING.md) · [Issues](https://github.com/yourusername/cs-paper-roadmaps/issues)
+[Website](https://Achal13jain.github.io/cs-paper-roadmaps) · [Contribute](CONTRIBUTING.md) · [Issues](https://github.com/Achal13jain/cs-paper-roadmaps/issues)
 
 </div>
