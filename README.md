@@ -11,12 +11,6 @@
 
 <br/>
 
-![CS Paper Roadmaps Preview](s.png)
-
-🌐 **[Browse the interactive website →](https://Achal13jain.github.io/cs-paper-roadmaps)**
-
-> The website lets you filter papers by level, expand TL;DRs inline, and track your minimum viable reading path — all in one page.
-
 <br/>
 
 ---
