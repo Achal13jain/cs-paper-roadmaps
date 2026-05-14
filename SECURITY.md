@@ -7,7 +7,7 @@ If you discover something concerning — for example, a prototype-pollution
 vector in the rendering JavaScript, an XSS path through the paper data, or a
 malicious link in an entry — please **don't open a public issue**. Instead:
 
-- Email the maintainer at: `jainachal38@gmail.com` (replace this with the actual maintainer email)
+- Email the maintainer at: `jainachal38@gmail.com`
 - Or open a private security advisory:
   https://github.com/Achal13jain/cs-paper-roadmaps/security/advisories/new
 
