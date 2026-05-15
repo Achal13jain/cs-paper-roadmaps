@@ -8,18 +8,18 @@ contributions and to mine.
 
 **Yes, please:**
 
-- 📚 **Add a missing paper** that genuinely belongs in a roadmap
-- ✏️ **Fix a wrong fact** — a misattributed author, a wrong date, a broken arXiv link
-- 🔁 **Improve a TL;DR or takeaway** that buries the lede or misrepresents the paper
-- 🔗 **Replace a paywalled link** with a free primary source (arXiv preferred)
-- 🌱 **Propose a new roadmap** in [Discussions](https://github.com/Achal13jain/cs-paper-roadmaps/discussions) before opening a PR — adding a 12th field is a big decision, and the criteria below need to be met
+- **Add a missing paper** that genuinely belongs in a roadmap
+- **Fix a wrong fact** — a misattributed author, a wrong date, a broken arXiv link
+- **Improve a TL;DR or takeaway** that buries the lede or misrepresents the paper
+- **Replace a paywalled link** with a free primary source (arXiv preferred)
+- **Propose a new roadmap** in [Discussions](https://github.com/Achal13jain/cs-paper-roadmaps/discussions) before opening a PR — adding a 12th field is a big decision, and the criteria below need to be met
 
 **Probably no, sorry:**
 
-- 📜 Bulk additions of 20+ papers from a personal reading list
-- 🎨 Style/aesthetic rewrites that don't fix anything substantive
-- 🛒 Paper inclusions because "they're famous" — fame ≠ pedagogical value
-- 🌀 Replacing the MVRP path of a roadmap based on personal preference
+- Bulk additions of 20+ papers from a personal reading list
+- Style/aesthetic rewrites that don't fix anything substantive
+- Paper inclusions because "they're famous" — fame ≠ pedagogical value
+- Replacing the MVRP path of a roadmap based on personal preference
 
 ## Quality bar for a new paper
 
