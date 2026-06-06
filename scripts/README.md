@@ -17,3 +17,10 @@ Run all checks before opening a PR:
 ```bash
 python scripts/validate_papers.py && python scripts/check_links.py
 ```
+
+For PR-style link checks against only new or changed links:
+
+```bash
+git fetch origin main
+python scripts/check_links.py --changed-only --base-ref origin/main
+```

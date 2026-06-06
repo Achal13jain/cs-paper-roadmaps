@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Check every paper link in papers.yml."""
+"""Check paper links in papers.yml."""
 
 from __future__ import annotations
 
 import argparse
+import subprocess
 import sys
 from pathlib import Path
 from typing import Iterable
@@ -22,17 +23,74 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 
-def iter_links(skip_arxiv: bool) -> Iterable[tuple[str, str, str]]:
-    with PAPERS_FILE.open("r", encoding="utf-8") as handle:
-        data = yaml.safe_load(handle)
+LinkEntry = tuple[str, str, str, str, str]
 
+
+def load_papers_file() -> dict:
+    with PAPERS_FILE.open("r", encoding="utf-8") as handle:
+        return yaml.safe_load(handle)
+
+
+def load_base_papers(base_ref: str) -> dict | None:
+    result = subprocess.run(
+        ["git", "show", f"{base_ref}:papers.yml"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if result.returncode != 0:
+        return None
+    return yaml.safe_load(result.stdout)
+
+
+def flatten_links(data: dict) -> dict[tuple[str, int], LinkEntry]:
+    links: dict[tuple[str, int], LinkEntry] = {}
     for roadmap in data.get("roadmaps", []):
+        roadmap_id = roadmap.get("id", "")
         roadmap_title = roadmap.get("title", roadmap.get("id", "Unknown roadmap"))
         for paper in roadmap.get("papers", []):
-            url = paper.get("link", "")
+            paper_id = paper.get("id")
+            if not isinstance(paper_id, int):
+                continue
+            links[(roadmap_id, paper_id)] = (
+                roadmap_id,
+                str(paper_id),
+                roadmap_title,
+                paper.get("title", "Untitled paper"),
+                paper.get("link", ""),
+            )
+    return links
+
+
+def iter_links(skip_arxiv: bool) -> Iterable[LinkEntry]:
+    links = flatten_links(load_papers_file()).values()
+    for entry in links:
+        url = entry[4]
+        if skip_arxiv and url.startswith("https://arxiv.org"):
+            continue
+        yield entry
+
+
+def iter_changed_links(base_ref: str, skip_arxiv: bool) -> Iterable[LinkEntry]:
+    current_links = flatten_links(load_papers_file())
+    base_data = load_base_papers(base_ref)
+    if base_data is None:
+        print(f"ℹ️ No baseline papers.yml found at {base_ref}; skipping changed-only link check.")
+        return []
+
+    base_links = flatten_links(base_data)
+    changed = []
+    for key, entry in current_links.items():
+        url = entry[4]
+        base_entry = base_links.get(key)
+        base_url = base_entry[4] if base_entry else None
+        if url != base_url:
             if skip_arxiv and url.startswith("https://arxiv.org"):
                 continue
-            yield roadmap_title, paper.get("title", "Untitled paper"), url
+            changed.append(entry)
+    return changed
 
 
 def check_url(url: str) -> tuple[bool, str]:
@@ -58,12 +116,22 @@ def check_url(url: str) -> tuple[bool, str]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Check paper links in papers.yml")
     parser.add_argument("--skip-arxiv", action="store_true", help="Skip https://arxiv.org links")
+    parser.add_argument("--changed-only", action="store_true", help="Check only links added or changed versus base")
+    parser.add_argument("--base-ref", default="origin/main", help="Git ref to compare against for --changed-only")
     args = parser.parse_args()
 
-    links = list(iter_links(args.skip_arxiv))
+    if args.changed_only:
+        links = list(iter_changed_links(args.base_ref, args.skip_arxiv))
+    else:
+        links = list(iter_links(args.skip_arxiv))
+
+    if args.changed_only and not links:
+        print("✅ No new or changed links to check.")
+        return 0
+
     ok_count = 0
 
-    for roadmap_title, paper_title, url in links:
+    for _roadmap_id, _paper_id, roadmap_title, paper_title, url in links:
         ok, detail = check_url(url)
         if ok:
             ok_count += 1
