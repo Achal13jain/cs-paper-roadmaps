@@ -1,0 +1,26 @@
+name: Suggest a New Roadmap Topic
+description: Propose an entirely new CS field / roadmap to add
+title: "[New Topic] "
+labels: ["new-roadmap"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic / Field Name
+      placeholder: "e.g. Quantum Computing"
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why should this be its own roadmap?
+      description: What's the scope and who would benefit?
+    validations:
+      required: true
+  - type: textarea
+    id: seed_papers
+    attributes:
+      label: At least 5 seed papers to start the roadmap
+      description: Title + arXiv link for each
+    validations:
+      required: true

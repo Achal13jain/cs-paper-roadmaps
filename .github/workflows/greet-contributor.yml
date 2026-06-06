@@ -1,0 +1,44 @@
+name: "👋 Greet Contributor"
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: read
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Skip comment in read-only PR context
+        if: github.event_name == 'pull_request'
+        run: echo "Welcome comments are posted by pull_request_target when this workflow is on main."
+
+      - name: Post welcome comment
+        if: github.event_name == 'pull_request_target'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = "<!-- cs-paper-roadmaps-welcome -->";
+            const body = [
+              marker,
+              "👋 Thanks for contributing to CS Paper Roadmaps!",
+              "",
+              "Here's what happens next:",
+              "1. ✅ Automated checks will validate your YAML and verify all links are accessible.",
+              "2. 👀 The maintainer will manually review your paper(s) for quality and fit.",
+              "3. 🚀 Once merged, the site rebuilds automatically — your contribution goes live within minutes.",
+              "",
+              "If checks fail, scroll up to see which validation step failed and fix it in your branch. Feel free to ask questions in this PR if you're stuck!"
+            ].join("\n");
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });

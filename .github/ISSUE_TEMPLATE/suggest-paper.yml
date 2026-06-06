@@ -1,0 +1,59 @@
+name: Suggest a Paper
+description: Suggest a research paper to add to a roadmap
+title: "[Paper Suggestion] "
+labels: ["paper-suggestion"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Paper Title
+      placeholder: "e.g. Attention Is All You Need"
+    validations:
+      required: true
+  - type: dropdown
+    id: roadmap
+    attributes:
+      label: Roadmap / Topic
+      options:
+        - LLMs & Transformers
+        - Computer Vision
+        - Reinforcement Learning
+        - Distributed Systems
+        - Graph Neural Networks
+        - Database Systems
+        - Cryptography
+        - Information Retrieval
+        - Computer Architecture
+        - Computational Biology
+        - Programming Languages
+        - Other (describe below)
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Open-Access Link (arXiv preferred)
+      placeholder: "https://arxiv.org/abs/..."
+    validations:
+      required: true
+  - type: textarea
+    id: tldr
+    attributes:
+      label: TL;DR (2-3 sentences)
+      description: What does this paper actually do?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does this paper belong in the roadmap?
+      description: How does it fit the field and why does order matter?
+    validations:
+      required: true
+  - type: input
+    id: level
+    attributes:
+      label: Suggested Level
+      placeholder: "Use the target roadmap's existing level labels, usually 0-8"
+    validations:
+      required: true

@@ -1,114 +1,104 @@
 # Contributing
 
-Thanks for your interest. Curation is the product here — every entry should
-sharpen the line of thought, not pad the count. That standard applies to your
-contributions and to mine.
+Thanks for helping improve CS Paper Roadmaps. Curation is the product here: every paper should sharpen the reading path, not just increase the count.
 
-## What to contribute
+## The Golden Rule
 
-**Yes, please:**
+Contributors edit only `papers.yml`.
 
-- **Add a missing paper** that genuinely belongs in a roadmap
-- **Fix a wrong fact** — a misattributed author, a wrong date, a broken arXiv link
-- **Improve a TL;DR or takeaway** that buries the lede or misrepresents the paper
-- **Replace a paywalled link** with a free primary source (arXiv preferred)
-- **Propose a new roadmap** in [Discussions](https://github.com/Achal13jain/cs-paper-roadmaps/discussions) before opening a PR — adding a 12th field is a big decision, and the criteria below need to be met
+Do not edit `index.html` in paper contribution PRs. The site is regenerated from `papers.yml` after merge, and GitHub Actions deploys the updated page automatically.
 
-**Probably no, sorry:**
+## How to Add a Paper
 
-- Bulk additions of 20+ papers from a personal reading list
-- Style/aesthetic rewrites that don't fix anything substantive
-- Paper inclusions because "they're famous" — fame ≠ pedagogical value
-- Replacing the MVRP path of a roadmap based on personal preference
+1. Fork the repo.
+2. Open `papers.yml`.
+3. Find the right roadmap by `id`.
+4. Add the paper under the correct roadmap and level.
+5. Optionally run `python scripts/validate_papers.py` locally.
+6. Open a PR titled `[Add Paper] <Roadmap> — <Paper Title>`.
 
-## Quality bar for a new paper
+Use this schema for each paper:
 
-Before opening a PR, ask whether the paper meets all four:
-
-1. **Foundational or frontier.** It either *founded* a line of thought (the first SGD paper, Attention Is All You Need) or represents a *current frontier* worth understanding (FlashAttention, AlphaFold 3). Solid mid-tier work usually doesn't make the cut — there are too many good papers and not enough attention.
-2. **Free, primary source available.** arXiv, the author's personal page, the conference's open archive, OpenReview. Not a paywalled journal version, not a Wikipedia summary, not a blog explainer.
-3. **Fits a real gap in the sequence.** If the field already covers transformer pretraining at Level 2, a sixth pretraining paper at Level 2 isn't adding much. Better candidates are gaps: things mentioned as prerequisites for later papers but not currently included.
-4. **You've actually read it.** Sounds basic, but: don't add papers based on their abstract or other people's summaries.
-
-## The data format
-
-Each paper is a single call to the `p()` helper inside `index.html`'s data block:
-
-```js
-p(NUM, LEVEL, MVRP, TITLE, AUTHORS, INSTITUTION, DATE, URL,
-  TLDR,
-  WHY_READ_THIS,
-  PREREQUISITES,
-  KEY_TAKEAWAY)
+```yaml
+- id: 30
+  level: 8
+  title: "Paper Title"
+  authors: "First Author et al."
+  institution: "Institution"
+  date: "Mon YYYY"
+  link: "https://arxiv.org/abs/..."
+  tldr: "Two or three sentences in your own words explaining what the paper does."
+  why: "Why this paper belongs at this point in the roadmap."
+  prerequisites: [4, 12]
+  key_takeaway: "The one idea a reader should remember."
+  minimum_viable_path: false
 ```
 
-Where:
+Notes:
 
-- `NUM` — sequential number within the roadmap (continues from the highest existing)
-- `LEVEL` — integer 0 through 9
-- `MVRP` — boolean; `true` if this paper is on the Minimum Viable Reading Path
-- `TITLE` — exact title as published. Use Unicode characters (`α`, `→`, `λ`) when the original does
-- `AUTHORS` — `"FirstAuthor et al."` for >2 authors; `"A, B"` for 2; full name for 1
-- `INSTITUTION` — primary affiliation at time of publication ("Google Brain", not "Google" or "Google DeepMind" if it was Google Brain then)
-- `DATE` — `"Mon YYYY"` or `"YYYY"` if month is unclear
-- `URL` — preferred order: arXiv abstract page > author's personal page > conference open archive
-- `TLDR` — 1–2 sentences, present tense. *What* the paper says, not what makes it important
-- `WHY_READ_THIS` — 1–2 sentences. *Where* this paper sits in the field's intellectual lineage
-- `PREREQUISITES` — semicolon-separated. Should genuinely be needed to follow the paper
-- `KEY_TAKEAWAY` — one sentence. The thing to remember if you forget the rest
+- `id` is the next paper number within that roadmap.
+- `level` must match one of the roadmap's declared `levels`.
+- `prerequisites` should preferably reference IDs of earlier papers in the same roadmap. Use short strings only when the prerequisite is a concept rather than an existing paper.
+- `minimum_viable_path` should be `true` only for the small critical reading path.
 
-### Example
+## How to Add a New Roadmap Topic
 
-```js
-p(4, 1, true,
-  'Attention Is All You Need',
-  'Vaswani et al.',
-  'Google Brain',
-  'Jun 2017',
-  'https://arxiv.org/abs/1706.03762',
-  'Introduces the Transformer: an attention-only architecture with no recurrence or convolution.',
-  'The architectural blueprint underlying every modern LLM. Read it for the original framing.',
-  'Seq2seq with attention; matrix multiplication.',
-  'Self-attention is fully parallelisable, captures long-range dependencies, and scales beautifully.'),
+Open an issue first using the new roadmap topic template so we can discuss scope.
+
+If accepted, add a new top-level entry under `roadmaps:` in `papers.yml`. A new roadmap must include:
+
+- `id` in kebab-case
+- `title`
+- `description`
+- `icon`
+- `timeline`
+- `levels`
+- at least 5 seed papers
+
+## Paper Quality Guidelines
+
+- The paper must be peer-reviewed or have 100+ citations on Google Scholar.
+- The link must be arXiv, OpenReview, an author's page, a conference archive, or another open-access source. Never link to a paywall.
+- TL;DR text must be your own words, not the abstract.
+- The paper should fill a real gap in the sequence.
+- Prerequisites should point backward in the roadmap, not forward.
+- Avoid hype words. Placement in the roadmap should communicate importance.
+
+## What Happens After You Open a PR
+
+1. Automated checks validate `papers.yml`.
+2. Automated checks verify paper links are accessible.
+3. A bot comments with a short contribution summary and labels the PR `needs-review`.
+4. A maintainer manually reviews paper quality, ordering, and wording.
+5. Once merged, `index.html` is regenerated and GitHub Pages deploys the site.
+
+## Local Development
+
+Install dependencies:
+
+```bash
+pip install pyyaml jsonschema requests jinja2
 ```
 
-## Style rules for prose
+Validate the YAML:
 
-- **TL;DRs:** present tense, active voice. Describe what the paper does, not what it influenced. ("Introduces X" not "Was the first to introduce X.")
-- **Why-read:** focus on the paper's *function* in the field's lineage. ("The genesis of the current LLM era" beats "Very influential.")
-- **Takeaways:** memorable, declarative, often slightly opinionated. Should be quotable in isolation.
-- **No hype words.** "Revolutionary," "groundbreaking," "game-changing" — cut them. The paper's importance is conveyed by its placement in the sequence.
-- **No marketing capitalization.** "transformer" not "Transformer", "attention" not "Attention" (titles excepted).
+```bash
+python scripts/validate_papers.py
+```
 
-## Workflow
+Preview the generated site locally:
 
-1. **Open an issue first** for: new papers, factual corrections, broken links, new roadmap proposals. Pick the matching template at [/issues/new/choose](https://github.com/Achal13jain/cs-paper-roadmaps/issues/new/choose).
-2. **Wait for triage.** A maintainer will tag the issue `accepted`, `needs-discussion`, or `won't-merge`. Don't open a PR for new papers without `accepted` — it spares us both wasted time.
-3. **Open a PR** referencing the issue (`Fixes #N`). Make the smallest possible diff that solves the problem.
-4. **Update affected fields if needed.** If you're shifting `NUM` values, the MVRP click-jump references those numbers — re-check that nothing breaks.
-5. **Verify locally.** Run `python3 -m http.server 8000` (or any static server), open the site, and confirm:
-   - Your paper appears in the right roadmap and level
-   - Its expansion shows TL;DR, why, prereqs, takeaway, and "View paper" link
-   - The link opens to a free, working source
-   - If MVRP, the paper appears in the MVRP visualization at the top
-   - The `Total papers` count in the footer increased correctly
+```bash
+python scripts/generate_html.py
+open index.html   # or: python -m http.server 8080
+```
 
-## What happens after a PR
+If you run `generate_html.py` while preparing a paper PR, do not include the generated `index.html` diff unless you are maintaining the site pipeline itself.
 
-- One maintainer review. We may ask for edits to TL;DR phrasing, prereq accuracy, or level placement.
-- Squash-merge with a Conventional-Commits-style message: `add(llms): Mamba: Linear-Time Sequence Modeling`
-- The site auto-deploys to GitHub Pages on merge.
-
-## Code of conduct
-
-Participation in this project is governed by the [Code of Conduct](./CODE_OF_CONDUCT.md). Be kind, assume good faith, disagree on substance.
-
-## License of contributions
+## License of Contributions
 
 By contributing, you agree that:
 
-- Your prose contributions (summaries, takeaways) are licensed under [CC BY 4.0](./LICENSE-CONTENT)
-- Your code contributions are licensed under [MIT](./LICENSE-CODE)
-- You have the right to license what you contribute (i.e., it's your original work, not lifted from a copyrighted source)
-
-Paper titles, abstracts, and figures referenced here belong to their original authors and are not redistributed by this project.
+- Your prose contributions are licensed under [CC BY 4.0](./LICENSE-CONTENT).
+- Your code contributions are licensed under [MIT](./LICENSE-CODE).
+- You have the right to license what you contribute.
