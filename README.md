@@ -1,13 +1,14 @@
 # CS Paper Roadmaps
 
-> Curated, logically ordered reading lists for 10 major areas of computer science — every paper sequenced so each one builds on the last, with TL;DRs, prerequisites, and key takeaways.
+> Curated, logically ordered reading lists for 11 major areas of computer science — every paper sequenced so each one builds on the last, with TL;DRs, prerequisites, and key takeaways.
 
 <br/>
 
-[![Papers](https://img.shields.io/badge/total%20papers-250%2B-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
-[![Roadmaps](https://img.shields.io/badge/roadmaps-10-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
+[![Papers](https://img.shields.io/badge/total%20papers-258-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
+[![Roadmaps](https://img.shields.io/badge/roadmaps-11-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-16a34a?style=flat-square)](LICENSE-CONTENT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-16a34a?style=flat-square)](CONTRIBUTING.md)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 <br/>
 
@@ -67,38 +68,47 @@ Don't have time to read everything? Each roadmap has a curated **10-paper minimu
 ```
 cs-paper-roadmaps/
 │
-├── README.md                       ← you are here
-├── index.html                      ← interactive SPA 
-├── CONTRIBUTING.md                 ← how to add a paper
-├── LICENSE-CODE                    ← MIT license for code
-├── LICENSE-CONTENT                 ← CC BY 4.0 license for content
+├── README.md
+├── index.html                        ← auto-generated; do NOT edit manually
+├── papers.yml                        ← single source of truth — EDIT THIS
+├── CONTRIBUTING.md
+├── LICENSE-CODE
+├── LICENSE-CONTENT
+├── scripts/
+│   ├── validate_papers.py            ← schema validation
+│   ├── check_links.py                ← link health checker
+│   ├── generate_html.py              ← regenerates index.html from papers.yml
+│   └── README.md
 └── .github/
+    ├── workflows/
+    │   ├── validate-pr.yml           ← runs on every PR
+    │   ├── build-site.yml            ← runs on merge to main
+    │   └── greet-contributor.yml     ← welcome message on new PRs
     ├── ISSUE_TEMPLATE/
-    │   └── add-paper.md            ← suggest a paper via issue
-    └── pull_request_template.md    ← PR checklist
+    │   ├── suggest-paper.yml
+    │   └── suggest-topic.yml
+    └── PULL_REQUEST_TEMPLATE.md
 ```
 
 ---
 
 ## Contributing
 
-Contributions are very welcome. If you know a paper that belongs in a roadmap, a TL;DR that could be sharper, or a new field that deserves its own list — please open a PR.
+Contributions are very welcome. If you know a paper that belongs in a roadmap, a TL;DR that could be sharper, or a new field that deserves its own list, please open a PR.
 
 **To add a paper:**
 
 1. Fork the repo
-2. Add or edit roadmap entries in the `index.html` data block using the existing format.
-3. Add the paper in the correct level, following the existing format:
-   ```markdown
-   | # | Paper Title | Authors · Institution | Mon YYYY | [arXiv](link) |
-   ```
-4. If expanding the detail view, add the TL;DR, why, and takeaway fields
+2. Edit `papers.yml`
+3. Add the paper in the correct roadmap and level
+4. Fill in `tldr`, `why`, `prerequisites`, and `key_takeaway`
 5. Open a PR with the title: `[Add Paper] Field — Paper Title`
 
 **Rules:**
 - Links must point to arXiv, the author's page, or another open-access source — **never a paywall**
 - One paper per PR keeps reviews fast
 - Papers must be peer-reviewed or widely cited in the field
+- Do not edit `index.html` in paper PRs; it is generated from `papers.yml`
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
