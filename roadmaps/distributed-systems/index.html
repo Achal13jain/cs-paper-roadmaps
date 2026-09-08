@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distributed Systems Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Distributed Systems reading roadmap: 26 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/distributed-systems/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Distributed Systems Research Paper Roadmap">
+<meta property="og:description" content="Distributed Systems reading roadmap: 26 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/distributed-systems/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Distributed Systems roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Distributed Systems Research Paper Roadmap">
+<meta name="twitter:description" content="Distributed Systems reading roadmap: 26 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Distributed Systems roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Distributed Systems", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/distributed-systems/"}]}, {"@type": "ItemList", "name": "Distributed Systems paper roadmap", "description": "From Lamport clocks to globally consistent transactions — the consensus protocols, storage architectures, and coordination primitives that make the cloud actually work.", "numberOfItems": 26, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Time, Clocks, and the Ordering of Events in a Distributed System", "url": "https://lamport.azurewebsites.net/pubs/time-clocks.pdf"}, {"@type": "ListItem", "position": 2, "name": "The Byzantine Generals Problem", "url": "https://lamport.azurewebsites.net/pubs/byz.pdf"}, {"@type": "ListItem", "position": 3, "name": "End-to-End Arguments in System Design", "url": "https://web.mit.edu/Saltzer/www/publications/endtoend/endtoend.pdf"}, {"@type": "ListItem", "position": 4, "name": "Impossibility of Distributed Consensus with One Faulty Process (FLP)", "url": "https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf"}, {"@type": "ListItem", "position": 5, "name": "The Part-Time Parliament (Paxos)", "url": "https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf"}, {"@type": "ListItem", "position": 6, "name": "In Search of an Understandable Consensus Algorithm (Raft)", "url": "https://raft.github.io/raft.pdf"}, {"@type": "ListItem", "position": 7, "name": "CAP Twelve Years Later: How the \"Rules\" Have Changed", "url": "https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/"}, {"@type": "ListItem", "position": 8, "name": "A Comprehensive Study of CRDTs", "url": "https://hal.inria.fr/inria-00555588/document"}, {"@type": "ListItem", "position": 9, "name": "The Google File System", "url": "https://research.google/pubs/the-google-file-system/"}, {"@type": "ListItem", "position": 10, "name": "Bigtable: A Distributed Storage System for Structured Data", "url": "https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/"}, {"@type": "ListItem", "position": 11, "name": "Dynamo: Amazon's Highly Available Key-value Store", "url": "https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf"}, {"@type": "ListItem", "position": 12, "name": "Cassandra: A Decentralized Structured Storage System", "url": "https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf"}, {"@type": "ListItem", "position": 13, "name": "The Chubby Lock Service for Loosely-Coupled Distributed Systems", "url": "https://research.google/pubs/the-chubby-lock-service-for-loosely-coupled-distributed-systems/"}, {"@type": "ListItem", "position": 14, "name": "ZooKeeper: Wait-free Coordination for Internet-scale Systems", "url": "https://www.usenix.org/legacy/event/atc10/tech/full_papers/Hunt.pdf"}, {"@type": "ListItem", "position": 15, "name": "MapReduce: Simplified Data Processing on Large Clusters", "url": "https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/"}, {"@type": "ListItem", "position": 16, "name": "Resilient Distributed Datasets: A Fault-Tolerant Abstraction (Spark)", "url": "https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf"}, {"@type": "ListItem", "position": 17, "name": "Apache Flink: Stream and Batch Processing in a Single Engine", "url": "https://www.kth.se/social/files/57e9c8b1f276547a08a6abdb/Apache%20Flink%20Stream%20and%20Batch%20Processing%20in%20a%20Single%20Engine.pdf"}, {"@type": "ListItem", "position": 18, "name": "Mesos: A Platform for Fine-Grained Resource Sharing", "url": "https://www.usenix.org/legacy/event/nsdi11/tech/full_papers/Hindman_new.pdf"}, {"@type": "ListItem", "position": 19, "name": "Spanner: Google's Globally-Distributed Database", "url": "https://research.google/pubs/spanner-googles-globally-distributed-database/"}, {"@type": "ListItem", "position": 20, "name": "Calvin: Fast Distributed Transactions for Partitioned Database Systems", "url": "http://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf"}, {"@type": "ListItem", "position": 21, "name": "Kafka: A Distributed Messaging System for Log Processing", "url": "http://notes.stephenholiday.com/Kafka.pdf"}, {"@type": "ListItem", "position": 22, "name": "Large-scale Cluster Management at Google with Borg", "url": "https://research.google/pubs/large-scale-cluster-management-at-google-with-borg/"}, {"@type": "ListItem", "position": 23, "name": "Dapper, a Large-Scale Distributed Systems Tracing Infrastructure", "url": "https://research.google/pubs/dapper-a-large-scale-distributed-systems-tracing-infrastructure/"}, {"@type": "ListItem", "position": 24, "name": "Serverless Computing: One Step Forward, Two Steps Back", "url": "https://arxiv.org/abs/1812.03651"}, {"@type": "ListItem", "position": 25, "name": "Anna: A KVS for Any Scale", "url": "https://www.cs.berkeley.edu/~chenggangwu/papers/anna_ieee18.pdf"}, {"@type": "ListItem", "position": 26, "name": "TLA+: Specifying Systems", "url": "https://lamport.azurewebsites.net/tla/book.html"}]}]}</script>
+</head>
+<body data-roadmap="distributed-systems">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Distributed Systems</nav>
+  <h1>Distributed Systems</h1>
+  <p class="lede">From Lamport clocks to globally consistent transactions — the consensus protocols, storage architectures, and coordination primitives that make the cloud actually work.</p>
+  <div class="meta-row">
+    <span><b>26</b> papers</span>
+    <span><b>8</b> levels</span>
+    <span>Timeline <b>1978 – 2022</b></span>
+    <span>MVRP <b>4</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 26</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="26" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 4 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-1">Time, Clocks, and the Ordering of Events in a Distributed System</a></li>
+<li><a href="#paper-5">The Part-Time Parliament (Paxos)</a></li>
+<li><a href="#paper-10">Bigtable: A Distributed Storage System for Structured Data</a></li>
+<li><a href="#paper-19">Spanner: Google&#x27;s Globally-Distributed Database</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 26 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="1" data-text="time, clocks, and the ordering of events in a distributed system lamport massachusetts computer associates defines logical clocks and the happens-before relation for ordering events without synchronised time. you don&#x27;t need synchronised clocks — only a partial ordering of events.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">Time, Clocks, and the Ordering of Events in a Distributed System</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lamport · Massachusetts Computer Associates · Jul 1978</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines logical clocks and the happens-before relation for ordering events without synchronised time.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The single most-cited distributed-systems paper. Read it first; everything else assumes it.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic concurrency</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You don&#x27;t need synchronised clocks — only a partial ordering of events.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://lamport.azurewebsites.net/pubs/time-clocks.pdf" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="Time, Clocks, and the Ordering of Events in a Distributed System">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark Time, Clocks, and the Ordering of Events in a Distributed System as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="the byzantine generals problem lamport, shostak, pease sri international formalises consensus when some nodes can lie or behave arbitrarily, and proves bounds on tolerance. you can survive arbitrary failures iff fewer than one-third of nodes are faulty.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">The Byzantine Generals Problem</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lamport, Shostak, Pease · SRI International · Jul 1982</p>
+    <div class="p-field"><b>TL;DR</b><p>Formalises consensus when some nodes can lie or behave arbitrarily, and proves bounds on tolerance.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Defines the worst-case adversary model that drives blockchain and high-assurance systems.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Lamport clocks, basic algorithms</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can survive arbitrary failures iff fewer than one-third of nodes are faulty.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://lamport.azurewebsites.net/pubs/byz.pdf" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="The Byzantine Generals Problem">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark The Byzantine Generals Problem as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-3" data-mvrp="0" data-text="end-to-end arguments in system design saltzer, reed, clark mit argues that functions like reliability and security belong at endpoints, not inside the network. push correctness to the edges; let the middle stay simple.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">End-to-End Arguments in System Design</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Saltzer, Reed, Clark · MIT · Nov 1984</p>
+    <div class="p-field"><b>TL;DR</b><p>Argues that functions like reliability and security belong at endpoints, not inside the network.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A foundational systems-design principle, far beyond just distributed systems.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TCP/IP basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Push correctness to the edges; let the middle stay simple.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://web.mit.edu/Saltzer/www/publications/endtoend/endtoend.pdf" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="End-to-End Arguments in System Design">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark End-to-End Arguments in System Design as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-4" data-mvrp="0" data-text="impossibility of distributed consensus with one faulty process (flp) fischer, lynch, paterson mit proves that no deterministic asynchronous algorithm can guarantee consensus if even one process can crash. in a fully asynchronous network, you must give up either fault-tolerance or termination.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">Impossibility of Distributed Consensus with One Faulty Process (FLP)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Fischer, Lynch, Paterson · MIT · Apr 1985</p>
+    <div class="p-field"><b>TL;DR</b><p>Proves that no deterministic asynchronous algorithm can guarantee consensus if even one process can crash.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The negative result every consensus designer must know — sets the boundary for what&#x27;s possible.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed algorithms basics, asynchronous models</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>In a fully asynchronous network, you must give up either fault-tolerance or termination.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="Impossibility of Distributed Consensus with One Faulty Process (FLP)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark Impossibility of Distributed Consensus with One Faulty Process (FLP) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Consensus</span>
+    
+  </div>
+  
+<details class="paper" id="paper-5" data-mvrp="1" data-text="the part-time parliament (paxos) lamport compaq, dec a consensus protocol that tolerates crashes via majority quorums and ordered ballots. majorities of replicas can agree on a value despite asynchronous networks and crash failures.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">The Part-Time Parliament (Paxos)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lamport · Compaq, DEC · May 1998</p>
+    <div class="p-field"><b>TL;DR</b><p>A consensus protocol that tolerates crashes via majority quorums and ordered ballots.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The bedrock consensus protocol — every modern system either runs Paxos or a Paxos cousin.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>FLP, majority voting</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Majorities of replicas can agree on a value despite asynchronous networks and crash failures.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="The Part-Time Parliament (Paxos)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark The Part-Time Parliament (Paxos) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-6" data-mvrp="0" data-text="in search of an understandable consensus algorithm (raft) ongaro, ousterhout stanford a consensus protocol designed for understandability with explicit leader election and log replication. a clearer protocol with the same guarantees is itself a research contribution.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">In Search of an Understandable Consensus Algorithm (Raft)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ongaro, Ousterhout · Stanford · May 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>A consensus protocol designed for understandability with explicit leader election and log replication.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Replaced Paxos in most production systems written after 2014. Easier to read, easier to implement.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Paxos</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A clearer protocol with the same guarantees is itself a research contribution.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://raft.github.io/raft.pdf" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="In Search of an Understandable Consensus Algorithm (Raft)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark In Search of an Understandable Consensus Algorithm (Raft) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">CAP &amp; tradeoffs</span>
+    
+  </div>
+  
+<details class="paper" id="paper-7" data-mvrp="0" data-text="cap twelve years later: how the &quot;rules&quot; have changed brewer uc berkeley brewer revisits his cap conjecture and clarifies the actual tradeoffs designers face during partitions. cap is about what you do during partitions, not a forced binary choice.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">CAP Twelve Years Later: How the &quot;Rules&quot; Have Changed</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Brewer · UC Berkeley · Feb 2012</p>
+    <div class="p-field"><b>TL;DR</b><p>Brewer revisits his CAP conjecture and clarifies the actual tradeoffs designers face during partitions.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Cleaner than the original CAP conjecture; corrects common misreadings.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed systems basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>CAP is about what you do during partitions, not a forced binary choice.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="CAP Twelve Years Later: How the &quot;Rules&quot; Have Changed">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark CAP Twelve Years Later: How the &quot;Rules&quot; Have Changed as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-8" data-mvrp="0" data-text="a comprehensive study of crdts shapiro, preguiça, baquero, zawirski inria a taxonomy of conflict-free replicated data types that converge without coordination. pick data types that mathematically can&#x27;t conflict, and you can drop coordination.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">A Comprehensive Study of CRDTs</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Shapiro, Preguiça, Baquero, Zawirski · INRIA · Jan 2011</p>
+    <div class="p-field"><b>TL;DR</b><p>A taxonomy of conflict-free replicated data types that converge without coordination.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The cleanest reference on the data-type primitives behind eventually-consistent systems and collaborative editors.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed systems basics, lattice theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Pick data types that mathematically can&#x27;t conflict, and you can drop coordination.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://hal.inria.fr/inria-00555588/document" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="A Comprehensive Study of CRDTs">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark A Comprehensive Study of CRDTs as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Storage</span>
+    
+  </div>
+  
+<details class="paper" id="paper-9" data-mvrp="0" data-text="the google file system ghemawat, gobioff, leung google a petabyte-scale distributed file system optimised for large appends and commodity hardware failures. design for failure as the common case, not the exception.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">The Google File System</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ghemawat, Gobioff, Leung · Google · Oct 2003</p>
+    <div class="p-field"><b>TL;DR</b><p>A petabyte-scale distributed file system optimised for large appends and commodity hardware failures.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual ancestor of HDFS and the storage layer of an entire generation of big-data stacks.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>File system basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Design for failure as the common case, not the exception.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/the-google-file-system/" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="The Google File System">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark The Google File System as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-10" data-mvrp="1" data-text="bigtable: a distributed storage system for structured data chang et al. google a sparse, distributed, persistent multi-dimensional sorted map built on gfs and chubby. sorted-string tables and a log-structured merge engine scale to petabytes.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Bigtable: A Distributed Storage System for Structured Data</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Chang et al. · Google · Nov 2006</p>
+    <div class="p-field"><b>TL;DR</b><p>A sparse, distributed, persistent multi-dimensional sorted map built on GFS and Chubby.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual ancestor of HBase, Cassandra, and most modern wide-column NoSQL stores.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GFS, LSM-trees</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sorted-string tables and a log-structured merge engine scale to petabytes.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Bigtable: A Distributed Storage System for Structured Data">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Bigtable: A Distributed Storage System for Structured Data as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="dynamo: amazon&#x27;s highly available key-value store decandia et al. amazon a masterless, eventually-consistent kv store using consistent hashing, vector clocks, and quorums. tuneable consistency on writes and reads is a more useful knob than a single consistency level.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">Dynamo: Amazon&#x27;s Highly Available Key-value Store</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">DeCandia et al. · Amazon · Oct 2007</p>
+    <div class="p-field"><b>TL;DR</b><p>A masterless, eventually-consistent KV store using consistent hashing, vector clocks, and quorums.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual root of Cassandra, Riak, and the AP-side of NoSQL.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Consistent hashing, vector clocks</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Tuneable consistency on writes and reads is a more useful knob than a single consistency level.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="Dynamo: Amazon&#x27;s Highly Available Key-value Store">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark Dynamo: Amazon&#x27;s Highly Available Key-value Store as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-12" data-mvrp="0" data-text="cassandra: a decentralized structured storage system lakshman, malik facebook a wide-column store mixing bigtable&#x27;s data model with dynamo&#x27;s eventually-consistent ring. you can fuse two seemingly opposing designs if you pick the right pieces of each.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Cassandra: A Decentralized Structured Storage System</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lakshman, Malik · Facebook · Apr 2010</p>
+    <div class="p-field"><b>TL;DR</b><p>A wide-column store mixing Bigtable&#x27;s data model with Dynamo&#x27;s eventually-consistent ring.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The pragmatic distillation of two papers everyone reads — Bigtable plus Dynamo.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Bigtable, Dynamo</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can fuse two seemingly opposing designs if you pick the right pieces of each.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Cassandra: A Decentralized Structured Storage System">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Cassandra: A Decentralized Structured Storage System as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Coordination</span>
+    
+  </div>
+  
+<details class="paper" id="paper-13" data-mvrp="0" data-text="the chubby lock service for loosely-coupled distributed systems burrows google a coarse-grained distributed lock service implemented over paxos for google&#x27;s coordination needs. a reliable lock service is itself a foundational distributed primitive.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">The Chubby Lock Service for Loosely-Coupled Distributed Systems</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Burrows · Google · Nov 2006</p>
+    <div class="p-field"><b>TL;DR</b><p>A coarse-grained distributed lock service implemented over Paxos for Google&#x27;s coordination needs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Codifies what a coordination primitive should look like — read this before ZooKeeper.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Paxos</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A reliable lock service is itself a foundational distributed primitive.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/the-chubby-lock-service-for-loosely-coupled-distributed-systems/" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="The Chubby Lock Service for Loosely-Coupled Distributed Systems">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark The Chubby Lock Service for Loosely-Coupled Distributed Systems as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="0" data-text="zookeeper: wait-free coordination for internet-scale systems hunt, konar, junqueira, reed yahoo! a high-throughput coordination service exposing a hierarchical filesystem-like api over a replicated log. expose coordination through familiar primitives (files, watches) and people will actually use it.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">ZooKeeper: Wait-free Coordination for Internet-scale Systems</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hunt, Konar, Junqueira, Reed · Yahoo! · Jun 2010</p>
+    <div class="p-field"><b>TL;DR</b><p>A high-throughput coordination service exposing a hierarchical filesystem-like API over a replicated log.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most-deployed coordination service of the last decade; understanding it sharpens your distributed-systems intuition.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Chubby, Paxos</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Expose coordination through familiar primitives (files, watches) and people will actually use it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.usenix.org/legacy/event/atc10/tech/full_papers/Hunt.pdf" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="ZooKeeper: Wait-free Coordination for Internet-scale Systems">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark ZooKeeper: Wait-free Coordination for Internet-scale Systems as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Computation</span>
+    
+  </div>
+  
+<details class="paper" id="paper-15" data-mvrp="0" data-text="mapreduce: simplified data processing on large clusters dean, ghemawat google a two-stage programming model with automatic parallelisation, fault tolerance, and data locality. reduce a complex distributed problem to two simple functions, and the framework handles the rest.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">MapReduce: Simplified Data Processing on Large Clusters</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dean, Ghemawat · Google · Dec 2004</p>
+    <div class="p-field"><b>TL;DR</b><p>A two-stage programming model with automatic parallelisation, fault tolerance, and data locality.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that defined &quot;big data&quot; and seeded Hadoop, Spark, and the modern analytics stack.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Functional programming basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Reduce a complex distributed problem to two simple functions, and the framework handles the rest.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="MapReduce: Simplified Data Processing on Large Clusters">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark MapReduce: Simplified Data Processing on Large Clusters as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="0" data-text="resilient distributed datasets: a fault-tolerant abstraction (spark) zaharia et al. uc berkeley an in-memory abstraction that recomputes lost partitions from lineage rather than checkpointing. logging deterministic transformations is enough to reconstruct lost state.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Resilient Distributed Datasets: A Fault-Tolerant Abstraction (Spark)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Zaharia et al. · UC Berkeley · Apr 2012</p>
+    <div class="p-field"><b>TL;DR</b><p>An in-memory abstraction that recomputes lost partitions from lineage rather than checkpointing.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that displaced MapReduce; required reading for anyone touching analytics infrastructure.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>MapReduce, functional programming</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Logging deterministic transformations is enough to reconstruct lost state.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Resilient Distributed Datasets: A Fault-Tolerant Abstraction (Spark)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Resilient Distributed Datasets: A Fault-Tolerant Abstraction (Spark) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="apache flink: stream and batch processing in a single engine carbone et al. tu berlin, data artisans a unified runtime for streaming and batch via consistent checkpointing and asynchronous barrier snapshots. batch is just a special case of streaming with bounded data.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">Apache Flink: Stream and Batch Processing in a Single Engine</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Carbone et al. · TU Berlin, data Artisans · Apr 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>A unified runtime for streaming and batch via consistent checkpointing and asynchronous barrier snapshots.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Best modern reference on what stream processing actually requires.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Spark, basic stream processing</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Batch is just a special case of streaming with bounded data.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.kth.se/social/files/57e9c8b1f276547a08a6abdb/Apache%20Flink%20Stream%20and%20Batch%20Processing%20in%20a%20Single%20Engine.pdf" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="Apache Flink: Stream and Batch Processing in a Single Engine">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark Apache Flink: Stream and Batch Processing in a Single Engine as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-18" data-mvrp="0" data-text="mesos: a platform for fine-grained resource sharing hindman et al. uc berkeley a two-level scheduler that offers resources to higher-level frameworks rather than scheduling tasks itself. push policy decisions up to the framework; keep the cluster manager mechanism-only.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">Mesos: A Platform for Fine-Grained Resource Sharing</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hindman et al. · UC Berkeley · Mar 2011</p>
+    <div class="p-field"><b>TL;DR</b><p>A two-level scheduler that offers resources to higher-level frameworks rather than scheduling tasks itself.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual ancestor of Kubernetes; clarifies the design space of cluster schedulers.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed systems basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Push policy decisions up to the framework; keep the cluster manager mechanism-only.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.usenix.org/legacy/event/nsdi11/tech/full_papers/Hindman_new.pdf" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="Mesos: A Platform for Fine-Grained Resource Sharing">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark Mesos: A Platform for Fine-Grained Resource Sharing as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">Globally consistent</span>
+    
+  </div>
+  
+<details class="paper" id="paper-19" data-mvrp="1" data-text="spanner: google&#x27;s globally-distributed database corbett et al. google a globally-distributed sql database providing externally-consistent transactions via truetime. tight clock bounds, plus a wait, give you serialisable distributed transactions.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">Spanner: Google&#x27;s Globally-Distributed Database</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Corbett et al. · Google · Oct 2012</p>
+    <div class="p-field"><b>TL;DR</b><p>A globally-distributed SQL database providing externally-consistent transactions via TrueTime.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first system to make globally-consistent transactions practical — a watershed in DB design.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Bigtable, Paxos, clock synchronisation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Tight clock bounds, plus a wait, give you serialisable distributed transactions.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/spanner-googles-globally-distributed-database/" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="Spanner: Google&#x27;s Globally-Distributed Database">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark Spanner: Google&#x27;s Globally-Distributed Database as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="calvin: fast distributed transactions for partitioned database systems thomson et al. yale a deterministic database that orders all transactions globally before executing them in parallel. if you agree on the order of transactions first, you can run them without coordinating during execution.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">Calvin: Fast Distributed Transactions for Partitioned Database Systems</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Thomson et al. · Yale · Jun 2012</p>
+    <div class="p-field"><b>TL;DR</b><p>A deterministic database that orders all transactions globally before executing them in parallel.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A fundamentally different approach to transactions than 2PC — worth reading for the contrast.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Spanner, 2PC</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>If you agree on the order of transactions first, you can run them without coordinating during execution.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="Calvin: Fast Distributed Transactions for Partitioned Database Systems">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark Calvin: Fast Distributed Transactions for Partitioned Database Systems as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-7">
+  <div class="level-head">
+    <span class="level-badge">Level 7</span>
+    <span class="level-name">Production systems</span>
+    
+  </div>
+  
+<details class="paper" id="paper-21" data-mvrp="0" data-text="kafka: a distributed messaging system for log processing kreps, narkhede, rao linkedin a distributed, partitioned, replicated commit log designed as the central nervous system of an org&#x27;s data. a simple, durable, ordered append-only log is the right primitive for moving data around.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">Kafka: A Distributed Messaging System for Log Processing</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kreps, Narkhede, Rao · LinkedIn · Jun 2011</p>
+    <div class="p-field"><b>TL;DR</b><p>A distributed, partitioned, replicated commit log designed as the central nervous system of an org&#x27;s data.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that re-popularised the log as a foundational data abstraction.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed systems basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A simple, durable, ordered append-only log is the right primitive for moving data around.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://notes.stephenholiday.com/Kafka.pdf" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="Kafka: A Distributed Messaging System for Log Processing">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark Kafka: A Distributed Messaging System for Log Processing as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-22" data-mvrp="0" data-text="large-scale cluster management at google with borg verma et al. google a decade of lessons from running google&#x27;s internal cluster manager — the predecessor to kubernetes. most of the work in cluster management is operational, not algorithmic.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">Large-scale Cluster Management at Google with Borg</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Verma et al. · Google · Apr 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>A decade of lessons from running Google&#x27;s internal cluster manager — the predecessor to Kubernetes.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most candid production-systems paper of the 2010s; required reading before designing any scheduler.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Mesos</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most of the work in cluster management is operational, not algorithmic.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/large-scale-cluster-management-at-google-with-borg/" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="Large-scale Cluster Management at Google with Borg">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark Large-scale Cluster Management at Google with Borg as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-23" data-mvrp="0" data-text="dapper, a large-scale distributed systems tracing infrastructure sigelman et al. google a low-overhead, always-on tracing system that propagates span identifiers across rpc boundaries. sample your traces, propagate context, and you can debug anything.">
+  <summary>
+    <span class="p-num">23</span>
+    <span class="p-title">Dapper, a Large-Scale Distributed Systems Tracing Infrastructure</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Sigelman et al. · Google · Apr 2010</p>
+    <div class="p-field"><b>TL;DR</b><p>A low-overhead, always-on tracing system that propagates span identifiers across RPC boundaries.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Sets the design template for OpenTelemetry, Jaeger, and every modern tracing system.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>RPC basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sample your traces, propagate context, and you can debug anything.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/dapper-a-large-scale-distributed-systems-tracing-infrastructure/" target="_blank" rel="noopener"
+        data-paper-id="23" data-paper-title="Dapper, a Large-Scale Distributed Systems Tracing Infrastructure">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="23"
+          aria-label="Mark Dapper, a Large-Scale Distributed Systems Tracing Infrastructure as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-24" data-mvrp="0" data-text="serverless computing: one step forward, two steps back hellerstein et al. uc berkeley a measured critique of faas that catalogues what serverless gets right and where it falls short. stateless functions are easy; the hard problems are state, coordination, and shared memory.">
+  <summary>
+    <span class="p-num">24</span>
+    <span class="p-title">Serverless Computing: One Step Forward, Two Steps Back</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hellerstein et al. · UC Berkeley · Dec 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A measured critique of FaaS that catalogues what serverless gets right and where it falls short.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A useful counterweight to vendor hype; sharpens your sense of what cloud abstractions should do.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed systems basics, cloud architecture</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Stateless functions are easy; the hard problems are state, coordination, and shared memory.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1812.03651" target="_blank" rel="noopener"
+        data-paper-id="24" data-paper-title="Serverless Computing: One Step Forward, Two Steps Back">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="24"
+          aria-label="Mark Serverless Computing: One Step Forward, Two Steps Back as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-25" data-mvrp="0" data-text="anna: a kvs for any scale wu, faleiro, lin, hellerstein uc berkeley a coordination-free, multi-master kv store that scales linearly across cores, machines, and regions. lattice-based replication can give you both speed and consistency knobs.">
+  <summary>
+    <span class="p-num">25</span>
+    <span class="p-title">Anna: A KVS for Any Scale</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wu, Faleiro, Lin, Hellerstein · UC Berkeley · Apr 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A coordination-free, multi-master KV store that scales linearly across cores, machines, and regions.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean modern read on what coordination-free design buys you and where it bites.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Dynamo, CRDTs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Lattice-based replication can give you both speed and consistency knobs.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.berkeley.edu/~chenggangwu/papers/anna_ieee18.pdf" target="_blank" rel="noopener"
+        data-paper-id="25" data-paper-title="Anna: A KVS for Any Scale">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="25"
+          aria-label="Mark Anna: A KVS for Any Scale as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-26" data-mvrp="0" data-text="tla+: specifying systems lamport microsoft research a specification language and model checker for concurrent and distributed algorithms, with worked examples. specifying a system precisely catches bugs no test ever will.">
+  <summary>
+    <span class="p-num">26</span>
+    <span class="p-title">TLA+: Specifying Systems</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lamport · Microsoft Research · Jun 2002</p>
+    <div class="p-field"><b>TL;DR</b><p>A specification language and model checker for concurrent and distributed algorithms, with worked examples.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Less a paper than a discipline — distributed bugs become tractable when you can specify them.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Discrete math, first-order logic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Specifying a system precisely catches bugs no test ever will.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://lamport.azurewebsites.net/tla/book.html" target="_blank" rel="noopener"
+        data-paper-id="26" data-paper-title="TLA+: Specifying Systems">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="26"
+          aria-label="Mark TLA+: Specifying Systems as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../reinforcement-learning/"><span class="dir">← Previous roadmap</span>Reinforcement Learning</a>
+    <a href="../graph-neural-networks/"><span class="dir">Next roadmap →</span>Graph Neural Networks</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programming Languages Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Programming Languages reading roadmap: 20 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/programming-languages/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Programming Languages Research Paper Roadmap">
+<meta property="og:description" content="Programming Languages reading roadmap: 20 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/programming-languages/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Programming Languages roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Programming Languages Research Paper Roadmap">
+<meta name="twitter:description" content="Programming Languages reading roadmap: 20 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Programming Languages roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Programming Languages", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/programming-languages/"}]}, {"@type": "ItemList", "name": "Programming Languages paper roadmap", "description": "From Turing's computable numbers to verified compilers and dependent types — the type theories, semantics, and verification techniques that decide what counts as a correct program.", "numberOfItems": 20, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "On Computable Numbers, with an Application to the Entscheidungsproblem", "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf"}, {"@type": "ListItem", "position": 2, "name": "An Unsolvable Problem of Elementary Number Theory (Lambda Calculus)", "url": "https://www.jstor.org/stable/2371045"}, {"@type": "ListItem", "position": 3, "name": "Recursive Functions of Symbolic Expressions and Their Computation by Machine (LISP)", "url": "http://www-formal.stanford.edu/jmc/recursive.pdf"}, {"@type": "ListItem", "position": 4, "name": "An Axiomatic Basis for Computer Programming (Hoare Logic)", "url": "https://www.cs.cmu.edu/~crary/819-f09/Hoare69.pdf"}, {"@type": "ListItem", "position": 5, "name": "Communicating Sequential Processes", "url": "https://www.cs.cmu.edu/~crary/819-f09/Hoare78.pdf"}, {"@type": "ListItem", "position": 6, "name": "Towards a Theory of Type Structure", "url": "https://www.cs.cmu.edu/~jcr/typestructure.pdf"}, {"@type": "ListItem", "position": 7, "name": "A Theory of Type Polymorphism in Programming", "url": "https://www.research.ed.ac.uk/files/15143545/A_Theory_of_Type_Polymorphism_in_Programming.pdf"}, {"@type": "ListItem", "position": 8, "name": "Principal Type-Schemes for Functional Programs (Damas–Milner)", "url": "https://web.cs.wpi.edu/~cs4536/c12/milner-damas_principal_types.pdf"}, {"@type": "ListItem", "position": 9, "name": "A Syntactic Approach to Type Soundness", "url": "https://www.cs.cmu.edu/~rwh/courses/refinements/papers/WrightFelleisen94/wf.pdf"}, {"@type": "ListItem", "position": 10, "name": "Monads for Functional Programming", "url": "https://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf"}, {"@type": "ListItem", "position": 11, "name": "Definitional Interpreters for Higher-Order Programming Languages", "url": "https://www.cs.tufts.edu/~nr/cs257/archive/john-reynolds/definterp.pdf"}, {"@type": "ListItem", "position": 12, "name": "Region-Based Memory Management", "url": "https://www.irisa.fr/prive/talpin/papers/ic97.pdf"}, {"@type": "ListItem", "position": 13, "name": "RustBelt: Securing the Foundations of the Rust Programming Language", "url": "https://plv.mpi-sws.org/rustbelt/popl18/paper.pdf"}, {"@type": "ListItem", "position": 14, "name": "Efficiently Computing Static Single Assignment Form (SSA)", "url": "https://c9x.me/compile/bib/ssa.pdf"}, {"@type": "ListItem", "position": 15, "name": "LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation", "url": "https://llvm.org/pubs/2004-01-30-CGO-LLVM.pdf"}, {"@type": "ListItem", "position": 16, "name": "A Catalogue of Optimizing Transformations", "url": "https://www.cse.psu.edu/~gxt29/historical/AllenCockeCatalogue.pdf"}, {"@type": "ListItem", "position": 17, "name": "Liquid Types", "url": "https://goto.ucsd.edu/~rjhala/papers/liquid_types.pdf"}, {"@type": "ListItem", "position": 18, "name": "CompCert: A Formally Verified Optimizing Compiler", "url": "https://xavierleroy.org/publi/compcert-CACM.pdf"}, {"@type": "ListItem", "position": 19, "name": "The Coq Proof Assistant: Reference Manual / Calculus of Inductive Constructions", "url": "https://coq.inria.fr/refman/"}, {"@type": "ListItem", "position": 20, "name": "The Lean Theorem Prover (System Description)", "url": "https://leanprover.github.io/papers/system.pdf"}]}]}</script>
+</head>
+<body data-roadmap="programming-languages">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Programming Languages</nav>
+  <h1>Programming Languages</h1>
+  <p class="lede">From Turing&#x27;s computable numbers to verified compilers and dependent types — the type theories, semantics, and verification techniques that decide what counts as a correct program.</p>
+  <div class="meta-row">
+    <span><b>20</b> papers</span>
+    <span><b>7</b> levels</span>
+    <span>Timeline <b>1936 – 2023</b></span>
+    <span>MVRP <b>7</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 20</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="20" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 7 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-1">On Computable Numbers, with an Application to the Entscheidungsproblem</a></li>
+<li><a href="#paper-4">An Axiomatic Basis for Computer Programming (Hoare Logic)</a></li>
+<li><a href="#paper-7">A Theory of Type Polymorphism in Programming</a></li>
+<li><a href="#paper-10">Monads for Functional Programming</a></li>
+<li><a href="#paper-13">RustBelt: Securing the Foundations of the Rust Programming Language</a></li>
+<li><a href="#paper-15">LLVM: A Compilation Framework for Lifelong Program Analysis &amp; Transformation</a></li>
+<li><a href="#paper-18">CompCert: A Formally Verified Optimizing Compiler</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 20 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations of computation</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="1" data-text="on computable numbers, with an application to the entscheidungsproblem turing cambridge defines a universal computing machine and proves the undecidability of the halting problem. computation has a universal model — and inherent limits no clever programming can escape.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">On Computable Numbers, with an Application to the Entscheidungsproblem</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Turing · Cambridge · Nov 1936</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines a universal computing machine and proves the undecidability of the halting problem.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The founding document of computer science. Read it once carefully; everything else is footnotes.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic logic, mathematical maturity</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Computation has a universal model — and inherent limits no clever programming can escape.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="On Computable Numbers, with an Application to the Entscheidungsproblem">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark On Computable Numbers, with an Application to the Entscheidungsproblem as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="an unsolvable problem of elementary number theory (lambda calculus) church princeton introduces the λ-calculus — function abstraction, application, and reduction — as a model of computation. functions and substitution are enough to express any computation.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">An Unsolvable Problem of Elementary Number Theory (Lambda Calculus)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Church · Princeton · Apr 1936</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces the λ-calculus — function abstraction, application, and reduction — as a model of computation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual ancestor of every functional language; required to read modern type-theory papers.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic logic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Functions and substitution are enough to express any computation.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.jstor.org/stable/2371045" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="An Unsolvable Problem of Elementary Number Theory (Lambda Calculus)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark An Unsolvable Problem of Elementary Number Theory (Lambda Calculus) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Languages &amp; semantics</span>
+    
+  </div>
+  
+<details class="paper" id="paper-3" data-mvrp="0" data-text="recursive functions of symbolic expressions and their computation by machine (lisp) mccarthy mit introduces lisp, with eval, apply, and the s-expression as both code and data. a small set of primitives is enough to bootstrap an entire language.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">Recursive Functions of Symbolic Expressions and Their Computation by Machine (LISP)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">McCarthy · MIT · Apr 1960</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces LISP, with eval, apply, and the s-expression as both code and data.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A foundational language paper; the conceptual seed of every later language with first-class functions.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Lambda calculus, basic recursion</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A small set of primitives is enough to bootstrap an entire language.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://www-formal.stanford.edu/jmc/recursive.pdf" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="Recursive Functions of Symbolic Expressions and Their Computation by Machine (LISP)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark Recursive Functions of Symbolic Expressions and Their Computation by Machine (LISP) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-4" data-mvrp="1" data-text="an axiomatic basis for computer programming (hoare logic) hoare queen&#x27;s u belfast introduces a formal logic for reasoning about program correctness with pre- and postconditions. you can specify what a program does separately from how it does it, and prove they match.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">An Axiomatic Basis for Computer Programming (Hoare Logic)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hoare · Queen&#x27;s U Belfast · Oct 1969</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces a formal logic for reasoning about program correctness with pre- and postconditions.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The foundation of program verification; you can&#x27;t read modern verification papers without this.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>First-order logic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can specify what a program does separately from how it does it, and prove they match.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.cmu.edu/~crary/819-f09/Hoare69.pdf" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="An Axiomatic Basis for Computer Programming (Hoare Logic)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark An Axiomatic Basis for Computer Programming (Hoare Logic) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-5" data-mvrp="0" data-text="communicating sequential processes hoare oxford models concurrency as communication between independent processes via synchronous channels. concurrency is communication, not shared memory.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Communicating Sequential Processes</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hoare · Oxford · Aug 1978</p>
+    <div class="p-field"><b>TL;DR</b><p>Models concurrency as communication between independent processes via synchronous channels.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The intellectual ancestor of Go&#x27;s channels and Erlang&#x27;s actor model.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic concurrency, first-order logic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Concurrency is communication, not shared memory.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.cmu.edu/~crary/819-f09/Hoare78.pdf" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Communicating Sequential Processes">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Communicating Sequential Processes as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Type theory</span>
+    
+  </div>
+  
+<details class="paper" id="paper-6" data-mvrp="0" data-text="towards a theory of type structure reynolds argonne introduces system f (parametric polymorphism) and the underlying theory of polymorphic types. polymorphism can be a precise type-theoretic concept, not just a programming convenience.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">Towards a Theory of Type Structure</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Reynolds · Argonne · Mar 1974</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces System F (parametric polymorphism) and the underlying theory of polymorphic types.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The theoretical foundation under generics in every modern typed language.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Lambda calculus, basic type systems</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Polymorphism can be a precise type-theoretic concept, not just a programming convenience.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.cmu.edu/~jcr/typestructure.pdf" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="Towards a Theory of Type Structure">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark Towards a Theory of Type Structure as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="1" data-text="a theory of type polymorphism in programming milner edinburgh proves type-correctness for polymorphic functional programs and introduces type inference. polymorphism plus type inference is decidable and practical.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">A Theory of Type Polymorphism in Programming</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Milner · Edinburgh · Aug 1978</p>
+    <div class="p-field"><b>TL;DR</b><p>Proves type-correctness for polymorphic functional programs and introduces type inference.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that gave us ML and the entire Hindley–Milner family of inferred type systems.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>System F, unification</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Polymorphism plus type inference is decidable and practical.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.research.ed.ac.uk/files/15143545/A_Theory_of_Type_Polymorphism_in_Programming.pdf" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="A Theory of Type Polymorphism in Programming">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark A Theory of Type Polymorphism in Programming as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-8" data-mvrp="0" data-text="principal type-schemes for functional programs (damas–milner) damas, milner edinburgh algorithm w — the type inference algorithm under every ml, haskell, and scala compiler. type inference is a constraint-solving problem with a clean algorithmic solution.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">Principal Type-Schemes for Functional Programs (Damas–Milner)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Damas, Milner · Edinburgh · Jan 1982</p>
+    <div class="p-field"><b>TL;DR</b><p>Algorithm W — the type inference algorithm under every ML, Haskell, and Scala compiler.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The algorithmic backbone of every Hindley–Milner type system in production today.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Milner type polymorphism, unification</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Type inference is a constraint-solving problem with a clean algorithmic solution.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://web.cs.wpi.edu/~cs4536/c12/milner-damas_principal_types.pdf" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="Principal Type-Schemes for Functional Programs (Damas–Milner)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark Principal Type-Schemes for Functional Programs (Damas–Milner) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-9" data-mvrp="0" data-text="a syntactic approach to type soundness wright, felleisen rice u a clean technique for proving type soundness via progress and preservation lemmas. type soundness is two lemmas: well-typed programs don&#x27;t get stuck and types are preserved.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">A Syntactic Approach to Type Soundness</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wright, Felleisen · Rice U · Apr 1994</p>
+    <div class="p-field"><b>TL;DR</b><p>A clean technique for proving type soundness via progress and preservation lemmas.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The default proof structure for type soundness in modern PL papers; conceptually essential.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Operational semantics, basic type theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Type soundness is two lemmas: well-typed programs don&#x27;t get stuck and types are preserved.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.cmu.edu/~rwh/courses/refinements/papers/WrightFelleisen94/wf.pdf" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="A Syntactic Approach to Type Soundness">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark A Syntactic Approach to Type Soundness as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Abstraction &amp; effects</span>
+    
+  </div>
+  
+<details class="paper" id="paper-10" data-mvrp="1" data-text="monads for functional programming wadler u glasgow shows how the category-theoretic notion of monad gives a clean handle on side effects in pure languages. side effects can be threaded through pure code as values of a parameterised type.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Monads for Functional Programming</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wadler · U Glasgow · May 1992</p>
+    <div class="p-field"><b>TL;DR</b><p>Shows how the category-theoretic notion of monad gives a clean handle on side effects in pure languages.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual unlock for I/O, state, and exceptions in pure functional languages.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Lambda calculus, basic Haskell helpful</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Side effects can be threaded through pure code as values of a parameterised type.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://homepages.inf.ed.ac.uk/wadler/papers/marktoberdorf/baastad.pdf" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Monads for Functional Programming">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Monads for Functional Programming as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="definitional interpreters for higher-order programming languages reynolds argonne introduces continuation-passing style and definitional interpreters as semantic specifications. you can specify a language&#x27;s meaning by writing an interpreter for it in another language.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">Definitional Interpreters for Higher-Order Programming Languages</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Reynolds · Argonne · Aug 1972</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces continuation-passing style and definitional interpreters as semantic specifications.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A foundational paper for understanding programming-language semantics and continuations.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Lambda calculus, basic interpreters</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can specify a language&#x27;s meaning by writing an interpreter for it in another language.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.tufts.edu/~nr/cs257/archive/john-reynolds/definterp.pdf" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="Definitional Interpreters for Higher-Order Programming Languages">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark Definitional Interpreters for Higher-Order Programming Languages as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Memory &amp; resources</span>
+    
+  </div>
+  
+<details class="paper" id="paper-12" data-mvrp="0" data-text="region-based memory management tofte, talpin copenhagen, inria a static analysis that infers stack-like region annotations to manage memory without gc. compile-time region annotations can replace runtime garbage collection in a typed setting.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Region-Based Memory Management</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Tofte, Talpin · Copenhagen, INRIA · Feb 1997</p>
+    <div class="p-field"><b>TL;DR</b><p>A static analysis that infers stack-like region annotations to manage memory without GC.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A conceptual ancestor of Rust&#x27;s lifetimes and a beautiful application of type inference to memory.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Type theory, lambda calculus</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Compile-time region annotations can replace runtime garbage collection in a typed setting.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.irisa.fr/prive/talpin/papers/ic97.pdf" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Region-Based Memory Management">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Region-Based Memory Management as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-13" data-mvrp="1" data-text="rustbelt: securing the foundations of the rust programming language jung, jourdan, krebbers, dreyer mpi-sws a formal iris-based proof of soundness for a substantial subset of rust&#x27;s type system. even unsafe code can be encapsulated soundly inside a strongly-typed language.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">RustBelt: Securing the Foundations of the Rust Programming Language</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Jung, Jourdan, Krebbers, Dreyer · MPI-SWS · Jan 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A formal Iris-based proof of soundness for a substantial subset of Rust&#x27;s type system.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The right reference for understanding why Rust&#x27;s ownership system is actually sound.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Region-based memory management, separation logic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Even unsafe code can be encapsulated soundly inside a strongly-typed language.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://plv.mpi-sws.org/rustbelt/popl18/paper.pdf" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="RustBelt: Securing the Foundations of the Rust Programming Language">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark RustBelt: Securing the Foundations of the Rust Programming Language as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Compilers</span>
+    
+  </div>
+  
+<details class="paper" id="paper-14" data-mvrp="0" data-text="efficiently computing static single assignment form (ssa) cytron et al. ibm research an efficient algorithm for converting programs to ssa form using dominance frontiers. a canonical ir where every variable is assigned once unlocks dataflow analysis at scale.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">Efficiently Computing Static Single Assignment Form (SSA)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Cytron et al. · IBM Research · Oct 1991</p>
+    <div class="p-field"><b>TL;DR</b><p>An efficient algorithm for converting programs to SSA form using dominance frontiers.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The single most important compiler IR transformation; under every modern optimiser.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Compilers, control-flow graphs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A canonical IR where every variable is assigned once unlocks dataflow analysis at scale.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://c9x.me/compile/bib/ssa.pdf" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="Efficiently Computing Static Single Assignment Form (SSA)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark Efficiently Computing Static Single Assignment Form (SSA) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-15" data-mvrp="1" data-text="llvm: a compilation framework for lifelong program analysis &amp; transformation lattner, adve u illinois a compiler infrastructure designed for lifetime analysis and transformation, with a typed ssa ir. a clean, typed, modular ir is the right substrate for an entire family of language tools.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">LLVM: A Compilation Framework for Lifelong Program Analysis &amp; Transformation</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lattner, Adve · U Illinois · Mar 2004</p>
+    <div class="p-field"><b>TL;DR</b><p>A compiler infrastructure designed for lifetime analysis and transformation, with a typed SSA IR.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The infrastructure under Clang, Rust, Swift, Julia, and most modern compilers.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>SSA, basic compilers</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A clean, typed, modular IR is the right substrate for an entire family of language tools.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://llvm.org/pubs/2004-01-30-CGO-LLVM.pdf" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="LLVM: A Compilation Framework for Lifelong Program Analysis &amp; Transformation">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark LLVM: A Compilation Framework for Lifelong Program Analysis &amp; Transformation as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="0" data-text="a catalogue of optimizing transformations allen, cocke ibm the original catalogue of compiler optimisations: constant folding, cse, dead code, code motion. most &quot;modern&quot; compiler optimisations were already named and described in 1972.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">A Catalogue of Optimizing Transformations</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Allen, Cocke · IBM · Jan 1972</p>
+    <div class="p-field"><b>TL;DR</b><p>The original catalogue of compiler optimisations: constant folding, CSE, dead code, code motion.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Older than most readers, but the optimisation taxonomy is essentially unchanged.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic compilers</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most &quot;modern&quot; compiler optimisations were already named and described in 1972.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cse.psu.edu/~gxt29/historical/AllenCockeCatalogue.pdf" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="A Catalogue of Optimizing Transformations">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark A Catalogue of Optimizing Transformations as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">Verification</span>
+    
+  </div>
+  
+<details class="paper" id="paper-17" data-mvrp="0" data-text="liquid types rondon, kawaguchi, jhala uc san diego refinement types with logical predicates inferred via abstract interpretation. predicate-rich types can be inferred automatically — and that changes who can use them.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">Liquid Types</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Rondon, Kawaguchi, Jhala · UC San Diego · Jun 2008</p>
+    <div class="p-field"><b>TL;DR</b><p>Refinement types with logical predicates inferred via abstract interpretation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A practical sweet spot between full dependent types and plain Hindley–Milner.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Type inference, basic logic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Predicate-rich types can be inferred automatically — and that changes who can use them.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://goto.ucsd.edu/~rjhala/papers/liquid_types.pdf" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="Liquid Types">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark Liquid Types as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-18" data-mvrp="1" data-text="compcert: a formally verified optimizing compiler leroy inria a c compiler whose every optimisation is formally proved correct in coq. a real, optimising compiler can be proven correct from end to end.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">CompCert: A Formally Verified Optimizing Compiler</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Leroy · INRIA · Apr 2009</p>
+    <div class="p-field"><b>TL;DR</b><p>A C compiler whose every optimisation is formally proved correct in Coq.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A landmark in formal verification; proves you can verify a real-world piece of software.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Coq, semantics, compilers</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A real, optimising compiler can be proven correct from end to end.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://xavierleroy.org/publi/compcert-CACM.pdf" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="CompCert: A Formally Verified Optimizing Compiler">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark CompCert: A Formally Verified Optimizing Compiler as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-19" data-mvrp="0" data-text="the coq proof assistant: reference manual / calculus of inductive constructions coquand, huet, et al. inria the dependently-typed calculus and proof assistant that has formalised much of modern mathematics. a dependently-typed language can serve simultaneously as a logic and a programming language.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">The Coq Proof Assistant: Reference Manual / Calculus of Inductive Constructions</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Coquand, Huet, et al. · INRIA · Jan 1986</p>
+    <div class="p-field"><b>TL;DR</b><p>The dependently-typed calculus and proof assistant that has formalised much of modern mathematics.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most influential proof assistant of the last 30 years; the verification toolkit of choice.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Lambda calculus, type theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A dependently-typed language can serve simultaneously as a logic and a programming language.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://coq.inria.fr/refman/" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="The Coq Proof Assistant: Reference Manual / Calculus of Inductive Constructions">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark The Coq Proof Assistant: Reference Manual / Calculus of Inductive Constructions as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="the lean theorem prover (system description) de moura, kong, avigad, van doorn, von raumer microsoft research a modern dependently-typed proof assistant with a clean elaboration framework and serious automation. a well-designed elaborator and tactic framework can make formal mathematics genuinely productive.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">The Lean Theorem Prover (System Description)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">de Moura, Kong, Avigad, van Doorn, von Raumer · Microsoft Research · Jul 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>A modern dependently-typed proof assistant with a clean elaboration framework and serious automation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The proof assistant of the future-decade; behind the formalisation of large mathematical results.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Coq, type theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A well-designed elaborator and tactic framework can make formal mathematics genuinely productive.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://leanprover.github.io/papers/system.pdf" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="The Lean Theorem Prover (System Description)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark The Lean Theorem Prover (System Description) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../computational-biology/"><span class="dir">← Previous roadmap</span>Computational Biology</a>
+    <a href="../ml-systems/"><span class="dir">Next roadmap →</span>Machine Learning Systems</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reinforcement Learning Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Reinforcement Learning reading roadmap: 27 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/reinforcement-learning/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Reinforcement Learning Research Paper Roadmap">
+<meta property="og:description" content="Reinforcement Learning reading roadmap: 27 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/reinforcement-learning/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Reinforcement Learning roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reinforcement Learning Research Paper Roadmap">
+<meta name="twitter:description" content="Reinforcement Learning reading roadmap: 27 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Reinforcement Learning roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Reinforcement Learning", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/reinforcement-learning/"}]}, {"@type": "ItemList", "name": "Reinforcement Learning paper roadmap", "description": "From dynamic programming and TD learning to AlphaGo and human-feedback fine-tuning — the policies, values, and self-play recipes that built modern decision-making systems.", "numberOfItems": 27, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Learning to Predict by the Methods of Temporal Differences", "url": "http://incompleteideas.net/papers/sutton-88-with-erratum.pdf"}, {"@type": "ListItem", "position": 2, "name": "Learning from Delayed Rewards (Q-Learning)", "url": "http://www.cs.rhul.ac.uk/~chrisw/new_thesis.pdf"}, {"@type": "ListItem", "position": 3, "name": "Simple Statistical Gradient-Following Algorithms (REINFORCE)", "url": "https://link.springer.com/article/10.1007/BF00992696"}, {"@type": "ListItem", "position": 4, "name": "Temporal Difference Learning and TD-Gammon", "url": "https://www.csd.uwo.ca/~xling/cs346a/extra/tdgammon.pdf"}, {"@type": "ListItem", "position": 5, "name": "Policy Gradient Methods for Reinforcement Learning with Function Approximation", "url": "https://homes.cs.washington.edu/~todorov/courses/amath579/reading/PolicyGradient.pdf"}, {"@type": "ListItem", "position": 6, "name": "Playing Atari with Deep Reinforcement Learning (DQN)", "url": "https://arxiv.org/abs/1312.5602"}, {"@type": "ListItem", "position": 7, "name": "Human-Level Control through Deep Reinforcement Learning (Nature DQN)", "url": "https://www.nature.com/articles/nature14236"}, {"@type": "ListItem", "position": 8, "name": "Deep Reinforcement Learning with Double Q-learning", "url": "https://arxiv.org/abs/1509.06461"}, {"@type": "ListItem", "position": 9, "name": "Prioritized Experience Replay", "url": "https://arxiv.org/abs/1511.05952"}, {"@type": "ListItem", "position": 10, "name": "Dueling Network Architectures for Deep RL", "url": "https://arxiv.org/abs/1511.06581"}, {"@type": "ListItem", "position": 11, "name": "Rainbow: Combining Improvements in Deep RL", "url": "https://arxiv.org/abs/1710.02298"}, {"@type": "ListItem", "position": 12, "name": "Asynchronous Methods for Deep Reinforcement Learning (A3C)", "url": "https://arxiv.org/abs/1602.01783"}, {"@type": "ListItem", "position": 13, "name": "Trust Region Policy Optimization (TRPO)", "url": "https://arxiv.org/abs/1502.05477"}, {"@type": "ListItem", "position": 14, "name": "Proximal Policy Optimization (PPO)", "url": "https://arxiv.org/abs/1707.06347"}, {"@type": "ListItem", "position": 15, "name": "High-Dimensional Continuous Control Using Generalized Advantage Estimation (GAE)", "url": "https://arxiv.org/abs/1506.02438"}, {"@type": "ListItem", "position": 16, "name": "Continuous Control with Deep Reinforcement Learning (DDPG)", "url": "https://arxiv.org/abs/1509.02971"}, {"@type": "ListItem", "position": 17, "name": "Soft Actor-Critic (SAC)", "url": "https://arxiv.org/abs/1801.01290"}, {"@type": "ListItem", "position": 18, "name": "Mastering the Game of Go with Deep Neural Networks and Tree Search (AlphaGo)", "url": "https://www.nature.com/articles/nature16961"}, {"@type": "ListItem", "position": 19, "name": "Mastering the Game of Go without Human Knowledge (AlphaGo Zero)", "url": "https://www.nature.com/articles/nature24270"}, {"@type": "ListItem", "position": 20, "name": "A General Reinforcement Learning Algorithm that Masters Chess, Shogi, and Go (AlphaZero)", "url": "https://arxiv.org/abs/1712.01815"}, {"@type": "ListItem", "position": 21, "name": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model (MuZero)", "url": "https://arxiv.org/abs/1911.08265"}, {"@type": "ListItem", "position": 22, "name": "Decision Transformer: Reinforcement Learning via Sequence Modeling", "url": "https://arxiv.org/abs/2106.01345"}, {"@type": "ListItem", "position": 23, "name": "Deep Reinforcement Learning from Human Preferences (RLHF)", "url": "https://arxiv.org/abs/1706.03741"}, {"@type": "ListItem", "position": 24, "name": "Mastering Diverse Domains through World Models (DreamerV3)", "url": "https://arxiv.org/abs/2301.04104"}, {"@type": "ListItem", "position": 25, "name": "Grandmaster Level in StarCraft II (AlphaStar)", "url": "https://www.nature.com/articles/s41586-019-1724-z"}, {"@type": "ListItem", "position": 26, "name": "Discovering Faster Matrix Multiplication Algorithms with RL (AlphaTensor)", "url": "https://www.nature.com/articles/s41586-022-05172-4"}, {"@type": "ListItem", "position": 27, "name": "Conservative Q-Learning for Offline Reinforcement Learning (CQL)", "url": "https://arxiv.org/abs/2006.04779"}]}]}</script>
+</head>
+<body data-roadmap="reinforcement-learning">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Reinforcement Learning</nav>
+  <h1>Reinforcement Learning</h1>
+  <p class="lede">From dynamic programming and TD learning to AlphaGo and human-feedback fine-tuning — the policies, values, and self-play recipes that built modern decision-making systems.</p>
+  <div class="meta-row">
+    <span><b>27</b> papers</span>
+    <span><b>8</b> levels</span>
+    <span>Timeline <b>1957 – 2024</b></span>
+    <span>MVRP <b>4</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 27</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="27" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 4 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-6">Playing Atari with Deep Reinforcement Learning (DQN)</a></li>
+<li><a href="#paper-14">Proximal Policy Optimization (PPO)</a></li>
+<li><a href="#paper-17">Mastering the Game of Go with Deep Neural Networks and Tree Search (AlphaGo)</a></li>
+<li><a href="#paper-22">Deep Reinforcement Learning from Human Preferences (RLHF)</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 27 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="0" data-text="learning to predict by the methods of temporal differences sutton umass introduces td learning, which updates predictions based on later predictions rather than waiting for outcomes. bootstrapping — learning a guess from a guess — is the central trick of value-based rl.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">Learning to Predict by the Methods of Temporal Differences</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Sutton · UMass · Aug 1988</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces TD learning, which updates predictions based on later predictions rather than waiting for outcomes.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual cornerstone of every value-based RL algorithm — Q-learning, DQN, AlphaGo all build on this.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Calculus, Markov chains</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Bootstrapping — learning a guess from a guess — is the central trick of value-based RL.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://incompleteideas.net/papers/sutton-88-with-erratum.pdf" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="Learning to Predict by the Methods of Temporal Differences">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark Learning to Predict by the Methods of Temporal Differences as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="learning from delayed rewards (q-learning) watkins cambridge defines q-learning: an off-policy td algorithm that converges to the optimal action-value function. you can learn the optimal policy without knowing the environment&#x27;s dynamics.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">Learning from Delayed Rewards (Q-Learning)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Watkins · Cambridge · May 1989</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines Q-learning: an off-policy TD algorithm that converges to the optimal action-value function.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The single most important classical RL algorithm; the conceptual ancestor of DQN.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TD learning, basic MDPs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can learn the optimal policy without knowing the environment&#x27;s dynamics.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://www.cs.rhul.ac.uk/~chrisw/new_thesis.pdf" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="Learning from Delayed Rewards (Q-Learning)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark Learning from Delayed Rewards (Q-Learning) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-3" data-mvrp="0" data-text="simple statistical gradient-following algorithms (reinforce) williams northeastern derives the policy-gradient theorem and proposes reinforce for parameterised stochastic policies. you can do gradient descent on expected reward by sampling and weighting log-probabilities.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">Simple Statistical Gradient-Following Algorithms (REINFORCE)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Williams · Northeastern · May 1992</p>
+    <div class="p-field"><b>TL;DR</b><p>Derives the policy-gradient theorem and proposes REINFORCE for parameterised stochastic policies.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The starting point of policy-gradient methods; you can&#x27;t understand PPO without it.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Calculus, basic probability</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can do gradient descent on expected reward by sampling and weighting log-probabilities.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://link.springer.com/article/10.1007/BF00992696" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="Simple Statistical Gradient-Following Algorithms (REINFORCE)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark Simple Statistical Gradient-Following Algorithms (REINFORCE) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Classical algorithms</span>
+    
+  </div>
+  
+<details class="paper" id="paper-4" data-mvrp="0" data-text="temporal difference learning and td-gammon tesauro ibm a neural network trained by self-play td reaches championship-level backgammon. self-play teaches the agent things no human dataset could.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">Temporal Difference Learning and TD-Gammon</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Tesauro · IBM · Mar 1995</p>
+    <div class="p-field"><b>TL;DR</b><p>A neural network trained by self-play TD reaches championship-level Backgammon.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The proof-of-concept that RL + neural nets + self-play can match human experts.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TD learning, neural network basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Self-play teaches the agent things no human dataset could.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.csd.uwo.ca/~xling/cs346a/extra/tdgammon.pdf" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="Temporal Difference Learning and TD-Gammon">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark Temporal Difference Learning and TD-Gammon as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-5" data-mvrp="0" data-text="policy gradient methods for reinforcement learning with function approximation sutton, mcallester, singh, mansour at&amp;t labs formalises the policy gradient theorem with function approximation, including actor–critic. you can scale policy gradients to neural networks without breaking convergence guarantees.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Policy Gradient Methods for Reinforcement Learning with Function Approximation</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Sutton, McAllester, Singh, Mansour · AT&amp;T Labs · Dec 1999</p>
+    <div class="p-field"><b>TL;DR</b><p>Formalises the policy gradient theorem with function approximation, including actor–critic.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The theoretical foundation under modern actor–critic methods like A3C, PPO, SAC.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>REINFORCE, multivariable calculus</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can scale policy gradients to neural networks without breaking convergence guarantees.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://homes.cs.washington.edu/~todorov/courses/amath579/reading/PolicyGradient.pdf" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Policy Gradient Methods for Reinforcement Learning with Function Approximation">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Policy Gradient Methods for Reinforcement Learning with Function Approximation as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Deep RL</span>
+    
+  </div>
+  
+<details class="paper" id="paper-6" data-mvrp="1" data-text="playing atari with deep reinforcement learning (dqn) mnih et al. deepmind a cnn trained with q-learning, experience replay, and a target network plays atari from raw pixels. replay buffer + target network are the duct tape that makes deep value-based rl stable.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">Playing Atari with Deep Reinforcement Learning (DQN)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Mnih et al. · DeepMind · Dec 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>A CNN trained with Q-learning, experience replay, and a target network plays Atari from raw pixels.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that launched deep RL. Read it carefully — every modern algorithm reuses these tricks.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Q-learning, AlexNet</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Replay buffer + target network are the duct tape that makes deep value-based RL stable.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1312.5602" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="Playing Atari with Deep Reinforcement Learning (DQN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark Playing Atari with Deep Reinforcement Learning (DQN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="0" data-text="human-level control through deep reinforcement learning (nature dqn) mnih et al. deepmind the polished, full-detail dqn paper across 49 atari games, with rigorous evaluation. a single neural architecture, hyperparameters fixed, can reach human level across diverse tasks.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">Human-Level Control through Deep Reinforcement Learning (Nature DQN)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Mnih et al. · DeepMind · Feb 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>The polished, full-detail DQN paper across 49 Atari games, with rigorous evaluation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The reference implementation document; far more thorough than the workshop version.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DQN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A single neural architecture, hyperparameters fixed, can reach human level across diverse tasks.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/nature14236" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="Human-Level Control through Deep Reinforcement Learning (Nature DQN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark Human-Level Control through Deep Reinforcement Learning (Nature DQN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Value-based methods</span>
+    
+  </div>
+  
+<details class="paper" id="paper-8" data-mvrp="0" data-text="deep reinforcement learning with double q-learning van hasselt, guez, silver deepmind decouples action selection from action evaluation in the bellman target to fix dqn&#x27;s overestimation bias. the max in q-learning is biased upward; you can fix it almost for free.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">Deep Reinforcement Learning with Double Q-learning</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">van Hasselt, Guez, Silver · DeepMind · Sep 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Decouples action selection from action evaluation in the Bellman target to fix DQN&#x27;s overestimation bias.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean lesson in how a small mathematical fix can dramatically improve a real algorithm.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DQN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>The max in Q-learning is biased upward; you can fix it almost for free.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1509.06461" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="Deep Reinforcement Learning with Double Q-learning">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark Deep Reinforcement Learning with Double Q-learning as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-9" data-mvrp="0" data-text="prioritized experience replay schaul, quan, antonoglou, silver deepmind samples replay transitions in proportion to their td error rather than uniformly. not all transitions teach equally — sample the surprising ones more.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">Prioritized Experience Replay</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Schaul, Quan, Antonoglou, Silver · DeepMind · Nov 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Samples replay transitions in proportion to their TD error rather than uniformly.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Important practical building block; understanding it sharpens your intuition for replay buffers.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DQN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Not all transitions teach equally — sample the surprising ones more.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1511.05952" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="Prioritized Experience Replay">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark Prioritized Experience Replay as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-10" data-mvrp="0" data-text="dueling network architectures for deep rl wang et al. deepmind splits the q-network into separate state-value and advantage streams, recombined at the output. decompose q into how good is this state plus how much better is this action than average.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Dueling Network Architectures for Deep RL</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wang et al. · DeepMind · Nov 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Splits the Q-network into separate state-value and advantage streams, recombined at the output.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A small architectural change that disproportionately helps; classic example of inductive bias in RL.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DQN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Decompose Q into how good is this state plus how much better is this action than average.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1511.06581" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Dueling Network Architectures for Deep RL">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Dueling Network Architectures for Deep RL as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="rainbow: combining improvements in deep rl hessel et al. deepmind combines six dqn extensions (double, dueling, per, noisy nets, distributional, n-step) into one agent. most dqn improvements are complementary, not redundant.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">Rainbow: Combining Improvements in Deep RL</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hessel et al. · DeepMind · Oct 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Combines six DQN extensions (double, dueling, PER, noisy nets, distributional, n-step) into one agent.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The cleanest study of which DQN tricks actually compose, and which don&#x27;t.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DQN, Double DQN, PER</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most DQN improvements are complementary, not redundant.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1710.02298" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="Rainbow: Combining Improvements in Deep RL">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark Rainbow: Combining Improvements in Deep RL as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Policy gradient methods</span>
+    
+  </div>
+  
+<details class="paper" id="paper-12" data-mvrp="0" data-text="asynchronous methods for deep reinforcement learning (a3c) mnih et al. deepmind multiple parallel actor–critic workers update a shared model asynchronously, with no replay buffer. diversity from parallel actors substitutes for the diversity of a replay buffer.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Asynchronous Methods for Deep Reinforcement Learning (A3C)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Mnih et al. · DeepMind · Feb 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>Multiple parallel actor–critic workers update a shared model asynchronously, with no replay buffer.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Showed that on-policy parallelism is a viable alternative to off-policy replay.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Policy gradient, actor–critic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Diversity from parallel actors substitutes for the diversity of a replay buffer.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1602.01783" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Asynchronous Methods for Deep Reinforcement Learning (A3C)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Asynchronous Methods for Deep Reinforcement Learning (A3C) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-13" data-mvrp="0" data-text="trust region policy optimization (trpo) schulman, levine, abbeel, jordan, moritz uc berkeley constrains policy updates to a trust region defined by kl divergence, with monotonic-improvement guarantees. limit how far the policy moves per update and you avoid catastrophic collapses.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">Trust Region Policy Optimization (TRPO)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Schulman, Levine, Abbeel, Jordan, Moritz · UC Berkeley · Feb 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Constrains policy updates to a trust region defined by KL divergence, with monotonic-improvement guarantees.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The theoretical underpinning of PPO — read TRPO to understand what PPO is approximating.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Policy gradient, KL divergence</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Limit how far the policy moves per update and you avoid catastrophic collapses.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1502.05477" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="Trust Region Policy Optimization (TRPO)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark Trust Region Policy Optimization (TRPO) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="1" data-text="proximal policy optimization (ppo) schulman et al. openai a simple clipped-objective approximation of trpo that is far easier to implement and tune. a clipped surrogate objective gives 90% of trpo&#x27;s benefit at 10% of the complexity.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">Proximal Policy Optimization (PPO)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Schulman et al. · OpenAI · Jul 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>A simple clipped-objective approximation of TRPO that is far easier to implement and tune.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The default policy gradient method everywhere — including in RLHF for LLMs.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TRPO, basic optimisation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A clipped surrogate objective gives 90% of TRPO&#x27;s benefit at 10% of the complexity.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1707.06347" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="Proximal Policy Optimization (PPO)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark Proximal Policy Optimization (PPO) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-26" data-mvrp="0" data-text="high-dimensional continuous control using generalized advantage estimation (gae) schulman et al. uc berkeley an exponentially-weighted advantage estimator trading bias against variance with two knobs. advantage estimation is a bias–variance dial, and tuning it matters as much as the algorithm.">
+  <summary>
+    <span class="p-num">26</span>
+    <span class="p-title">High-Dimensional Continuous Control Using Generalized Advantage Estimation (GAE)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Schulman et al. · UC Berkeley · Jun 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>An exponentially-weighted advantage estimator trading bias against variance with two knobs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The variance-reduction machinery inside PPO implementations — read it to understand what lambda does.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TD learning, policy gradient</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Advantage estimation is a bias–variance dial, and tuning it matters as much as the algorithm.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1506.02438" target="_blank" rel="noopener"
+        data-paper-id="26" data-paper-title="High-Dimensional Continuous Control Using Generalized Advantage Estimation (GAE)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="26"
+          aria-label="Mark High-Dimensional Continuous Control Using Generalized Advantage Estimation (GAE) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Continuous control</span>
+    
+  </div>
+  
+<details class="paper" id="paper-15" data-mvrp="0" data-text="continuous control with deep reinforcement learning (ddpg) lillicrap et al. deepmind combines dqn-style replay with a deterministic policy gradient for continuous-action control. off-policy + actor–critic + replay works in continuous spaces too.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">Continuous Control with Deep Reinforcement Learning (DDPG)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lillicrap et al. · DeepMind · Sep 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Combines DQN-style replay with a deterministic policy gradient for continuous-action control.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first deep-RL algorithm to scale cleanly to continuous robotic-style action spaces.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DQN, deterministic policy gradient</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Off-policy + actor–critic + replay works in continuous spaces too.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1509.02971" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="Continuous Control with Deep Reinforcement Learning (DDPG)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark Continuous Control with Deep Reinforcement Learning (DDPG) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="0" data-text="soft actor-critic (sac) haarnoja, zhou, abbeel, levine uc berkeley a stochastic actor–critic that maximises reward plus policy entropy, dramatically improving robustness. encouraging entropy in the policy prevents premature convergence to brittle solutions.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Soft Actor-Critic (SAC)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Haarnoja, Zhou, Abbeel, Levine · UC Berkeley · Jan 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A stochastic actor–critic that maximises reward plus policy entropy, dramatically improving robustness.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The current default for continuous-control benchmarks.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DDPG, entropy regularisation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Encouraging entropy in the policy prevents premature convergence to brittle solutions.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1801.01290" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Soft Actor-Critic (SAC)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Soft Actor-Critic (SAC) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">Self-play &amp; planning</span>
+    
+  </div>
+  
+<details class="paper" id="paper-17" data-mvrp="1" data-text="mastering the game of go with deep neural networks and tree search (alphago) silver et al. deepmind combines policy and value networks with monte carlo tree search and human-game pretraining. learned heuristics + planning is far more powerful than either alone.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">Mastering the Game of Go with Deep Neural Networks and Tree Search (AlphaGo)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Silver et al. · DeepMind · Jan 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>Combines policy and value networks with Monte Carlo tree search and human-game pretraining.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A turning point for AI in the public mind, and a beautiful integration of deep learning with classical search.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TD learning, CNNs, basic search algorithms</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Learned heuristics + planning is far more powerful than either alone.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/nature16961" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="Mastering the Game of Go with Deep Neural Networks and Tree Search (AlphaGo)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark Mastering the Game of Go with Deep Neural Networks and Tree Search (AlphaGo) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-18" data-mvrp="0" data-text="mastering the game of go without human knowledge (alphago zero) silver et al. deepmind drops human expert games entirely; learns from random self-play only and surpasses every prior version. human data was a crutch, not a foundation.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">Mastering the Game of Go without Human Knowledge (AlphaGo Zero)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Silver et al. · DeepMind · Oct 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Drops human expert games entirely; learns from random self-play only and surpasses every prior version.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Pure self-play turns out to be sufficient — and produces better play than human-bootstrapped systems.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaGo</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Human data was a crutch, not a foundation.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/nature24270" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="Mastering the Game of Go without Human Knowledge (AlphaGo Zero)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark Mastering the Game of Go without Human Knowledge (AlphaGo Zero) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-19" data-mvrp="0" data-text="a general reinforcement learning algorithm that masters chess, shogi, and go (alphazero) silver et al. deepmind a single algorithm masters three games tabula-rasa; no game-specific tricks. the same algorithm should work for any two-player perfect-information game.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">A General Reinforcement Learning Algorithm that Masters Chess, Shogi, and Go (AlphaZero)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Silver et al. · DeepMind · Dec 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>A single algorithm masters three games tabula-rasa; no game-specific tricks.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Generalises AlphaGo Zero into a general algorithm — a pivotal step toward &quot;general&quot; RL.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaGo Zero</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>The same algorithm should work for any two-player perfect-information game.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1712.01815" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="A General Reinforcement Learning Algorithm that Masters Chess, Shogi, and Go (AlphaZero)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark A General Reinforcement Learning Algorithm that Masters Chess, Shogi, and Go (AlphaZero) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="mastering atari, go, chess and shogi by planning with a learned model (muzero) schrittwieser et al. deepmind learns its own model of the environment dynamics in latent space and plans within it. you don&#x27;t need the real rules of the game if you can learn a useful enough surrogate.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model (MuZero)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Schrittwieser et al. · DeepMind · Nov 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Learns its own model of the environment dynamics in latent space and plans within it.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Removes the requirement for a known simulator — model-based RL that actually scales.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaZero</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You don&#x27;t need the real rules of the game if you can learn a useful enough surrogate.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1911.08265" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model (MuZero)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model (MuZero) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-7">
+  <div class="level-head">
+    <span class="level-badge">Level 7</span>
+    <span class="level-name">Frontier</span>
+    
+  </div>
+  
+<details class="paper" id="paper-21" data-mvrp="0" data-text="decision transformer: reinforcement learning via sequence modeling chen et al. uc berkeley, fair casts offline rl as conditional sequence modelling: predict next action given past states, actions, and target return. you can solve some rl problems by just doing supervised learning on past trajectories.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">Decision Transformer: Reinforcement Learning via Sequence Modeling</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Chen et al. · UC Berkeley, FAIR · Jun 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Casts offline RL as conditional sequence modelling: predict next action given past states, actions, and target return.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A radical reframing of RL through the language-model lens.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformers, offline RL</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can solve some RL problems by just doing supervised learning on past trajectories.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2106.01345" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="Decision Transformer: Reinforcement Learning via Sequence Modeling">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark Decision Transformer: Reinforcement Learning via Sequence Modeling as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-22" data-mvrp="1" data-text="deep reinforcement learning from human preferences (rlhf) christiano et al. openai, deepmind learns a reward model from human comparisons of trajectory pairs and optimises it with ppo. humans can label preferences far more reliably than they can specify reward functions.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">Deep Reinforcement Learning from Human Preferences (RLHF)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Christiano et al. · OpenAI, DeepMind · Jun 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Learns a reward model from human comparisons of trajectory pairs and optimises it with PPO.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual blueprint behind InstructGPT and ChatGPT — read it once, recognise it everywhere.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>PPO, basic preference learning</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Humans can label preferences far more reliably than they can specify reward functions.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1706.03741" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="Deep Reinforcement Learning from Human Preferences (RLHF)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark Deep Reinforcement Learning from Human Preferences (RLHF) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-23" data-mvrp="0" data-text="mastering diverse domains through world models (dreamerv3) hafner, pasukonis, ba, lillicrap u toronto, deepmind a single model-based agent with fixed hyperparameters mastering 150+ tasks, including minecraft diamonds. a well-trained world model can replace a lot of hand-tuned rl machinery.">
+  <summary>
+    <span class="p-num">23</span>
+    <span class="p-title">Mastering Diverse Domains through World Models (DreamerV3)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hafner, Pasukonis, Ba, Lillicrap · U Toronto, DeepMind · Jan 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>A single model-based agent with fixed hyperparameters mastering 150+ tasks, including Minecraft diamonds.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The strongest evidence to date that world-model RL is finally robust enough to be a default approach.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>MuZero, recurrent world models</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A well-trained world model can replace a lot of hand-tuned RL machinery.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2301.04104" target="_blank" rel="noopener"
+        data-paper-id="23" data-paper-title="Mastering Diverse Domains through World Models (DreamerV3)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="23"
+          aria-label="Mark Mastering Diverse Domains through World Models (DreamerV3) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-24" data-mvrp="0" data-text="grandmaster level in starcraft ii (alphastar) vinyals et al. deepmind a multi-agent league produces grandmaster-level play in a real-time strategy game with imperfect information. population-based training avoids self-play exploits and produces robust strategies.">
+  <summary>
+    <span class="p-num">24</span>
+    <span class="p-title">Grandmaster Level in StarCraft II (AlphaStar)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Vinyals et al. · DeepMind · Oct 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>A multi-agent league produces grandmaster-level play in a real-time strategy game with imperfect information.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A frontier-scale demonstration of imperfect-information self-play.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaZero, imitation learning</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Population-based training avoids self-play exploits and produces robust strategies.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/s41586-019-1724-z" target="_blank" rel="noopener"
+        data-paper-id="24" data-paper-title="Grandmaster Level in StarCraft II (AlphaStar)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="24"
+          aria-label="Mark Grandmaster Level in StarCraft II (AlphaStar) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-25" data-mvrp="0" data-text="discovering faster matrix multiplication algorithms with rl (alphatensor) fawzi et al. deepmind casts algorithm discovery as a single-player game and finds new matrix multiplication algorithms. game-playing rl agents can rediscover and invent algorithms.">
+  <summary>
+    <span class="p-num">25</span>
+    <span class="p-title">Discovering Faster Matrix Multiplication Algorithms with RL (AlphaTensor)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Fawzi et al. · DeepMind · Oct 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Casts algorithm discovery as a single-player game and finds new matrix multiplication algorithms.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A glimpse of RL applied to mathematics rather than control.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaZero, basic linear algebra</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Game-playing RL agents can rediscover and invent algorithms.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/s41586-022-05172-4" target="_blank" rel="noopener"
+        data-paper-id="25" data-paper-title="Discovering Faster Matrix Multiplication Algorithms with RL (AlphaTensor)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="25"
+          aria-label="Mark Discovering Faster Matrix Multiplication Algorithms with RL (AlphaTensor) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-27" data-mvrp="0" data-text="conservative q-learning for offline reinforcement learning (cql) kumar, zhou, tucker, levine uc berkeley regularises q-learning to lower-bound values of out-of-distribution actions in fixed datasets. offline rl fails from overestimating unseen actions; pessimism is the fix.">
+  <summary>
+    <span class="p-num">27</span>
+    <span class="p-title">Conservative Q-Learning for Offline Reinforcement Learning (CQL)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kumar, Zhou, Tucker, Levine · UC Berkeley · Jun 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Regularises Q-learning to lower-bound values of out-of-distribution actions in fixed datasets.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The standard baseline for offline RL — the setting where you learn from logs, not interaction.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Q-learning, SAC</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Offline RL fails from overestimating unseen actions; pessimism is the fix.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2006.04779" target="_blank" rel="noopener"
+        data-paper-id="27" data-paper-title="Conservative Q-Learning for Offline Reinforcement Learning (CQL)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="27"
+          aria-label="Mark Conservative Q-Learning for Offline Reinforcement Learning (CQL) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../computer-vision/"><span class="dir">← Previous roadmap</span>Computer Vision</a>
+    <a href="../distributed-systems/"><span class="dir">Next roadmap →</span>Distributed Systems</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

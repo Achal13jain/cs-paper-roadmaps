@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph Neural Networks Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Graph Neural Networks reading roadmap: 23 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/graph-neural-networks/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Graph Neural Networks Research Paper Roadmap">
+<meta property="og:description" content="Graph Neural Networks reading roadmap: 23 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/graph-neural-networks/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Graph Neural Networks roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Graph Neural Networks Research Paper Roadmap">
+<meta name="twitter:description" content="Graph Neural Networks reading roadmap: 23 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Graph Neural Networks roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Graph Neural Networks", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/graph-neural-networks/"}]}, {"@type": "ItemList", "name": "Graph Neural Networks paper roadmap", "description": "From random-walk embeddings to molecular structure prediction — how neural networks learned to operate on graphs and unlocked science applications from drug discovery to AlphaFold.", "numberOfItems": 23, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "DeepWalk: Online Learning of Social Representations", "url": "https://arxiv.org/abs/1403.6652"}, {"@type": "ListItem", "position": 2, "name": "LINE: Large-scale Information Network Embedding", "url": "https://arxiv.org/abs/1503.03578"}, {"@type": "ListItem", "position": 3, "name": "node2vec: Scalable Feature Learning for Networks", "url": "https://arxiv.org/abs/1607.00653"}, {"@type": "ListItem", "position": 4, "name": "Spectral Networks and Locally Connected Networks on Graphs", "url": "https://arxiv.org/abs/1312.6203"}, {"@type": "ListItem", "position": 5, "name": "Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering (ChebNet)", "url": "https://arxiv.org/abs/1606.09375"}, {"@type": "ListItem", "position": 6, "name": "Semi-Supervised Classification with Graph Convolutional Networks (GCN)", "url": "https://arxiv.org/abs/1609.02907"}, {"@type": "ListItem", "position": 7, "name": "Inductive Representation Learning on Large Graphs (GraphSAGE)", "url": "https://arxiv.org/abs/1706.02216"}, {"@type": "ListItem", "position": 8, "name": "Graph Attention Networks (GAT)", "url": "https://arxiv.org/abs/1710.10903"}, {"@type": "ListItem", "position": 9, "name": "Neural Message Passing for Quantum Chemistry (MPNN)", "url": "https://arxiv.org/abs/1704.01212"}, {"@type": "ListItem", "position": 10, "name": "How Powerful are Graph Neural Networks? (GIN)", "url": "https://arxiv.org/abs/1810.00826"}, {"@type": "ListItem", "position": 11, "name": "Deep Graph Infomax (DGI)", "url": "https://arxiv.org/abs/1809.10341"}, {"@type": "ListItem", "position": 12, "name": "Relational Inductive Biases, Deep Learning, and Graph Networks", "url": "https://arxiv.org/abs/1806.01261"}, {"@type": "ListItem", "position": 13, "name": "Graph Convolutional Neural Networks for Web-Scale Recommender Systems (PinSAGE)", "url": "https://arxiv.org/abs/1806.01973"}, {"@type": "ListItem", "position": 14, "name": "Cluster-GCN: An Efficient Algorithm for Training Deep and Large GCNs", "url": "https://arxiv.org/abs/1905.07953"}, {"@type": "ListItem", "position": 15, "name": "GraphSAINT: Graph Sampling Based Inductive Learning Method", "url": "https://arxiv.org/abs/1907.04931"}, {"@type": "ListItem", "position": 16, "name": "Modeling Relational Data with Graph Convolutional Networks (R-GCN)", "url": "https://arxiv.org/abs/1703.06103"}, {"@type": "ListItem", "position": 17, "name": "Heterogeneous Graph Attention Network (HAN)", "url": "https://arxiv.org/abs/1903.07293"}, {"@type": "ListItem", "position": 18, "name": "SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions", "url": "https://arxiv.org/abs/1706.08566"}, {"@type": "ListItem", "position": 19, "name": "Directional Message Passing for Molecular Graphs (DimeNet)", "url": "https://arxiv.org/abs/2003.03123"}, {"@type": "ListItem", "position": 20, "name": "Highly Accurate Protein Structure Prediction with AlphaFold 2", "url": "https://www.nature.com/articles/s41586-021-03819-2"}, {"@type": "ListItem", "position": 21, "name": "Do Transformers Really Perform Bad for Graph Representation? (Graphormer)", "url": "https://arxiv.org/abs/2106.05234"}, {"@type": "ListItem", "position": 22, "name": "Recipe for a General, Powerful, Scalable Graph Transformer (GraphGPS)", "url": "https://arxiv.org/abs/2205.12454"}, {"@type": "ListItem", "position": 23, "name": "GFlowNet Foundations", "url": "https://arxiv.org/abs/2111.09266"}]}]}</script>
+</head>
+<body data-roadmap="graph-neural-networks">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Graph Neural Networks</nav>
+  <h1>Graph Neural Networks</h1>
+  <p class="lede">From random-walk embeddings to molecular structure prediction — how neural networks learned to operate on graphs and unlocked science applications from drug discovery to AlphaFold.</p>
+  <div class="meta-row">
+    <span><b>23</b> papers</span>
+    <span><b>7</b> levels</span>
+    <span>Timeline <b>2013 – 2024</b></span>
+    <span>MVRP <b>4</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 23</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="23" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 4 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-3">node2vec: Scalable Feature Learning for Networks</a></li>
+<li><a href="#paper-6">Semi-Supervised Classification with Graph Convolutional Networks (GCN)</a></li>
+<li><a href="#paper-8">Graph Attention Networks (GAT)</a></li>
+<li><a href="#paper-19">Highly Accurate Protein Structure Prediction with AlphaFold 2</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 23 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Node embeddings</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="0" data-text="deepwalk: online learning of social representations perozzi, al-rfou, skiena stony brook treats random walks on graphs as sentences and applies word2vec to learn node embeddings. a graph and a corpus look the same once you sample walks.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">DeepWalk: Online Learning of Social Representations</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Perozzi, Al-Rfou, Skiena · Stony Brook · Mar 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>Treats random walks on graphs as sentences and applies Word2Vec to learn node embeddings.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The transfer of NLP techniques to graphs that opened the door to neural graph methods.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Word2Vec</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A graph and a corpus look the same once you sample walks.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1403.6652" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="DeepWalk: Online Learning of Social Representations">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark DeepWalk: Online Learning of Social Representations as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="line: large-scale information network embedding tang et al. microsoft research asia learns node embeddings preserving both first- and second-order proximity, with negative sampling. different proximity orders capture different aspects of network structure.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">LINE: Large-scale Information Network Embedding</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Tang et al. · Microsoft Research Asia · Mar 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Learns node embeddings preserving both first- and second-order proximity, with negative sampling.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Refines DeepWalk by being explicit about which graph structure to preserve.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DeepWalk</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Different proximity orders capture different aspects of network structure.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1503.03578" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="LINE: Large-scale Information Network Embedding">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark LINE: Large-scale Information Network Embedding as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-3" data-mvrp="1" data-text="node2vec: scalable feature learning for networks grover, leskovec stanford generalises deepwalk with biased random walks that interpolate between bfs and dfs exploration. two hyperparameters let you tune between structural roles and community membership.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">node2vec: Scalable Feature Learning for Networks</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Grover, Leskovec · Stanford · Jul 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>Generalises DeepWalk with biased random walks that interpolate between BFS and DFS exploration.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most-used random-walk embedding; conceptually clean way to tune local-vs-global emphasis.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DeepWalk</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Two hyperparameters let you tune between structural roles and community membership.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1607.00653" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="node2vec: Scalable Feature Learning for Networks">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark node2vec: Scalable Feature Learning for Networks as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Spectral methods</span>
+    
+  </div>
+  
+<details class="paper" id="paper-4" data-mvrp="0" data-text="spectral networks and locally connected networks on graphs bruna, zaremba, szlam, lecun nyu the first attempt to define convolution on graphs via the graph laplacian and spectral filters. convolution on graphs is naturally defined in the frequency domain.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">Spectral Networks and Locally Connected Networks on Graphs</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Bruna, Zaremba, Szlam, LeCun · NYU · Dec 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>The first attempt to define convolution on graphs via the graph Laplacian and spectral filters.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Where graph convolutions began; understand it to follow why later methods spatial-localise.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Linear algebra, CNN basics, spectral graph theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Convolution on graphs is naturally defined in the frequency domain.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1312.6203" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="Spectral Networks and Locally Connected Networks on Graphs">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark Spectral Networks and Locally Connected Networks on Graphs as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-5" data-mvrp="0" data-text="convolutional neural networks on graphs with fast localized spectral filtering (chebnet) defferrard, bresson, vandergheynst epfl approximates spectral filters with k-th-order chebyshev polynomials, giving k-hop locality. you can keep the spectral interpretation while making everything local and fast.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering (ChebNet)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Defferrard, Bresson, Vandergheynst · EPFL · Jun 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>Approximates spectral filters with K-th-order Chebyshev polynomials, giving K-hop locality.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The bridge from pure spectral methods to spatial GCNs.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Spectral GCN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can keep the spectral interpretation while making everything local and fast.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1606.09375" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering (ChebNet)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering (ChebNet) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Core GNN architectures</span>
+    
+  </div>
+  
+<details class="paper" id="paper-6" data-mvrp="1" data-text="semi-supervised classification with graph convolutional networks (gcn) kipf, welling u amsterdam a first-order approximation of chebnet that simplifies to a single neighbourhood-averaging layer. most of the value of spectral gcns is captured by a one-line update rule.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">Semi-Supervised Classification with Graph Convolutional Networks (GCN)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kipf, Welling · U Amsterdam · Sep 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>A first-order approximation of ChebNet that simplifies to a single neighbourhood-averaging layer.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The simplest, most-cited GNN; the conceptual baseline against which all others are measured.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ChebNet</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most of the value of spectral GCNs is captured by a one-line update rule.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1609.02907" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="Semi-Supervised Classification with Graph Convolutional Networks (GCN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark Semi-Supervised Classification with Graph Convolutional Networks (GCN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="0" data-text="inductive representation learning on large graphs (graphsage) hamilton, ying, leskovec stanford samples and aggregates neighbour features so embeddings generalise to unseen nodes and graphs. sampled neighbourhoods + learnable aggregators turn gnns into inductive learners.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">Inductive Representation Learning on Large Graphs (GraphSAGE)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hamilton, Ying, Leskovec · Stanford · Jun 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Samples and aggregates neighbour features so embeddings generalise to unseen nodes and graphs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Lets GNNs work on dynamic and out-of-sample graphs — practically essential.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GCN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sampled neighbourhoods + learnable aggregators turn GNNs into inductive learners.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1706.02216" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="Inductive Representation Learning on Large Graphs (GraphSAGE)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark Inductive Representation Learning on Large Graphs (GraphSAGE) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-8" data-mvrp="1" data-text="graph attention networks (gat) veličković et al. u cambridge, fair replaces uniform neighbourhood averaging with attention-weighted aggregation. let nodes decide how much to weight each neighbour.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">Graph Attention Networks (GAT)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Veličković et al. · U Cambridge, FAIR · Oct 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Replaces uniform neighbourhood averaging with attention-weighted aggregation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The &quot;attention is all you need&quot; moment for graphs — now a default building block.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GCN, attention mechanism</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Let nodes decide how much to weight each neighbour.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1710.10903" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="Graph Attention Networks (GAT)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark Graph Attention Networks (GAT) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Theory &amp; expressivity</span>
+    
+  </div>
+  
+<details class="paper" id="paper-9" data-mvrp="0" data-text="neural message passing for quantum chemistry (mpnn) gilmer et al. google brain unifies prior gnn variants under a generic message-passing framework and applies it to molecular properties. most gnns are special cases of the same message-update-readout structure.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">Neural Message Passing for Quantum Chemistry (MPNN)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Gilmer et al. · Google Brain · Apr 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Unifies prior GNN variants under a generic message-passing framework and applies it to molecular properties.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The framework paper that gives every GNN a common language; foundational for chemistry applications.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GCN, basic chemistry useful</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most GNNs are special cases of the same message-update-readout structure.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1704.01212" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="Neural Message Passing for Quantum Chemistry (MPNN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark Neural Message Passing for Quantum Chemistry (MPNN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-10" data-mvrp="0" data-text="how powerful are graph neural networks? (gin) xu, hu, leskovec, jegelka mit, stanford proves message-passing gnns are at most as expressive as the 1-wl graph isomorphism test. sum aggregators with mlps are maximally expressive within the message-passing class.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">How Powerful are Graph Neural Networks? (GIN)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Xu, Hu, Leskovec, Jegelka · MIT, Stanford · Oct 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Proves message-passing GNNs are at most as expressive as the 1-WL graph isomorphism test.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The cleanest theoretical lens on what GNNs can and cannot distinguish.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>MPNN, graph isomorphism basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sum aggregators with MLPs are maximally expressive within the message-passing class.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1810.00826" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="How Powerful are Graph Neural Networks? (GIN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark How Powerful are Graph Neural Networks? (GIN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="deep graph infomax (dgi) veličković et al. u cambridge self-supervised gnn training by maximising mutual information between local and global graph summaries. you can pretrain gnns without labels by contrasting local and global views.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">Deep Graph Infomax (DGI)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Veličković et al. · U Cambridge · Sep 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Self-supervised GNN training by maximising mutual information between local and global graph summaries.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean, label-free objective for graph representation learning.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GCN, mutual information basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can pretrain GNNs without labels by contrasting local and global views.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1809.10341" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="Deep Graph Infomax (DGI)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark Deep Graph Infomax (DGI) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-23" data-mvrp="0" data-text="relational inductive biases, deep learning, and graph networks battaglia et al. deepmind, google brain a position paper unifying gnn variants into a general graph-network block and arguing for relational reasoning. architecture choices are inductive-bias choices — and graphs encode composability.">
+  <summary>
+    <span class="p-num">23</span>
+    <span class="p-title">Relational Inductive Biases, Deep Learning, and Graph Networks</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Battaglia et al. · DeepMind, Google Brain · Jun 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A position paper unifying GNN variants into a general graph-network block and arguing for relational reasoning.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The best conceptual overview of why graphs are the right abstraction for structured computation.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>MPNN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Architecture choices are inductive-bias choices — and graphs encode composability.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1806.01261" target="_blank" rel="noopener"
+        data-paper-id="23" data-paper-title="Relational Inductive Biases, Deep Learning, and Graph Networks">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="23"
+          aria-label="Mark Relational Inductive Biases, Deep Learning, and Graph Networks as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Scaling</span>
+    
+  </div>
+  
+<details class="paper" id="paper-12" data-mvrp="0" data-text="graph convolutional neural networks for web-scale recommender systems (pinsage) ying et al. pinterest, stanford a gcn variant deployed on 3b-node pinterest graph using random-walk-based neighbour sampling. gnns scale via clever sampling, not bigger machines.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Graph Convolutional Neural Networks for Web-Scale Recommender Systems (PinSAGE)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ying et al. · Pinterest, Stanford · Jun 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A GCN variant deployed on 3B-node Pinterest graph using random-walk-based neighbour sampling.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The clearest case study of GNNs at production web scale.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GraphSAGE</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>GNNs scale via clever sampling, not bigger machines.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1806.01973" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Graph Convolutional Neural Networks for Web-Scale Recommender Systems (PinSAGE)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Graph Convolutional Neural Networks for Web-Scale Recommender Systems (PinSAGE) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-13" data-mvrp="0" data-text="cluster-gcn: an efficient algorithm for training deep and large gcns chiang et al. ucla, google uses graph clustering to form mini-batches that fit in memory while preserving local structure. cluster the graph first, then train per-cluster.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">Cluster-GCN: An Efficient Algorithm for Training Deep and Large GCNs</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Chiang et al. · UCLA, Google · May 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Uses graph clustering to form mini-batches that fit in memory while preserving local structure.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A practical recipe for training deep GCNs on large graphs without subsampling artefacts.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GCN, graph partitioning</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Cluster the graph first, then train per-cluster.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1905.07953" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="Cluster-GCN: An Efficient Algorithm for Training Deep and Large GCNs">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark Cluster-GCN: An Efficient Algorithm for Training Deep and Large GCNs as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="0" data-text="graphsaint: graph sampling based inductive learning method zeng et al. usc samples subgraphs (not just neighbourhoods) and trains a full gcn on each, with bias correction. sampling subgraphs gives a less biased gradient than sampling per-node neighbourhoods.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">GraphSAINT: Graph Sampling Based Inductive Learning Method</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Zeng et al. · USC · Jul 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Samples subgraphs (not just neighbourhoods) and trains a full GCN on each, with bias correction.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A complementary scaling strategy to Cluster-GCN with cleaner statistical properties.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GraphSAGE</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sampling subgraphs gives a less biased gradient than sampling per-node neighbourhoods.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1907.04931" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="GraphSAINT: Graph Sampling Based Inductive Learning Method">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark GraphSAINT: Graph Sampling Based Inductive Learning Method as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Specialised graphs</span>
+    
+  </div>
+  
+<details class="paper" id="paper-15" data-mvrp="0" data-text="modeling relational data with graph convolutional networks (r-gcn) schlichtkrull et al. u amsterdam extends gcns to multi-relation graphs by parameterising different transforms per edge type. different edge types deserve different transformations.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">Modeling Relational Data with Graph Convolutional Networks (R-GCN)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Schlichtkrull et al. · U Amsterdam · Mar 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Extends GCNs to multi-relation graphs by parameterising different transforms per edge type.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The natural step from homogeneous to heterogeneous graphs; underlies most KG-embedding GNNs.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GCN, knowledge-graph basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Different edge types deserve different transformations.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1703.06103" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="Modeling Relational Data with Graph Convolutional Networks (R-GCN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark Modeling Relational Data with Graph Convolutional Networks (R-GCN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="0" data-text="heterogeneous graph attention network (han) wang et al. bupt, microsoft two-level attention: node-level over neighbours and semantic-level over meta-paths. in heterogeneous graphs, attend over both neighbours and relation types.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Heterogeneous Graph Attention Network (HAN)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wang et al. · BUPT, Microsoft · Mar 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Two-level attention: node-level over neighbours and semantic-level over meta-paths.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Standard reference for working with heterogeneous (typed) graphs in practice.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GAT, meta-path concept</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>In heterogeneous graphs, attend over both neighbours and relation types.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1903.07293" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Heterogeneous Graph Attention Network (HAN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Heterogeneous Graph Attention Network (HAN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="schnet: a continuous-filter convolutional neural network for modeling quantum interactions schütt et al. tu berlin uses continuous-filter convolutions over molecular distances to predict quantum-mechanical properties. distances and physical symmetries belong inside the architecture, not learned from data.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Schütt et al. · TU Berlin · Jun 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Uses continuous-filter convolutions over molecular distances to predict quantum-mechanical properties.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A landmark in chemistry-aware GNNs; shows how physical priors integrate cleanly with message passing.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>MPNN, basic quantum chemistry helpful</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Distances and physical symmetries belong inside the architecture, not learned from data.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1706.08566" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-18" data-mvrp="0" data-text="directional message passing for molecular graphs (dimenet) klicpera, groß, günnemann tu munich adds bond-angle information to molecular gnns via embeddings of edges, not just nodes. geometric primitives like angles and dihedrals belong in the architecture.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">Directional Message Passing for Molecular Graphs (DimeNet)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Klicpera, Groß, Günnemann · TU Munich · Mar 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Adds bond-angle information to molecular GNNs via embeddings of edges, not just nodes.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean lesson in how the right inductive bias unlocks new tasks (geometry, energies).</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>SchNet</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Geometric primitives like angles and dihedrals belong in the architecture.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2003.03123" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="Directional Message Passing for Molecular Graphs (DimeNet)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark Directional Message Passing for Molecular Graphs (DimeNet) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">Frontier</span>
+    
+  </div>
+  
+<details class="paper" id="paper-19" data-mvrp="1" data-text="highly accurate protein structure prediction with alphafold 2 jumper et al. deepmind a geometry-aware transformer/gnn hybrid (evoformer) that predicts protein 3d structure to atomic accuracy. hard scientific problems crack when you bake the right geometric and biological priors into the model.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">Highly Accurate Protein Structure Prediction with AlphaFold 2</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Jumper et al. · DeepMind · Jul 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>A geometry-aware Transformer/GNN hybrid (Evoformer) that predicts protein 3D structure to atomic accuracy.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A scientific result of historic magnitude — and a master class in domain-aware architecture design.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformers, GNNs, basic structural biology</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Hard scientific problems crack when you bake the right geometric and biological priors into the model.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/s41586-021-03819-2" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="Highly Accurate Protein Structure Prediction with AlphaFold 2">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark Highly Accurate Protein Structure Prediction with AlphaFold 2 as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="do transformers really perform bad for graph representation? (graphormer) ying et al. microsoft research asia adds graph-aware positional and edge encodings to a vanilla transformer; wins ogb benchmarks. most graph inductive biases can be encoded as biases on attention scores.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">Do Transformers Really Perform Bad for Graph Representation? (Graphormer)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ying et al. · Microsoft Research Asia · Jun 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Adds graph-aware positional and edge encodings to a vanilla Transformer; wins OGB benchmarks.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The cleanest demonstration that Transformers can be the right architecture for graphs too.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformers, GNNs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most graph inductive biases can be encoded as biases on attention scores.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2106.05234" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="Do Transformers Really Perform Bad for Graph Representation? (Graphormer)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark Do Transformers Really Perform Bad for Graph Representation? (Graphormer) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-21" data-mvrp="0" data-text="recipe for a general, powerful, scalable graph transformer (graphgps) rampášek et al. mila, valence discovery a modular framework that combines local message passing with global attention and various positional encodings. local and global views of the graph are complementary; combine them explicitly.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">Recipe for a General, Powerful, Scalable Graph Transformer (GraphGPS)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Rampášek et al. · Mila, Valence Discovery · May 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>A modular framework that combines local message passing with global attention and various positional encodings.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A useful taxonomy of graph-Transformer design choices.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GAT, Graphormer</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Local and global views of the graph are complementary; combine them explicitly.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2205.12454" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="Recipe for a General, Powerful, Scalable Graph Transformer (GraphGPS)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark Recipe for a General, Powerful, Scalable Graph Transformer (GraphGPS) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-22" data-mvrp="0" data-text="gflownet foundations bengio et al. mila a new generative-modeling framework that samples diverse high-reward objects (e.g. molecules) proportionally to their reward. sometimes you want a sampler, not a maximiser — and the math is different.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">GFlowNet Foundations</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Bengio et al. · Mila · Nov 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>A new generative-modeling framework that samples diverse high-reward objects (e.g. molecules) proportionally to their reward.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A radical alternative to RL for combinatorial generation, especially for science applications.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>RL, flow-based generative models</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sometimes you want a sampler, not a maximiser — and the math is different.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2111.09266" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="GFlowNet Foundations">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark GFlowNet Foundations as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../distributed-systems/"><span class="dir">← Previous roadmap</span>Distributed Systems</a>
+    <a href="../database-systems/"><span class="dir">Next roadmap →</span>Database Systems</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

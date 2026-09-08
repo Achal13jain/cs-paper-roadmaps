@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Learning Systems Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Machine Learning Systems reading roadmap: 16 papers across 5 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/ml-systems/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Machine Learning Systems Research Paper Roadmap">
+<meta property="og:description" content="Machine Learning Systems reading roadmap: 16 papers across 5 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/ml-systems/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Machine Learning Systems roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Machine Learning Systems Research Paper Roadmap">
+<meta name="twitter:description" content="Machine Learning Systems reading roadmap: 16 papers across 5 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Machine Learning Systems roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Machine Learning Systems", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/ml-systems/"}]}, {"@type": "ItemList", "name": "Machine Learning Systems paper roadmap", "description": "From mixed-precision arithmetic to trillion-parameter training runs and paged KV caches — the frameworks, parallelism strategies, and serving engines that turn models into products.", "numberOfItems": 16, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Mixed Precision Training", "url": "https://arxiv.org/abs/1710.03740"}, {"@type": "ListItem", "position": 2, "name": "Horovod: Fast and Easy Distributed Deep Learning in TensorFlow", "url": "https://arxiv.org/abs/1802.05799"}, {"@type": "ListItem", "position": 3, "name": "TensorFlow: A System for Large-Scale Machine Learning", "url": "https://arxiv.org/abs/1605.08695"}, {"@type": "ListItem", "position": 4, "name": "PyTorch: An Imperative Style, High-Performance Deep Learning Library", "url": "https://arxiv.org/abs/1912.01703"}, {"@type": "ListItem", "position": 5, "name": "TVM: An Automated End-to-End Optimizing Compiler for Deep Learning", "url": "https://arxiv.org/abs/1802.04799"}, {"@type": "ListItem", "position": 6, "name": "GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism", "url": "https://arxiv.org/abs/1811.06965"}, {"@type": "ListItem", "position": 7, "name": "Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism", "url": "https://arxiv.org/abs/1909.08053"}, {"@type": "ListItem", "position": 8, "name": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models", "url": "https://arxiv.org/abs/1910.02054"}, {"@type": "ListItem", "position": 9, "name": "GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding", "url": "https://arxiv.org/abs/2006.16668"}, {"@type": "ListItem", "position": 10, "name": "Ray: A Distributed Framework for Emerging AI Applications", "url": "https://arxiv.org/abs/1712.05889"}, {"@type": "ListItem", "position": 11, "name": "Pathways: Asynchronous Distributed Dataflow for ML", "url": "https://arxiv.org/abs/2203.12533"}, {"@type": "ListItem", "position": 12, "name": "In-Datacenter Performance Analysis of a Tensor Processing Unit", "url": "https://arxiv.org/abs/1704.04760"}, {"@type": "ListItem", "position": 13, "name": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning", "url": "https://arxiv.org/abs/2307.08691"}, {"@type": "ListItem", "position": 14, "name": "Efficiently Scaling Transformer Inference", "url": "https://arxiv.org/abs/2211.05102"}, {"@type": "ListItem", "position": 15, "name": "Fast Inference from Transformers via Speculative Decoding", "url": "https://arxiv.org/abs/2211.17192"}, {"@type": "ListItem", "position": 16, "name": "Efficient Memory Management for Large Language Model Serving with PagedAttention (vLLM)", "url": "https://arxiv.org/abs/2309.06180"}]}]}</script>
+</head>
+<body data-roadmap="ml-systems">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Machine Learning Systems</nav>
+  <h1>Machine Learning Systems</h1>
+  <p class="lede">From mixed-precision arithmetic to trillion-parameter training runs and paged KV caches — the frameworks, parallelism strategies, and serving engines that turn models into products.</p>
+  <div class="meta-row">
+    <span><b>16</b> papers</span>
+    <span><b>5</b> levels</span>
+    <span>Timeline <b>2016 – 2023</b></span>
+    <span>MVRP <b>5</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 16</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="16" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 5 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-1">Mixed Precision Training</a></li>
+<li><a href="#paper-4">PyTorch: An Imperative Style, High-Performance Deep Learning Library</a></li>
+<li><a href="#paper-7">Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism</a></li>
+<li><a href="#paper-8">ZeRO: Memory Optimizations Toward Training Trillion Parameter Models</a></li>
+<li><a href="#paper-16">Efficient Memory Management for Large Language Model Serving with PagedAttention (vLLM)</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 16 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations</span>
+    <span class="level-tag">numerics &amp; data parallelism</span>
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="1" data-text="mixed precision training micikevicius et al. nvidia, baidu trains in fp16 with an fp32 master copy and loss scaling, halving memory with no accuracy loss. most of training tolerates low precision if you protect the accumulations.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">Mixed Precision Training</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Micikevicius et al. · NVIDIA, Baidu · Oct 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Trains in FP16 with an FP32 master copy and loss scaling, halving memory with no accuracy loss.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The numerics recipe under every modern training run — and the reason tensor cores exist.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Floating-point representation, backprop</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most of training tolerates low precision if you protect the accumulations.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1710.03740" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="Mixed Precision Training">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark Mixed Precision Training as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="horovod: fast and easy distributed deep learning in tensorflow sergeev, del balso uber ring-allreduce data parallelism as a drop-in library, replacing parameter servers. bandwidth-optimal collectives, not central servers, are the right shape for gradient exchange.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">Horovod: Fast and Easy Distributed Deep Learning in TensorFlow</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Sergeev, Del Balso · Uber · Feb 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Ring-allreduce data parallelism as a drop-in library, replacing parameter servers.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Made multi-GPU training accessible and popularised the allreduce pattern now inside every framework.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>SGD, basic networking</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Bandwidth-optimal collectives, not central servers, are the right shape for gradient exchange.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1802.05799" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="Horovod: Fast and Easy Distributed Deep Learning in TensorFlow">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark Horovod: Fast and Easy Distributed Deep Learning in TensorFlow as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Frameworks &amp; compilers</span>
+    
+  </div>
+  
+<details class="paper" id="paper-3" data-mvrp="0" data-text="tensorflow: a system for large-scale machine learning abadi et al. google a dataflow-graph execution engine spanning mobile to datacenter, with automatic differentiation. representing computation as a graph enables distribution, optimisation, and heterogeneity.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">TensorFlow: A System for Large-Scale Machine Learning</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Abadi et al. · Google · May 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>A dataflow-graph execution engine spanning mobile to datacenter, with automatic differentiation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first industrial-scale ML framework paper; defines the static-graph design point.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Backprop, dataflow concepts</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Representing computation as a graph enables distribution, optimisation, and heterogeneity.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1605.08695" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="TensorFlow: A System for Large-Scale Machine Learning">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark TensorFlow: A System for Large-Scale Machine Learning as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-4" data-mvrp="1" data-text="pytorch: an imperative style, high-performance deep learning library paszke et al. meta ai eager, pythonic execution with dynamic autograd, engineered to stay fast via async dispatch. developer experience is a legitimate systems-design objective, not a trade-off.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">PyTorch: An Imperative Style, High-Performance Deep Learning Library</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Paszke et al. · Meta AI · Dec 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Eager, Pythonic execution with dynamic autograd, engineered to stay fast via async dispatch.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The framework that won research; the design argument for usability as a systems property.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TensorFlow, Python</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Developer experience is a legitimate systems-design objective, not a trade-off.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1912.01703" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="PyTorch: An Imperative Style, High-Performance Deep Learning Library">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark PyTorch: An Imperative Style, High-Performance Deep Learning Library as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-5" data-mvrp="0" data-text="tvm: an automated end-to-end optimizing compiler for deep learning chen et al. u washington compiles models to diverse hardware using learned cost models to search schedule spaces. kernel optimisation is a search problem — and ml can drive the search.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">TVM: An Automated End-to-End Optimizing Compiler for Deep Learning</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Chen et al. · U Washington · Feb 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Compiles models to diverse hardware using learned cost models to search schedule spaces.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Defines the ML-compiler layer between frameworks and silicon; ancestor of today&#x27;s kernel autotuners.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Compilers basics, GPU programming</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Kernel optimisation is a search problem — and ML can drive the search.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1802.04799" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="TVM: An Automated End-to-End Optimizing Compiler for Deep Learning">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark TVM: An Automated End-to-End Optimizing Compiler for Deep Learning as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Distributed training</span>
+    
+  </div>
+  
+<details class="paper" id="paper-6" data-mvrp="0" data-text="gpipe: efficient training of giant neural networks using pipeline parallelism huang et al. google splits a model into stages across accelerators and pipelines micro-batches through them. micro-batching keeps pipeline stages busy and makes re-materialisation affordable.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Huang et al. · Google · Nov 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Splits a model into stages across accelerators and pipelines micro-batches through them.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The canonical pipeline-parallelism paper — one of the three axes of 3D parallelism.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Data parallelism, backprop memory costs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Micro-batching keeps pipeline stages busy and makes re-materialisation affordable.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1811.06965" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="1" data-text="megatron-lm: training multi-billion parameter language models using model parallelism shoeybi et al. nvidia splits attention and mlp matrix multiplies across gpus with just two communication points per layer. partition the matmuls, not the layers, and communication stays cheap.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Shoeybi et al. · NVIDIA · Sep 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Splits attention and MLP matrix multiplies across GPUs with just two communication points per layer.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Tensor parallelism as used in practically every large training run since.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformer, collective communication</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Partition the matmuls, not the layers, and communication stays cheap.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1909.08053" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-8" data-mvrp="1" data-text="zero: memory optimizations toward training trillion parameter models rajbhandari et al. microsoft shards optimizer states, gradients, and parameters across data-parallel workers instead of replicating them. optimizer state, not parameters, dominates training memory — so shard it.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">ZeRO: Memory Optimizations Toward Training Trillion Parameter Models</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Rajbhandari et al. · Microsoft · Oct 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Shards optimizer states, gradients, and parameters across data-parallel workers instead of replicating them.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The memory analysis every practitioner needs; the engine inside DeepSpeed and FSDP.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Adam, data parallelism, mixed precision</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Optimizer state, not parameters, dominates training memory — so shard it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1910.02054" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="ZeRO: Memory Optimizations Toward Training Trillion Parameter Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark ZeRO: Memory Optimizations Toward Training Trillion Parameter Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-9" data-mvrp="0" data-text="gshard: scaling giant models with conditional computation and automatic sharding lepikhin et al. google annotation-driven compiler sharding plus mixture-of-experts, demonstrated on a 600b model. let the compiler place the computation; the programmer only annotates intent.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lepikhin et al. · Google · Jun 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Annotation-driven compiler sharding plus mixture-of-experts, demonstrated on a 600B model.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Where sparse scaling met compiler-managed parallelism; read alongside Switch Transformer.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Megatron-LM, MoE basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Let the compiler place the computation; the programmer only annotates intent.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2006.16668" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Datacenter-scale orchestration</span>
+    
+  </div>
+  
+<details class="paper" id="paper-10" data-mvrp="0" data-text="ray: a distributed framework for emerging ai applications moritz et al. uc berkeley a unified task-and-actor engine with a distributed object store for heterogeneous ml workloads. ml workloads need dynamic task graphs, not just static dataflow.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Ray: A Distributed Framework for Emerging AI Applications</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Moritz et al. · UC Berkeley · Dec 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>A unified task-and-actor engine with a distributed object store for heterogeneous ML workloads.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The substrate under much of modern RL, hyperparameter search, and LLM serving (vLLM runs on it).</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed systems basics, futures/actors</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>ML workloads need dynamic task graphs, not just static dataflow.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1712.05889" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Ray: A Distributed Framework for Emerging AI Applications">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Ray: A Distributed Framework for Emerging AI Applications as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="pathways: asynchronous distributed dataflow for ml barham et al. google single-controller orchestration of thousands of accelerators with gang-scheduled asynchronous dataflow. a single logical controller can scale if dispatch is asynchronous and sharded.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">Pathways: Asynchronous Distributed Dataflow for ML</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Barham et al. · Google · Mar 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Single-controller orchestration of thousands of accelerators with gang-scheduled asynchronous dataflow.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The infrastructure paper behind PaLM; the design point for multi-pod training.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TensorFlow, GPipe</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A single logical controller can scale if dispatch is asynchronous and sharded.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2203.12533" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="Pathways: Asynchronous Distributed Dataflow for ML">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark Pathways: Asynchronous Distributed Dataflow for ML as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-12" data-mvrp="0" data-text="in-datacenter performance analysis of a tensor processing unit jouppi et al. google retrospective on the tpuv1&#x27;s systolic array delivering 15–30× perf/watt over contemporary gpus. domain-specific silicon wins when the workload is one operator.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">In-Datacenter Performance Analysis of a Tensor Processing Unit</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Jouppi et al. · Google · Apr 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Retrospective on the TPUv1&#x27;s systolic array delivering 15–30× perf/watt over contemporary GPUs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The hardware end of the ML-systems stack; read with Roofline in mind.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Roofline model, matrix multiply</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Domain-specific silicon wins when the workload is one operator.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1704.04760" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="In-Datacenter Performance Analysis of a Tensor Processing Unit">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark In-Datacenter Performance Analysis of a Tensor Processing Unit as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Inference &amp; serving</span>
+    
+  </div>
+  
+<details class="paper" id="paper-13" data-mvrp="0" data-text="flashattention-2: faster attention with better parallelism and work partitioning dao princeton, stanford reworks flashattention&#x27;s loop structure and warp partitioning to reach ~70% of peak flops. getting from 30% to 70% of peak is about work partitioning, not new math.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dao · Princeton, Stanford · Jul 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Reworks FlashAttention&#x27;s loop structure and warp partitioning to reach ~70% of peak FLOPs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The production attention kernel; a masterclass in mapping algorithms to GPU execution hierarchy.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>FlashAttention, GPU architecture</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Getting from 30% to 70% of peak is about work partitioning, not new math.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2307.08691" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="0" data-text="efficiently scaling transformer inference pope et al. google an analytical cost model for partitioning llm inference, separating prefill and decode regimes. decode is memory-bandwidth-bound; batch it or pay for it.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">Efficiently Scaling Transformer Inference</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Pope et al. · Google · Nov 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>An analytical cost model for partitioning LLM inference, separating prefill and decode regimes.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The clearest thinking on why inference economics differ from training economics.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Megatron-LM, Roofline model</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Decode is memory-bandwidth-bound; batch it or pay for it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2211.05102" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="Efficiently Scaling Transformer Inference">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark Efficiently Scaling Transformer Inference as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-15" data-mvrp="0" data-text="fast inference from transformers via speculative decoding leviathan, kalman, matias google a small draft model proposes tokens the large model verifies in parallel, provably preserving its distribution. verification is parallelisable even when generation isn&#x27;t.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">Fast Inference from Transformers via Speculative Decoding</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Leviathan, Kalman, Matias · Google · Nov 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>A small draft model proposes tokens the large model verifies in parallel, provably preserving its distribution.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Now standard in serving stacks; a rare free-lunch latency win.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Autoregressive decoding, rejection sampling</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Verification is parallelisable even when generation isn&#x27;t.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2211.17192" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="Fast Inference from Transformers via Speculative Decoding">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark Fast Inference from Transformers via Speculative Decoding as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="1" data-text="efficient memory management for large language model serving with pagedattention (vllm) kwon et al. uc berkeley virtual-memory-style paging for kv caches eliminates fragmentation and boosts serving throughput 2–4×. classic os ideas transplant directly into ml serving.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Efficient Memory Management for Large Language Model Serving with PagedAttention (vLLM)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kwon et al. · UC Berkeley · Sep 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Virtual-memory-style paging for KV caches eliminates fragmentation and boosts serving throughput 2–4×.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper behind vLLM — the default open-source LLM serving engine.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformer KV cache, OS paging</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Classic OS ideas transplant directly into ML serving.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Efficient Memory Management for Large Language Model Serving with PagedAttention (vLLM)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Efficient Memory Management for Large Language Model Serving with PagedAttention (vLLM) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../programming-languages/"><span class="dir">← Previous roadmap</span>Programming Languages</a>
+    <span></span>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>
