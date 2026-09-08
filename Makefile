@@ -1,4 +1,4 @@
-.PHONY: validate check-links generate dev all
+.PHONY: validate check-links generate audit dev all
 
 validate:
 	python scripts/validate_papers.py
@@ -9,7 +9,10 @@ check-links:
 generate:
 	python scripts/generate_html.py
 
+audit: generate
+	python scripts/audit_site.py
+
 dev: generate
 	python -m http.server 8080
 
-all: validate check-links generate
+all: validate check-links audit

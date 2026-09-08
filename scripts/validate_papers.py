@@ -26,7 +26,7 @@ SCHEMA = {
             "minItems": 1,
             "items": {
                 "type": "object",
-                "required": ["id", "title", "papers"],
+                "required": ["id", "title", "description", "timeline", "levels", "papers"],
                 "additionalProperties": False,
                 "properties": {
                     "id": {"type": "string", "minLength": 1, "pattern": r"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
@@ -36,6 +36,7 @@ SCHEMA = {
                     "timeline": {"type": "string"},
                     "levels": {
                         "type": "array",
+                        "minItems": 1,
                         "items": {
                             "type": "object",
                             "required": ["n", "name"],
@@ -49,6 +50,7 @@ SCHEMA = {
                     },
                     "papers": {
                         "type": "array",
+                        "minItems": 1,
                         "items": {
                             "type": "object",
                             "required": [
@@ -72,12 +74,12 @@ SCHEMA = {
                                 "date": {"type": "string", "minLength": 1},
                                 "link": {"type": "string", "pattern": r"^http"},
                                 "tldr": {"type": "string", "minLength": 20},
-                                "why": {"type": "string"},
+                                "why": {"type": "string", "minLength": 20},
                                 "prerequisites": {
                                     "type": "array",
                                     "items": {"type": ["integer", "string"]},
                                 },
-                                "key_takeaway": {"type": "string"},
+                                "key_takeaway": {"type": "string", "minLength": 20},
                                 "minimum_viable_path": {"type": "boolean"},
                             },
                         },
@@ -119,18 +121,49 @@ def validate_custom_rules(data: dict) -> list[str]:
             errors.append(f"Duplicate roadmap id: {roadmap_id}")
         roadmap_ids.add(roadmap_id)
 
-        level_numbers = {level.get("n") for level in roadmap.get("levels", []) if "n" in level}
+        level_list = [level.get("n") for level in roadmap.get("levels", []) if "n" in level]
+        level_numbers = set(level_list)
+        if len(level_list) != len(level_numbers):
+            errors.append(f"{roadmap_id}: duplicate level number")
+
+        papers = roadmap.get("papers", [])
+        all_paper_ids = {paper.get("id") for paper in papers}
         paper_ids: set[int] = set()
-        for paper in roadmap.get("papers", []):
+        links: set[str] = set()
+        mvrp_count = 0
+        for paper in papers:
             paper_id = paper.get("id")
             if paper_id in paper_ids:
                 errors.append(f"{roadmap_id}: duplicate paper id {paper_id}")
             paper_ids.add(paper_id)
 
+            link = paper.get("link")
+            if link in links:
+                errors.append(f"{roadmap_id}: duplicate paper link {link}")
+            links.add(link)
+
+            if paper.get("minimum_viable_path"):
+                mvrp_count += 1
+
             if level_numbers and paper.get("level") not in level_numbers:
                 errors.append(
                     f"{roadmap_id} paper {paper_id}: level {paper.get('level')} is not declared in roadmap levels"
                 )
+
+            for prerequisite in paper.get("prerequisites", []):
+                if not isinstance(prerequisite, int):
+                    continue
+                if prerequisite not in all_paper_ids:
+                    errors.append(
+                        f"{roadmap_id} paper {paper_id}: prerequisite paper {prerequisite} does not exist"
+                    )
+                elif prerequisite >= paper_id:
+                    errors.append(
+                        f"{roadmap_id} paper {paper_id}: prerequisite paper {prerequisite} must come earlier"
+                    )
+
+        if not mvrp_count:
+            errors.append(f"{roadmap_id}: minimum viable reading path is empty")
 
     return errors
 
