@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve CS Paper Roadmaps. Curation is the product here: every paper should sharpen the reading path, not just increase the count.
+Thanks for helping improve Papers in Order. Curation is the product here: every paper should sharpen the reading path, not just increase the count.
 
 ## The Golden Rule
 
@@ -63,6 +63,7 @@ If accepted, add a new top-level entry under `roadmaps:` in `papers.yml`. A new 
 - The paper should fill a real gap in the sequence.
 - Prerequisites should point backward in the roadmap, not forward.
 - Avoid hype words. Placement in the roadmap should communicate importance.
+- Follow the project's [editorial policy](EDITORIAL_POLICY.md), including its guidance on evidence, ordering, conflicts, and recent work.
 
 ## What Happens After You Open a PR
 
@@ -77,7 +78,7 @@ If accepted, add a new top-level entry under `roadmaps:` in `papers.yml`. A new 
 Install dependencies:
 
 ```bash
-pip install pyyaml jsonschema requests jinja2
+pip install pyyaml jsonschema requests
 ```
 
 Validate the YAML:
