@@ -1,11 +1,11 @@
-# CS Paper Roadmaps
+# Papers in Order
 
-> Curated, logically ordered reading lists for 11 major areas of computer science — every paper sequenced so each one builds on the last, with TL;DRs, prerequisites, and key takeaways.
+> The shortest path through computer science research: 291 landmark papers across 12 fields, sequenced by prerequisite with TL;DRs and focused reading paths.
 
 <br/>
 
-[![Papers](https://img.shields.io/badge/total%20papers-258-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
-[![Roadmaps](https://img.shields.io/badge/roadmaps-11-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
+[![Papers](https://img.shields.io/badge/total%20papers-291-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
+[![Roadmaps](https://img.shields.io/badge/roadmaps-12-16a34a?style=flat-square)](https://github.com/Achal13jain/cs-paper-roadmaps)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-16a34a?style=flat-square)](LICENSE-CONTENT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -17,7 +17,9 @@
 
 🌐 **[Browse the interactive website →](https://achal13jain.github.io/cs-paper-roadmaps)**
 
-> The website lets you filter papers by level, expand TL;DRs inline, and track your minimum viable reading path — all in one page.
+> Filter papers by level, expand concise explanations inline, and save progress on every standalone roadmap page.
+>
+> Every roadmap also has its own shareable URL — e.g. [`/roadmaps/llm-transformers/`](https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/llm-transformers/) — so you can link someone straight to one field.
 
 <br/>
 
@@ -36,6 +38,12 @@ Every paper entry includes:
 | **Prerequisites** | What to read first so you're not lost |
 | **Key takeaway** | The single insight you should walk away with |
 | **Link** | Always arXiv or open-access — never paywalled |
+
+### What makes this different
+
+Most paper collections help you discover *what exists*. Papers in Order focuses on *what to read next*. Each field has an intentionally small minimum viable reading path, then a deeper sequence for readers who want the historical and technical context.
+
+The lists prioritize durable conceptual understanding over chasing every new release. See the [editorial policy](EDITORIAL_POLICY.md) for inclusion, ordering, correction, and review rules.
 
 ---
 
@@ -57,17 +65,18 @@ Don't have time to read everything? Each roadmap has a curated **minimum viable 
 
 | Roadmap | Papers | Levels | MVRP |
 |---|---:|---:|---:|
-| LLMs & Transformers | 29 | 0-8 | 10 |
-| Computer Vision | 28 | 0-7 | 6 |
-| Reinforcement Learning | 25 | 0-7 | 4 |
+| LLMs & Transformers | 37 | 0-8 | 11 |
+| Computer Vision | 32 | 0-7 | 6 |
+| Reinforcement Learning | 27 | 0-7 | 4 |
 | Distributed Systems | 26 | 0-7 | 4 |
-| Graph Neural Networks | 22 | 0-6 | 4 |
+| Graph Neural Networks | 23 | 0-6 | 4 |
 | Database Systems | 24 | 0-6 | 3 |
 | Cryptography | 22 | 0-6 | 3 |
-| Information Retrieval | 20 | 0-5 | 6 |
+| Information Retrieval | 22 | 0-5 | 6 |
 | Computer Architecture | 22 | 0-6 | 5 |
 | Computational Biology | 20 | 0-5 | 5 |
 | Programming Languages | 20 | 0-6 | 7 |
+| Machine Learning Systems | 16 | 0-4 | 5 |
 
 ---
 
@@ -76,10 +85,10 @@ Don't have time to read everything? Each roadmap has a curated **minimum viable 
 `papers.yml` is the single source of truth:
 
 ```text
-papers.yml → scripts/validate_papers.py → scripts/generate_html.py → index.html → GitHub Pages
+papers.yml → scripts/validate_papers.py → scripts/generate_html.py → index.html + roadmaps/<id>/ + sitemap.xml → GitHub Pages
 ```
 
-Contributors edit `papers.yml`. The generated `index.html` is rebuilt automatically after merge and deployed to GitHub Pages.
+Contributors edit `papers.yml`. The generated `index.html`, per-roadmap pages under `roadmaps/`, and `sitemap.xml` are rebuilt automatically after merge and deployed to GitHub Pages.
 
 PR validation checks the YAML schema and only verifies **new or changed links**. Full link checking is still available locally with `make check-links`.
 
@@ -92,8 +101,13 @@ cs-paper-roadmaps/
 │
 ├── README.md
 ├── index.html                        ← auto-generated; do NOT edit manually
+├── roadmaps/<id>/index.html          ← auto-generated shareable page per roadmap
+├── sitemap.xml / robots.txt          ← auto-generated
 ├── papers.yml                        ← single source of truth — EDIT THIS
 ├── CONTRIBUTING.md
+├── EDITORIAL_POLICY.md                ← inclusion, ordering, and review standard
+├── CHANGELOG.md / ROADMAP.md           ← releases and product direction
+├── docs/DEPLOYMENT.md                  ← GitHub Pages and Cloudflare configuration
 ├── LICENSE-CODE
 ├── LICENSE-CONTENT
 ├── scripts/
@@ -155,9 +169,9 @@ Those are great for discovery. This is for *sequenced learning* — knowing what
 
 No. These are the papers that build the clearest conceptual path through each field. Some influential papers are omitted if they're superseded or better understood after the ones listed. PRs for missing papers are welcome.
 
-**Is this kept up to date?**
+**Is this a live feed of new papers?**
 
-Yes — the goal is to add new frontier papers within a few months of publication. Watch the repo or check the commit history for recent additions.
+No. It is a curated learning resource, not a news feed. New papers are added when they materially change a field's mental model or make an existing path clearer. Every roadmap should show its review status transparently rather than claiming to contain every frontier result.
 
 **Can I use this for a university course or reading group?**
 
@@ -175,7 +189,7 @@ All linked papers remain the intellectual property of their respective authors a
 
 <div align="center">
 
-Made with the belief that great research should be accessible to everyone.
+Built for readers who want understanding, not an endless bookmark folder.
 
 [Website](https://Achal13jain.github.io/cs-paper-roadmaps) · [Contribute](CONTRIBUTING.md) · [Issues](https://github.com/Achal13jain/cs-paper-roadmaps/issues)
 

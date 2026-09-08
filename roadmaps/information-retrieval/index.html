@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Information Retrieval Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Information Retrieval reading roadmap: 22 papers across 6 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/information-retrieval/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Information Retrieval Research Paper Roadmap">
+<meta property="og:description" content="Information Retrieval reading roadmap: 22 papers across 6 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/information-retrieval/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Information Retrieval roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Information Retrieval Research Paper Roadmap">
+<meta name="twitter:description" content="Information Retrieval reading roadmap: 22 papers across 6 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Information Retrieval roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Information Retrieval", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/information-retrieval/"}]}, {"@type": "ItemList", "name": "Information Retrieval paper roadmap", "description": "From tf-idf to neural retrievers — how systems learned to find the right documents (and now the right passages) for a query, and how that became the foundation of modern search and RAG.", "numberOfItems": 22, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "A Statistical Interpretation of Term Specificity and its Application in Retrieval", "url": "https://www.staff.city.ac.uk/~sb317/papers/sparck_jones_72.pdf"}, {"@type": "ListItem", "position": 2, "name": "A Vector Space Model for Automatic Indexing", "url": "https://dl.acm.org/doi/10.1145/361219.361220"}, {"@type": "ListItem", "position": 3, "name": "Relevance Weighting of Search Terms", "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.4630270302"}, {"@type": "ListItem", "position": 4, "name": "Indexing by Latent Semantic Analysis (LSI)", "url": "https://www.cs.bham.ac.uk/~pxt/IDA/lsa_ind.pdf"}, {"@type": "ListItem", "position": 5, "name": "Okapi at TREC-3 (BM25)", "url": "https://trec.nist.gov/pubs/trec3/papers/city.ps.gz"}, {"@type": "ListItem", "position": 6, "name": "A Language Modeling Approach to Information Retrieval", "url": "https://ciir-publications.cs.umass.edu/getpdf.php?id=82"}, {"@type": "ListItem", "position": 7, "name": "The Anatomy of a Large-Scale Hypertextual Web Search Engine (Google)", "url": "http://infolab.stanford.edu/pub/papers/google.pdf"}, {"@type": "ListItem", "position": 8, "name": "The PageRank Citation Ranking: Bringing Order to the Web", "url": "http://ilpubs.stanford.edu:8090/422/1/1999-66.pdf"}, {"@type": "ListItem", "position": 9, "name": "Authoritative Sources in a Hyperlinked Environment (HITS)", "url": "https://www.cs.cornell.edu/home/kleinber/auth.pdf"}, {"@type": "ListItem", "position": 10, "name": "Learning to Rank using Gradient Descent (RankNet)", "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2005/08/icml_ranking.pdf"}, {"@type": "ListItem", "position": 11, "name": "From RankNet to LambdaRank to LambdaMART: An Overview", "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf"}, {"@type": "ListItem", "position": 12, "name": "Learning Deep Structured Semantic Models (DSSM)", "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/cikm2013_DSSM_fullversion.pdf"}, {"@type": "ListItem", "position": 13, "name": "A Deep Relevance Matching Model for Ad-hoc Retrieval (DRMM)", "url": "https://arxiv.org/abs/1711.08611"}, {"@type": "ListItem", "position": 14, "name": "Passage Re-ranking with BERT", "url": "https://arxiv.org/abs/1901.04085"}, {"@type": "ListItem", "position": 15, "name": "Dense Passage Retrieval for Open-Domain Question Answering (DPR)", "url": "https://arxiv.org/abs/2004.04906"}, {"@type": "ListItem", "position": 16, "name": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction", "url": "https://arxiv.org/abs/2004.12832"}, {"@type": "ListItem", "position": 17, "name": "SPLADE: Sparse Lexical and Expansion Model for First-Stage Ranking", "url": "https://arxiv.org/abs/2107.05720"}, {"@type": "ListItem", "position": 18, "name": "Efficient and Robust Approximate Nearest Neighbor Search Using HNSW Graphs", "url": "https://arxiv.org/abs/1603.09320"}, {"@type": "ListItem", "position": 19, "name": "BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models", "url": "https://arxiv.org/abs/2104.08663"}, {"@type": "ListItem", "position": 20, "name": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)", "url": "https://arxiv.org/abs/2005.11401"}, {"@type": "ListItem", "position": 21, "name": "Transformer Memory as a Differentiable Search Index (DSI)", "url": "https://arxiv.org/abs/2202.06991"}, {"@type": "ListItem", "position": 22, "name": "Text Embeddings by Weakly-Supervised Contrastive Pre-training (E5)", "url": "https://arxiv.org/abs/2212.03533"}]}]}</script>
+</head>
+<body data-roadmap="information-retrieval">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Information Retrieval</nav>
+  <h1>Information Retrieval</h1>
+  <p class="lede">From tf-idf to neural retrievers — how systems learned to find the right documents (and now the right passages) for a query, and how that became the foundation of modern search and RAG.</p>
+  <div class="meta-row">
+    <span><b>22</b> papers</span>
+    <span><b>6</b> levels</span>
+    <span>Timeline <b>1972 – 2024</b></span>
+    <span>MVRP <b>6</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 22</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="22" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 6 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-1">A Statistical Interpretation of Term Specificity and its Application in Retrieval</a></li>
+<li><a href="#paper-5">Okapi at TREC-3 (BM25)</a></li>
+<li><a href="#paper-7">The Anatomy of a Large-Scale Hypertextual Web Search Engine (Google)</a></li>
+<li><a href="#paper-14">Passage Re-ranking with BERT</a></li>
+<li><a href="#paper-15">Dense Passage Retrieval for Open-Domain Question Answering (DPR)</a></li>
+<li><a href="#paper-18">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 22 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Classical IR</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="1" data-text="a statistical interpretation of term specificity and its application in retrieval spärck jones cambridge introduces inverse document frequency: rare terms carry more retrieval weight than common ones. how specific a term is matters at least as much as how often it appears.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">A Statistical Interpretation of Term Specificity and its Application in Retrieval</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Spärck Jones · Cambridge · Oct 1972</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces inverse document frequency: rare terms carry more retrieval weight than common ones.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The idf in tf-idf comes from this short paper — IR&#x27;s foundational quantitative idea.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic statistics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>How specific a term is matters at least as much as how often it appears.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.staff.city.ac.uk/~sb317/papers/sparck_jones_72.pdf" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="A Statistical Interpretation of Term Specificity and its Application in Retrieval">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark A Statistical Interpretation of Term Specificity and its Application in Retrieval as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="a vector space model for automatic indexing salton, wong, yang cornell represents documents and queries as vectors in a term space and ranks by cosine similarity. documents are points in space; relevance is geometry.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">A Vector Space Model for Automatic Indexing</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Salton, Wong, Yang · Cornell · Nov 1975</p>
+    <div class="p-field"><b>TL;DR</b><p>Represents documents and queries as vectors in a term space and ranks by cosine similarity.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The geometric framing of IR that everyone still uses; conceptual ancestor of every embedding-based retriever.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Linear algebra, basic NLP</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Documents are points in space; relevance is geometry.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://dl.acm.org/doi/10.1145/361219.361220" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="A Vector Space Model for Automatic Indexing">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark A Vector Space Model for Automatic Indexing as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-3" data-mvrp="0" data-text="relevance weighting of search terms robertson, spärck jones cambridge derives optimal term weights for retrieval under a probabilistic model of relevance. optimal weighting falls out of treating relevance as a probability.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">Relevance Weighting of Search Terms</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Robertson, Spärck Jones · Cambridge · May 1976</p>
+    <div class="p-field"><b>TL;DR</b><p>Derives optimal term weights for retrieval under a probabilistic model of relevance.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The probabilistic foundation under BM25 and most classical IR systems.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>tf-idf, probability theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Optimal weighting falls out of treating relevance as a probability.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.4630270302" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="Relevance Weighting of Search Terms">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark Relevance Weighting of Search Terms as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Probabilistic &amp; language models</span>
+    
+  </div>
+  
+<details class="paper" id="paper-4" data-mvrp="0" data-text="indexing by latent semantic analysis (lsi) deerwester et al. bellcore uses singular value decomposition on the term-document matrix to capture latent topics. retrieval can happen in a low-dimensional latent space, not the original term space.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">Indexing by Latent Semantic Analysis (LSI)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Deerwester et al. · Bellcore · Oct 1990</p>
+    <div class="p-field"><b>TL;DR</b><p>Uses singular value decomposition on the term-document matrix to capture latent topics.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first attempt at semantic, dimensionality-reduced retrieval; the lineage to embeddings.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Vector space model, SVD</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Retrieval can happen in a low-dimensional latent space, not the original term space.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.bham.ac.uk/~pxt/IDA/lsa_ind.pdf" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="Indexing by Latent Semantic Analysis (LSI)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark Indexing by Latent Semantic Analysis (LSI) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-5" data-mvrp="1" data-text="okapi at trec-3 (bm25) robertson, walker, jones, hancock-beaulieu, gatford city u london a probabilistic ranking function with saturating term frequency and length normalisation. a small handful of well-chosen heuristics gives a baseline that&#x27;s remarkably hard to beat.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Okapi at TREC-3 (BM25)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Robertson, Walker, Jones, Hancock-Beaulieu, Gatford · City U London · Nov 1994</p>
+    <div class="p-field"><b>TL;DR</b><p>A probabilistic ranking function with saturating term frequency and length normalisation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Still the strongest non-neural baseline you can run; under-rated relative to its impact.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Probabilistic relevance</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A small handful of well-chosen heuristics gives a baseline that&#x27;s remarkably hard to beat.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://trec.nist.gov/pubs/trec3/papers/city.ps.gz" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Okapi at TREC-3 (BM25)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Okapi at TREC-3 (BM25) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-6" data-mvrp="0" data-text="a language modeling approach to information retrieval ponte, croft umass amherst models each document as a language model and ranks by the likelihood it generated the query. documents that &quot;could have generated&quot; the query are the relevant ones.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">A Language Modeling Approach to Information Retrieval</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ponte, Croft · UMass Amherst · Aug 1998</p>
+    <div class="p-field"><b>TL;DR</b><p>Models each document as a language model and ranks by the likelihood it generated the query.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean re-framing of IR that connects retrieval to statistical NLP.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Probability, language modeling basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Documents that &quot;could have generated&quot; the query are the relevant ones.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://ciir-publications.cs.umass.edu/getpdf.php?id=82" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="A Language Modeling Approach to Information Retrieval">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark A Language Modeling Approach to Information Retrieval as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Web-scale &amp; link analysis</span>
+    
+  </div>
+  
+<details class="paper" id="paper-7" data-mvrp="1" data-text="the anatomy of a large-scale hypertextual web search engine (google) brin, page stanford describes the original google: pagerank, anchor text, distributed crawling, repository design. web search needs both content signals and link signals; one isn&#x27;t enough.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">The Anatomy of a Large-Scale Hypertextual Web Search Engine (Google)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Brin, Page · Stanford · Apr 1998</p>
+    <div class="p-field"><b>TL;DR</b><p>Describes the original Google: PageRank, anchor text, distributed crawling, repository design.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A founding document of the modern web. Still the clearest introduction to how a real search engine is built.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Vector space model, basic graph theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Web search needs both content signals and link signals; one isn&#x27;t enough.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://infolab.stanford.edu/pub/papers/google.pdf" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="The Anatomy of a Large-Scale Hypertextual Web Search Engine (Google)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark The Anatomy of a Large-Scale Hypertextual Web Search Engine (Google) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-8" data-mvrp="0" data-text="the pagerank citation ranking: bringing order to the web page, brin, motwani, winograd stanford ranks pages by the stationary distribution of a random walk over the link graph. a page&#x27;s importance is recursively the importance of pages that link to it.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">The PageRank Citation Ranking: Bringing Order to the Web</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Page, Brin, Motwani, Winograd · Stanford · Jan 1999</p>
+    <div class="p-field"><b>TL;DR</b><p>Ranks pages by the stationary distribution of a random walk over the link graph.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A timeless trick for ranking by structural authority on any graph.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Linear algebra, Markov chains</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A page&#x27;s importance is recursively the importance of pages that link to it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://ilpubs.stanford.edu:8090/422/1/1999-66.pdf" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="The PageRank Citation Ranking: Bringing Order to the Web">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark The PageRank Citation Ranking: Bringing Order to the Web as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-9" data-mvrp="0" data-text="authoritative sources in a hyperlinked environment (hits) kleinberg ibm almaden identifies hubs and authorities via mutually-reinforcing link structure. authority and hub-ness are dual concepts that emerge from link structure.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">Authoritative Sources in a Hyperlinked Environment (HITS)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kleinberg · IBM Almaden · Jan 1999</p>
+    <div class="p-field"><b>TL;DR</b><p>Identifies hubs and authorities via mutually-reinforcing link structure.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A useful conceptual contrast to PageRank — different framings of &quot;authority on the web&quot;.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>PageRank, eigenvectors</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Authority and hub-ness are dual concepts that emerge from link structure.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.cornell.edu/home/kleinber/auth.pdf" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="Authoritative Sources in a Hyperlinked Environment (HITS)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark Authoritative Sources in a Hyperlinked Environment (HITS) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Learning to rank</span>
+    
+  </div>
+  
+<details class="paper" id="paper-10" data-mvrp="0" data-text="learning to rank using gradient descent (ranknet) burges et al. microsoft research a pairwise neural ranker trained on cross-entropy of relevance comparisons. treat ranking as a pairwise classification problem and you can learn it with gradient descent.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Learning to Rank using Gradient Descent (RankNet)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Burges et al. · Microsoft Research · Aug 2005</p>
+    <div class="p-field"><b>TL;DR</b><p>A pairwise neural ranker trained on cross-entropy of relevance comparisons.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first paper of the modern learning-to-rank era; conceptual seed of LambdaMART and beyond.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Neural network basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Treat ranking as a pairwise classification problem and you can learn it with gradient descent.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2005/08/icml_ranking.pdf" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Learning to Rank using Gradient Descent (RankNet)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Learning to Rank using Gradient Descent (RankNet) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="from ranknet to lambdarank to lambdamart: an overview burges microsoft research walks through the evolution of ltr algorithms used in production search engines. a principled non-smooth ir metric becomes trainable through pairwise lambda gradients.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">From RankNet to LambdaRank to LambdaMART: An Overview</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Burges · Microsoft Research · Jun 2010</p>
+    <div class="p-field"><b>TL;DR</b><p>Walks through the evolution of LTR algorithms used in production search engines.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean, self-contained narrative through three classic algorithms; the practical LTR canon.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>RankNet, gradient boosting</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A principled non-smooth IR metric becomes trainable through pairwise lambda gradients.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/MSR-TR-2010-82.pdf" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="From RankNet to LambdaRank to LambdaMART: An Overview">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark From RankNet to LambdaRank to LambdaMART: An Overview as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Neural IR</span>
+    
+  </div>
+  
+<details class="paper" id="paper-12" data-mvrp="0" data-text="learning deep structured semantic models (dssm) huang et al. microsoft research learns matching score between query and document via deep neural networks over character n-grams. even small dense networks beat lexical retrieval when trained on click data.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Learning Deep Structured Semantic Models (DSSM)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Huang et al. · Microsoft Research · Oct 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>Learns matching score between query and document via deep neural networks over character n-grams.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first widely-influential neural retrieval paper; predates BERT-era methods by half a decade.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Neural networks, vector space model</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Even small dense networks beat lexical retrieval when trained on click data.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/cikm2013_DSSM_fullversion.pdf" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Learning Deep Structured Semantic Models (DSSM)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Learning Deep Structured Semantic Models (DSSM) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-13" data-mvrp="0" data-text="a deep relevance matching model for ad-hoc retrieval (drmm) guo, fan, ai, croft umass amherst argues that retrieval is fundamentally about exact matching, not just semantic matching. strong neural retrievers must combine semantic and exact-match signals, not just one.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">A Deep Relevance Matching Model for Ad-hoc Retrieval (DRMM)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Guo, Fan, Ai, Croft · UMass Amherst · Oct 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>Argues that retrieval is fundamentally about exact matching, not just semantic matching.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A useful corrective to early neural-IR enthusiasm; sharpens the design space.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DSSM, basic IR</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Strong neural retrievers must combine semantic and exact-match signals, not just one.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1711.08611" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="A Deep Relevance Matching Model for Ad-hoc Retrieval (DRMM)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark A Deep Relevance Matching Model for Ad-hoc Retrieval (DRMM) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="1" data-text="passage re-ranking with bert nogueira, cho nyu fine-tunes bert to score query-passage pairs, dramatically improving ms marco scores. cross-encoders trivially beat lexical baselines for re-ranking.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">Passage Re-ranking with BERT</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Nogueira, Cho · NYU · Jan 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Fine-tunes BERT to score query-passage pairs, dramatically improving MS MARCO scores.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The &quot;BERT just works&quot; moment for IR; the start of the BERT-for-search wave.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BERT, basic IR metrics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Cross-encoders trivially beat lexical baselines for re-ranking.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1901.04085" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="Passage Re-ranking with BERT">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark Passage Re-ranking with BERT as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-15" data-mvrp="1" data-text="dense passage retrieval for open-domain question answering (dpr) karpukhin et al. facebook ai trains dual bert encoders to embed queries and passages into a shared space for nearest-neighbour retrieval. a dual encoder + contrastive loss gives you a strong, scalable dense retriever.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">Dense Passage Retrieval for Open-Domain Question Answering (DPR)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Karpukhin et al. · Facebook AI · Apr 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Trains dual BERT encoders to embed queries and passages into a shared space for nearest-neighbour retrieval.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most-cited dense-retrieval paper; the dual-encoder pattern still dominates.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BERT, contrastive learning</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A dual encoder + contrastive loss gives you a strong, scalable dense retriever.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2004.04906" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="Dense Passage Retrieval for Open-Domain Question Answering (DPR)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark Dense Passage Retrieval for Open-Domain Question Answering (DPR) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="0" data-text="colbert: efficient and effective passage search via contextualized late interaction khattab, zaharia stanford encodes each token separately and scores with late maxsim interaction at retrieval time. late, fine-grained token-level interaction is much cheaper than full cross-attention.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Khattab, Zaharia · Stanford · Apr 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Encodes each token separately and scores with late MaxSim interaction at retrieval time.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A practical sweet spot between cross-encoder accuracy and dual-encoder speed.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BERT, DPR</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Late, fine-grained token-level interaction is much cheaper than full cross-attention.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2004.12832" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="splade: sparse lexical and expansion model for first-stage ranking formal, piwowarski, clinchant naver labs produces sparse expansion vectors over the bert vocabulary, retrievable with classical inverted indexes. you can stay on inverted indexes and still get most of the neural-ir benefit.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">SPLADE: Sparse Lexical and Expansion Model for First-Stage Ranking</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Formal, Piwowarski, Clinchant · Naver Labs · Jul 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Produces sparse expansion vectors over the BERT vocabulary, retrievable with classical inverted indexes.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most pragmatic neural-IR design — neural quality with infrastructure that already exists.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BM25, BERT</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can stay on inverted indexes and still get most of the neural-IR benefit.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2107.05720" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="SPLADE: Sparse Lexical and Expansion Model for First-Stage Ranking">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark SPLADE: Sparse Lexical and Expansion Model for First-Stage Ranking as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-21" data-mvrp="0" data-text="efficient and robust approximate nearest neighbor search using hnsw graphs malkov, yashunin nizhny novgorod a multi-layer navigable small-world graph giving logarithmic-time approximate nearest-neighbour search. a hierarchy of long- and short-range links makes greedy graph search fast and accurate.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">Efficient and Robust Approximate Nearest Neighbor Search Using HNSW Graphs</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Malkov, Yashunin · Nizhny Novgorod · Mar 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>A multi-layer navigable small-world graph giving logarithmic-time approximate nearest-neighbour search.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The index inside most production vector databases — the other half of dense retrieval.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Vector space model, basic graph algorithms</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A hierarchy of long- and short-range links makes greedy graph search fast and accurate.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1603.09320" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="Efficient and Robust Approximate Nearest Neighbor Search Using HNSW Graphs">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark Efficient and Robust Approximate Nearest Neighbor Search Using HNSW Graphs as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-22" data-mvrp="0" data-text="beir: a heterogeneous benchmark for zero-shot evaluation of information retrieval models thakur et al. tu darmstadt an 18-dataset benchmark showing dense retrievers often lose to bm25 out of domain. in-domain wins don&#x27;t transfer; evaluate retrieval zero-shot before believing it.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Thakur et al. · TU Darmstadt · Apr 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>An 18-dataset benchmark showing dense retrievers often lose to BM25 out of domain.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The reality check for neural IR — defines how retrieval generalisation is measured.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BM25, DPR</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>In-domain wins don&#x27;t transfer; evaluate retrieval zero-shot before believing it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2104.08663" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Generative &amp; retrieval-augmented</span>
+    
+  </div>
+  
+<details class="paper" id="paper-18" data-mvrp="1" data-text="retrieval-augmented generation for knowledge-intensive nlp tasks (rag) lewis et al. meta ai combines a transformer generator with a learned dense retriever over a non-parametric memory. external memory beats trying to cram every fact into model weights.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lewis et al. · Meta AI · May 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Combines a Transformer generator with a learned dense retriever over a non-parametric memory.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that defines RAG and the foundation of every &quot;talk to your docs&quot; system.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BERT, DPR</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>External memory beats trying to cram every fact into model weights.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-19" data-mvrp="0" data-text="transformer memory as a differentiable search index (dsi) tay et al. google research trains a single transformer to map queries directly to document identifiers — no retriever, no index. a model can memorise an entire corpus into its weights and still retrieve from it.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">Transformer Memory as a Differentiable Search Index (DSI)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Tay et al. · Google Research · Feb 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Trains a single Transformer to map queries directly to document identifiers — no retriever, no index.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A radical reframing of search as pure sequence generation; influence is just starting.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BERT, T5</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A model can memorise an entire corpus into its weights and still retrieve from it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2202.06991" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="Transformer Memory as a Differentiable Search Index (DSI)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark Transformer Memory as a Differentiable Search Index (DSI) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="text embeddings by weakly-supervised contrastive pre-training (e5) wang et al. microsoft research trains general-purpose text embeddings with multi-stage contrastive training on weakly-supervised pairs. carefully-mined weak supervision is enough to train a top-tier general embedding model.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">Text Embeddings by Weakly-Supervised Contrastive Pre-training (E5)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wang et al. · Microsoft Research · Dec 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Trains general-purpose text embeddings with multi-stage contrastive training on weakly-supervised pairs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A strong baseline for modern open-source embeddings; widely adopted.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DPR, contrastive learning</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Carefully-mined weak supervision is enough to train a top-tier general embedding model.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2212.03533" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="Text Embeddings by Weakly-Supervised Contrastive Pre-training (E5)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark Text Embeddings by Weakly-Supervised Contrastive Pre-training (E5) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../cryptography/"><span class="dir">← Previous roadmap</span>Cryptography</a>
+    <a href="../computer-architecture/"><span class="dir">Next roadmap →</span>Computer Architecture</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

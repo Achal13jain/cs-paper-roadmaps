@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cryptography Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Cryptography reading roadmap: 22 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/cryptography/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Cryptography Research Paper Roadmap">
+<meta property="og:description" content="Cryptography reading roadmap: 22 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/cryptography/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Cryptography roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cryptography Research Paper Roadmap">
+<meta name="twitter:description" content="Cryptography reading roadmap: 22 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Cryptography roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Cryptography", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/cryptography/"}]}, {"@type": "ItemList", "name": "Cryptography paper roadmap", "description": "From Shannon's information-theoretic secrecy to post-quantum lattices — the mathematical primitives, security definitions, and protocols that secure modern systems.", "numberOfItems": 22, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Communication Theory of Secrecy Systems", "url": "https://www.iacr.org/museum/shannon/shannon45.pdf"}, {"@type": "ListItem", "position": 2, "name": "New Directions in Cryptography (Diffie–Hellman)", "url": "https://ee.stanford.edu/~hellman/publications/24.pdf"}, {"@type": "ListItem", "position": 3, "name": "A Method for Obtaining Digital Signatures and Public-Key Cryptosystems (RSA)", "url": "https://people.csail.mit.edu/rivest/Rsapaper.pdf"}, {"@type": "ListItem", "position": 4, "name": "A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms (ElGamal)", "url": "https://caislab.kaist.ac.kr/lecture/2010/spring/cs548/basic/B02.pdf"}, {"@type": "ListItem", "position": 5, "name": "Probabilistic Encryption", "url": "https://groups.csail.mit.edu/cis/pubs/shafi/1984-jcss.pdf"}, {"@type": "ListItem", "position": 6, "name": "The Knowledge Complexity of Interactive Proof Systems (Zero-Knowledge)", "url": "https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Zero%20Knowledge/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf"}, {"@type": "ListItem", "position": 7, "name": "Random Oracles are Practical: A Paradigm for Designing Efficient Protocols", "url": "https://cseweb.ucsd.edu/~mihir/papers/ro.pdf"}, {"@type": "ListItem", "position": 8, "name": "The Design of Rijndael (AES)", "url": "https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Standards-and-Guidelines/documents/aes-development/Rijndael-ammended.pdf"}, {"@type": "ListItem", "position": 9, "name": "The MD5 Message-Digest Algorithm", "url": "https://www.rfc-editor.org/rfc/rfc1321"}, {"@type": "ListItem", "position": 10, "name": "Identity-Based Encryption from the Weil Pairing", "url": "https://crypto.stanford.edu/~dabo/papers/bfibe.pdf"}, {"@type": "ListItem", "position": 11, "name": "On Lattices, Learning with Errors, Random Linear Codes, and Cryptography", "url": "https://cims.nyu.edu/~regev/papers/qcrypto.pdf"}, {"@type": "ListItem", "position": 12, "name": "Fully Homomorphic Encryption Using Ideal Lattices", "url": "https://crypto.stanford.edu/craig/craig-thesis.pdf"}, {"@type": "ListItem", "position": 13, "name": "Differential Privacy", "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/dwork.pdf"}, {"@type": "ListItem", "position": 14, "name": "The Second-Generation Onion Router (Tor)", "url": "https://svn.torproject.org/svn/projects/design-paper/tor-design.pdf"}, {"@type": "ListItem", "position": 15, "name": "The Double Ratchet Algorithm (Signal)", "url": "https://signal.org/docs/specifications/doubleratchet/"}, {"@type": "ListItem", "position": 16, "name": "Bitcoin: A Peer-to-Peer Electronic Cash System", "url": "https://bitcoin.org/bitcoin.pdf"}, {"@type": "ListItem", "position": 17, "name": "Pinocchio: Nearly Practical Verifiable Computation (zk-SNARKs)", "url": "https://eprint.iacr.org/2013/279.pdf"}, {"@type": "ListItem", "position": 18, "name": "Scalable, Transparent, and Post-Quantum Secure Computational Integrity (zk-STARKs)", "url": "https://eprint.iacr.org/2018/046.pdf"}, {"@type": "ListItem", "position": 19, "name": "CRYSTALS-Kyber: A Lattice-Based Key Encapsulation Mechanism", "url": "https://eprint.iacr.org/2017/634.pdf"}, {"@type": "ListItem", "position": 20, "name": "CRYSTALS-Dilithium: A Lattice-Based Digital Signature Scheme", "url": "https://eprint.iacr.org/2017/633.pdf"}, {"@type": "ListItem", "position": 21, "name": "How to Generate and Exchange Secrets (Yao's Garbled Circuits)", "url": "https://web.cs.ucdavis.edu/~rogaway/classes/227/spring05/book/yao.pdf"}, {"@type": "ListItem", "position": 22, "name": "Differentially Private Federated Learning", "url": "https://arxiv.org/abs/1710.06963"}]}]}</script>
+</head>
+<body data-roadmap="cryptography">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Cryptography</nav>
+  <h1>Cryptography</h1>
+  <p class="lede">From Shannon&#x27;s information-theoretic secrecy to post-quantum lattices — the mathematical primitives, security definitions, and protocols that secure modern systems.</p>
+  <div class="meta-row">
+    <span><b>22</b> papers</span>
+    <span><b>7</b> levels</span>
+    <span>Timeline <b>1948 – 2023</b></span>
+    <span>MVRP <b>3</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 22</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="22" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 3 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-1">Communication Theory of Secrecy Systems</a></li>
+<li><a href="#paper-2">New Directions in Cryptography (Diffie–Hellman)</a></li>
+<li><a href="#paper-16">Bitcoin: A Peer-to-Peer Electronic Cash System</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 22 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="1" data-text="communication theory of secrecy systems shannon bell labs defines perfect secrecy, the unicity distance, and the entropy framework for analysing ciphers. perfect secrecy requires a key as long as the message — and that&#x27;s a theorem, not an opinion.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">Communication Theory of Secrecy Systems</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Shannon · Bell Labs · Oct 1949</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines perfect secrecy, the unicity distance, and the entropy framework for analysing ciphers.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The mathematical bedrock of cryptography; every modern security definition descends from this.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Probability, basic information theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Perfect secrecy requires a key as long as the message — and that&#x27;s a theorem, not an opinion.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.iacr.org/museum/shannon/shannon45.pdf" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="Communication Theory of Secrecy Systems">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark Communication Theory of Secrecy Systems as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Public-key revolution</span>
+    
+  </div>
+  
+<details class="paper" id="paper-2" data-mvrp="1" data-text="new directions in cryptography (diffie–hellman) diffie, hellman stanford introduces public-key cryptography and key exchange without prior shared secrets. you can establish a shared secret over a public channel using only one-way mathematical operations.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">New Directions in Cryptography (Diffie–Hellman)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Diffie, Hellman · Stanford · Nov 1976</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces public-key cryptography and key exchange without prior shared secrets.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The single most important paper in modern cryptography. Read it once and recognise it everywhere.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Modular arithmetic, basic group theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can establish a shared secret over a public channel using only one-way mathematical operations.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://ee.stanford.edu/~hellman/publications/24.pdf" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="New Directions in Cryptography (Diffie–Hellman)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark New Directions in Cryptography (Diffie–Hellman) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-3" data-mvrp="0" data-text="a method for obtaining digital signatures and public-key cryptosystems (rsa) rivest, shamir, adleman mit the first concrete public-key cryptosystem, based on the difficulty of factoring large integers. hardness of factoring is enough to bootstrap encryption and digital signatures.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">A Method for Obtaining Digital Signatures and Public-Key Cryptosystems (RSA)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Rivest, Shamir, Adleman · MIT · Feb 1978</p>
+    <div class="p-field"><b>TL;DR</b><p>The first concrete public-key cryptosystem, based on the difficulty of factoring large integers.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first practical instantiation of Diffie–Hellman&#x27;s vision; everywhere in deployed crypto.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Diffie–Hellman, modular exponentiation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Hardness of factoring is enough to bootstrap encryption and digital signatures.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://people.csail.mit.edu/rivest/Rsapaper.pdf" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="A Method for Obtaining Digital Signatures and Public-Key Cryptosystems (RSA)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark A Method for Obtaining Digital Signatures and Public-Key Cryptosystems (RSA) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-4" data-mvrp="0" data-text="a public key cryptosystem and a signature scheme based on discrete logarithms (elgamal) elgamal stanford a public-key cryptosystem based on the discrete logarithm problem rather than factoring. hardness of discrete log is another viable foundation for public-key crypto.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms (ElGamal)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">ElGamal · Stanford · Aug 1985</p>
+    <div class="p-field"><b>TL;DR</b><p>A public-key cryptosystem based on the discrete logarithm problem rather than factoring.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual ancestor of every elliptic-curve-based system in deployed crypto.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Diffie–Hellman, cyclic groups</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Hardness of discrete log is another viable foundation for public-key crypto.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://caislab.kaist.ac.kr/lecture/2010/spring/cs548/basic/B02.pdf" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms (ElGamal)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms (ElGamal) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Provable security</span>
+    
+  </div>
+  
+<details class="paper" id="paper-5" data-mvrp="0" data-text="probabilistic encryption goldwasser, micali mit defines semantic security and shows that deterministic encryption can&#x27;t achieve it. encryption must be randomised to be meaningfully secure.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Probabilistic Encryption</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Goldwasser, Micali · MIT · Apr 1984</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines semantic security and shows that deterministic encryption can&#x27;t achieve it.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that brought rigour to &quot;what does secure mean&quot; — the start of modern provable security.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>RSA, basic complexity theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Encryption must be randomised to be meaningfully secure.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://groups.csail.mit.edu/cis/pubs/shafi/1984-jcss.pdf" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Probabilistic Encryption">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Probabilistic Encryption as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-6" data-mvrp="0" data-text="the knowledge complexity of interactive proof systems (zero-knowledge) goldwasser, micali, rackoff mit, tufts defines zero-knowledge proofs: convincing a verifier that you know something without revealing what. you can prove you know a secret while revealing exactly nothing about it.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">The Knowledge Complexity of Interactive Proof Systems (Zero-Knowledge)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Goldwasser, Micali, Rackoff · MIT, Tufts · May 1989</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines zero-knowledge proofs: convincing a verifier that you know something without revealing what.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A foundational and counter-intuitive idea; the seed of every ZK protocol since.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Probability, complexity theory, basic crypto</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can prove you know a secret while revealing exactly nothing about it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Zero%20Knowledge/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="The Knowledge Complexity of Interactive Proof Systems (Zero-Knowledge)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark The Knowledge Complexity of Interactive Proof Systems (Zero-Knowledge) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="0" data-text="random oracles are practical: a paradigm for designing efficient protocols bellare, rogaway uc davis models hash functions as ideal random oracles to enable proofs of practical schemes. idealising hashes as random oracles makes practical schemes provably secure (with caveats).">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">Random Oracles are Practical: A Paradigm for Designing Efficient Protocols</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Bellare, Rogaway · UC Davis · Nov 1993</p>
+    <div class="p-field"><b>TL;DR</b><p>Models hash functions as ideal random oracles to enable proofs of practical schemes.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The proof technique that underlies most security arguments for deployed protocols.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Probabilistic encryption, hash functions</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Idealising hashes as random oracles makes practical schemes provably secure (with caveats).</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://cseweb.ucsd.edu/~mihir/papers/ro.pdf" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="Random Oracles are Practical: A Paradigm for Designing Efficient Protocols">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark Random Oracles are Practical: A Paradigm for Designing Efficient Protocols as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Symmetric &amp; hashing</span>
+    
+  </div>
+  
+<details class="paper" id="paper-8" data-mvrp="0" data-text="the design of rijndael (aes) daemen, rijmen ku leuven a substitution-permutation block cipher selected as the aes standard in 2001. simple, well-understood algebraic structure resists nearly two decades of cryptanalysis.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">The Design of Rijndael (AES)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Daemen, Rijmen · KU Leuven · Aug 1999</p>
+    <div class="p-field"><b>TL;DR</b><p>A substitution-permutation block cipher selected as the AES standard in 2001.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The block cipher under nearly every TLS connection on Earth; useful design study.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Linear algebra over finite fields</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Simple, well-understood algebraic structure resists nearly two decades of cryptanalysis.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Standards-and-Guidelines/documents/aes-development/Rijndael-ammended.pdf" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="The Design of Rijndael (AES)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark The Design of Rijndael (AES) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-9" data-mvrp="0" data-text="the md5 message-digest algorithm rivest mit a 128-bit hash function once ubiquitous; later broken by collision attacks. cryptographic hashes age — every deployed primitive has a shelf life.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">The MD5 Message-Digest Algorithm</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Rivest · MIT · Apr 1992</p>
+    <div class="p-field"><b>TL;DR</b><p>A 128-bit hash function once ubiquitous; later broken by collision attacks.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A cautionary tale about hash design; useful contrast against SHA-2/SHA-3.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic block cipher constructions</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Cryptographic hashes age — every deployed primitive has a shelf life.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.rfc-editor.org/rfc/rfc1321" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="The MD5 Message-Digest Algorithm">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark The MD5 Message-Digest Algorithm as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Advanced primitives</span>
+    
+  </div>
+  
+<details class="paper" id="paper-10" data-mvrp="0" data-text="identity-based encryption from the weil pairing boneh, franklin stanford a practical identity-based encryption scheme using bilinear pairings on elliptic curves. bilinear pairings make new cryptographic capabilities possible.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Identity-Based Encryption from the Weil Pairing</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Boneh, Franklin · Stanford · Aug 2001</p>
+    <div class="p-field"><b>TL;DR</b><p>A practical identity-based encryption scheme using bilinear pairings on elliptic curves.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The opening of the pairing-based crypto era; broad implications well beyond IBE.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Elliptic curves, basic algebraic geometry</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Bilinear pairings make new cryptographic capabilities possible.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://crypto.stanford.edu/~dabo/papers/bfibe.pdf" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Identity-Based Encryption from the Weil Pairing">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Identity-Based Encryption from the Weil Pairing as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="on lattices, learning with errors, random linear codes, and cryptography regev tel aviv u introduces the learning with errors problem and reduces lattice problems to it. hard lattice problems are a sturdy alternative to factoring and discrete log — and may resist quantum attack.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">On Lattices, Learning with Errors, Random Linear Codes, and Cryptography</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Regev · Tel Aviv U · May 2005</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces the Learning With Errors problem and reduces lattice problems to it.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The hard problem under most post-quantum proposals; foundational for modern crypto.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Linear algebra, basic number theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Hard lattice problems are a sturdy alternative to factoring and discrete log — and may resist quantum attack.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://cims.nyu.edu/~regev/papers/qcrypto.pdf" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="On Lattices, Learning with Errors, Random Linear Codes, and Cryptography">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark On Lattices, Learning with Errors, Random Linear Codes, and Cryptography as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-12" data-mvrp="0" data-text="fully homomorphic encryption using ideal lattices gentry ibm, stanford the first fully homomorphic encryption scheme — compute on ciphertexts without decrypting. you can do arbitrary computation on encrypted data — a problem that was open for 30 years.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Fully Homomorphic Encryption Using Ideal Lattices</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Gentry · IBM, Stanford · May 2009</p>
+    <div class="p-field"><b>TL;DR</b><p>The first fully homomorphic encryption scheme — compute on ciphertexts without decrypting.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A landmark theoretical result and the seed of modern privacy-preserving computation.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Lattice-based crypto, bootstrapping concept</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can do arbitrary computation on encrypted data — a problem that was open for 30 years.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://crypto.stanford.edu/craig/craig-thesis.pdf" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Fully Homomorphic Encryption Using Ideal Lattices">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Fully Homomorphic Encryption Using Ideal Lattices as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Privacy &amp; deployed protocols</span>
+    
+  </div>
+  
+<details class="paper" id="paper-13" data-mvrp="0" data-text="differential privacy dwork microsoft research a formal privacy definition based on indistinguishable behaviour on neighbouring datasets. privacy is best defined as a property of the algorithm, not of the data.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">Differential Privacy</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dwork · Microsoft Research · Jul 2006</p>
+    <div class="p-field"><b>TL;DR</b><p>A formal privacy definition based on indistinguishable behaviour on neighbouring datasets.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The privacy framework now used by the US Census, Apple, Google, and others.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Probability, basic statistics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Privacy is best defined as a property of the algorithm, not of the data.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/dwork.pdf" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="Differential Privacy">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark Differential Privacy as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="0" data-text="the second-generation onion router (tor) dingledine, mathewson, syverson free haven, nrl a low-latency anonymity network that routes traffic through encrypted overlay circuits. anonymity needs both layered encryption and a careful threat model.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">The Second-Generation Onion Router (Tor)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dingledine, Mathewson, Syverson · Free Haven, NRL · Aug 2004</p>
+    <div class="p-field"><b>TL;DR</b><p>A low-latency anonymity network that routes traffic through encrypted overlay circuits.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean systems paper from the privacy world; what real-world anonymity actually requires.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Public-key crypto, networking basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Anonymity needs both layered encryption and a careful threat model.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://svn.torproject.org/svn/projects/design-paper/tor-design.pdf" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="The Second-Generation Onion Router (Tor)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark The Second-Generation Onion Router (Tor) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-15" data-mvrp="0" data-text="the double ratchet algorithm (signal) marlinspike, perrin open whisper systems a protocol providing forward secrecy and post-compromise security via continuously-rotated keys. you can recover security after key compromise if your protocol is designed for it.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">The Double Ratchet Algorithm (Signal)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Marlinspike, Perrin · Open Whisper Systems · Nov 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>A protocol providing forward secrecy and post-compromise security via continuously-rotated keys.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The cryptography behind every secure messenger you actually use.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Diffie–Hellman, symmetric crypto</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can recover security after key compromise if your protocol is designed for it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://signal.org/docs/specifications/doubleratchet/" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="The Double Ratchet Algorithm (Signal)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark The Double Ratchet Algorithm (Signal) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">ZK, money &amp; post-quantum</span>
+    
+  </div>
+  
+<details class="paper" id="paper-16" data-mvrp="1" data-text="bitcoin: a peer-to-peer electronic cash system nakamoto — combines hash-linked blocks, proof-of-work, and longest-chain consensus into a decentralised ledger. economic incentives plus a clever hash-chain solve byzantine consensus without identities.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Bitcoin: A Peer-to-Peer Electronic Cash System</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Nakamoto · — · Oct 2008</p>
+    <div class="p-field"><b>TL;DR</b><p>Combines hash-linked blocks, proof-of-work, and longest-chain consensus into a decentralised ledger.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Whatever you think of cryptocurrency, this paper redrew the map of distributed systems.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Hashing, digital signatures, basic distributed consensus</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Economic incentives plus a clever hash-chain solve Byzantine consensus without identities.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Bitcoin: A Peer-to-Peer Electronic Cash System">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Bitcoin: A Peer-to-Peer Electronic Cash System as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="pinocchio: nearly practical verifiable computation (zk-snarks) parno, howell, gentry, raykova microsoft research succinct non-interactive arguments of knowledge with constant-size proofs and fast verification. you can verify huge computations in milliseconds — once you accept a trusted setup.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">Pinocchio: Nearly Practical Verifiable Computation (zk-SNARKs)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Parno, Howell, Gentry, Raykova · Microsoft Research · May 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>Succinct non-interactive arguments of knowledge with constant-size proofs and fast verification.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The proof system under most modern blockchain privacy and verifiable-computation systems.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Pairings, zero-knowledge proofs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can verify huge computations in milliseconds — once you accept a trusted setup.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://eprint.iacr.org/2013/279.pdf" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="Pinocchio: Nearly Practical Verifiable Computation (zk-SNARKs)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark Pinocchio: Nearly Practical Verifiable Computation (zk-SNARKs) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-18" data-mvrp="0" data-text="scalable, transparent, and post-quantum secure computational integrity (zk-starks) ben-sasson, bentov, horesh, riabzev technion succinct, transparent (no trusted setup), post-quantum-secure proofs of arbitrary computation. you can have succinct zk proofs without trusted setup, at some cost in proof size.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">Scalable, Transparent, and Post-Quantum Secure Computational Integrity (zk-STARKs)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ben-Sasson, Bentov, Horesh, Riabzev · Technion · Jun 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Succinct, transparent (no trusted setup), post-quantum-secure proofs of arbitrary computation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A cleaner, more future-proof alternative to SNARKs.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>zk-SNARKs, hash-based crypto</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can have succinct ZK proofs without trusted setup, at some cost in proof size.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://eprint.iacr.org/2018/046.pdf" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="Scalable, Transparent, and Post-Quantum Secure Computational Integrity (zk-STARKs)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark Scalable, Transparent, and Post-Quantum Secure Computational Integrity (zk-STARKs) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-19" data-mvrp="0" data-text="crystals-kyber: a lattice-based key encapsulation mechanism bos et al. various a practical lattice-based kem selected by nist as a post-quantum standard. module-lwe gives a clean, efficient post-quantum kem.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">CRYSTALS-Kyber: A Lattice-Based Key Encapsulation Mechanism</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Bos et al. · Various · Mar 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A practical lattice-based KEM selected by NIST as a post-quantum standard.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The key-exchange algorithm that will replace ECDH in the next decade.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>LWE, ring-LWE</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Module-LWE gives a clean, efficient post-quantum KEM.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://eprint.iacr.org/2017/634.pdf" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="CRYSTALS-Kyber: A Lattice-Based Key Encapsulation Mechanism">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark CRYSTALS-Kyber: A Lattice-Based Key Encapsulation Mechanism as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="crystals-dilithium: a lattice-based digital signature scheme ducas et al. various a lattice-based signature scheme standardised alongside kyber by nist. lattice-based signatures are now competitive in size and speed with classical ones.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">CRYSTALS-Dilithium: A Lattice-Based Digital Signature Scheme</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ducas et al. · Various · Aug 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A lattice-based signature scheme standardised alongside Kyber by NIST.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The signature counterpart to Kyber; will eventually replace ECDSA and Ed25519.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Kyber, rejection sampling</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Lattice-based signatures are now competitive in size and speed with classical ones.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://eprint.iacr.org/2017/633.pdf" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="CRYSTALS-Dilithium: A Lattice-Based Digital Signature Scheme">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark CRYSTALS-Dilithium: A Lattice-Based Digital Signature Scheme as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-21" data-mvrp="0" data-text="how to generate and exchange secrets (yao&#x27;s garbled circuits) yao princeton introduces secure multiparty computation via garbled circuits, allowing joint computation on private inputs. you can compute on multiple parties&#x27; secret inputs without anyone learning anything but the result.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">How to Generate and Exchange Secrets (Yao&#x27;s Garbled Circuits)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Yao · Princeton · Oct 1986</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces secure multiparty computation via garbled circuits, allowing joint computation on private inputs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The foundation of modern MPC; conceptually still under every multi-party private computation.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Public-key crypto, oblivious transfer</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can compute on multiple parties&#x27; secret inputs without anyone learning anything but the result.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://web.cs.ucdavis.edu/~rogaway/classes/227/spring05/book/yao.pdf" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="How to Generate and Exchange Secrets (Yao&#x27;s Garbled Circuits)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark How to Generate and Exchange Secrets (Yao&#x27;s Garbled Circuits) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-22" data-mvrp="0" data-text="differentially private federated learning mcmahan, ramage, talwar, zhang google combines federated learning with differential-privacy noise on aggregated updates. privacy mechanisms compose — and dp is the right composable primitive for federated systems.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">Differentially Private Federated Learning</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">McMahan, Ramage, Talwar, Zhang · Google · Oct 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Combines federated learning with differential-privacy noise on aggregated updates.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A modern systems paper that synthesises classical DP with on-device training.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Differential privacy, federated learning</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Privacy mechanisms compose — and DP is the right composable primitive for federated systems.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1710.06963" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="Differentially Private Federated Learning">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark Differentially Private Federated Learning as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../database-systems/"><span class="dir">← Previous roadmap</span>Database Systems</a>
+    <a href="../information-retrieval/"><span class="dir">Next roadmap →</span>Information Retrieval</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

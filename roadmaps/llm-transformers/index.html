@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLMs &amp; Transformers Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="LLMs &amp; Transformers reading roadmap: 37 papers across 9 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/llm-transformers/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="LLMs &amp; Transformers Research Paper Roadmap">
+<meta property="og:description" content="LLMs &amp; Transformers reading roadmap: 37 papers across 9 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/llm-transformers/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="LLMs &amp; Transformers roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LLMs &amp; Transformers Research Paper Roadmap">
+<meta name="twitter:description" content="LLMs &amp; Transformers reading roadmap: 37 papers across 9 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="LLMs &amp; Transformers roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "LLMs & Transformers", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/llm-transformers/"}]}, {"@type": "ItemList", "name": "LLMs & Transformers paper roadmap", "description": "From the first dense word vectors to frontier reasoning models — the architectures, the scaling laws, and the alignment recipes that produced ChatGPT and its descendants.", "numberOfItems": 37, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Efficient Estimation of Word Representations in Vector Space (Word2Vec)", "url": "https://arxiv.org/abs/1301.3781"}, {"@type": "ListItem", "position": 2, "name": "GloVe: Global Vectors for Word Representation", "url": "https://nlp.stanford.edu/pubs/glove.pdf"}, {"@type": "ListItem", "position": 3, "name": "Sequence to Sequence Learning with Neural Networks", "url": "https://arxiv.org/abs/1409.3215"}, {"@type": "ListItem", "position": 4, "name": "Attention Is All You Need", "url": "https://arxiv.org/abs/1706.03762"}, {"@type": "ListItem", "position": 5, "name": "Deep Contextualized Word Representations (ELMo)", "url": "https://arxiv.org/abs/1802.05365"}, {"@type": "ListItem", "position": 6, "name": "Improving Language Understanding by Generative Pre-Training (GPT-1)", "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf"}, {"@type": "ListItem", "position": 7, "name": "BERT: Pre-training of Deep Bidirectional Transformers", "url": "https://arxiv.org/abs/1810.04805"}, {"@type": "ListItem", "position": 8, "name": "Language Models are Unsupervised Multitask Learners (GPT-2)", "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"}, {"@type": "ListItem", "position": 9, "name": "RoBERTa: A Robustly Optimized BERT Pretraining Approach", "url": "https://arxiv.org/abs/1907.11692"}, {"@type": "ListItem", "position": 10, "name": "Language Models are Few-Shot Learners (GPT-3)", "url": "https://arxiv.org/abs/2005.14165"}, {"@type": "ListItem", "position": 11, "name": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)", "url": "https://arxiv.org/abs/1910.10683"}, {"@type": "ListItem", "position": 12, "name": "Scaling Laws for Neural Language Models", "url": "https://arxiv.org/abs/2001.08361"}, {"@type": "ListItem", "position": 13, "name": "Training Compute-Optimal Large Language Models (Chinchilla)", "url": "https://arxiv.org/abs/2203.15556"}, {"@type": "ListItem", "position": 14, "name": "PaLM: Scaling Language Modeling with Pathways", "url": "https://arxiv.org/abs/2204.02311"}, {"@type": "ListItem", "position": 15, "name": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity", "url": "https://arxiv.org/abs/2101.03961"}, {"@type": "ListItem", "position": 16, "name": "Emergent Abilities of Large Language Models", "url": "https://arxiv.org/abs/2206.07682"}, {"@type": "ListItem", "position": 17, "name": "GPT-4 Technical Report", "url": "https://arxiv.org/abs/2303.08774"}, {"@type": "ListItem", "position": 18, "name": "Training Language Models to Follow Instructions with Human Feedback (InstructGPT)", "url": "https://arxiv.org/abs/2203.02155"}, {"@type": "ListItem", "position": 19, "name": "Constitutional AI: Harmlessness from AI Feedback", "url": "https://arxiv.org/abs/2212.08073"}, {"@type": "ListItem", "position": 20, "name": "Direct Preference Optimization (DPO)", "url": "https://arxiv.org/abs/2305.18290"}, {"@type": "ListItem", "position": 21, "name": "LLaMA: Open and Efficient Foundation Language Models", "url": "https://arxiv.org/abs/2302.13971"}, {"@type": "ListItem", "position": 22, "name": "Llama 2: Open Foundation and Fine-Tuned Chat Models", "url": "https://arxiv.org/abs/2307.09288"}, {"@type": "ListItem", "position": 23, "name": "Mistral 7B", "url": "https://arxiv.org/abs/2310.06825"}, {"@type": "ListItem", "position": 24, "name": "Mixtral of Experts", "url": "https://arxiv.org/abs/2401.04088"}, {"@type": "ListItem", "position": 25, "name": "DeepSeek-V3 Technical Report", "url": "https://arxiv.org/abs/2412.19437"}, {"@type": "ListItem", "position": 26, "name": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models", "url": "https://arxiv.org/abs/2201.11903"}, {"@type": "ListItem", "position": 27, "name": "ReAct: Synergizing Reasoning and Acting in Language Models", "url": "https://arxiv.org/abs/2210.03629"}, {"@type": "ListItem", "position": 28, "name": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)", "url": "https://arxiv.org/abs/2005.11401"}, {"@type": "ListItem", "position": 29, "name": "Self-Consistency Improves Chain of Thought Reasoning", "url": "https://arxiv.org/abs/2203.11171"}, {"@type": "ListItem", "position": 30, "name": "Toolformer: Language Models Can Teach Themselves to Use Tools", "url": "https://arxiv.org/abs/2302.04761"}, {"@type": "ListItem", "position": 31, "name": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models", "url": "https://arxiv.org/abs/2305.10601"}, {"@type": "ListItem", "position": 32, "name": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning", "url": "https://arxiv.org/abs/2501.12948"}, {"@type": "ListItem", "position": 33, "name": "LoRA: Low-Rank Adaptation of Large Language Models", "url": "https://arxiv.org/abs/2106.09685"}, {"@type": "ListItem", "position": 34, "name": "QLoRA: Efficient Finetuning of Quantized LLMs", "url": "https://arxiv.org/abs/2305.14314"}, {"@type": "ListItem", "position": 35, "name": "FlashAttention: Fast and Memory-Efficient Exact Attention", "url": "https://arxiv.org/abs/2205.14135"}, {"@type": "ListItem", "position": 36, "name": "The Llama 3 Herd of Models", "url": "https://arxiv.org/abs/2407.21783"}, {"@type": "ListItem", "position": 37, "name": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces", "url": "https://arxiv.org/abs/2312.00752"}]}]}</script>
+</head>
+<body data-roadmap="llm-transformers">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / LLMs &amp; Transformers</nav>
+  <h1>LLMs &amp; Transformers</h1>
+  <p class="lede">From the first dense word vectors to frontier reasoning models — the architectures, the scaling laws, and the alignment recipes that produced ChatGPT and its descendants.</p>
+  <div class="meta-row">
+    <span><b>37</b> papers</span>
+    <span><b>9</b> levels</span>
+    <span>Timeline <b>2013 – 2025</b></span>
+    <span>MVRP <b>11</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 37</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="37" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 11 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-4">Attention Is All You Need</a></li>
+<li><a href="#paper-6">Improving Language Understanding by Generative Pre-Training (GPT-1)</a></li>
+<li><a href="#paper-8">Language Models are Unsupervised Multitask Learners (GPT-2)</a></li>
+<li><a href="#paper-10">Language Models are Few-Shot Learners (GPT-3)</a></li>
+<li><a href="#paper-15">Training Language Models to Follow Instructions with Human Feedback (InstructGPT)</a></li>
+<li><a href="#paper-18">LLaMA: Open and Efficient Foundation Language Models</a></li>
+<li><a href="#paper-22">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</a></li>
+<li><a href="#paper-24">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)</a></li>
+<li><a href="#paper-26">LoRA: Low-Rank Adaptation of Large Language Models</a></li>
+<li><a href="#paper-29">The Llama 3 Herd of Models</a></li>
+<li><a href="#paper-36">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 37 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations</span>
+    <span class="level-tag">word vectors &amp; seq2seq</span>
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="0" data-text="efficient estimation of word representations in vector space (word2vec) mikolov et al. google learns dense word vectors via skip-gram and cbow objectives over huge text corpora. words appearing in similar contexts end up close in vector space, and you can do arithmetic on meaning.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">Efficient Estimation of Word Representations in Vector Space (Word2Vec)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Mikolov et al. · Google · Jan 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>Learns dense word vectors via Skip-gram and CBOW objectives over huge text corpora.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The seed paper for distributed semantic representations — every embedding-based system traces back here.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic neural networks, softmax classification</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Words appearing in similar contexts end up close in vector space, and you can do arithmetic on meaning.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1301.3781" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="Efficient Estimation of Word Representations in Vector Space (Word2Vec)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark Efficient Estimation of Word Representations in Vector Space (Word2Vec) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="glove: global vectors for word representation pennington, socher, manning stanford factorises the global word co-occurrence matrix to learn vectors that capture linear semantic structure. co-occurrence ratios, not raw counts, are what encode meaning.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">GloVe: Global Vectors for Word Representation</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Pennington, Socher, Manning · Stanford · Oct 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>Factorises the global word co-occurrence matrix to learn vectors that capture linear semantic structure.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The other half of the embedding canon — useful contrast to Word2Vec&#x27;s local-context approach.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Word2Vec, matrix factorisation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Co-occurrence ratios, not raw counts, are what encode meaning.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://nlp.stanford.edu/pubs/glove.pdf" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="GloVe: Global Vectors for Word Representation">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark GloVe: Global Vectors for Word Representation as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-3" data-mvrp="0" data-text="sequence to sequence learning with neural networks sutskever, vinyals, le google two stacked lstms encode a source sequence into a vector and decode the target sequence from it. you can pose almost any structured prediction task as sequence-to-sequence.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">Sequence to Sequence Learning with Neural Networks</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Sutskever, Vinyals, Le · Google · Sep 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>Two stacked LSTMs encode a source sequence into a vector and decode the target sequence from it.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Establishes the encoder–decoder template that attention and Transformers later supercharged.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>LSTMs, backprop through time</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can pose almost any structured prediction task as sequence-to-sequence.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1409.3215" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="Sequence to Sequence Learning with Neural Networks">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark Sequence to Sequence Learning with Neural Networks as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">The Transformer</span>
+    
+  </div>
+  
+<details class="paper" id="paper-4" data-mvrp="1" data-text="attention is all you need vaswani et al. google brain introduces the transformer: an attention-only architecture with no recurrence or convolution. self-attention is fully parallelisable, captures long-range dependencies, and scales beautifully.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">Attention Is All You Need</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Vaswani et al. · Google Brain · Jun 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces the Transformer: an attention-only architecture with no recurrence or convolution.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The architectural blueprint underlying every modern LLM. Read it for the original framing.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Seq2seq with attention, matrix multiplication</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Self-attention is fully parallelisable, captures long-range dependencies, and scales beautifully.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="Attention Is All You Need">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark Attention Is All You Need as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Pretraining era</span>
+    
+  </div>
+  
+<details class="paper" id="paper-5" data-mvrp="0" data-text="deep contextualized word representations (elmo) peters et al. allen institute for ai trains a bidirectional lstm language model and uses its hidden states as context-sensitive word features. the same word should have different vectors in different sentences.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Deep Contextualized Word Representations (ELMo)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Peters et al. · Allen Institute for AI · Feb 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Trains a bidirectional LSTM language model and uses its hidden states as context-sensitive word features.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first widely-used &quot;context-aware&quot; embedding, bridging static vectors and full pretraining.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Word2Vec, LSTMs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>The same word should have different vectors in different sentences.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1802.05365" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Deep Contextualized Word Representations (ELMo)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Deep Contextualized Word Representations (ELMo) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-6" data-mvrp="1" data-text="improving language understanding by generative pre-training (gpt-1) radford, narasimhan, salimans, sutskever openai decoder-only transformer pretrained as a language model, then fine-tuned for downstream tasks. a single generative pretraining objective transfers to almost any nlp task.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">Improving Language Understanding by Generative Pre-Training (GPT-1)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Radford, Narasimhan, Salimans, Sutskever · OpenAI · Jun 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Decoder-only Transformer pretrained as a language model, then fine-tuned for downstream tasks.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The origin point of the GPT line and of &quot;pretrain then fine-tune&quot; as the dominant NLP recipe.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformer architecture, cross-entropy loss</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A single generative pretraining objective transfers to almost any NLP task.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="Improving Language Understanding by Generative Pre-Training (GPT-1)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark Improving Language Understanding by Generative Pre-Training (GPT-1) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="0" data-text="bert: pre-training of deep bidirectional transformers devlin, chang, lee, toutanova google encoder-only transformer pretrained with masked-language-modeling and next-sentence prediction. bidirectional context (mask-fill) makes a far stronger representation than left-to-right alone.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">BERT: Pre-training of Deep Bidirectional Transformers</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Devlin, Chang, Lee, Toutanova · Google · Oct 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Encoder-only Transformer pretrained with masked-language-modeling and next-sentence prediction.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Read against GPT-1 to understand the encoder-vs-decoder split that dominated 2018–2020 NLP.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformer architecture, GPT-1</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Bidirectional context (mask-fill) makes a far stronger representation than left-to-right alone.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="BERT: Pre-training of Deep Bidirectional Transformers">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark BERT: Pre-training of Deep Bidirectional Transformers as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Scaling up</span>
+    
+  </div>
+  
+<details class="paper" id="paper-8" data-mvrp="1" data-text="language models are unsupervised multitask learners (gpt-2) radford et al. openai scales gpt-1 to 1.5b parameters on a 40gb web corpus and shows surprising zero-shot abilities. a big enough language model is implicitly a multi-task learner.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">Language Models are Unsupervised Multitask Learners (GPT-2)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Radford et al. · OpenAI · Feb 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Scales GPT-1 to 1.5B parameters on a 40GB web corpus and shows surprising zero-shot abilities.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first hint that scale alone unlocks new capabilities without task-specific training.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-1, basic information theory</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A big enough language model is implicitly a multi-task learner.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="Language Models are Unsupervised Multitask Learners (GPT-2)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark Language Models are Unsupervised Multitask Learners (GPT-2) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-9" data-mvrp="0" data-text="roberta: a robustly optimized bert pretraining approach liu et al. meta ai trains bert longer, on more data, with bigger batches and no nsp — and beats every bert variant. many architectural &quot;improvements&quot; are really just under-trained baselines.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">RoBERTa: A Robustly Optimized BERT Pretraining Approach</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Liu et al. · Meta AI · Jul 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Trains BERT longer, on more data, with bigger batches and no NSP — and beats every BERT variant.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A masterclass in how much pretraining hyperparameters matter.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BERT</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Many architectural &quot;improvements&quot; are really just under-trained baselines.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1907.11692" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="RoBERTa: A Robustly Optimized BERT Pretraining Approach">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark RoBERTa: A Robustly Optimized BERT Pretraining Approach as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-10" data-mvrp="1" data-text="language models are few-shot learners (gpt-3) brown et al. openai a 175b-parameter transformer that performs many tasks via in-context examples, no gradient updates. at sufficient scale, &quot;show, don&#x27;t train&quot; becomes a viable interface to a model.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Language Models are Few-Shot Learners (GPT-3)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Brown et al. · OpenAI · May 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>A 175B-parameter Transformer that performs many tasks via in-context examples, no gradient updates.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that launched the modern era; in-context learning is the central abstraction of the LLM stack.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-2, basic prompting</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>At sufficient scale, &quot;show, don&#x27;t train&quot; becomes a viable interface to a model.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Language Models are Few-Shot Learners (GPT-3)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Language Models are Few-Shot Learners (GPT-3) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="exploring the limits of transfer learning with a unified text-to-text transformer (t5) raffel et al. google casts every nlp task as text-to-text and pretrains a giant encoder-decoder on a clean web corpus (c4). unify your tasks as text-to-text and almost everything becomes simpler.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Raffel et al. · Google · Oct 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Casts every NLP task as text-to-text and pretrains a giant encoder-decoder on a clean web corpus (C4).</p></div>
+    <div class="p-field"><b>Why read this</b><p>The clearest empirical study of pretraining design choices, plus the C4 dataset most LLMs still use.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BERT, seq2seq</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Unify your tasks as text-to-text and almost everything becomes simpler.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1910.10683" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Scaling laws &amp; compute</span>
+    
+  </div>
+  
+<details class="paper" id="paper-12" data-mvrp="0" data-text="scaling laws for neural language models kaplan et al. openai empirically derives smooth power-law relationships between loss, parameters, data, and compute. loss falls as a power law in compute — and the exponent tells you exactly how to spend it.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Scaling Laws for Neural Language Models</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kaplan et al. · OpenAI · Jan 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Empirically derives smooth power-law relationships between loss, parameters, data, and compute.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Establishes that LLM progress is predictable and that you can budget compute analytically.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-2, basic statistics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Loss falls as a power law in compute — and the exponent tells you exactly how to spend it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Scaling Laws for Neural Language Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Scaling Laws for Neural Language Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-13" data-mvrp="0" data-text="training compute-optimal large language models (chinchilla) hoffmann et al. deepmind re-runs scaling laws and shows existing models are massively under-trained relative to their size. for a fixed compute budget, you should scale parameters and tokens roughly equally.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">Training Compute-Optimal Large Language Models (Chinchilla)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hoffmann et al. · DeepMind · Mar 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Re-runs scaling laws and shows existing models are massively under-trained relative to their size.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Corrects Kaplan&#x27;s recipe; sets the modern data-to-parameters ratio used by Llama and beyond.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Kaplan scaling laws</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>For a fixed compute budget, you should scale parameters and tokens roughly equally.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="Training Compute-Optimal Large Language Models (Chinchilla)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark Training Compute-Optimal Large Language Models (Chinchilla) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="0" data-text="palm: scaling language modeling with pathways chowdhery et al. google a 540b dense transformer trained on google&#x27;s pathways system, surfacing emergent reasoning capabilities. some abilities appear suddenly and only at scale — they aren&#x27;t visible at smaller sizes.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">PaLM: Scaling Language Modeling with Pathways</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Chowdhery et al. · Google · Apr 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>A 540B dense Transformer trained on Google&#x27;s Pathways system, surfacing emergent reasoning capabilities.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The high-water mark for dense models pre-Chinchilla and a careful study of capability emergence.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-3, scaling laws</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Some abilities appear suddenly and only at scale — they aren&#x27;t visible at smaller sizes.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2204.02311" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="PaLM: Scaling Language Modeling with Pathways">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark PaLM: Scaling Language Modeling with Pathways as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-30" data-mvrp="0" data-text="switch transformers: scaling to trillion parameter models with simple and efficient sparsity fedus, zoph, shazeer google routes each token to a single expert ffn, training trillion-parameter sparse models with dense-model stability. sparsity lets parameter count and compute cost scale independently.">
+  <summary>
+    <span class="p-num">30</span>
+    <span class="p-title">Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Fedus, Zoph, Shazeer · Google · Jan 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Routes each token to a single expert FFN, training trillion-parameter sparse models with dense-model stability.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that made mixture-of-experts practical at scale — read it before Mixtral or any modern MoE.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>T5, scaling laws</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sparsity lets parameter count and compute cost scale independently.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2101.03961" target="_blank" rel="noopener"
+        data-paper-id="30" data-paper-title="Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="30"
+          aria-label="Mark Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-31" data-mvrp="0" data-text="emergent abilities of large language models wei et al. google, deepmind, stanford catalogues abilities that appear abruptly at scale rather than improving smoothly. some capabilities are invisible at small scale, which makes extrapolation genuinely hard.">
+  <summary>
+    <span class="p-num">31</span>
+    <span class="p-title">Emergent Abilities of Large Language Models</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wei et al. · Google, DeepMind, Stanford · Jun 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Catalogues abilities that appear abruptly at scale rather than improving smoothly.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Frames the central scientific puzzle of scaling — and the debate over whether emergence is real or a metric artefact.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Scaling laws, GPT-3</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Some capabilities are invisible at small scale, which makes extrapolation genuinely hard.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2206.07682" target="_blank" rel="noopener"
+        data-paper-id="31" data-paper-title="Emergent Abilities of Large Language Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="31"
+          aria-label="Mark Emergent Abilities of Large Language Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-32" data-mvrp="0" data-text="gpt-4 technical report openai openai reports gpt-4&#x27;s capabilities, evals, and safety work — while withholding architecture and training details. frontier performance became predictable from small-scale runs — and frontier papers stopped disclosing how.">
+  <summary>
+    <span class="p-num">32</span>
+    <span class="p-title">GPT-4 Technical Report</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">OpenAI · OpenAI · Mar 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Reports GPT-4&#x27;s capabilities, evals, and safety work — while withholding architecture and training details.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A milestone in capability and a turning point in (non-)openness; also introduces predictable-scaling loss forecasts.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-3, InstructGPT</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Frontier performance became predictable from small-scale runs — and frontier papers stopped disclosing how.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener"
+        data-paper-id="32" data-paper-title="GPT-4 Technical Report">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="32"
+          aria-label="Mark GPT-4 Technical Report as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Alignment</span>
+    
+  </div>
+  
+<details class="paper" id="paper-15" data-mvrp="1" data-text="training language models to follow instructions with human feedback (instructgpt) ouyang et al. openai fine-tunes gpt-3 with supervised demonstrations and ppo against a learned reward model (rlhf). a small amount of human feedback beats a huge amount of next-token training for usefulness.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">Training Language Models to Follow Instructions with Human Feedback (InstructGPT)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ouyang et al. · OpenAI · Mar 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Fine-tunes GPT-3 with supervised demonstrations and PPO against a learned reward model (RLHF).</p></div>
+    <div class="p-field"><b>Why read this</b><p>The recipe that turned a raw language model into a usable assistant — the real ChatGPT precursor.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-3, basic RL (policy gradients)</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A small amount of human feedback beats a huge amount of next-token training for usefulness.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="Training Language Models to Follow Instructions with Human Feedback (InstructGPT)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark Training Language Models to Follow Instructions with Human Feedback (InstructGPT) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="0" data-text="constitutional ai: harmlessness from ai feedback bai et al. anthropic replaces human preference labels with model-generated critiques guided by a written &quot;constitution&quot;. you can train safety using the model itself as the labeler — if the principles are explicit.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Constitutional AI: Harmlessness from AI Feedback</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Bai et al. · Anthropic · Dec 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Replaces human preference labels with model-generated critiques guided by a written &quot;constitution&quot;.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A scalable alternative to RLHF that frames alignment as supervisable principles, not just preferences.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>InstructGPT, RLHF</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can train safety using the model itself as the labeler — if the principles are explicit.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Constitutional AI: Harmlessness from AI Feedback">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Constitutional AI: Harmlessness from AI Feedback as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="direct preference optimization (dpo) rafailov et al. stanford derives a closed-form loss that fits a preference dataset directly, no reward model or ppo required. preference learning can be a one-stage classification problem rather than two-stage rl.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">Direct Preference Optimization (DPO)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Rafailov et al. · Stanford · May 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Derives a closed-form loss that fits a preference dataset directly, no reward model or PPO required.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Drastically simpler than RLHF; now the default for open-source preference tuning.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>InstructGPT, KL divergence</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Preference learning can be a one-stage classification problem rather than two-stage RL.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="Direct Preference Optimization (DPO)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark Direct Preference Optimization (DPO) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">Open weights</span>
+    
+  </div>
+  
+<details class="paper" id="paper-18" data-mvrp="1" data-text="llama: open and efficient foundation language models touvron et al. meta ai a family of 7b–65b chinchilla-style models trained on public data, released to researchers. a well-trained 7b model can rival gpt-3 — open weights matter.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">LLaMA: Open and Efficient Foundation Language Models</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Touvron et al. · Meta AI · Feb 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>A family of 7B–65B Chinchilla-style models trained on public data, released to researchers.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The leak-and-release that catalyzed the modern open-weight LLM ecosystem and birthed the open-weight ecosystem.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-3, Chinchilla</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A well-trained 7B model can rival GPT-3 — open weights matter.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2302.13971" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="LLaMA: Open and Efficient Foundation Language Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark LLaMA: Open and Efficient Foundation Language Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-19" data-mvrp="0" data-text="llama 2: open foundation and fine-tuned chat models touvron et al. meta ai successor to llama, with full rlhf chat variants, more pretraining data, and a permissive license. open + commercial-friendly + rlhf&#x27;d turned out to be the unlock for adoption.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">Llama 2: Open Foundation and Fine-Tuned Chat Models</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Touvron et al. · Meta AI · Jul 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Successor to LLaMA, with full RLHF chat variants, more pretraining data, and a permissive license.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first commercially-usable competitive open model — a watershed for industry adoption.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>LLaMA, InstructGPT</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Open + commercial-friendly + RLHF&#x27;d turned out to be the unlock for adoption.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2307.09288" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="Llama 2: Open Foundation and Fine-Tuned Chat Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark Llama 2: Open Foundation and Fine-Tuned Chat Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="mistral 7b jiang et al. mistral ai a 7b model with grouped-query and sliding-window attention that beats llama 2 13b on most benchmarks. smarter attention beats bigger model size, dollar for dollar.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">Mistral 7B</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Jiang et al. · Mistral AI · Oct 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>A 7B model with grouped-query and sliding-window attention that beats Llama 2 13B on most benchmarks.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Demonstrates how much performance is left on the table by architectural choices at small scale.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Llama 2, attention variants</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Smarter attention beats bigger model size, dollar for dollar.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2310.06825" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="Mistral 7B">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark Mistral 7B as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-21" data-mvrp="0" data-text="mixtral of experts jiang et al. mistral ai a sparse mixture-of-experts model where each token routes to 2 of 8 expert ffns per layer. activate only a fraction of parameters per token and you get bigger-model quality at smaller-model cost.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">Mixtral of Experts</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Jiang et al. · Mistral AI · Jan 2024</p>
+    <div class="p-field"><b>TL;DR</b><p>A sparse mixture-of-experts model where each token routes to 2 of 8 expert FFNs per layer.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The clearest example of MoE at production scale; shows where dense scaling is heading.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Mistral 7B, Switch Transformer</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Activate only a fraction of parameters per token and you get bigger-model quality at smaller-model cost.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2401.04088" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="Mixtral of Experts">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark Mixtral of Experts as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-33" data-mvrp="0" data-text="deepseek-v3 technical report deepseek-ai deepseek a 671b-parameter moe (37b active) trained for ~$5.5m using mla attention, fp8, and aggressive systems co-design. model architecture and training systems co-designed together beat either optimised alone.">
+  <summary>
+    <span class="p-num">33</span>
+    <span class="p-title">DeepSeek-V3 Technical Report</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">DeepSeek-AI · DeepSeek · Dec 2024</p>
+    <div class="p-field"><b>TL;DR</b><p>A 671B-parameter MoE (37B active) trained for ~$5.5M using MLA attention, FP8, and aggressive systems co-design.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Rewrote assumptions about frontier training costs; the strongest open-weight base model of its moment.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Mixtral, FlashAttention</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Model architecture and training systems co-designed together beat either optimised alone.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noopener"
+        data-paper-id="33" data-paper-title="DeepSeek-V3 Technical Report">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="33"
+          aria-label="Mark DeepSeek-V3 Technical Report as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-7">
+  <div class="level-head">
+    <span class="level-badge">Level 7</span>
+    <span class="level-name">Reasoning &amp; retrieval</span>
+    
+  </div>
+  
+<details class="paper" id="paper-22" data-mvrp="1" data-text="chain-of-thought prompting elicits reasoning in large language models wei et al. google adding &quot;let&#x27;s think step by step&quot; exemplars to prompts massively improves multi-step reasoning. letting the model show its work makes it correct more often — and only at scale.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wei et al. · Google · Jan 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Adding &quot;let&#x27;s think step by step&quot; exemplars to prompts massively improves multi-step reasoning.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most influential prompting paper; reframes inference-time compute as a useful lever.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-3, few-shot prompting</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Letting the model show its work makes it correct more often — and only at scale.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="Chain-of-Thought Prompting Elicits Reasoning in Large Language Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark Chain-of-Thought Prompting Elicits Reasoning in Large Language Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-23" data-mvrp="0" data-text="react: synergizing reasoning and acting in language models yao et al. princeton, google interleaves chain-of-thought with tool calls, letting the model think and act in alternating steps. reasoning and acting are stronger together than either alone.">
+  <summary>
+    <span class="p-num">23</span>
+    <span class="p-title">ReAct: Synergizing Reasoning and Acting in Language Models</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Yao et al. · Princeton, Google · Oct 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Interleaves chain-of-thought with tool calls, letting the model think and act in alternating steps.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual spine of every &quot;agent&quot; framework — read this before any agent paper.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Chain-of-Thought, basic API/tool concepts</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Reasoning and acting are stronger together than either alone.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener"
+        data-paper-id="23" data-paper-title="ReAct: Synergizing Reasoning and Acting in Language Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="23"
+          aria-label="Mark ReAct: Synergizing Reasoning and Acting in Language Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-24" data-mvrp="1" data-text="retrieval-augmented generation for knowledge-intensive nlp tasks (rag) lewis et al. meta ai combines a transformer generator with a learned dense retriever over a non-parametric corpus. external memory beats trying to cram every fact into the weights.">
+  <summary>
+    <span class="p-num">24</span>
+    <span class="p-title">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lewis et al. · Meta AI · May 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Combines a Transformer generator with a learned dense retriever over a non-parametric corpus.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The original RAG; the foundation of every &quot;talk to your docs&quot; system.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformers, basic retrieval (BM25 or DPR)</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>External memory beats trying to cram every fact into the weights.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener"
+        data-paper-id="24" data-paper-title="Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="24"
+          aria-label="Mark Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-25" data-mvrp="0" data-text="self-consistency improves chain of thought reasoning wang et al. google sample many cot trajectories and majority-vote the final answer, instead of greedy decoding. many noisy answers can be aggregated into one good answer.">
+  <summary>
+    <span class="p-num">25</span>
+    <span class="p-title">Self-Consistency Improves Chain of Thought Reasoning</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wang et al. · Google · Mar 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Sample many CoT trajectories and majority-vote the final answer, instead of greedy decoding.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A simple, free win on top of any CoT model — and the conceptual ancestor of test-time scaling.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Chain-of-Thought</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Many noisy answers can be aggregated into one good answer.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2203.11171" target="_blank" rel="noopener"
+        data-paper-id="25" data-paper-title="Self-Consistency Improves Chain of Thought Reasoning">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="25"
+          aria-label="Mark Self-Consistency Improves Chain of Thought Reasoning as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-34" data-mvrp="0" data-text="toolformer: language models can teach themselves to use tools schick et al. meta ai self-supervised annotation teaches an lm when and how to call apis like calculators and search. a model can bootstrap its own tool-use training data by checking which calls reduce its loss.">
+  <summary>
+    <span class="p-num">34</span>
+    <span class="p-title">Toolformer: Language Models Can Teach Themselves to Use Tools</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Schick et al. · Meta AI · Feb 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Self-supervised annotation teaches an LM when and how to call APIs like calculators and search.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The cleanest early statement of tool use as a learned capability rather than a prompt hack.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-3, ReAct</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A model can bootstrap its own tool-use training data by checking which calls reduce its loss.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2302.04761" target="_blank" rel="noopener"
+        data-paper-id="34" data-paper-title="Toolformer: Language Models Can Teach Themselves to Use Tools">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="34"
+          aria-label="Mark Toolformer: Language Models Can Teach Themselves to Use Tools as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-35" data-mvrp="0" data-text="tree of thoughts: deliberate problem solving with large language models yao et al. princeton, google deepmind generalises chain-of-thought into a search tree with lookahead, backtracking, and self-evaluation. reasoning improves when the model can explore and prune alternatives, not just sample forward.">
+  <summary>
+    <span class="p-num">35</span>
+    <span class="p-title">Tree of Thoughts: Deliberate Problem Solving with Large Language Models</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Yao et al. · Princeton, Google DeepMind · May 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Generalises chain-of-thought into a search tree with lookahead, backtracking, and self-evaluation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A conceptual bridge from prompting tricks to genuine inference-time search.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Chain-of-Thought, Self-Consistency</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Reasoning improves when the model can explore and prune alternatives, not just sample forward.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2305.10601" target="_blank" rel="noopener"
+        data-paper-id="35" data-paper-title="Tree of Thoughts: Deliberate Problem Solving with Large Language Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="35"
+          aria-label="Mark Tree of Thoughts: Deliberate Problem Solving with Large Language Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-36" data-mvrp="1" data-text="deepseek-r1: incentivizing reasoning capability in llms via reinforcement learning deepseek-ai deepseek pure rl on verifiable rewards elicits long chain-of-thought reasoning, distilled into open models. reasoning behaviour can emerge from rl against checkable answers, without human reasoning traces.">
+  <summary>
+    <span class="p-num">36</span>
+    <span class="p-title">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">DeepSeek-AI · DeepSeek · Jan 2025</p>
+    <div class="p-field"><b>TL;DR</b><p>Pure RL on verifiable rewards elicits long chain-of-thought reasoning, distilled into open models.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The open counterpart to o1-style reasoning models — made test-time-compute training reproducible.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Chain-of-Thought, PPO/GRPO, DeepSeek-V3</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Reasoning behaviour can emerge from RL against checkable answers, without human reasoning traces.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noopener"
+        data-paper-id="36" data-paper-title="DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="36"
+          aria-label="Mark DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-8">
+  <div class="level-head">
+    <span class="level-badge">Level 8</span>
+    <span class="level-name">Efficiency</span>
+    
+  </div>
+  
+<details class="paper" id="paper-26" data-mvrp="1" data-text="lora: low-rank adaptation of large language models hu et al. microsoft freezes the base model and trains low-rank update matrices added to its weights. most fine-tuning lives in a low-rank subspace; you don&#x27;t need to touch every weight.">
+  <summary>
+    <span class="p-num">26</span>
+    <span class="p-title">LoRA: Low-Rank Adaptation of Large Language Models</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hu et al. · Microsoft · Jun 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Freezes the base model and trains low-rank update matrices added to its weights.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The technique that made fine-tuning huge models accessible to anyone with one GPU.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Linear algebra, fine-tuning basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most fine-tuning lives in a low-rank subspace; you don&#x27;t need to touch every weight.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener"
+        data-paper-id="26" data-paper-title="LoRA: Low-Rank Adaptation of Large Language Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="26"
+          aria-label="Mark LoRA: Low-Rank Adaptation of Large Language Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-27" data-mvrp="0" data-text="qlora: efficient finetuning of quantized llms dettmers et al. u washington combines 4-bit base model quantization with lora adapters and paged optimizers. 4-bit + low-rank is enough to match full-precision fine-tuning quality.">
+  <summary>
+    <span class="p-num">27</span>
+    <span class="p-title">QLoRA: Efficient Finetuning of Quantized LLMs</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dettmers et al. · U Washington · May 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Combines 4-bit base model quantization with LoRA adapters and paged optimizers.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Brings 65B-parameter fine-tuning to a single consumer GPU.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>LoRA, quantization basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>4-bit + low-rank is enough to match full-precision fine-tuning quality.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2305.14314" target="_blank" rel="noopener"
+        data-paper-id="27" data-paper-title="QLoRA: Efficient Finetuning of Quantized LLMs">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="27"
+          aria-label="Mark QLoRA: Efficient Finetuning of Quantized LLMs as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-28" data-mvrp="0" data-text="flashattention: fast and memory-efficient exact attention dao et al. stanford a tiling-based, io-aware attention kernel that reduces memory reads/writes without changing the math. optimising for memory bandwidth, not flops, is the right move on modern gpus.">
+  <summary>
+    <span class="p-num">28</span>
+    <span class="p-title">FlashAttention: Fast and Memory-Efficient Exact Attention</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dao et al. · Stanford · May 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>A tiling-based, IO-aware attention kernel that reduces memory reads/writes without changing the math.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The kernel that&#x27;s now under almost every Transformer in production.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformer attention, GPU memory hierarchy</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Optimising for memory bandwidth, not FLOPs, is the right move on modern GPUs.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2205.14135" target="_blank" rel="noopener"
+        data-paper-id="28" data-paper-title="FlashAttention: Fast and Memory-Efficient Exact Attention">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="28"
+          aria-label="Mark FlashAttention: Fast and Memory-Efficient Exact Attention as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-29" data-mvrp="1" data-text="the llama 3 herd of models llama team meta ai a detailed engineering report on training llama 3 (8b, 70b, 405b) on 15t tokens. frontier models are mostly an engineering problem now: data, infra, and post-training quality.">
+  <summary>
+    <span class="p-num">29</span>
+    <span class="p-title">The Llama 3 Herd of Models</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Llama Team · Meta AI · Jul 2024</p>
+    <div class="p-field"><b>TL;DR</b><p>A detailed engineering report on training Llama 3 (8B, 70B, 405B) on 15T tokens.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most thorough open description of a frontier-grade training run — the new state of the art for open weights.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Llama 2, Chinchilla, modern alignment</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Frontier models are mostly an engineering problem now: data, infra, and post-training quality.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2407.21783" target="_blank" rel="noopener"
+        data-paper-id="29" data-paper-title="The Llama 3 Herd of Models">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="29"
+          aria-label="Mark The Llama 3 Herd of Models as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-37" data-mvrp="0" data-text="mamba: linear-time sequence modeling with selective state spaces gu, dao cmu, princeton a selective state-space model matching transformer quality with linear-time, constant-memory inference. input-dependent state selection recovers the content-based routing that made attention win.">
+  <summary>
+    <span class="p-num">37</span>
+    <span class="p-title">Mamba: Linear-Time Sequence Modeling with Selective State Spaces</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Gu, Dao · CMU, Princeton · Dec 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>A selective state-space model matching Transformer quality with linear-time, constant-memory inference.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The strongest post-Transformer architecture candidate; defines the attention-alternative research line.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformer, state-space models</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Input-dependent state selection recovers the content-based routing that made attention win.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2312.00752" target="_blank" rel="noopener"
+        data-paper-id="37" data-paper-title="Mamba: Linear-Time Sequence Modeling with Selective State Spaces">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="37"
+          aria-label="Mark Mamba: Linear-Time Sequence Modeling with Selective State Spaces as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <span></span>
+    <a href="../computer-vision/"><span class="dir">Next roadmap →</span>Computer Vision</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

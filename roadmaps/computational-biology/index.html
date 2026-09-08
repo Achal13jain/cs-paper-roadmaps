@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computational Biology Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Computational Biology reading roadmap: 20 papers across 6 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computational-biology/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Computational Biology Research Paper Roadmap">
+<meta property="og:description" content="Computational Biology reading roadmap: 20 papers across 6 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computational-biology/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Computational Biology roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Computational Biology Research Paper Roadmap">
+<meta name="twitter:description" content="Computational Biology reading roadmap: 20 papers across 6 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Computational Biology roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Computational Biology", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computational-biology/"}]}, {"@type": "ItemList", "name": "Computational Biology paper roadmap", "description": "From dynamic-programming alignment to AlphaFold and protein design — how algorithms went from finding motifs in DNA to predicting and engineering biological structure.", "numberOfItems": 20, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "A General Method Applicable to the Search for Similarities (Needleman–Wunsch)", "url": "https://www.sciencedirect.com/science/article/abs/pii/0022283670900574"}, {"@type": "ListItem", "position": 2, "name": "Identification of Common Molecular Subsequences (Smith–Waterman)", "url": "https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm"}, {"@type": "ListItem", "position": 3, "name": "Basic Local Alignment Search Tool (BLAST)", "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022283605803602"}, {"@type": "ListItem", "position": 4, "name": "Profile HMMs for Biological Sequence Analysis (HMMER)", "url": "https://academic.oup.com/bioinformatics/article/14/9/755/259550"}, {"@type": "ListItem", "position": 5, "name": "Fast and Accurate Short Read Alignment with Burrows–Wheeler Transform (BWA)", "url": "https://academic.oup.com/bioinformatics/article/25/14/1754/225615"}, {"@type": "ListItem", "position": 6, "name": "Bowtie: Ultrafast and Memory-Efficient Alignment of Short DNA Sequences", "url": "https://genomebiology.biomedcentral.com/articles/10.1186/gb-2009-10-3-r25"}, {"@type": "ListItem", "position": 7, "name": "Velvet: Algorithms for De Novo Short Read Assembly", "url": "https://genome.cshlp.org/content/18/5/821"}, {"@type": "ListItem", "position": 8, "name": "STAR: Ultrafast Universal RNA-seq Aligner", "url": "https://academic.oup.com/bioinformatics/article/29/1/15/272537"}, {"@type": "ListItem", "position": 9, "name": "Moderated Estimation of Fold Change and Dispersion for RNA-Seq (DESeq2)", "url": "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-014-0550-8"}, {"@type": "ListItem", "position": 10, "name": "UMAP: Uniform Manifold Approximation and Projection", "url": "https://arxiv.org/abs/1802.03426"}, {"@type": "ListItem", "position": 11, "name": "Comprehensive Integration of Single-Cell Data (Seurat v3)", "url": "https://www.cell.com/cell/fulltext/S0092-8674(19)30559-8"}, {"@type": "ListItem", "position": 12, "name": "Massively Parallel Digital Transcriptional Profiling of Single Cells (Cell Ranger / 10x)", "url": "https://www.nature.com/articles/ncomms14049"}, {"@type": "ListItem", "position": 13, "name": "Highly Accurate Protein Structure Prediction with AlphaFold", "url": "https://www.nature.com/articles/s41586-021-03819-2"}, {"@type": "ListItem", "position": 14, "name": "Evolutionary-Scale Prediction of Atomic-Level Protein Structure (ESMFold)", "url": "https://www.science.org/doi/10.1126/science.ade2574"}, {"@type": "ListItem", "position": 15, "name": "Accurate Prediction of Protein Structures and Interactions Using a 3-Track Network (RoseTTAFold)", "url": "https://www.science.org/doi/10.1126/science.abj8754"}, {"@type": "ListItem", "position": 16, "name": "Robust Deep Learning–Based Protein Sequence Design Using ProteinMPNN", "url": "https://www.science.org/doi/10.1126/science.add2187"}, {"@type": "ListItem", "position": 17, "name": "De Novo Design of Protein Structure and Function with RFdiffusion", "url": "https://www.nature.com/articles/s41586-023-06415-8"}, {"@type": "ListItem", "position": 18, "name": "Transfer Learning Enables Predictions in Network Biology (Geneformer)", "url": "https://www.nature.com/articles/s41586-023-06139-9"}, {"@type": "ListItem", "position": 19, "name": "Accurate Structure Prediction of Biomolecular Interactions with AlphaFold 3", "url": "https://www.nature.com/articles/s41586-024-07487-w"}, {"@type": "ListItem", "position": 20, "name": "Language Models Generalize Beyond Natural Proteins", "url": "https://www.science.org/doi/10.1126/science.ado7000"}]}]}</script>
+</head>
+<body data-roadmap="computational-biology">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Computational Biology</nav>
+  <h1>Computational Biology</h1>
+  <p class="lede">From dynamic-programming alignment to AlphaFold and protein design — how algorithms went from finding motifs in DNA to predicting and engineering biological structure.</p>
+  <div class="meta-row">
+    <span><b>20</b> papers</span>
+    <span><b>6</b> levels</span>
+    <span>Timeline <b>1970 – 2024</b></span>
+    <span>MVRP <b>5</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 20</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="20" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 5 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-1">A General Method Applicable to the Search for Similarities (Needleman–Wunsch)</a></li>
+<li><a href="#paper-3">Basic Local Alignment Search Tool (BLAST)</a></li>
+<li><a href="#paper-5">Fast and Accurate Short Read Alignment with Burrows–Wheeler Transform (BWA)</a></li>
+<li><a href="#paper-13">Highly Accurate Protein Structure Prediction with AlphaFold</a></li>
+<li><a href="#paper-16">Robust Deep Learning–Based Protein Sequence Design Using ProteinMPNN</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 20 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Sequence alignment</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="1" data-text="a general method applicable to the search for similarities (needleman–wunsch) needleman, wunsch northwestern a dynamic-programming algorithm for global alignment of two biological sequences. optimal sequence alignment is solvable in o(mn) time with a single dp table.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">A General Method Applicable to the Search for Similarities (Needleman–Wunsch)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Needleman, Wunsch · Northwestern · Mar 1970</p>
+    <div class="p-field"><b>TL;DR</b><p>A dynamic-programming algorithm for global alignment of two biological sequences.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first proper algorithm of computational biology; conceptual ancestor of every aligner.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Dynamic programming basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Optimal sequence alignment is solvable in O(mn) time with a single DP table.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.sciencedirect.com/science/article/abs/pii/0022283670900574" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="A General Method Applicable to the Search for Similarities (Needleman–Wunsch)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark A General Method Applicable to the Search for Similarities (Needleman–Wunsch) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="identification of common molecular subsequences (smith–waterman) smith, waterman los alamos, usc adapts needleman–wunsch to local alignment by allowing zero scores in the dp table. local alignment is just global alignment with a non-negativity constraint.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">Identification of Common Molecular Subsequences (Smith–Waterman)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Smith, Waterman · Los Alamos, USC · Mar 1981</p>
+    <div class="p-field"><b>TL;DR</b><p>Adapts Needleman–Wunsch to local alignment by allowing zero scores in the DP table.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A small modification with huge consequences for finding conserved motifs and homology.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Needleman–Wunsch</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Local alignment is just global alignment with a non-negativity constraint.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="Identification of Common Molecular Subsequences (Smith–Waterman)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark Identification of Common Molecular Subsequences (Smith–Waterman) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-3" data-mvrp="1" data-text="basic local alignment search tool (blast) altschul, gish, miller, myers, lipman ncbi a heuristic algorithm trading some sensitivity for orders-of-magnitude speed over smith–waterman. a statistically-grounded heuristic can be the right answer when exact is too slow.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">Basic Local Alignment Search Tool (BLAST)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Altschul, Gish, Miller, Myers, Lipman · NCBI · Oct 1990</p>
+    <div class="p-field"><b>TL;DR</b><p>A heuristic algorithm trading some sensitivity for orders-of-magnitude speed over Smith–Waterman.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most-used algorithm in all of biology; the workhorse of every database search.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Smith–Waterman, basic indexing</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A statistically-grounded heuristic can be the right answer when exact is too slow.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.sciencedirect.com/science/article/abs/pii/S0022283605803602" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="Basic Local Alignment Search Tool (BLAST)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark Basic Local Alignment Search Tool (BLAST) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Probabilistic models</span>
+    
+  </div>
+  
+<details class="paper" id="paper-4" data-mvrp="0" data-text="profile hmms for biological sequence analysis (hmmer) eddy washington u builds a hidden markov model per protein family for sensitive remote-homology searches. a probabilistic model of a family beats a single best representative.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">Profile HMMs for Biological Sequence Analysis (HMMER)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Eddy · Washington U · Apr 1998</p>
+    <div class="p-field"><b>TL;DR</b><p>Builds a hidden Markov model per protein family for sensitive remote-homology searches.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The standard probabilistic framework for protein family detection.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BLAST, HMM basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A probabilistic model of a family beats a single best representative.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://academic.oup.com/bioinformatics/article/14/9/755/259550" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="Profile HMMs for Biological Sequence Analysis (HMMER)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark Profile HMMs for Biological Sequence Analysis (HMMER) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Sequencing &amp; assembly</span>
+    
+  </div>
+  
+<details class="paper" id="paper-5" data-mvrp="1" data-text="fast and accurate short read alignment with burrows–wheeler transform (bwa) li, durbin sanger institute indexes the reference genome via the burrows–wheeler transform for fast ngs read alignment. a clever string-data structure makes a previously intractable problem trivial.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Fast and Accurate Short Read Alignment with Burrows–Wheeler Transform (BWA)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Li, Durbin · Sanger Institute · Jul 2009</p>
+    <div class="p-field"><b>TL;DR</b><p>Indexes the reference genome via the Burrows–Wheeler transform for fast NGS read alignment.</p></div>
+    <div class="p-field"><b>Why read this</b><p>One of the most-used aligners in modern genomics — the BWT made it possible.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BLAST, suffix arrays</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A clever string-data structure makes a previously intractable problem trivial.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://academic.oup.com/bioinformatics/article/25/14/1754/225615" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Fast and Accurate Short Read Alignment with Burrows–Wheeler Transform (BWA)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Fast and Accurate Short Read Alignment with Burrows–Wheeler Transform (BWA) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-6" data-mvrp="0" data-text="bowtie: ultrafast and memory-efficient alignment of short dna sequences langmead, trapnell, pop, salzberg u maryland, jhu another bwt-based aligner with a focus on memory footprint and speed. there&#x27;s often more than one good way to apply a powerful new data structure.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">Bowtie: Ultrafast and Memory-Efficient Alignment of Short DNA Sequences</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Langmead, Trapnell, Pop, Salzberg · U Maryland, JHU · Mar 2009</p>
+    <div class="p-field"><b>TL;DR</b><p>Another BWT-based aligner with a focus on memory footprint and speed.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A useful contrast to BWA; both papers together define the modern read-alignment toolbox.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BWA, suffix arrays</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>There&#x27;s often more than one good way to apply a powerful new data structure.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2009-10-3-r25" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="Bowtie: Ultrafast and Memory-Efficient Alignment of Short DNA Sequences">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark Bowtie: Ultrafast and Memory-Efficient Alignment of Short DNA Sequences as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="0" data-text="velvet: algorithms for de novo short read assembly zerbino, birney embl-ebi uses de bruijn graphs to assemble genomes from millions of short sequencing reads. genome assembly is an eulerian path problem on a graph of k-mers.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">Velvet: Algorithms for De Novo Short Read Assembly</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Zerbino, Birney · EMBL-EBI · Mar 2008</p>
+    <div class="p-field"><b>TL;DR</b><p>Uses de Bruijn graphs to assemble genomes from millions of short sequencing reads.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The de Bruijn graph idea is the conceptual core of every modern assembler.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Graph algorithms, basic genomics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Genome assembly is an Eulerian path problem on a graph of k-mers.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://genome.cshlp.org/content/18/5/821" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="Velvet: Algorithms for De Novo Short Read Assembly">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark Velvet: Algorithms for De Novo Short Read Assembly as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-8" data-mvrp="0" data-text="star: ultrafast universal rna-seq aligner dobin et al. cshl a spliced aligner that handles rna-seq reads spanning exon-exon junctions efficiently. rna-seq needs splice-aware alignment, not just genome-aware alignment.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">STAR: Ultrafast Universal RNA-seq Aligner</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dobin et al. · CSHL · Oct 2012</p>
+    <div class="p-field"><b>TL;DR</b><p>A spliced aligner that handles RNA-seq reads spanning exon-exon junctions efficiently.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The de facto standard RNA-seq aligner — read it before any expression analysis paper.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>BWA, basic transcriptomics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>RNA-seq needs splice-aware alignment, not just genome-aware alignment.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://academic.oup.com/bioinformatics/article/29/1/15/272537" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="STAR: Ultrafast Universal RNA-seq Aligner">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark STAR: Ultrafast Universal RNA-seq Aligner as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Functional &amp; single-cell analysis</span>
+    
+  </div>
+  
+<details class="paper" id="paper-9" data-mvrp="0" data-text="moderated estimation of fold change and dispersion for rna-seq (deseq2) love, huber, anders embl a statistical framework for differential expression with shrinkage estimators for low-count noise. empirical-bayes shrinkage gives stable inferences from noisy count data.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">Moderated Estimation of Fold Change and Dispersion for RNA-Seq (DESeq2)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Love, Huber, Anders · EMBL · Dec 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>A statistical framework for differential expression with shrinkage estimators for low-count noise.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The most-cited paper in modern transcriptomics — methodologically influential beyond its field.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Negative binomial distribution, basic GLMs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Empirical-Bayes shrinkage gives stable inferences from noisy count data.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-014-0550-8" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="Moderated Estimation of Fold Change and Dispersion for RNA-Seq (DESeq2)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark Moderated Estimation of Fold Change and Dispersion for RNA-Seq (DESeq2) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-10" data-mvrp="0" data-text="umap: uniform manifold approximation and projection mcinnes, healy, melville tutte institute a dimensionality-reduction algorithm with a manifold-learning theoretical foundation. better assumptions about the data manifold give better low-dimensional embeddings.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">UMAP: Uniform Manifold Approximation and Projection</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">McInnes, Healy, Melville · Tutte Institute · Feb 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A dimensionality-reduction algorithm with a manifold-learning theoretical foundation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Quietly displaced t-SNE in single-cell biology and elsewhere — a major workflow shift.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>PCA, basic topology useful</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Better assumptions about the data manifold give better low-dimensional embeddings.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1802.03426" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="UMAP: Uniform Manifold Approximation and Projection">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark UMAP: Uniform Manifold Approximation and Projection as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="comprehensive integration of single-cell data (seurat v3) stuart et al. nygc, columbia a statistical framework for integrating single-cell datasets across conditions and modalities. anchor-based integration lets you compare cells across very different experiments.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">Comprehensive Integration of Single-Cell Data (Seurat v3)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Stuart et al. · NYGC, Columbia · Jun 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>A statistical framework for integrating single-cell datasets across conditions and modalities.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The standard analysis pipeline for one of the most-active areas of biology.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>PCA, basic single-cell biology</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Anchor-based integration lets you compare cells across very different experiments.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cell.com/cell/fulltext/S0092-8674(19)30559-8" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="Comprehensive Integration of Single-Cell Data (Seurat v3)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark Comprehensive Integration of Single-Cell Data (Seurat v3) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-12" data-mvrp="0" data-text="massively parallel digital transcriptional profiling of single cells (cell ranger / 10x) zheng et al. 10x genomics demonstrates droplet-based single-cell rna sequencing at hundreds of thousands of cells per run. massive throughput on cells, not just reads, opens new biological questions.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Massively Parallel Digital Transcriptional Profiling of Single Cells (Cell Ranger / 10x)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Zheng et al. · 10x Genomics · Jan 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Demonstrates droplet-based single-cell RNA sequencing at hundreds of thousands of cells per run.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The technology paper that made single-cell biology a mainstream field.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>RNA-seq basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Massive throughput on cells, not just reads, opens new biological questions.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/ncomms14049" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Massively Parallel Digital Transcriptional Profiling of Single Cells (Cell Ranger / 10x)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Massively Parallel Digital Transcriptional Profiling of Single Cells (Cell Ranger / 10x) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Protein structure</span>
+    
+  </div>
+  
+<details class="paper" id="paper-13" data-mvrp="1" data-text="highly accurate protein structure prediction with alphafold jumper et al. deepmind a geometry-aware transformer architecture (evoformer + structure module) predicting 3d protein structure to atomic accuracy. hard scientific problems crack when you bake the right geometric and biological priors into the model.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">Highly Accurate Protein Structure Prediction with AlphaFold</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Jumper et al. · DeepMind · Jul 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>A geometry-aware Transformer architecture (Evoformer + structure module) predicting 3D protein structure to atomic accuracy.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A scientific landmark of historic magnitude; the protein-folding problem largely solved.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformers, basic structural biology</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Hard scientific problems crack when you bake the right geometric and biological priors into the model.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/s41586-021-03819-2" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="Highly Accurate Protein Structure Prediction with AlphaFold">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark Highly Accurate Protein Structure Prediction with AlphaFold as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="0" data-text="evolutionary-scale prediction of atomic-level protein structure (esmfold) lin et al. meta ai uses a 15b-parameter protein language model (esm-2) to predict structure directly from sequence. a big enough language model implicitly learns structure from sequence alone.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">Evolutionary-Scale Prediction of Atomic-Level Protein Structure (ESMFold)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lin et al. · Meta AI · Mar 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Uses a 15B-parameter protein language model (ESM-2) to predict structure directly from sequence.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Faster, simpler alternative to AlphaFold for many use cases; demonstrates the power of protein LLMs.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaFold, protein language models</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A big enough language model implicitly learns structure from sequence alone.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.science.org/doi/10.1126/science.ade2574" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="Evolutionary-Scale Prediction of Atomic-Level Protein Structure (ESMFold)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark Evolutionary-Scale Prediction of Atomic-Level Protein Structure (ESMFold) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-15" data-mvrp="0" data-text="accurate prediction of protein structures and interactions using a 3-track network (rosettafold) baek et al. u washington a three-track network reasoning over sequence, distance, and structure simultaneously. structure prediction benefits from reasoning over multiple representations in parallel.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">Accurate Prediction of Protein Structures and Interactions Using a 3-Track Network (RoseTTAFold)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Baek et al. · U Washington · Jul 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>A three-track network reasoning over sequence, distance, and structure simultaneously.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A useful counterpoint to AlphaFold; same problem, related but distinct architecture.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaFold, basic graph nets</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Structure prediction benefits from reasoning over multiple representations in parallel.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.science.org/doi/10.1126/science.abj8754" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="Accurate Prediction of Protein Structures and Interactions Using a 3-Track Network (RoseTTAFold)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark Accurate Prediction of Protein Structures and Interactions Using a 3-Track Network (RoseTTAFold) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Generative biology &amp; frontier</span>
+    
+  </div>
+  
+<details class="paper" id="paper-16" data-mvrp="1" data-text="robust deep learning–based protein sequence design using proteinmpnn dauparas et al. u washington a graph neural network that designs protein sequences to fold into a desired backbone. inverse design (give me a sequence for this shape) is the dual problem to folding.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Robust Deep Learning–Based Protein Sequence Design Using ProteinMPNN</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dauparas et al. · U Washington · Sep 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>A graph neural network that designs protein sequences to fold into a desired backbone.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A modern reference for inverse folding and the design half of computational protein engineering.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaFold, GNNs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Inverse design (give me a sequence for this shape) is the dual problem to folding.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.science.org/doi/10.1126/science.add2187" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Robust Deep Learning–Based Protein Sequence Design Using ProteinMPNN">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Robust Deep Learning–Based Protein Sequence Design Using ProteinMPNN as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="de novo design of protein structure and function with rfdiffusion watson et al. u washington a diffusion model that generates novel protein backbones for specified geometric constraints. diffusion is a remarkably general way to generate structured biological objects.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">De Novo Design of Protein Structure and Function with RFdiffusion</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Watson et al. · U Washington · Jul 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>A diffusion model that generates novel protein backbones for specified geometric constraints.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The &quot;Stable Diffusion of biology&quot; — generative protein design now actually works.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Diffusion models, protein design basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Diffusion is a remarkably general way to generate structured biological objects.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/s41586-023-06415-8" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="De Novo Design of Protein Structure and Function with RFdiffusion">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark De Novo Design of Protein Structure and Function with RFdiffusion as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-18" data-mvrp="0" data-text="transfer learning enables predictions in network biology (geneformer) theodoris et al. harvard, bayer a transformer pretrained on 30m single-cell transcriptomes and fine-tuned for downstream biology. pretraining on rank-encoded gene expression yields strong biological transferability.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">Transfer Learning Enables Predictions in Network Biology (Geneformer)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Theodoris et al. · Harvard, Bayer · May 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>A Transformer pretrained on 30M single-cell transcriptomes and fine-tuned for downstream biology.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Foundation-model thinking finally hitting cell biology.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformers, single-cell RNA-seq</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Pretraining on rank-encoded gene expression yields strong biological transferability.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/s41586-023-06139-9" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="Transfer Learning Enables Predictions in Network Biology (Geneformer)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark Transfer Learning Enables Predictions in Network Biology (Geneformer) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-19" data-mvrp="0" data-text="accurate structure prediction of biomolecular interactions with alphafold 3 abramson et al. deepmind, isomorphic labs extends alphafold to predict protein–nucleic-acid, protein–ligand, and protein–protein complexes. a single foundation model can handle proteins, rna, dna, and small-molecule interactions.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">Accurate Structure Prediction of Biomolecular Interactions with AlphaFold 3</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Abramson et al. · DeepMind, Isomorphic Labs · May 2024</p>
+    <div class="p-field"><b>TL;DR</b><p>Extends AlphaFold to predict protein–nucleic-acid, protein–ligand, and protein–protein complexes.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The current state of the art; redefines what computational structural biology can do.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlphaFold, diffusion models</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A single foundation model can handle proteins, RNA, DNA, and small-molecule interactions.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.nature.com/articles/s41586-024-07487-w" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="Accurate Structure Prediction of Biomolecular Interactions with AlphaFold 3">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark Accurate Structure Prediction of Biomolecular Interactions with AlphaFold 3 as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="language models generalize beyond natural proteins hayes et al. meta ai / evolutionaryscale a protein language model designs novel functional proteins beyond known evolutionary distributions. language models trained on natural proteins can imagine functional unnatural ones.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">Language Models Generalize Beyond Natural Proteins</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hayes et al. · Meta AI / EvolutionaryScale · Jul 2024</p>
+    <div class="p-field"><b>TL;DR</b><p>A protein language model designs novel functional proteins beyond known evolutionary distributions.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A glimpse of foundation-model-driven exploration of biological design space.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ESM, protein design basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Language models trained on natural proteins can imagine functional unnatural ones.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.science.org/doi/10.1126/science.ado7000" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="Language Models Generalize Beyond Natural Proteins">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark Language Models Generalize Beyond Natural Proteins as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../computer-architecture/"><span class="dir">← Previous roadmap</span>Computer Architecture</a>
+    <a href="../programming-languages/"><span class="dir">Next roadmap →</span>Programming Languages</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

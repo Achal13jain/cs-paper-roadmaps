@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Database Systems Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Database Systems reading roadmap: 24 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/database-systems/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Database Systems Research Paper Roadmap">
+<meta property="og:description" content="Database Systems reading roadmap: 24 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/database-systems/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Database Systems roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Database Systems Research Paper Roadmap">
+<meta name="twitter:description" content="Database Systems reading roadmap: 24 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Database Systems roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Database Systems", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/database-systems/"}]}, {"@type": "ItemList", "name": "Database Systems paper roadmap", "description": "From the relational model to learned indexes — the data structures, transaction protocols, and storage architectures that organise the world's information.", "numberOfItems": 24, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "A Relational Model of Data for Large Shared Data Banks", "url": "https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf"}, {"@type": "ListItem", "position": 2, "name": "System R: Relational Approach to Database Management", "url": "https://dsf.berkeley.edu/cs262/SystemR.pdf"}, {"@type": "ListItem", "position": 3, "name": "The Notions of Consistency and Predicate Locks", "url": "https://research.ibm.com/publications/the-notions-of-consistency-and-predicate-locks-in-a-database-system"}, {"@type": "ListItem", "position": 4, "name": "ARIES: A Transaction Recovery Method", "url": "https://cypress.cs.uchicago.edu/cs23030/papers/aries.pdf"}, {"@type": "ListItem", "position": 5, "name": "Hekaton: SQL Server's Memory-Optimized OLTP Engine", "url": "https://www.microsoft.com/en-us/research/publication/hekaton-sql-servers-memory-optimized-oltp-engine/"}, {"@type": "ListItem", "position": 6, "name": "C-Store: A Column-Oriented DBMS", "url": "https://web.stanford.edu/class/cs346/2015/cstore-vldb05.pdf"}, {"@type": "ListItem", "position": 7, "name": "The End of an Architectural Era (H-Store)", "url": "http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf"}, {"@type": "ListItem", "position": 8, "name": "The Vertica Analytic Database: C-Store 7 Years Later", "url": "https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf"}, {"@type": "ListItem", "position": 9, "name": "Bigtable: A Distributed Storage System for Structured Data", "url": "https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/"}, {"@type": "ListItem", "position": 10, "name": "Dynamo: Amazon's Highly Available Key-value Store", "url": "https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf"}, {"@type": "ListItem", "position": 11, "name": "PNUTS: Yahoo!'s Hosted Data Serving Platform", "url": "https://www.cs.umd.edu/~abadi/papers/pnuts.pdf"}, {"@type": "ListItem", "position": 12, "name": "The Log-Structured Merge-Tree (LSM-Tree)", "url": "https://www.cs.umb.edu/~poneil/lsmtree.pdf"}, {"@type": "ListItem", "position": 13, "name": "The Case for Learned Index Structures", "url": "https://arxiv.org/abs/1712.01208"}, {"@type": "ListItem", "position": 14, "name": "Spanner: Google's Globally-Distributed Database", "url": "https://research.google/pubs/spanner-googles-globally-distributed-database/"}, {"@type": "ListItem", "position": 15, "name": "F1: A Distributed SQL Database That Scales", "url": "https://research.google/pubs/f1-a-distributed-sql-database-that-scales/"}, {"@type": "ListItem", "position": 16, "name": "The Snowflake Elastic Data Warehouse", "url": "https://event.cwi.nl/lsde/papers/p215-dageville-snowflake.pdf"}, {"@type": "ListItem", "position": 17, "name": "CockroachDB: The Resilient Geo-Distributed SQL Database", "url": "https://www.cockroachlabs.com/guides/whitepaper-cockroachdb-the-resilient-geo-distributed-sql-database/"}, {"@type": "ListItem", "position": 18, "name": "DuckDB: An Embeddable Analytical Database", "url": "https://www.duckdb.org/pdf/SIGMOD2019-demo-duckdb.pdf"}, {"@type": "ListItem", "position": 19, "name": "Photon: A Fast Query Engine for Lakehouse Systems", "url": "https://15721.courses.cs.cmu.edu/spring2024/papers/16-vectorization2/p2326-saxena.pdf"}, {"@type": "ListItem", "position": 20, "name": "Self-Driving Database Management Systems", "url": "https://www.cs.cmu.edu/~pavlo/papers/p42-pavlo-cidr17.pdf"}, {"@type": "ListItem", "position": 21, "name": "FAISS: A Library for Efficient Similarity Search", "url": "https://arxiv.org/abs/1702.08734"}, {"@type": "ListItem", "position": 22, "name": "Lakehouse: A New Generation of Open Platforms", "url": "https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf"}, {"@type": "ListItem", "position": 23, "name": "RocksDB: Evolution of Development Priorities in a Key-Value Store", "url": "https://www.usenix.org/conference/fast21/presentation/dong"}, {"@type": "ListItem", "position": 24, "name": "Vectorized Query Execution at Microsoft (SQL Server Batch Mode)", "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2013/09/Apollo3-VLDB-final.pdf"}]}]}</script>
+</head>
+<body data-roadmap="database-systems">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Database Systems</nav>
+  <h1>Database Systems</h1>
+  <p class="lede">From the relational model to learned indexes — the data structures, transaction protocols, and storage architectures that organise the world&#x27;s information.</p>
+  <div class="meta-row">
+    <span><b>24</b> papers</span>
+    <span><b>7</b> levels</span>
+    <span>Timeline <b>1970 – 2024</b></span>
+    <span>MVRP <b>3</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 24</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="24" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 3 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-1">A Relational Model of Data for Large Shared Data Banks</a></li>
+<li><a href="#paper-9">Bigtable: A Distributed Storage System for Structured Data</a></li>
+<li><a href="#paper-14">Spanner: Google&#x27;s Globally-Distributed Database</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 24 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="1" data-text="a relational model of data for large shared data banks codd ibm proposes the relational model: data as relations (tables), with set-theoretic operators for querying. separate the logical structure of data from how it&#x27;s physically stored.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">A Relational Model of Data for Large Shared Data Banks</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Codd · IBM · Jun 1970</p>
+    <div class="p-field"><b>TL;DR</b><p>Proposes the relational model: data as relations (tables), with set-theoretic operators for querying.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The single founding document of modern databases. Read it to see SQL&#x27;s entire intellectual scaffolding in 11 pages.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Set theory, basic logic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Separate the logical structure of data from how it&#x27;s physically stored.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="A Relational Model of Data for Large Shared Data Banks">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark A Relational Model of Data for Large Shared Data Banks as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="system r: relational approach to database management astrahan et al. ibm research reports on the first full implementation of a relational system, including sql, optimisation, and transactions. almost every modern rdbms architectural choice was made first in system r.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">System R: Relational Approach to Database Management</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Astrahan et al. · IBM Research · Jun 1976</p>
+    <div class="p-field"><b>TL;DR</b><p>Reports on the first full implementation of a relational system, including SQL, optimisation, and transactions.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The blueprint of every commercial RDBMS that followed.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Codd&#x27;s relational model</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Almost every modern RDBMS architectural choice was made first in System R.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://dsf.berkeley.edu/cs262/SystemR.pdf" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="System R: Relational Approach to Database Management">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark System R: Relational Approach to Database Management as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-3" data-mvrp="0" data-text="the notions of consistency and predicate locks eswaran, gray, lorie, traiger ibm research defines serialisability and lays out the locking protocols for transactions. two-phase locking + serialisability is the recipe for transactional correctness.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">The Notions of Consistency and Predicate Locks</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Eswaran, Gray, Lorie, Traiger · IBM Research · Nov 1976</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines serialisability and lays out the locking protocols for transactions.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The transaction-theory paper underlying every concurrency-control implementation.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Concurrency basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Two-phase locking + serialisability is the recipe for transactional correctness.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.ibm.com/publications/the-notions-of-consistency-and-predicate-locks-in-a-database-system" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="The Notions of Consistency and Predicate Locks">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark The Notions of Consistency and Predicate Locks as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Recovery &amp; concurrency</span>
+    
+  </div>
+  
+<details class="paper" id="paper-4" data-mvrp="0" data-text="aries: a transaction recovery method mohan et al. ibm almaden write-ahead logging with redo, undo, and physiological logging — the basis of every modern crash-recovery system. write-ahead logging plus carefully ordered redo/undo gives durability without giving up performance.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">ARIES: A Transaction Recovery Method</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Mohan et al. · IBM Almaden · Mar 1992</p>
+    <div class="p-field"><b>TL;DR</b><p>Write-ahead logging with redo, undo, and physiological logging — the basis of every modern crash-recovery system.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The reference for how databases survive crashes; foundational for storage engineers.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Two-phase locking, B-trees</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Write-ahead logging plus carefully ordered redo/undo gives durability without giving up performance.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://cypress.cs.uchicago.edu/cs23030/papers/aries.pdf" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="ARIES: A Transaction Recovery Method">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark ARIES: A Transaction Recovery Method as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-5" data-mvrp="0" data-text="hekaton: sql server&#x27;s memory-optimized oltp engine diaconu et al. microsoft a latch-free, lock-free in-memory oltp engine that uses mvcc and compiled query plans. when everything fits in ram, the entire database design changes.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Hekaton: SQL Server&#x27;s Memory-Optimized OLTP Engine</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Diaconu et al. · Microsoft · Jun 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>A latch-free, lock-free in-memory OLTP engine that uses MVCC and compiled query plans.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean, modern industry account of in-memory transaction processing.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ARIES, concurrency control</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>When everything fits in RAM, the entire database design changes.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.microsoft.com/en-us/research/publication/hekaton-sql-servers-memory-optimized-oltp-engine/" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Hekaton: SQL Server&#x27;s Memory-Optimized OLTP Engine">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Hekaton: SQL Server&#x27;s Memory-Optimized OLTP Engine as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Column stores &amp; analytics</span>
+    
+  </div>
+  
+<details class="paper" id="paper-6" data-mvrp="0" data-text="c-store: a column-oriented dbms stonebraker et al. mit, brandeis, brown argues that storing data by column, not row, is the right design for analytical workloads. oltp and analytics want fundamentally different storage layouts.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">C-Store: A Column-Oriented DBMS</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Stonebraker et al. · MIT, Brandeis, Brown · Sep 2005</p>
+    <div class="p-field"><b>TL;DR</b><p>Argues that storing data by column, not row, is the right design for analytical workloads.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Read this against System R to see how analytical workloads pulled DB design in a new direction.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>System R</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>OLTP and analytics want fundamentally different storage layouts.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://web.stanford.edu/class/cs346/2015/cstore-vldb05.pdf" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="C-Store: A Column-Oriented DBMS">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark C-Store: A Column-Oriented DBMS as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="0" data-text="the end of an architectural era (h-store) stonebraker et al. mit, brown a polemic against general-purpose rdbmss, arguing for specialised in-memory engines. general-purpose database architectures leave too much performance on the table.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">The End of an Architectural Era (H-Store)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Stonebraker et al. · MIT, Brown · Sep 2007</p>
+    <div class="p-field"><b>TL;DR</b><p>A polemic against general-purpose RDBMSs, arguing for specialised in-memory engines.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A bracing critique that anticipates Hekaton, MemSQL, and most modern OLTP engines.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>System R, basic OLTP</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>General-purpose database architectures leave too much performance on the table.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://nms.csail.mit.edu/~stavros/pubs/hstore.pdf" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="The End of an Architectural Era (H-Store)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark The End of an Architectural Era (H-Store) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-8" data-mvrp="0" data-text="the vertica analytic database: c-store 7 years later lamb et al. vertica systems a retrospective on what worked and didn&#x27;t in commercialising c-store. real workloads break clean research designs in interesting and instructive ways.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">The Vertica Analytic Database: C-Store 7 Years Later</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lamb et al. · Vertica Systems · Aug 2012</p>
+    <div class="p-field"><b>TL;DR</b><p>A retrospective on what worked and didn&#x27;t in commercialising C-Store.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A rare, candid post-mortem on translating a research prototype into a production system.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>C-Store</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Real workloads break clean research designs in interesting and instructive ways.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://vldb.org/pvldb/vol5/p1790_andrewlamb_vldb2012.pdf" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="The Vertica Analytic Database: C-Store 7 Years Later">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark The Vertica Analytic Database: C-Store 7 Years Later as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">NoSQL &amp; scale-out</span>
+    
+  </div>
+  
+<details class="paper" id="paper-9" data-mvrp="1" data-text="bigtable: a distributed storage system for structured data chang et al. google a sparse, distributed, persistent multi-dimensional sorted map built atop gfs and chubby. a simple sorted-key data model plus an lsm scales to huge datasets.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">Bigtable: A Distributed Storage System for Structured Data</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Chang et al. · Google · Nov 2006</p>
+    <div class="p-field"><b>TL;DR</b><p>A sparse, distributed, persistent multi-dimensional sorted map built atop GFS and Chubby.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A foundational system; deserves to be read once for distributed systems and once for databases.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GFS, LSM-trees</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A simple sorted-key data model plus an LSM scales to huge datasets.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="Bigtable: A Distributed Storage System for Structured Data">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark Bigtable: A Distributed Storage System for Structured Data as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-10" data-mvrp="0" data-text="dynamo: amazon&#x27;s highly available key-value store decandia et al. amazon a masterless, eventually-consistent kv store that prioritises availability over consistency. tuneable consistency at the operation level beats a global setting.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Dynamo: Amazon&#x27;s Highly Available Key-value Store</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">DeCandia et al. · Amazon · Oct 2007</p>
+    <div class="p-field"><b>TL;DR</b><p>A masterless, eventually-consistent KV store that prioritises availability over consistency.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual ancestor of every AP-side NoSQL store.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed systems basics, consistent hashing</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Tuneable consistency at the operation level beats a global setting.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Dynamo: Amazon&#x27;s Highly Available Key-value Store">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Dynamo: Amazon&#x27;s Highly Available Key-value Store as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="pnuts: yahoo!&#x27;s hosted data serving platform cooper et al. yahoo! a geo-replicated database with per-record timeline consistency between strong and eventual. real applications usually want a consistency knob, not a fixed setting.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">PNUTS: Yahoo!&#x27;s Hosted Data Serving Platform</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Cooper et al. · Yahoo! · Aug 2008</p>
+    <div class="p-field"><b>TL;DR</b><p>A geo-replicated database with per-record timeline consistency between strong and eventual.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A pragmatic middle-ground design between Dynamo and Spanner — clarifies the consistency spectrum.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Distributed systems basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Real applications usually want a consistency knob, not a fixed setting.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.umd.edu/~abadi/papers/pnuts.pdf" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="PNUTS: Yahoo!&#x27;s Hosted Data Serving Platform">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark PNUTS: Yahoo!&#x27;s Hosted Data Serving Platform as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Storage engines</span>
+    
+  </div>
+  
+<details class="paper" id="paper-12" data-mvrp="0" data-text="the log-structured merge-tree (lsm-tree) o&#x27;neil, cheng, gawlick, o&#x27;neil northeastern, atandt a write-optimised data structure that batches updates in memory and merges them to disk in sorted runs. trade some read amplification for huge wins on write throughput.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">The Log-Structured Merge-Tree (LSM-Tree)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">O&#x27;Neil, Cheng, Gawlick, O&#x27;Neil · Northeastern, ATandT · Jun 1996</p>
+    <div class="p-field"><b>TL;DR</b><p>A write-optimised data structure that batches updates in memory and merges them to disk in sorted runs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The foundational data structure of every modern KV store: RocksDB, LevelDB, Cassandra.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>B-trees, basic algorithms</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Trade some read amplification for huge wins on write throughput.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.umb.edu/~poneil/lsmtree.pdf" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="The Log-Structured Merge-Tree (LSM-Tree)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark The Log-Structured Merge-Tree (LSM-Tree) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-13" data-mvrp="0" data-text="the case for learned index structures kraska, beutel, chi, dean, polyzotis mit, google replaces b-trees and bloom filters with neural networks that learn the data&#x27;s cdf. a data structure is just a function; you might as well learn it.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">The Case for Learned Index Structures</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kraska, Beutel, Chi, Dean, Polyzotis · MIT, Google · Dec 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Replaces B-trees and Bloom filters with neural networks that learn the data&#x27;s CDF.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A speculative-but-influential paper redefining what a data structure can be.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>B-trees, basic ML</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A data structure is just a function; you might as well learn it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1712.01208" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="The Case for Learned Index Structures">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark The Case for Learned Index Structures as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Cloud-native databases</span>
+    
+  </div>
+  
+<details class="paper" id="paper-14" data-mvrp="1" data-text="spanner: google&#x27;s globally-distributed database corbett et al. google a globally-distributed sql database with externally-consistent transactions powered by truetime. bound your clock skew, wait it out, and you can serialise transactions across continents.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">Spanner: Google&#x27;s Globally-Distributed Database</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Corbett et al. · Google · Oct 2012</p>
+    <div class="p-field"><b>TL;DR</b><p>A globally-distributed SQL database with externally-consistent transactions powered by TrueTime.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The watershed paper that made global, strongly-consistent transactions practical.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Bigtable, Paxos</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Bound your clock skew, wait it out, and you can serialise transactions across continents.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/spanner-googles-globally-distributed-database/" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="Spanner: Google&#x27;s Globally-Distributed Database">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark Spanner: Google&#x27;s Globally-Distributed Database as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-15" data-mvrp="0" data-text="f1: a distributed sql database that scales shute et al. google the sql layer atop spanner that runs google&#x27;s adwords business. most apps want sql even when they need a distributed kv — so build the sql layer well.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">F1: A Distributed SQL Database That Scales</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Shute et al. · Google · Aug 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>The SQL layer atop Spanner that runs Google&#x27;s AdWords business.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Companion piece to Spanner; shows the SQL engineering needed on top of a distributed KV layer.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Spanner, SQL internals</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most apps want SQL even when they need a distributed KV — so build the SQL layer well.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/f1-a-distributed-sql-database-that-scales/" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="F1: A Distributed SQL Database That Scales">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark F1: A Distributed SQL Database That Scales as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="0" data-text="the snowflake elastic data warehouse dageville et al. snowflake decouples compute and storage in the cloud, with elastic, billed-by-the-second virtual warehouses. decoupled compute and storage is the right shape for the cloud.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">The Snowflake Elastic Data Warehouse</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dageville et al. · Snowflake · May 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>Decouples compute and storage in the cloud, with elastic, billed-by-the-second virtual warehouses.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean modern reference on the cloud-native warehouse architecture now industry-standard.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>C-Store, cloud architecture basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Decoupled compute and storage is the right shape for the cloud.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://event.cwi.nl/lsde/papers/p215-dageville-snowflake.pdf" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="The Snowflake Elastic Data Warehouse">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark The Snowflake Elastic Data Warehouse as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="cockroachdb: the resilient geo-distributed sql database taft et al. cockroach labs an open-source sql database that approximates spanner&#x27;s guarantees without atomic clocks. hybrid logical clocks and careful engineering can substitute for truetime.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">CockroachDB: The Resilient Geo-Distributed SQL Database</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Taft et al. · Cockroach Labs · Jun 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>An open-source SQL database that approximates Spanner&#x27;s guarantees without atomic clocks.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clear case study in re-implementing a research system as production-grade open source.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Spanner, Raft</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Hybrid logical clocks and careful engineering can substitute for TrueTime.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cockroachlabs.com/guides/whitepaper-cockroachdb-the-resilient-geo-distributed-sql-database/" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="CockroachDB: The Resilient Geo-Distributed SQL Database">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark CockroachDB: The Resilient Geo-Distributed SQL Database as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">Modern frontiers</span>
+    
+  </div>
+  
+<details class="paper" id="paper-18" data-mvrp="0" data-text="duckdb: an embeddable analytical database raasveldt, mühleisen cwi amsterdam an in-process columnar sql engine designed for analytical queries on a single machine. most analytical workloads fit on one big modern machine, and shouldn&#x27;t pay distributed overhead.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">DuckDB: An Embeddable Analytical Database</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Raasveldt, Mühleisen · CWI Amsterdam · Jun 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>An in-process columnar SQL engine designed for analytical queries on a single machine.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The &quot;SQLite of analytics&quot; — represents a real movement back toward single-node power.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>C-Store</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most analytical workloads fit on one big modern machine, and shouldn&#x27;t pay distributed overhead.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.duckdb.org/pdf/SIGMOD2019-demo-duckdb.pdf" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="DuckDB: An Embeddable Analytical Database">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark DuckDB: An Embeddable Analytical Database as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-19" data-mvrp="0" data-text="photon: a fast query engine for lakehouse systems behm et al. databricks a vectorised c++ execution engine for apache spark that beats hand-tuned warehouses on tpc-ds. you can replace a slow jvm execution layer without breaking the rest of the stack.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">Photon: A Fast Query Engine for Lakehouse Systems</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Behm et al. · Databricks · Jun 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>A vectorised C++ execution engine for Apache Spark that beats hand-tuned warehouses on TPC-DS.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A modern reference on vectorised execution and the lakehouse architecture.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Spark, vectorised execution</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can replace a slow JVM execution layer without breaking the rest of the stack.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://15721.courses.cs.cmu.edu/spring2024/papers/16-vectorization2/p2326-saxena.pdf" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="Photon: A Fast Query Engine for Lakehouse Systems">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark Photon: A Fast Query Engine for Lakehouse Systems as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="self-driving database management systems pavlo et al. cmu argues for autonomous dbmss that tune themselves using ml over their workloads. the dbms itself is a control system that should learn its own configuration.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">Self-Driving Database Management Systems</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Pavlo et al. · CMU · Jan 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Argues for autonomous DBMSs that tune themselves using ML over their workloads.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A useful manifesto for where database operations is heading.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Database internals</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>The DBMS itself is a control system that should learn its own configuration.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.cmu.edu/~pavlo/papers/p42-pavlo-cidr17.pdf" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="Self-Driving Database Management Systems">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark Self-Driving Database Management Systems as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-21" data-mvrp="0" data-text="faiss: a library for efficient similarity search johnson, douze, jégou facebook ai gpu-accelerated billion-scale nearest-neighbour search via inverted indexes and product quantisation. approximate nearest-neighbour search is mostly an indexing and quantisation problem.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">FAISS: A Library for Efficient Similarity Search</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Johnson, Douze, Jégou · Facebook AI · Feb 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>GPU-accelerated billion-scale nearest-neighbour search via inverted indexes and product quantisation.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The reference work for vector search; foundation of every &quot;vector database&quot;.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Linear algebra, basic IR</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Approximate nearest-neighbour search is mostly an indexing and quantisation problem.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1702.08734" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="FAISS: A Library for Efficient Similarity Search">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark FAISS: A Library for Efficient Similarity Search as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-22" data-mvrp="0" data-text="lakehouse: a new generation of open platforms armbrust et al. databricks argues for unified data architectures combining the openness of lakes with the management of warehouses. schema, transactions, and governance can live atop open file formats.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">Lakehouse: A New Generation of Open Platforms</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Armbrust et al. · Databricks · Jan 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Argues for unified data architectures combining the openness of lakes with the management of warehouses.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Frames the data-platform debate of the early 2020s.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Snowflake, data lakes basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Schema, transactions, and governance can live atop open file formats.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="Lakehouse: A New Generation of Open Platforms">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark Lakehouse: A New Generation of Open Platforms as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-23" data-mvrp="0" data-text="rocksdb: evolution of development priorities in a key-value store dong et al. meta a retrospective on a decade of running rocksdb as a foundational storage engine inside meta. real-world priorities (efficiency, then features, then performance) shift dramatically over time.">
+  <summary>
+    <span class="p-num">23</span>
+    <span class="p-title">RocksDB: Evolution of Development Priorities in a Key-Value Store</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dong et al. · Meta · Aug 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>A retrospective on a decade of running RocksDB as a foundational storage engine inside Meta.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Honest reflections on what really matters in a long-lived storage engine.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>LSM-tree</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Real-world priorities (efficiency, then features, then performance) shift dramatically over time.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.usenix.org/conference/fast21/presentation/dong" target="_blank" rel="noopener"
+        data-paper-id="23" data-paper-title="RocksDB: Evolution of Development Priorities in a Key-Value Store">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="23"
+          aria-label="Mark RocksDB: Evolution of Development Priorities in a Key-Value Store as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-24" data-mvrp="0" data-text="vectorized query execution at microsoft (sql server batch mode) larson et al. microsoft adds batch-mode columnstore execution into sql server, mixing column and row processing in one engine. you don&#x27;t have to ditch your row engine — batch mode and column stores can coexist.">
+  <summary>
+    <span class="p-num">24</span>
+    <span class="p-title">Vectorized Query Execution at Microsoft (SQL Server Batch Mode)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Larson et al. · Microsoft · Sep 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>Adds batch-mode columnstore execution into SQL Server, mixing column and row processing in one engine.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Underrated production retrofit paper; useful contrast with the column-only DuckDB and Photon approaches.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>C-Store, query execution basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You don&#x27;t have to ditch your row engine — batch mode and column stores can coexist.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2013/09/Apollo3-VLDB-final.pdf" target="_blank" rel="noopener"
+        data-paper-id="24" data-paper-title="Vectorized Query Execution at Microsoft (SQL Server Batch Mode)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="24"
+          aria-label="Mark Vectorized Query Execution at Microsoft (SQL Server Batch Mode) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../graph-neural-networks/"><span class="dir">← Previous roadmap</span>Graph Neural Networks</a>
+    <a href="../cryptography/"><span class="dir">Next roadmap →</span>Cryptography</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

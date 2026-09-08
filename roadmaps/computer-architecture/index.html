@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Architecture Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Computer Architecture reading roadmap: 22 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computer-architecture/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Computer Architecture Research Paper Roadmap">
+<meta property="og:description" content="Computer Architecture reading roadmap: 22 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computer-architecture/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Computer Architecture roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Computer Architecture Research Paper Roadmap">
+<meta name="twitter:description" content="Computer Architecture reading roadmap: 22 papers across 7 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Computer Architecture roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Computer Architecture", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computer-architecture/"}]}, {"@type": "ItemList", "name": "Computer Architecture paper roadmap", "description": "From the von Neumann report to AI accelerators and side-channel attacks — the design choices, performance walls, and security boundaries shaping what software actually runs on.", "numberOfItems": 22, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "First Draft of a Report on the EDVAC", "url": "https://library.si.edu/digital-library/book/firstdraftofrepo00vonn"}, {"@type": "ListItem", "position": 2, "name": "Architecture of the IBM System/360", "url": "https://research.ibm.com/journal/rd/082/ibmrd0802C.pdf"}, {"@type": "ListItem", "position": 3, "name": "Slave Memories and Dynamic Storage Allocation (Caches)", "url": "https://ieeexplore.ieee.org/document/4038025"}, {"@type": "ListItem", "position": 4, "name": "An Efficient Algorithm for Exploiting Multiple Arithmetic Units (Tomasulo)", "url": "https://www.cs.cmu.edu/~410-f02/lectures/L18_LSE.pdf"}, {"@type": "ListItem", "position": 5, "name": "The Case for the Reduced Instruction Set Computer (RISC)", "url": "https://dl.acm.org/doi/10.1145/641914.641917"}, {"@type": "ListItem", "position": 6, "name": "A Study of Branch Prediction Strategies", "url": "https://courses.cs.washington.edu/courses/csep548/06au/lectures/branchPred.pdf"}, {"@type": "ListItem", "position": 7, "name": "Cache Coherence Protocols (MESI)", "url": "https://dl.acm.org/doi/10.1145/773453.808204"}, {"@type": "ListItem", "position": 8, "name": "The RISC-V Instruction Set Manual", "url": "https://riscv.org/technical/specifications/"}, {"@type": "ListItem", "position": 9, "name": "Roofline: An Insightful Visual Performance Model", "url": "https://crd.lbl.gov/assets/pubs_presos/parlab08-roofline-talk.pdf"}, {"@type": "ListItem", "position": 10, "name": "Computer Architecture: A Quantitative Approach (Hennessy & Patterson, Ch. 1 excerpt)", "url": "https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1"}, {"@type": "ListItem", "position": 11, "name": "Dark Silicon and the End of Multicore Scaling", "url": "https://users.cs.utah.edu/~rajeev/cs7820/papers/darksilicon-isca2011.pdf"}, {"@type": "ListItem", "position": 12, "name": "The Datacenter as a Computer", "url": "https://research.google/pubs/the-datacenter-as-a-computer-an-introduction-to-the-design-of-warehouse-scale-machines-second-edition/"}, {"@type": "ListItem", "position": 13, "name": "A New Golden Age for Computer Architecture", "url": "https://cacm.acm.org/research/a-new-golden-age-for-computer-architecture/"}, {"@type": "ListItem", "position": 14, "name": "NVIDIA Tesla: A Unified Graphics and Computing Architecture (CUDA)", "url": "https://ieeexplore.ieee.org/document/4523358"}, {"@type": "ListItem", "position": 15, "name": "In-Datacenter Performance Analysis of a Tensor Processing Unit (TPU)", "url": "https://arxiv.org/abs/1704.04760"}, {"@type": "ListItem", "position": 16, "name": "Eyeriss: A Spatial Architecture for Energy-Efficient CNN Inference", "url": "https://www.rle.mit.edu/eems/wp-content/uploads/2016/01/eyeriss_isscc_2016.pdf"}, {"@type": "ListItem", "position": 17, "name": "Cerebras Wafer-Scale Engine", "url": "https://www.cerebras.net/wp-content/uploads/2021/04/Cerebras-CS-2-Whitepaper.pdf"}, {"@type": "ListItem", "position": 18, "name": "Spectre Attacks: Exploiting Speculative Execution", "url": "https://spectreattack.com/spectre.pdf"}, {"@type": "ListItem", "position": 19, "name": "Meltdown: Reading Kernel Memory from User Space", "url": "https://meltdownattack.com/meltdown.pdf"}, {"@type": "ListItem", "position": 20, "name": "Chiplet Heterogeneous Integration", "url": "https://ieeexplore.ieee.org/document/9499852"}, {"@type": "ListItem", "position": 21, "name": "Scaling DNNs to Trillions of Parameters with GShard", "url": "https://arxiv.org/abs/2006.16668"}, {"@type": "ListItem", "position": 22, "name": "Computer Architecture Performance Evaluation Methods", "url": "https://link.springer.com/book/10.1007/978-3-031-01734-2"}]}]}</script>
+</head>
+<body data-roadmap="computer-architecture">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Computer Architecture</nav>
+  <h1>Computer Architecture</h1>
+  <p class="lede">From the von Neumann report to AI accelerators and side-channel attacks — the design choices, performance walls, and security boundaries shaping what software actually runs on.</p>
+  <div class="meta-row">
+    <span><b>22</b> papers</span>
+    <span><b>7</b> levels</span>
+    <span>Timeline <b>1945 – 2023</b></span>
+    <span>MVRP <b>5</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 22</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="22" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 5 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-1">First Draft of a Report on the EDVAC</a></li>
+<li><a href="#paper-5">The Case for the Reduced Instruction Set Computer (RISC)</a></li>
+<li><a href="#paper-11">Dark Silicon and the End of Multicore Scaling</a></li>
+<li><a href="#paper-15">In-Datacenter Performance Analysis of a Tensor Processing Unit (TPU)</a></li>
+<li><a href="#paper-18">Spectre Attacks: Exploiting Speculative Execution</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 22 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="1" data-text="first draft of a report on the edvac von neumann u pennsylvania describes the stored-program computer architecture — instructions and data in the same memory. programs are data. the whole field flows from this one observation.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">First Draft of a Report on the EDVAC</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">von Neumann · U Pennsylvania · Jun 1945</p>
+    <div class="p-field"><b>TL;DR</b><p>Describes the stored-program computer architecture — instructions and data in the same memory.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Eighty years on, almost every machine you touch is still a von Neumann machine.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic logic and arithmetic</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Programs are data. The whole field flows from this one observation.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://library.si.edu/digital-library/book/firstdraftofrepo00vonn" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="First Draft of a Report on the EDVAC">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark First Draft of a Report on the EDVAC as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="0" data-text="architecture of the ibm system/360 amdahl, blaauw, brooks ibm defines the system/360 isa family with binary compatibility across multiple price-performance points. separating architecture from implementation lets you reuse software across decades of hardware.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">Architecture of the IBM System/360</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Amdahl, Blaauw, Brooks · IBM · Apr 1964</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines the System/360 ISA family with binary compatibility across multiple price-performance points.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that invented the idea of an ISA as an enduring contract; foundation of x86, ARM, RISC-V.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic computer organisation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Separating architecture from implementation lets you reuse software across decades of hardware.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.ibm.com/journal/rd/082/ibmrd0802C.pdf" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="Architecture of the IBM System/360">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark Architecture of the IBM System/360 as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Pipelining &amp; ILP</span>
+    
+  </div>
+  
+<details class="paper" id="paper-3" data-mvrp="0" data-text="slave memories and dynamic storage allocation (caches) wilkes cambridge proposes a small fast &quot;slave memory&quot; between the cpu and main memory — the cache. a small fast memory in front of a large slow one is the right shape of the storage system.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">Slave Memories and Dynamic Storage Allocation (Caches)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Wilkes · Cambridge · Apr 1965</p>
+    <div class="p-field"><b>TL;DR</b><p>Proposes a small fast &quot;slave memory&quot; between the CPU and main memory — the cache.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A single 1965 idea that still shapes every modern processor.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Memory hierarchy basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A small fast memory in front of a large slow one is the right shape of the storage system.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://ieeexplore.ieee.org/document/4038025" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="Slave Memories and Dynamic Storage Allocation (Caches)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark Slave Memories and Dynamic Storage Allocation (Caches) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-4" data-mvrp="0" data-text="an efficient algorithm for exploiting multiple arithmetic units (tomasulo) tomasulo ibm a dynamic instruction scheduling algorithm with reservation stations and register renaming. renaming destination registers eliminates false dependencies and unlocks ilp.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">An Efficient Algorithm for Exploiting Multiple Arithmetic Units (Tomasulo)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Tomasulo · IBM · Jan 1967</p>
+    <div class="p-field"><b>TL;DR</b><p>A dynamic instruction scheduling algorithm with reservation stations and register renaming.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The conceptual core of every modern out-of-order processor.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Pipelining, dependencies</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Renaming destination registers eliminates false dependencies and unlocks ILP.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cs.cmu.edu/~410-f02/lectures/L18_LSE.pdf" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="An Efficient Algorithm for Exploiting Multiple Arithmetic Units (Tomasulo)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark An Efficient Algorithm for Exploiting Multiple Arithmetic Units (Tomasulo) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-5" data-mvrp="1" data-text="the case for the reduced instruction set computer (risc) patterson, ditzel uc berkeley argues that simple, regular instruction sets enable faster pipelines and better compilers. simpler isas beat complex ones once you have a good compiler.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">The Case for the Reduced Instruction Set Computer (RISC)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Patterson, Ditzel · UC Berkeley · Oct 1980</p>
+    <div class="p-field"><b>TL;DR</b><p>Argues that simple, regular instruction sets enable faster pipelines and better compilers.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A short, sharp polemic that reshaped processor design for decades.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Pipelining, basic ISAs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Simpler ISAs beat complex ones once you have a good compiler.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://dl.acm.org/doi/10.1145/641914.641917" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="The Case for the Reduced Instruction Set Computer (RISC)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark The Case for the Reduced Instruction Set Computer (RISC) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">ISAs &amp; cache coherence</span>
+    
+  </div>
+  
+<details class="paper" id="paper-6" data-mvrp="0" data-text="a study of branch prediction strategies smith uc berkeley surveys static and dynamic branch predictors and shows how much performance hangs on getting them right. a few bits of state per branch can outperform any compiler-only static prediction.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">A Study of Branch Prediction Strategies</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Smith · UC Berkeley · Jan 1981</p>
+    <div class="p-field"><b>TL;DR</b><p>Surveys static and dynamic branch predictors and shows how much performance hangs on getting them right.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Foundational for understanding why modern CPUs spend so many transistors on prediction.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Pipelining basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A few bits of state per branch can outperform any compiler-only static prediction.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://courses.cs.washington.edu/courses/csep548/06au/lectures/branchPred.pdf" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="A Study of Branch Prediction Strategies">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark A Study of Branch Prediction Strategies as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="0" data-text="cache coherence protocols (mesi) papamarcos, patel u illinois defines the four-state cache coherence protocol used by most modern multiprocessors. a small state machine per cache line can make multi-core memory look like single-core memory.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">Cache Coherence Protocols (MESI)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Papamarcos, Patel · U Illinois · Jun 1984</p>
+    <div class="p-field"><b>TL;DR</b><p>Defines the four-state cache coherence protocol used by most modern multiprocessors.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Required reading for understanding how shared-memory multiprocessing actually works.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Caches, basic concurrency</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A small state machine per cache line can make multi-core memory look like single-core memory.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://dl.acm.org/doi/10.1145/773453.808204" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="Cache Coherence Protocols (MESI)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark Cache Coherence Protocols (MESI) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-8" data-mvrp="0" data-text="the risc-v instruction set manual waterman, asanović et al. uc berkeley a clean, modular, royalty-free open isa designed for academic and industrial use. an isa can be a public good — and the ecosystem benefits enormously from it.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">The RISC-V Instruction Set Manual</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Waterman, Asanović et al. · UC Berkeley · May 2011</p>
+    <div class="p-field"><b>TL;DR</b><p>A clean, modular, royalty-free open ISA designed for academic and industrial use.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first ISA in decades that&#x27;s actually open — already reshaping the chip industry.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>RISC, ISA basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>An ISA can be a public good — and the ecosystem benefits enormously from it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://riscv.org/technical/specifications/" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="The RISC-V Instruction Set Manual">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark The RISC-V Instruction Set Manual as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Performance models</span>
+    
+  </div>
+  
+<details class="paper" id="paper-9" data-mvrp="0" data-text="roofline: an insightful visual performance model williams, waterman, patterson uc berkeley plots achievable performance vs arithmetic intensity, exposing where memory or compute bounds you. performance is bounded by the lower of compute roof and memory bandwidth roof.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">Roofline: An Insightful Visual Performance Model</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Williams, Waterman, Patterson · UC Berkeley · Apr 2009</p>
+    <div class="p-field"><b>TL;DR</b><p>Plots achievable performance vs arithmetic intensity, exposing where memory or compute bounds you.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The single best mental model for &quot;is this fast enough on this hardware&quot;.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Memory bandwidth, FLOPs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Performance is bounded by the lower of compute roof and memory bandwidth roof.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://crd.lbl.gov/assets/pubs_presos/parlab08-roofline-talk.pdf" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="Roofline: An Insightful Visual Performance Model">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark Roofline: An Insightful Visual Performance Model as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-10" data-mvrp="0" data-text="computer architecture: a quantitative approach (hennessy &amp; patterson, ch. 1 excerpt) hennessy, patterson stanford, uc berkeley the foundational textbook chapter on quantitative architecture analysis and amdahl&#x27;s law. architecture is a quantitative discipline; design choices need numbers attached.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Computer Architecture: A Quantitative Approach (Hennessy &amp; Patterson, Ch. 1 excerpt)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hennessy, Patterson · Stanford, UC Berkeley · Jan 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>The foundational textbook chapter on quantitative architecture analysis and Amdahl&#x27;s law.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The discipline&#x27;s standard reference; the chapter on principles is irreplaceable.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic computer organisation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Architecture is a quantitative discipline; design choices need numbers attached.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Computer Architecture: A Quantitative Approach (Hennessy &amp; Patterson, Ch. 1 excerpt)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Computer Architecture: A Quantitative Approach (Hennessy &amp; Patterson, Ch. 1 excerpt) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Power wall &amp; multicore</span>
+    
+  </div>
+  
+<details class="paper" id="paper-11" data-mvrp="1" data-text="dark silicon and the end of multicore scaling esmaeilzadeh et al. u washington argues that thermal limits force chips to leave huge fractions of silicon dark at any one moment. you can build the transistors but you can&#x27;t power them all on at once.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">Dark Silicon and the End of Multicore Scaling</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Esmaeilzadeh et al. · U Washington · Jun 2011</p>
+    <div class="p-field"><b>TL;DR</b><p>Argues that thermal limits force chips to leave huge fractions of silicon dark at any one moment.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that named the wall. Required for understanding the post-Dennard-scaling era.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Dennard scaling, basic VLSI</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can build the transistors but you can&#x27;t power them all on at once.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://users.cs.utah.edu/~rajeev/cs7820/papers/darksilicon-isca2011.pdf" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="Dark Silicon and the End of Multicore Scaling">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark Dark Silicon and the End of Multicore Scaling as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-12" data-mvrp="0" data-text="the datacenter as a computer barroso, clidaras, hölzle google reframes the datacenter as a single warehouse-scale machine to be designed, not a building of servers. treat the entire datacenter as one machine when you design it.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">The Datacenter as a Computer</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Barroso, Clidaras, Hölzle · Google · Jun 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>Reframes the datacenter as a single warehouse-scale machine to be designed, not a building of servers.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Reset the conversation about cloud and warehouse computing; still the cleanest framing.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Computer organisation, networking basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Treat the entire datacenter as one machine when you design it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://research.google/pubs/the-datacenter-as-a-computer-an-introduction-to-the-design-of-warehouse-scale-machines-second-edition/" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="The Datacenter as a Computer">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark The Datacenter as a Computer as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-13" data-mvrp="0" data-text="a new golden age for computer architecture hennessy, patterson stanford, uc berkeley argues domain-specific architectures and open isas are reviving the field after a fallow period. domain-specific accelerators are the way out of the post-dennard slump.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">A New Golden Age for Computer Architecture</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Hennessy, Patterson · Stanford, UC Berkeley · Feb 2019</p>
+    <div class="p-field"><b>TL;DR</b><p>Argues domain-specific architectures and open ISAs are reviving the field after a fallow period.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A short, accessible state-of-the-field essay; the best modern intro for non-architects.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Roofline, ISA basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Domain-specific accelerators are the way out of the post-Dennard slump.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://cacm.acm.org/research/a-new-golden-age-for-computer-architecture/" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="A New Golden Age for Computer Architecture">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark A New Golden Age for Computer Architecture as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Specialised hardware</span>
+    
+  </div>
+  
+<details class="paper" id="paper-14" data-mvrp="0" data-text="nvidia tesla: a unified graphics and computing architecture (cuda) lindholm, nickolls, oberman, montrym nvidia describes the unified-shader architecture and the cuda programming model. gpus aren&#x27;t graphics cards anymore — they&#x27;re a parallel computing primitive.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">NVIDIA Tesla: A Unified Graphics and Computing Architecture (CUDA)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lindholm, Nickolls, Oberman, Montrym · NVIDIA · Apr 2008</p>
+    <div class="p-field"><b>TL;DR</b><p>Describes the unified-shader architecture and the CUDA programming model.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The hardware and abstraction that made deep learning possible.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Computer organisation, SIMD</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>GPUs aren&#x27;t graphics cards anymore — they&#x27;re a parallel computing primitive.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://ieeexplore.ieee.org/document/4523358" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="NVIDIA Tesla: A Unified Graphics and Computing Architecture (CUDA)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark NVIDIA Tesla: A Unified Graphics and Computing Architecture (CUDA) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-15" data-mvrp="1" data-text="in-datacenter performance analysis of a tensor processing unit (tpu) jouppi et al. google a retrospective on google&#x27;s first-generation tpu and its 15–30× perf/watt over gpus for inference. a purpose-built matrix multiplier annihilates a general-purpose accelerator on its target task.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">In-Datacenter Performance Analysis of a Tensor Processing Unit (TPU)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Jouppi et al. · Google · Apr 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>A retrospective on Google&#x27;s first-generation TPU and its 15–30× perf/watt over GPUs for inference.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A landmark domain-specific architecture paper; the most influential industry-architecture paper of the 2010s.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Roofline, matrix multiply</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A purpose-built matrix multiplier annihilates a general-purpose accelerator on its target task.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1704.04760" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="In-Datacenter Performance Analysis of a Tensor Processing Unit (TPU)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark In-Datacenter Performance Analysis of a Tensor Processing Unit (TPU) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-16" data-mvrp="0" data-text="eyeriss: a spatial architecture for energy-efficient cnn inference chen, krishna, emer, sze mit a spatial accelerator with row-stationary dataflow that minimises off-chip memory accesses. where data flows on the chip matters more than how fast you can compute on it.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Eyeriss: A Spatial Architecture for Energy-Efficient CNN Inference</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Chen, Krishna, Emer, Sze · MIT · Jan 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>A spatial accelerator with row-stationary dataflow that minimises off-chip memory accesses.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A canonical academic accelerator paper; teaches you how to think about accelerator dataflow.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>CNN basics, memory hierarchy</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Where data flows on the chip matters more than how fast you can compute on it.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.rle.mit.edu/eems/wp-content/uploads/2016/01/eyeriss_isscc_2016.pdf" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Eyeriss: A Spatial Architecture for Energy-Efficient CNN Inference">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Eyeriss: A Spatial Architecture for Energy-Efficient CNN Inference as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="cerebras wafer-scale engine lie cerebras a single-chip processor occupying an entire 300mm wafer with 850k cores and 2.6t transistors. sometimes the right answer is to make the chip way bigger, not smaller.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">Cerebras Wafer-Scale Engine</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lie · Cerebras · Aug 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>A single-chip processor occupying an entire 300mm wafer with 850k cores and 2.6T transistors.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A radical alternative to chiplets; useful for understanding the design space at the extreme.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>TPU, multi-core architecture</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sometimes the right answer is to make the chip way bigger, not smaller.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://www.cerebras.net/wp-content/uploads/2021/04/Cerebras-CS-2-Whitepaper.pdf" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="Cerebras Wafer-Scale Engine">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark Cerebras Wafer-Scale Engine as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">Security &amp; modern era</span>
+    
+  </div>
+  
+<details class="paper" id="paper-18" data-mvrp="1" data-text="spectre attacks: exploiting speculative execution kocher et al. google project zero, graz, penn speculative execution leaks data across security boundaries via cache side channels. performance optimisations create observable side channels — even when &quot;no instruction commits&quot;.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">Spectre Attacks: Exploiting Speculative Execution</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kocher et al. · Google Project Zero, Graz, Penn · Jan 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Speculative execution leaks data across security boundaries via cache side channels.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A class of vulnerabilities every modern CPU shares; remade hardware-security thinking.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Branch prediction, caches, basic OS</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Performance optimisations create observable side channels — even when &quot;no instruction commits&quot;.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://spectreattack.com/spectre.pdf" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="Spectre Attacks: Exploiting Speculative Execution">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark Spectre Attacks: Exploiting Speculative Execution as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-19" data-mvrp="0" data-text="meltdown: reading kernel memory from user space lipp et al. graz u tech a specific micro-architectural attack reading kernel memory from user space on most intel cpus. out-of-order execution can briefly violate isolation in measurable ways.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">Meltdown: Reading Kernel Memory from User Space</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lipp et al. · Graz U Tech · Jan 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>A specific micro-architectural attack reading kernel memory from user space on most Intel CPUs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The companion to Spectre; together they redefined hardware security.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Spectre, OS memory protection</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Out-of-order execution can briefly violate isolation in measurable ways.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://meltdownattack.com/meltdown.pdf" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="Meltdown: Reading Kernel Memory from User Space">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark Meltdown: Reading Kernel Memory from User Space as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="chiplet heterogeneous integration naffziger et al. amd industry account of amd&#x27;s shift to chiplets and what it bought them in cost, yield, and flexibility. smaller dies, packaged together, often beat one big monolithic die.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">Chiplet Heterogeneous Integration</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Naffziger et al. · AMD · Jul 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Industry account of AMD&#x27;s shift to chiplets and what it bought them in cost, yield, and flexibility.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clear modern reference on a major industry trend.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>VLSI basics, computer organisation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Smaller dies, packaged together, often beat one big monolithic die.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://ieeexplore.ieee.org/document/9499852" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="Chiplet Heterogeneous Integration">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark Chiplet Heterogeneous Integration as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-21" data-mvrp="0" data-text="scaling dnns to trillions of parameters with gshard lepikhin et al. google a compiler and parallelism framework for sparsely-activated giant models, demonstrated on a 600b-parameter moe. for trillion-parameter models, the architecture is the compiler, the network, and the partitioning.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">Scaling DNNs to Trillions of Parameters with GShard</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lepikhin et al. · Google · Jun 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>A compiler and parallelism framework for sparsely-activated giant models, demonstrated on a 600B-parameter MoE.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A bridge between systems and architecture; underlies modern multi-thousand-GPU LLM training.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>CUDA, collective communication</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>For trillion-parameter models, the architecture is the compiler, the network, and the partitioning.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2006.16668" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="Scaling DNNs to Trillions of Parameters with GShard">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark Scaling DNNs to Trillions of Parameters with GShard as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-22" data-mvrp="0" data-text="computer architecture performance evaluation methods eeckhout ghent u a guide to simulators, benchmarks, and statistical rigour in evaluating processor designs. most architecture papers are wrong about something; methodology is how you avoid being one of them.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">Computer Architecture Performance Evaluation Methods</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Eeckhout · Ghent U · Aug 2010</p>
+    <div class="p-field"><b>TL;DR</b><p>A guide to simulators, benchmarks, and statistical rigour in evaluating processor designs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Less famous than the architecture papers, but invaluable for actually doing the work.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Basic statistics, computer organisation</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Most architecture papers are wrong about something; methodology is how you avoid being one of them.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://link.springer.com/book/10.1007/978-3-031-01734-2" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="Computer Architecture Performance Evaluation Methods">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark Computer Architecture Performance Evaluation Methods as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../information-retrieval/"><span class="dir">← Previous roadmap</span>Information Retrieval</a>
+    <a href="../computational-biology/"><span class="dir">Next roadmap →</span>Computational Biology</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

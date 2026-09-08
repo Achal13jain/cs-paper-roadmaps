@@ -1,0 +1,52 @@
+name: Review a roadmap
+description: Propose an evidence-backed review of a field's ordering, coverage, or wording
+title: "[Roadmap Review] Field — short summary"
+labels: ["roadmap-review", "needs-review"]
+body:
+  - type: dropdown
+    id: roadmap
+    attributes:
+      label: Roadmap
+      options:
+        - LLMs & Transformers
+        - Computer Vision
+        - Reinforcement Learning
+        - Distributed Systems
+        - Graph Neural Networks
+        - Database Systems
+        - Cryptography
+        - Information Retrieval
+        - Computer Architecture
+        - Computational Biology
+        - Programming Languages
+        - Machine Learning Systems
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What should change?
+      description: Identify the gap, questionable claim, or ordering problem.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed revision
+      description: Explain additions, removals, wording changes, or moves and why they improve the learning path.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Primary sources or evidence
+      description: Link open primary sources wherever possible.
+    validations:
+      required: true
+  - type: checkboxes
+    id: conflicts
+    attributes:
+      label: Disclosure
+      options:
+        - label: I disclosed any close involvement with papers I am proposing.
+          required: true

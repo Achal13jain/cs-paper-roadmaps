@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Vision Research Paper Roadmap | Papers in Order</title>
+<meta name="description" content="Computer Vision reading roadmap: 32 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<link rel="canonical" href="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computer-vision/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Papers in Order">
+<meta property="og:title" content="Computer Vision Research Paper Roadmap">
+<meta property="og:description" content="Computer Vision reading roadmap: 32 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta property="og:url" content="https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computer-vision/">
+<meta property="og:image" content="https://achal13jain.github.io/cs-paper-roadmaps/s.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Computer Vision roadmap from Papers in Order">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Computer Vision Research Paper Roadmap">
+<meta name="twitter:description" content="Computer Vision reading roadmap: 32 papers across 8 levels with TL;DRs, prerequisites, and key takeaways.">
+<meta name="twitter:image:alt" content="Computer Vision roadmap from Papers in Order">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQGL8PZC3Z"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','G-NQGL8PZC3Z',{anonymize_ip:true});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#006b2c; --primary-soft:#e2f4e5; --primary-dim:#62df7d;
+  --bg:#f7f9fb; --surface:#ffffff; --surface-low:#f2f4f6; --surface-high:#e6e8ea;
+  --ink:#191c1e; --ink-soft:#3e4a3d; --line:#bdcaba; --line-soft:#dde5db;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.site-head{border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.brand{font:600 17px/1 Newsreader,Georgia,serif;color:var(--ink);text-decoration:none}
+.brand span{color:var(--primary)}
+.head-links{display:flex;gap:18px;font-size:14px}
+.head-links a{text-decoration:none;color:var(--ink-soft)}
+.head-links a:hover{color:var(--primary)}
+.crumbs{font-size:13px;color:var(--ink-soft);margin:22px 0 6px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--primary)}
+h1{font:600 clamp(30px,5vw,40px)/1.2 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:4px 0 10px}
+.lede{color:var(--ink-soft);max-width:64ch;margin:0 0 14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft);
+  padding:12px 0 18px;border-bottom:1px solid var(--line-soft)}
+.meta-row b{color:var(--ink);font-weight:600}
+.section-title{font:600 24px/1.3 Newsreader,Georgia,serif;margin:36px 0 8px}
+.mvrp-box{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin-top:10px}
+.mvrp-box ol{margin:8px 0 2px;padding-left:22px}
+.mvrp-box li{margin:5px 0}
+.mvrp-box a{text-decoration:none}
+.mvrp-box a:hover{text-decoration:underline}
+.progress-box{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:16px 18px;margin:18px 0 0}
+.progress-copy{font-size:14px;color:var(--ink-soft)}
+.progress-copy strong{color:var(--ink)}
+.progress-box progress{grid-column:1/-1;width:100%;height:9px;accent-color:var(--primary)}
+.reset-progress{border:0;background:none;color:var(--primary);font:500 13px Inter,sans-serif;cursor:pointer;padding:4px}
+.reset-progress:hover{text-decoration:underline}
+.toolbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;margin-top:26px;
+  border-bottom:1px solid var(--line-soft)}
+.toolbar input{width:100%;padding:10px 14px;font:inherit;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.toolbar input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.level-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px}
+.level-badge{background:var(--primary);color:#fff;font:600 12px/1 Inter,sans-serif;
+  padding:6px 10px;border-radius:999px;white-space:nowrap}
+.level-name{font:600 20px/1.3 Newsreader,Georgia,serif}
+.level-tag{font-size:13px;color:var(--ink-soft)}
+.paper{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;margin:12px 0}
+.paper[data-mvrp="1"]{border-left:3px solid var(--primary)}
+.paper summary{display:flex;gap:12px;align-items:baseline;padding:14px 16px;cursor:pointer;list-style:none}
+.paper summary::-webkit-details-marker{display:none}
+.paper summary:hover{background:var(--surface-low);border-radius:10px}
+.p-num{font:500 13px/1.6 ui-monospace,SFMono-Regular,monospace;color:var(--ink-soft);min-width:2.2em}
+.p-title{font:500 18px/1.45 Newsreader,Georgia,serif;flex:1}
+.p-flag{font-size:11px;font-weight:600;color:var(--primary);background:var(--primary-soft);
+  padding:3px 8px;border-radius:6px;white-space:nowrap;align-self:center}
+.p-body{padding:0 16px 16px 16px;border-top:1px solid var(--line-soft)}
+.p-byline{font-size:13.5px;color:var(--ink-soft);margin:12px 0 10px}
+.p-field{margin:10px 0}
+.p-field b{display:block;font-size:12.5px;font-weight:600;color:var(--primary);margin-bottom:2px}
+.p-field p{margin:0;font-size:15px}
+.p-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:500;
+  color:var(--primary);text-decoration:none;border-bottom:1px solid var(--primary-dim)}
+.p-link:hover{border-bottom-color:var(--primary)}
+.paper-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.read-check{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+.read-check input{width:17px;height:17px;accent-color:var(--primary)}
+.paper.is-read{opacity:.72}
+.paper.is-read .p-title{text-decoration:line-through;text-decoration-thickness:1px}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:48px 0 24px;font-size:15px}
+.pager a{text-decoration:none;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:8px;padding:12px 16px;color:var(--ink);max-width:48%}
+.pager a:hover{border-color:var(--primary)}
+.pager .dir{display:block;font-size:12.5px;color:var(--ink-soft);margin-bottom:2px}
+.site-foot{border-top:1px solid var(--line-soft);margin-top:20px;padding:22px 0 34px;
+  font-size:13.5px;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft)}
+.hidden{display:none}
+mark{background:var(--primary-soft);color:inherit}
+@media (max-width:560px){
+  .paper summary{flex-wrap:wrap}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Papers in Order", "item": "https://achal13jain.github.io/cs-paper-roadmaps/"}, {"@type": "ListItem", "position": 2, "name": "Computer Vision", "item": "https://achal13jain.github.io/cs-paper-roadmaps/roadmaps/computer-vision/"}]}, {"@type": "ItemList", "name": "Computer Vision paper roadmap", "description": "From hand-engineered convnets on MNIST to general-purpose vision foundation models — the network designs, the loss functions, and the diffusion processes that built modern visual AI.", "numberOfItems": 32, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Gradient-Based Learning Applied to Document Recognition (LeNet)", "url": "http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf"}, {"@type": "ListItem", "position": 2, "name": "ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)", "url": "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf"}, {"@type": "ListItem", "position": 3, "name": "Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)", "url": "https://arxiv.org/abs/1409.1556"}, {"@type": "ListItem", "position": 4, "name": "Going Deeper with Convolutions (GoogLeNet / Inception)", "url": "https://arxiv.org/abs/1409.4842"}, {"@type": "ListItem", "position": 5, "name": "Deep Residual Learning for Image Recognition (ResNet)", "url": "https://arxiv.org/abs/1512.03385"}, {"@type": "ListItem", "position": 6, "name": "Densely Connected Convolutional Networks (DenseNet)", "url": "https://arxiv.org/abs/1608.06993"}, {"@type": "ListItem", "position": 7, "name": "Batch Normalization: Accelerating Deep Network Training", "url": "https://arxiv.org/abs/1502.03167"}, {"@type": "ListItem", "position": 8, "name": "Rich Feature Hierarchies for Accurate Object Detection (R-CNN)", "url": "https://arxiv.org/abs/1311.2524"}, {"@type": "ListItem", "position": 9, "name": "Fast R-CNN", "url": "https://arxiv.org/abs/1504.08083"}, {"@type": "ListItem", "position": 10, "name": "Faster R-CNN: Towards Real-Time Detection with Region Proposal Networks", "url": "https://arxiv.org/abs/1506.01497"}, {"@type": "ListItem", "position": 11, "name": "You Only Look Once (YOLO): Unified, Real-Time Object Detection", "url": "https://arxiv.org/abs/1506.02640"}, {"@type": "ListItem", "position": 12, "name": "Focal Loss for Dense Object Detection (RetinaNet)", "url": "https://arxiv.org/abs/1708.02002"}, {"@type": "ListItem", "position": 13, "name": "Fully Convolutional Networks for Semantic Segmentation", "url": "https://arxiv.org/abs/1411.4038"}, {"@type": "ListItem", "position": 14, "name": "U-Net: Convolutional Networks for Biomedical Image Segmentation", "url": "https://arxiv.org/abs/1505.04597"}, {"@type": "ListItem", "position": 15, "name": "Mask R-CNN", "url": "https://arxiv.org/abs/1703.06870"}, {"@type": "ListItem", "position": 16, "name": "Generative Adversarial Networks", "url": "https://arxiv.org/abs/1406.2661"}, {"@type": "ListItem", "position": 17, "name": "Unsupervised Representation Learning with DCGAN", "url": "https://arxiv.org/abs/1511.06434"}, {"@type": "ListItem", "position": 18, "name": "A Style-Based Generator Architecture for GANs (StyleGAN)", "url": "https://arxiv.org/abs/1812.04948"}, {"@type": "ListItem", "position": 19, "name": "An Image is Worth 16×16 Words: Transformers for Image Recognition (ViT)", "url": "https://arxiv.org/abs/2010.11929"}, {"@type": "ListItem", "position": 20, "name": "End-to-End Object Detection with Transformers (DETR)", "url": "https://arxiv.org/abs/2005.12872"}, {"@type": "ListItem", "position": 21, "name": "Swin Transformer: Hierarchical Vision Transformer with Shifted Windows", "url": "https://arxiv.org/abs/2103.14030"}, {"@type": "ListItem", "position": 22, "name": "Masked Autoencoders Are Scalable Vision Learners (MAE)", "url": "https://arxiv.org/abs/2111.06377"}, {"@type": "ListItem", "position": 23, "name": "A ConvNet for the 2020s (ConvNeXt)", "url": "https://arxiv.org/abs/2201.03545"}, {"@type": "ListItem", "position": 24, "name": "Learning Transferable Visual Models From Natural Language Supervision (CLIP)", "url": "https://arxiv.org/abs/2103.00020"}, {"@type": "ListItem", "position": 25, "name": "Zero-Shot Text-to-Image Generation (DALL-E)", "url": "https://arxiv.org/abs/2102.12092"}, {"@type": "ListItem", "position": 26, "name": "Denoising Diffusion Probabilistic Models (DDPM)", "url": "https://arxiv.org/abs/2006.11239"}, {"@type": "ListItem", "position": 27, "name": "High-Resolution Image Synthesis with Latent Diffusion (Stable Diffusion)", "url": "https://arxiv.org/abs/2112.10752"}, {"@type": "ListItem", "position": 28, "name": "Photorealistic Text-to-Image Diffusion Models (Imagen)", "url": "https://arxiv.org/abs/2205.11487"}, {"@type": "ListItem", "position": 29, "name": "Segment Anything (SAM)", "url": "https://arxiv.org/abs/2304.02643"}, {"@type": "ListItem", "position": 30, "name": "DINOv2: Learning Robust Visual Features without Supervision", "url": "https://arxiv.org/abs/2304.07193"}, {"@type": "ListItem", "position": 31, "name": "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis", "url": "https://arxiv.org/abs/2003.08934"}, {"@type": "ListItem", "position": 32, "name": "3D Gaussian Splatting for Real-Time Radiance Field Rendering", "url": "https://arxiv.org/abs/2308.04079"}]}]}</script>
+</head>
+<body data-roadmap="computer-vision">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../../">Papers <span>in Order</span></a>
+    <nav class="head-links">
+      <a href="../../">All roadmaps</a>
+      <a href="https://github.com/Achal13jain/cs-paper-roadmaps">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs"><a href="../../">Roadmaps</a> / Computer Vision</nav>
+  <h1>Computer Vision</h1>
+  <p class="lede">From hand-engineered convnets on MNIST to general-purpose vision foundation models — the network designs, the loss functions, and the diffusion processes that built modern visual AI.</p>
+  <div class="meta-row">
+    <span><b>32</b> papers</span>
+    <span><b>8</b> levels</span>
+    <span>Timeline <b>1998 – 2023</b></span>
+    <span>MVRP <b>6</b> papers</span>
+  </div>
+  <div class="progress-box">
+    <div class="progress-copy"><strong><span id="progress-count">0</span> of 32</strong> papers read. Progress stays in this browser.</div>
+    <button class="reset-progress" id="reset-progress" type="button">Reset</button>
+    <progress id="progress-bar" max="32" value="0" aria-label="Reading progress"></progress>
+  </div>
+  
+<h2 class="section-title">Minimum viable reading path</h2>
+<div class="mvrp-box">
+  <p style="margin:0;color:var(--ink-soft);font-size:14.5px">
+    The 6 papers that give you most of the field's mental model, in reading order.</p>
+  <ol><li><a href="#paper-2">ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)</a></li>
+<li><a href="#paper-5">Deep Residual Learning for Image Recognition (ResNet)</a></li>
+<li><a href="#paper-14">U-Net: Convolutional Networks for Biomedical Image Segmentation</a></li>
+<li><a href="#paper-22">Learning Transferable Visual Models From Natural Language Supervision (CLIP)</a></li>
+<li><a href="#paper-24">Denoising Diffusion Probabilistic Models (DDPM)</a></li>
+<li><a href="#paper-27">Segment Anything (SAM)</a></li></ol>
+</div>
+  <div class="toolbar">
+    <label for="paper-filter" class="hidden">Filter papers</label>
+    <input id="paper-filter" type="search"
+      placeholder="Filter 32 papers by title, author, or summary…" autocomplete="off">
+    <div id="filter-count" aria-live="polite" style="font-size:13px;color:var(--ink-soft);margin-top:6px"></div>
+  </div>
+  <section class="level-block" id="level-0">
+  <div class="level-head">
+    <span class="level-badge">Level 0</span>
+    <span class="level-name">Foundations</span>
+    
+  </div>
+  
+<details class="paper" id="paper-1" data-mvrp="0" data-text="gradient-based learning applied to document recognition (lenet) lecun, bottou, bengio, haffner at&amp;t labs a 7-layer convolutional network reads handwritten digits with weight sharing, pooling, and end-to-end training. convolution + pooling + non-linearities is the right inductive bias for images.">
+  <summary>
+    <span class="p-num">01</span>
+    <span class="p-title">Gradient-Based Learning Applied to Document Recognition (LeNet)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">LeCun, Bottou, Bengio, Haffner · AT&amp;T Labs · Nov 1998</p>
+    <div class="p-field"><b>TL;DR</b><p>A 7-layer convolutional network reads handwritten digits with weight sharing, pooling, and end-to-end training.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The blueprint for every modern CNN; everything that follows is a refinement of these ideas.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Backpropagation, basic image processing</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Convolution + pooling + non-linearities is the right inductive bias for images.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf" target="_blank" rel="noopener"
+        data-paper-id="1" data-paper-title="Gradient-Based Learning Applied to Document Recognition (LeNet)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="1"
+          aria-label="Mark Gradient-Based Learning Applied to Document Recognition (LeNet) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-2" data-mvrp="1" data-text="imagenet classification with deep convolutional neural networks (alexnet) krizhevsky, sutskever, hinton u toronto a deep cnn with relu, dropout, and dual-gpu training crushes imagenet 2012 by a 10-point margin. big data + gpus + relu + dropout was the unlock; the architecture was the easy part.">
+  <summary>
+    <span class="p-num">02</span>
+    <span class="p-title">ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Krizhevsky, Sutskever, Hinton · U Toronto · Sep 2012</p>
+    <div class="p-field"><b>TL;DR</b><p>A deep CNN with ReLU, dropout, and dual-GPU training crushes ImageNet 2012 by a 10-point margin.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The landmark result that accelerated deep learning adoption in vision — the moment deep learning took over computer vision.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>LeNet, basic CUDA awareness</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Big data + GPUs + ReLU + dropout was the unlock; the architecture was the easy part.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf" target="_blank" rel="noopener"
+        data-paper-id="2" data-paper-title="ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="2"
+          aria-label="Mark ImageNet Classification with Deep Convolutional Neural Networks (AlexNet) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-1">
+  <div class="level-head">
+    <span class="level-badge">Level 1</span>
+    <span class="level-name">Backbones &amp; training tricks</span>
+    
+  </div>
+  
+<details class="paper" id="paper-3" data-mvrp="0" data-text="very deep convolutional networks for large-scale image recognition (vgg) simonyan, zisserman oxford stacks 3×3 convolutions to depths of 16 and 19 layers, showing depth itself is a strong prior. small kernels stacked deep beat large kernels stacked shallow.">
+  <summary>
+    <span class="p-num">03</span>
+    <span class="p-title">Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Simonyan, Zisserman · Oxford · Sep 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>Stacks 3×3 convolutions to depths of 16 and 19 layers, showing depth itself is a strong prior.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The cleanest demonstration that depth matters and a perennial backbone for transfer learning.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlexNet, basic CNN math</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Small kernels stacked deep beat large kernels stacked shallow.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1409.1556" target="_blank" rel="noopener"
+        data-paper-id="3" data-paper-title="Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="3"
+          aria-label="Mark Very Deep Convolutional Networks for Large-Scale Image Recognition (VGG) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-4" data-mvrp="0" data-text="going deeper with convolutions (googlenet / inception) szegedy et al. google introduces the inception module, mixing parallel kernels of multiple sizes within each block. multi-scale features can live inside a single layer.">
+  <summary>
+    <span class="p-num">04</span>
+    <span class="p-title">Going Deeper with Convolutions (GoogLeNet / Inception)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Szegedy et al. · Google · Sep 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>Introduces the Inception module, mixing parallel kernels of multiple sizes within each block.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A counterpoint to VGG showing that smarter blocks beat brute-force depth.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>VGG, computational complexity of conv</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Multi-scale features can live inside a single layer.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1409.4842" target="_blank" rel="noopener"
+        data-paper-id="4" data-paper-title="Going Deeper with Convolutions (GoogLeNet / Inception)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="4"
+          aria-label="Mark Going Deeper with Convolutions (GoogLeNet / Inception) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-5" data-mvrp="1" data-text="deep residual learning for image recognition (resnet) he, zhang, ren, sun microsoft research adds identity skip connections so the network only has to learn residuals; trains 152-layer nets. if you can&#x27;t train it deeper, give the gradient a shortcut.">
+  <summary>
+    <span class="p-num">05</span>
+    <span class="p-title">Deep Residual Learning for Image Recognition (ResNet)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">He, Zhang, Ren, Sun · Microsoft Research · Dec 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Adds identity skip connections so the network only has to learn residuals; trains 152-layer nets.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The single most important architectural idea after the convolution itself; appears in every modern net.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>VGG, vanishing gradients</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>If you can&#x27;t train it deeper, give the gradient a shortcut.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1512.03385" target="_blank" rel="noopener"
+        data-paper-id="5" data-paper-title="Deep Residual Learning for Image Recognition (ResNet)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="5"
+          aria-label="Mark Deep Residual Learning for Image Recognition (ResNet) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-6" data-mvrp="0" data-text="densely connected convolutional networks (densenet) huang, liu, van der maaten, weinberger cornell each layer receives inputs from every preceding layer, encouraging feature reuse. feature reuse, not just gradient flow, explains why skip connections help.">
+  <summary>
+    <span class="p-num">06</span>
+    <span class="p-title">Densely Connected Convolutional Networks (DenseNet)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Huang, Liu, van der Maaten, Weinberger · Cornell · Aug 2016</p>
+    <div class="p-field"><b>TL;DR</b><p>Each layer receives inputs from every preceding layer, encouraging feature reuse.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Useful contrast to ResNet; clarifies what skip connections are actually doing.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ResNet</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Feature reuse, not just gradient flow, explains why skip connections help.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1608.06993" target="_blank" rel="noopener"
+        data-paper-id="6" data-paper-title="Densely Connected Convolutional Networks (DenseNet)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="6"
+          aria-label="Mark Densely Connected Convolutional Networks (DenseNet) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-7" data-mvrp="0" data-text="batch normalization: accelerating deep network training ioffe, szegedy google normalises layer activations within each mini-batch, dramatically stabilising deep network training. stabilising activation distributions during training is half the battle.">
+  <summary>
+    <span class="p-num">07</span>
+    <span class="p-title">Batch Normalization: Accelerating Deep Network Training</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ioffe, Szegedy · Google · Feb 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Normalises layer activations within each mini-batch, dramatically stabilising deep network training.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Pretty much every CNN since uses BN; understanding its dynamics is foundational.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>CNN training basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Stabilising activation distributions during training is half the battle.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1502.03167" target="_blank" rel="noopener"
+        data-paper-id="7" data-paper-title="Batch Normalization: Accelerating Deep Network Training">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="7"
+          aria-label="Mark Batch Normalization: Accelerating Deep Network Training as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-2">
+  <div class="level-head">
+    <span class="level-badge">Level 2</span>
+    <span class="level-name">Object detection</span>
+    
+  </div>
+  
+<details class="paper" id="paper-8" data-mvrp="0" data-text="rich feature hierarchies for accurate object detection (r-cnn) girshick, donahue, darrell, malik uc berkeley region proposals fed into a cnn and an svm produce object detections. you can repurpose a classifier into a detector by feeding it proposals.">
+  <summary>
+    <span class="p-num">08</span>
+    <span class="p-title">Rich Feature Hierarchies for Accurate Object Detection (R-CNN)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Girshick, Donahue, Darrell, Malik · UC Berkeley · Nov 2013</p>
+    <div class="p-field"><b>TL;DR</b><p>Region proposals fed into a CNN and an SVM produce object detections.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The starting point of the modern detection pipeline.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>AlexNet, selective search</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can repurpose a classifier into a detector by feeding it proposals.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1311.2524" target="_blank" rel="noopener"
+        data-paper-id="8" data-paper-title="Rich Feature Hierarchies for Accurate Object Detection (R-CNN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="8"
+          aria-label="Mark Rich Feature Hierarchies for Accurate Object Detection (R-CNN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-9" data-mvrp="0" data-text="fast r-cnn girshick microsoft research reuses one cnn forward pass for all proposals via a region-of-interest pooling layer. compute features once, then crop them — don&#x27;t re-run the cnn per proposal.">
+  <summary>
+    <span class="p-num">09</span>
+    <span class="p-title">Fast R-CNN</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Girshick · Microsoft Research · Apr 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Reuses one CNN forward pass for all proposals via a region-of-interest pooling layer.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean lesson in how one architectural idea (RoI pooling) can collapse a whole pipeline.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>R-CNN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Compute features once, then crop them — don&#x27;t re-run the CNN per proposal.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1504.08083" target="_blank" rel="noopener"
+        data-paper-id="9" data-paper-title="Fast R-CNN">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="9"
+          aria-label="Mark Fast R-CNN as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-10" data-mvrp="0" data-text="faster r-cnn: towards real-time detection with region proposal networks ren, he, girshick, sun microsoft research replaces external proposals with a learned region proposal network sharing the detector&#x27;s features. make every component of the pipeline learnable.">
+  <summary>
+    <span class="p-num">10</span>
+    <span class="p-title">Faster R-CNN: Towards Real-Time Detection with Region Proposal Networks</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ren, He, Girshick, Sun · Microsoft Research · Jun 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Replaces external proposals with a learned region proposal network sharing the detector&#x27;s features.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The end-to-end detection paper; basis of two-stage detectors for years.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Fast R-CNN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Make every component of the pipeline learnable.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1506.01497" target="_blank" rel="noopener"
+        data-paper-id="10" data-paper-title="Faster R-CNN: Towards Real-Time Detection with Region Proposal Networks">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="10"
+          aria-label="Mark Faster R-CNN: Towards Real-Time Detection with Region Proposal Networks as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-11" data-mvrp="0" data-text="you only look once (yolo): unified, real-time object detection redmon, divvala, girshick, farhadi u washington treats detection as a single regression problem from image to bounding boxes and classes. sometimes you should just predict the answer directly.">
+  <summary>
+    <span class="p-num">11</span>
+    <span class="p-title">You Only Look Once (YOLO): Unified, Real-Time Object Detection</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Redmon, Divvala, Girshick, Farhadi · U Washington · Jun 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>Treats detection as a single regression problem from image to bounding boxes and classes.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The other branch of the detection family — single-stage, fast, deployable.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>CNN basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Sometimes you should just predict the answer directly.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener"
+        data-paper-id="11" data-paper-title="You Only Look Once (YOLO): Unified, Real-Time Object Detection">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="11"
+          aria-label="Mark You Only Look Once (YOLO): Unified, Real-Time Object Detection as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-12" data-mvrp="0" data-text="focal loss for dense object detection (retinanet) lin et al. facebook ai a modified cross-entropy that down-weights easy examples, fixing class imbalance in dense detectors. when most examples are trivial, weight by difficulty.">
+  <summary>
+    <span class="p-num">12</span>
+    <span class="p-title">Focal Loss for Dense Object Detection (RetinaNet)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Lin et al. · Facebook AI · Aug 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>A modified cross-entropy that down-weights easy examples, fixing class imbalance in dense detectors.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A self-contained lesson in loss design; the focal loss now lives in many other domains too.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>YOLO, cross-entropy</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>When most examples are trivial, weight by difficulty.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1708.02002" target="_blank" rel="noopener"
+        data-paper-id="12" data-paper-title="Focal Loss for Dense Object Detection (RetinaNet)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="12"
+          aria-label="Mark Focal Loss for Dense Object Detection (RetinaNet) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-3">
+  <div class="level-head">
+    <span class="level-badge">Level 3</span>
+    <span class="level-name">Segmentation</span>
+    
+  </div>
+  
+<details class="paper" id="paper-13" data-mvrp="0" data-text="fully convolutional networks for semantic segmentation long, shelhamer, darrell uc berkeley replaces the final fc layers of a classification cnn with conv layers to produce per-pixel labels. a classifier without dense layers is a segmenter.">
+  <summary>
+    <span class="p-num">13</span>
+    <span class="p-title">Fully Convolutional Networks for Semantic Segmentation</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Long, Shelhamer, Darrell · UC Berkeley · Nov 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>Replaces the final FC layers of a classification CNN with conv layers to produce per-pixel labels.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The simple, beautiful idea that turned classifiers into segmenters.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>VGG, transposed conv</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A classifier without dense layers is a segmenter.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1411.4038" target="_blank" rel="noopener"
+        data-paper-id="13" data-paper-title="Fully Convolutional Networks for Semantic Segmentation">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="13"
+          aria-label="Mark Fully Convolutional Networks for Semantic Segmentation as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-14" data-mvrp="1" data-text="u-net: convolutional networks for biomedical image segmentation ronneberger, fischer, brox u freiburg a symmetric encoder–decoder with skip connections that fuses low-level detail and high-level context. symmetric encoder–decoder with skips is a remarkably general architecture.">
+  <summary>
+    <span class="p-num">14</span>
+    <span class="p-title">U-Net: Convolutional Networks for Biomedical Image Segmentation</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ronneberger, Fischer, Brox · U Freiburg · May 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>A symmetric encoder–decoder with skip connections that fuses low-level detail and high-level context.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Far more than a medical paper — U-Net is the backbone of modern diffusion models too.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>FCN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Symmetric encoder–decoder with skips is a remarkably general architecture.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1505.04597" target="_blank" rel="noopener"
+        data-paper-id="14" data-paper-title="U-Net: Convolutional Networks for Biomedical Image Segmentation">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="14"
+          aria-label="Mark U-Net: Convolutional Networks for Biomedical Image Segmentation as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-15" data-mvrp="0" data-text="mask r-cnn he, gkioxari, dollár, girshick facebook ai adds a small fully-conv mask branch to faster r-cnn, producing instance segmentation alongside detection. multi-task heads atop a shared backbone are absurdly effective.">
+  <summary>
+    <span class="p-num">15</span>
+    <span class="p-title">Mask R-CNN</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">He, Gkioxari, Dollár, Girshick · Facebook AI · Mar 2017</p>
+    <div class="p-field"><b>TL;DR</b><p>Adds a small fully-conv mask branch to Faster R-CNN, producing instance segmentation alongside detection.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Shows how a tiny architectural addition unlocks a whole new task.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Faster R-CNN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Multi-task heads atop a shared backbone are absurdly effective.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1703.06870" target="_blank" rel="noopener"
+        data-paper-id="15" data-paper-title="Mask R-CNN">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="15"
+          aria-label="Mark Mask R-CNN as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-4">
+  <div class="level-head">
+    <span class="level-badge">Level 4</span>
+    <span class="level-name">Generative models</span>
+    
+  </div>
+  
+<details class="paper" id="paper-16" data-mvrp="0" data-text="generative adversarial networks goodfellow et al. u montreal a generator and discriminator play a minimax game; samples come from the generator at convergence. you can train a generator without a likelihood by pitting it against a learned critic.">
+  <summary>
+    <span class="p-num">16</span>
+    <span class="p-title">Generative Adversarial Networks</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Goodfellow et al. · U Montreal · Jun 2014</p>
+    <div class="p-field"><b>TL;DR</b><p>A generator and discriminator play a minimax game; samples come from the generator at convergence.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A foundational generative-modeling idea; understanding GANs sharpens your intuition for diffusion.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Game theory basics, CNNs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can train a generator without a likelihood by pitting it against a learned critic.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1406.2661" target="_blank" rel="noopener"
+        data-paper-id="16" data-paper-title="Generative Adversarial Networks">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="16"
+          aria-label="Mark Generative Adversarial Networks as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-17" data-mvrp="0" data-text="unsupervised representation learning with dcgan radford, metz, chintala indico research, nyu a set of architectural guidelines (strided conv, batch norm, no fc) that finally make gans train stably. gan training is mostly a stability problem.">
+  <summary>
+    <span class="p-num">17</span>
+    <span class="p-title">Unsupervised Representation Learning with DCGAN</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Radford, Metz, Chintala · indico Research, NYU · Nov 2015</p>
+    <div class="p-field"><b>TL;DR</b><p>A set of architectural guidelines (strided conv, batch norm, no FC) that finally make GANs train stably.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first pretty GAN samples and a study in how much architectural detail matters in adversarial training.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GANs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>GAN training is mostly a stability problem.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1511.06434" target="_blank" rel="noopener"
+        data-paper-id="17" data-paper-title="Unsupervised Representation Learning with DCGAN">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="17"
+          aria-label="Mark Unsupervised Representation Learning with DCGAN as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-18" data-mvrp="0" data-text="a style-based generator architecture for gans (stylegan) karras, laine, aila nvidia disentangles style and content via adaptive instance norm and a learned latent w space. architectural inductive biases can produce semantically meaningful latent spaces for free.">
+  <summary>
+    <span class="p-num">18</span>
+    <span class="p-title">A Style-Based Generator Architecture for GANs (StyleGAN)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Karras, Laine, Aila · NVIDIA · Dec 2018</p>
+    <div class="p-field"><b>TL;DR</b><p>Disentangles style and content via adaptive instance norm and a learned latent W space.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The pinnacle of GAN-era image quality and a beautiful study in disentanglement.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DCGAN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Architectural inductive biases can produce semantically meaningful latent spaces for free.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/1812.04948" target="_blank" rel="noopener"
+        data-paper-id="18" data-paper-title="A Style-Based Generator Architecture for GANs (StyleGAN)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="18"
+          aria-label="Mark A Style-Based Generator Architecture for GANs (StyleGAN) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-5">
+  <div class="level-head">
+    <span class="level-badge">Level 5</span>
+    <span class="level-name">Vision Transformers</span>
+    
+  </div>
+  
+<details class="paper" id="paper-19" data-mvrp="0" data-text="an image is worth 16×16 words: transformers for image recognition (vit) dosovitskiy et al. google splits an image into patches, treats them as tokens, and feeds them into a vanilla transformer encoder. with enough data, attention beats convolution at images.">
+  <summary>
+    <span class="p-num">19</span>
+    <span class="p-title">An Image is Worth 16×16 Words: Transformers for Image Recognition (ViT)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Dosovitskiy et al. · Google · Oct 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Splits an image into patches, treats them as tokens, and feeds them into a vanilla Transformer encoder.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The convergence point of NLP and vision — proves convolutions aren&#x27;t architecturally necessary.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformer, ResNet</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>With enough data, attention beats convolution at images.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2010.11929" target="_blank" rel="noopener"
+        data-paper-id="19" data-paper-title="An Image is Worth 16×16 Words: Transformers for Image Recognition (ViT)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="19"
+          aria-label="Mark An Image is Worth 16×16 Words: Transformers for Image Recognition (ViT) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-20" data-mvrp="0" data-text="end-to-end object detection with transformers (detr) carion et al. facebook ai detection as set prediction: a transformer outputs a fixed set of boxes, matched via hungarian loss. many &quot;necessary&quot; hand-tuned components turn out to be replaceable by attention + the right loss.">
+  <summary>
+    <span class="p-num">20</span>
+    <span class="p-title">End-to-End Object Detection with Transformers (DETR)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Carion et al. · Facebook AI · May 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Detection as set prediction: a Transformer outputs a fixed set of boxes, matched via Hungarian loss.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A radical re-framing of detection that removed anchors, NMS, and most heuristics.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformer, Faster R-CNN</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Many &quot;necessary&quot; hand-tuned components turn out to be replaceable by attention + the right loss.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2005.12872" target="_blank" rel="noopener"
+        data-paper-id="20" data-paper-title="End-to-End Object Detection with Transformers (DETR)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="20"
+          aria-label="Mark End-to-End Object Detection with Transformers (DETR) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-21" data-mvrp="0" data-text="swin transformer: hierarchical vision transformer with shifted windows liu et al. microsoft research asia restricts self-attention to local shifted windows, restoring cnn-like multi-scale efficiency. locality and hierarchy can be reintroduced into transformers when compute is tight.">
+  <summary>
+    <span class="p-num">21</span>
+    <span class="p-title">Swin Transformer: Hierarchical Vision Transformer with Shifted Windows</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Liu et al. · Microsoft Research Asia · Mar 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Restricts self-attention to local shifted windows, restoring CNN-like multi-scale efficiency.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The bridge between ViT&#x27;s purity and a CNN&#x27;s practical efficiency.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ViT</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Locality and hierarchy can be reintroduced into Transformers when compute is tight.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2103.14030" target="_blank" rel="noopener"
+        data-paper-id="21" data-paper-title="Swin Transformer: Hierarchical Vision Transformer with Shifted Windows">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="21"
+          aria-label="Mark Swin Transformer: Hierarchical Vision Transformer with Shifted Windows as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-29" data-mvrp="0" data-text="masked autoencoders are scalable vision learners (mae) he et al. meta ai masks 75% of image patches and reconstructs them with an asymmetric encoder-decoder vit. images are redundant enough that aggressive masking makes a great pretext task.">
+  <summary>
+    <span class="p-num">29</span>
+    <span class="p-title">Masked Autoencoders Are Scalable Vision Learners (MAE)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">He et al. · Meta AI · Nov 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Masks 75% of image patches and reconstructs them with an asymmetric encoder-decoder ViT.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Brought BERT-style masked pretraining to vision — now a default self-supervised recipe.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ViT, BERT</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Images are redundant enough that aggressive masking makes a great pretext task.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2111.06377" target="_blank" rel="noopener"
+        data-paper-id="29" data-paper-title="Masked Autoencoders Are Scalable Vision Learners (MAE)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="29"
+          aria-label="Mark Masked Autoencoders Are Scalable Vision Learners (MAE) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-30" data-mvrp="0" data-text="a convnet for the 2020s (convnext) liu et al. meta ai, uc berkeley modernises a resnet step-by-step with vit-era training tricks until it matches swin transformer. attribute gains carefully — recipes and architectures are easy to conflate.">
+  <summary>
+    <span class="p-num">30</span>
+    <span class="p-title">A ConvNet for the 2020s (ConvNeXt)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Liu et al. · Meta AI, UC Berkeley · Jan 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Modernises a ResNet step-by-step with ViT-era training tricks until it matches Swin Transformer.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A careful ablation showing how much of the ViT gap was training recipe, not architecture.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ResNet, Swin Transformer</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Attribute gains carefully — recipes and architectures are easy to conflate.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2201.03545" target="_blank" rel="noopener"
+        data-paper-id="30" data-paper-title="A ConvNet for the 2020s (ConvNeXt)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="30"
+          aria-label="Mark A ConvNet for the 2020s (ConvNeXt) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-6">
+  <div class="level-head">
+    <span class="level-badge">Level 6</span>
+    <span class="level-name">Multimodal</span>
+    
+  </div>
+  
+<details class="paper" id="paper-22" data-mvrp="1" data-text="learning transferable visual models from natural language supervision (clip) radford et al. openai trains image and text encoders contrastively on 400m web image-caption pairs. natural language is a far more general supervision signal than fixed label sets.">
+  <summary>
+    <span class="p-num">22</span>
+    <span class="p-title">Learning Transferable Visual Models From Natural Language Supervision (CLIP)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Radford et al. · OpenAI · Feb 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Trains image and text encoders contrastively on 400M web image-caption pairs.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The bedrock of modern multimodal AI; underlies retrieval, classification, and image-generation guidance.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Transformers, contrastive learning</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Natural language is a far more general supervision signal than fixed label sets.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2103.00020" target="_blank" rel="noopener"
+        data-paper-id="22" data-paper-title="Learning Transferable Visual Models From Natural Language Supervision (CLIP)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="22"
+          aria-label="Mark Learning Transferable Visual Models From Natural Language Supervision (CLIP) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-23" data-mvrp="0" data-text="zero-shot text-to-image generation (dall-e) ramesh et al. openai a 12b-parameter transformer trained autoregressively over discrete image-token + text-token sequences. you can model images as discrete tokens and generate them with a language model.">
+  <summary>
+    <span class="p-num">23</span>
+    <span class="p-title">Zero-Shot Text-to-Image Generation (DALL-E)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ramesh et al. · OpenAI · Feb 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>A 12B-parameter Transformer trained autoregressively over discrete image-token + text-token sequences.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The first compelling text-to-image system and a clean conceptual ancestor of all diffusion T2I.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GPT-3, VQ-VAE</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can model images as discrete tokens and generate them with a language model.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2102.12092" target="_blank" rel="noopener"
+        data-paper-id="23" data-paper-title="Zero-Shot Text-to-Image Generation (DALL-E)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="23"
+          aria-label="Mark Zero-Shot Text-to-Image Generation (DALL-E) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section><section class="level-block" id="level-7">
+  <div class="level-head">
+    <span class="level-badge">Level 7</span>
+    <span class="level-name">Diffusion &amp; foundation models</span>
+    
+  </div>
+  
+<details class="paper" id="paper-24" data-mvrp="1" data-text="denoising diffusion probabilistic models (ddpm) ho, jain, abbeel uc berkeley trains a network to reverse a fixed gaussian noising process, generating images by iterative denoising. reversing noise step-by-step is a simpler, more stable generative recipe than adversarial training.">
+  <summary>
+    <span class="p-num">24</span>
+    <span class="p-title">Denoising Diffusion Probabilistic Models (DDPM)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Ho, Jain, Abbeel · UC Berkeley · Jun 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Trains a network to reverse a fixed Gaussian noising process, generating images by iterative denoising.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that revived and re-formalised diffusion models. Read this before any T2I paper.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>GANs, basic stochastic processes</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Reversing noise step-by-step is a simpler, more stable generative recipe than adversarial training.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener"
+        data-paper-id="24" data-paper-title="Denoising Diffusion Probabilistic Models (DDPM)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="24"
+          aria-label="Mark Denoising Diffusion Probabilistic Models (DDPM) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-25" data-mvrp="0" data-text="high-resolution image synthesis with latent diffusion (stable diffusion) rombach et al. lmu munich runs the diffusion process in a compressed vae latent space, slashing compute by an order of magnitude. don&#x27;t diffuse pixels — diffuse a small, perceptually-equivalent latent representation.">
+  <summary>
+    <span class="p-num">25</span>
+    <span class="p-title">High-Resolution Image Synthesis with Latent Diffusion (Stable Diffusion)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Rombach et al. · LMU Munich · Dec 2021</p>
+    <div class="p-field"><b>TL;DR</b><p>Runs the diffusion process in a compressed VAE latent space, slashing compute by an order of magnitude.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The paper that put open-source text-to-image into millions of hands.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DDPM, VAE</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Don&#x27;t diffuse pixels — diffuse a small, perceptually-equivalent latent representation.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2112.10752" target="_blank" rel="noopener"
+        data-paper-id="25" data-paper-title="High-Resolution Image Synthesis with Latent Diffusion (Stable Diffusion)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="25"
+          aria-label="Mark High-Resolution Image Synthesis with Latent Diffusion (Stable Diffusion) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-26" data-mvrp="0" data-text="photorealistic text-to-image diffusion models (imagen) saharia et al. google research pairs a frozen large language model text encoder with a cascaded pixel-space diffusion decoder. a bigger text encoder beats a bigger image decoder.">
+  <summary>
+    <span class="p-num">26</span>
+    <span class="p-title">Photorealistic Text-to-Image Diffusion Models (Imagen)</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Saharia et al. · Google Research · May 2022</p>
+    <div class="p-field"><b>TL;DR</b><p>Pairs a frozen large language model text encoder with a cascaded pixel-space diffusion decoder.</p></div>
+    <div class="p-field"><b>Why read this</b><p>A clean, practical study showing that text-encoder quality dominates image-decoder size.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>DDPM, CLIP</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A bigger text encoder beats a bigger image decoder.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2205.11487" target="_blank" rel="noopener"
+        data-paper-id="26" data-paper-title="Photorealistic Text-to-Image Diffusion Models (Imagen)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="26"
+          aria-label="Mark Photorealistic Text-to-Image Diffusion Models (Imagen) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-27" data-mvrp="1" data-text="segment anything (sam) kirillov et al. meta ai a promptable segmentation foundation model trained on 1b masks across 11m images. foundation models work in vision too — given the right task and a billion labels.">
+  <summary>
+    <span class="p-num">27</span>
+    <span class="p-title">Segment Anything (SAM)</span>
+    <span class="p-flag">MVRP</span>
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kirillov et al. · Meta AI · Apr 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>A promptable segmentation foundation model trained on 1B masks across 11M images.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The &quot;major breakthrough moment&quot; for segmentation — a single model that segments anything from any prompt.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ViT, segmentation basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>Foundation models work in vision too — given the right task and a billion labels.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2304.02643" target="_blank" rel="noopener"
+        data-paper-id="27" data-paper-title="Segment Anything (SAM)">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="27"
+          aria-label="Mark Segment Anything (SAM) as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-28" data-mvrp="0" data-text="dinov2: learning robust visual features without supervision oquab et al. meta ai a self-supervised vit trained on a curated 142m image dataset producing all-purpose features. you can build vision foundation models without text — careful data and self-supervision suffice.">
+  <summary>
+    <span class="p-num">28</span>
+    <span class="p-title">DINOv2: Learning Robust Visual Features without Supervision</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Oquab et al. · Meta AI · Apr 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>A self-supervised ViT trained on a curated 142M image dataset producing all-purpose features.</p></div>
+    <div class="p-field"><b>Why read this</b><p>The strongest pure-vision foundation model — a counterpoint to CLIP&#x27;s language-supervised approach.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>ViT, self-supervised learning</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>You can build vision foundation models without text — careful data and self-supervision suffice.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2304.07193" target="_blank" rel="noopener"
+        data-paper-id="28" data-paper-title="DINOv2: Learning Robust Visual Features without Supervision">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="28"
+          aria-label="Mark DINOv2: Learning Robust Visual Features without Supervision as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-31" data-mvrp="0" data-text="nerf: representing scenes as neural radiance fields for view synthesis mildenhall et al. uc berkeley, google encodes a scene as an mlp mapping 5d coordinates to colour and density, rendered by ray marching. a neural network can be the scene representation itself, not just a processor of one.">
+  <summary>
+    <span class="p-num">31</span>
+    <span class="p-title">NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Mildenhall et al. · UC Berkeley, Google · Mar 2020</p>
+    <div class="p-field"><b>TL;DR</b><p>Encodes a scene as an MLP mapping 5D coordinates to colour and density, rendered by ray marching.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Founded neural 3D representation — a whole subfield traces to this paper.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>Volume rendering basics, MLPs</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>A neural network can be the scene representation itself, not just a processor of one.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2003.08934" target="_blank" rel="noopener"
+        data-paper-id="31" data-paper-title="NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="31"
+          aria-label="Mark NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+
+<details class="paper" id="paper-32" data-mvrp="0" data-text="3d gaussian splatting for real-time radiance field rendering kerbl et al. inria, mpi represents scenes as millions of optimised anisotropic 3d gaussians, rasterised in real time. an explicit, differentiable primitive can beat an implicit network on both speed and quality.">
+  <summary>
+    <span class="p-num">32</span>
+    <span class="p-title">3D Gaussian Splatting for Real-Time Radiance Field Rendering</span>
+    
+  </summary>
+  <div class="p-body">
+    <p class="p-byline">Kerbl et al. · Inria, MPI · Aug 2023</p>
+    <div class="p-field"><b>TL;DR</b><p>Represents scenes as millions of optimised anisotropic 3D Gaussians, rasterised in real time.</p></div>
+    <div class="p-field"><b>Why read this</b><p>Displaced NeRF for many practical uses within a year — a lesson in explicit vs implicit representations.</p></div>
+    <div class="p-field"><b>Prerequisites</b><p>NeRF, rasterisation basics</p></div>
+    <div class="p-field"><b>Key takeaway</b><p>An explicit, differentiable primitive can beat an implicit network on both speed and quality.</p></div>
+    <div class="paper-actions">
+      <a class="p-link" href="https://arxiv.org/abs/2308.04079" target="_blank" rel="noopener"
+        data-paper-id="32" data-paper-title="3D Gaussian Splatting for Real-Time Radiance Field Rendering">Read the paper</a>
+      <label class="read-check">
+        <input class="paper-done" type="checkbox" data-paper-id="32"
+          aria-label="Mark 3D Gaussian Splatting for Real-Time Radiance Field Rendering as read"> Mark as read
+      </label>
+    </div>
+  </div>
+</details>
+</section>
+  <nav class="pager">
+    <a href="../llm-transformers/"><span class="dir">← Previous roadmap</span>LLMs &amp; Transformers</a>
+    <a href="../reinforcement-learning/"><span class="dir">Next roadmap →</span>Reinforcement Learning</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    One of 12 roadmaps ·
+    <a href="../../">Papers in Order</a> ·
+    CC BY 4.0 ·
+    <a href="https://github.com/Achal13jain/cs-paper-roadmaps/blob/main/CONTRIBUTING.md">Suggest a paper</a>
+  </div>
+</footer>
+<script>
+const q=document.getElementById('paper-filter');
+const cards=[...document.querySelectorAll('.paper')];
+const levels=[...document.querySelectorAll('.level-block')];
+const counter=document.getElementById('filter-count');
+const roadmapId=document.body.dataset.roadmap;
+const storageKey=`papers-in-order:${roadmapId}:read`;
+const checks=[...document.querySelectorAll('.paper-done')];
+const progressCount=document.getElementById('progress-count');
+const progressBar=document.getElementById('progress-bar');
+
+function track(name,params={}){
+  if(typeof window.gtag==='function') window.gtag('event',name,{roadmap_id:roadmapId,...params});
+}
+function loadRead(){
+  try{return new Set(JSON.parse(localStorage.getItem(storageKey)||'[]'));}
+  catch(_err){return new Set();}
+}
+let read=loadRead();
+function saveRead(){
+  try{localStorage.setItem(storageKey,JSON.stringify([...read]));}
+  catch(_err){/* Progress still works for this tab when storage is unavailable. */}
+}
+function renderProgress(){
+  checks.forEach(c=>{
+    const done=read.has(c.dataset.paperId);
+    c.checked=done;
+    c.closest('.paper').classList.toggle('is-read',done);
+  });
+  progressCount.textContent=read.size;
+  progressBar.value=read.size;
+  progressBar.setAttribute('aria-valuetext',`${read.size} of ${cards.length} papers read`);
+}
+checks.forEach(c=>c.addEventListener('change',()=>{
+  c.checked?read.add(c.dataset.paperId):read.delete(c.dataset.paperId);
+  saveRead();
+  renderProgress();
+  track('reading_progress',{paper_id:c.dataset.paperId,completed:c.checked,completed_count:read.size});
+}));
+document.getElementById('reset-progress').addEventListener('click',()=>{
+  if(!read.size||!window.confirm('Clear your saved reading progress for this roadmap?'))return;
+  read.clear();
+  try{localStorage.removeItem(storageKey)}catch(_err){}
+  renderProgress();track('reading_progress_reset');
+});
+document.querySelectorAll('.p-link').forEach(a=>a.addEventListener('click',()=>
+  track('paper_open',{paper_id:a.dataset.paperId,paper_title:a.dataset.paperTitle})));
+q.addEventListener('input',()=>{
+  const t=q.value.trim().toLowerCase();
+  let shown=0;
+  cards.forEach(c=>{
+    const hit=!t||c.dataset.text.includes(t);
+    c.classList.toggle('hidden',!hit);
+    if(hit)shown++;
+  });
+  levels.forEach(l=>l.classList.toggle('hidden',
+    ![...l.querySelectorAll('.paper')].some(c=>!c.classList.contains('hidden'))));
+  counter.textContent=t?`${shown} matching paper${shown===1?'':'s'}`:'';
+});
+renderProgress();
+track('roadmap_view',{paper_count:cards.length});
+</script>
+</body>
+</html>

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Iterable
 
@@ -17,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPERS_FILE = ROOT / "papers.yml"
 TIMEOUT_SECONDS = 10
 MAX_RETRIES = 2
+DEFAULT_WORKERS = 8
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -118,6 +120,12 @@ def main() -> int:
     parser.add_argument("--skip-arxiv", action="store_true", help="Skip https://arxiv.org links")
     parser.add_argument("--changed-only", action="store_true", help="Check only links added or changed versus base")
     parser.add_argument("--base-ref", default="origin/main", help="Git ref to compare against for --changed-only")
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=DEFAULT_WORKERS,
+        help=f"Concurrent requests (default: {DEFAULT_WORKERS})",
+    )
     args = parser.parse_args()
 
     if args.changed_only:
@@ -130,14 +138,21 @@ def main() -> int:
         return 0
 
     ok_count = 0
+    results = []
+    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as executor:
+        pending = {executor.submit(check_url, entry[4]): entry for entry in links}
+        for future in as_completed(pending):
+            entry = pending[future]
+            results.append((entry, *future.result()))
 
-    for _roadmap_id, _paper_id, roadmap_title, paper_title, url in links:
-        ok, detail = check_url(url)
+    for entry, ok, detail in sorted(results, key=lambda result: (result[0][0], int(result[0][1]))):
+        _roadmap_id, _paper_id, roadmap_title, paper_title, url = entry
         if ok:
             ok_count += 1
-            print(f"✅ OK   {url} — {roadmap_title}: {paper_title}")
+            print(f"✅ OK    {url} — {roadmap_title}: {paper_title}")
         else:
-            print(f"❌ DEAD {url} — {roadmap_title}: {paper_title} ({detail})")
+            label = "DEAD " if detail.startswith("HTTP ") else "ERROR"
+            print(f"❌ {label} {url} — {roadmap_title}: {paper_title} ({detail})")
 
     total = len(links)
     print(f"{ok_count}/{total} links OK.")
