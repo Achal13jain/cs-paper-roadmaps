@@ -120,8 +120,43 @@ def main() -> int:
             if target is not None and not target.exists():
                 errors.append(f"{label}: broken internal link {href}")
 
+        if page == ROOT / "index.html":
+            expected_catalog_links = {
+                f"roadmaps/{roadmap_id}/" for roadmap_id in expected_roadmaps
+            }
+            catalog_links = {
+                href for href in parser.hrefs if href.startswith("roadmaps/")
+            }
+            if catalog_links != expected_catalog_links:
+                errors.append(
+                    "index.html: roadmap catalog links differ from papers.yml: "
+                    f"missing={sorted(expected_catalog_links-catalog_links)}, "
+                    f"extra={sorted(catalog_links-expected_catalog_links)}"
+                )
+            if 'id="roadmaps"' not in text:
+                errors.append("index.html: missing roadmap catalog anchor")
+            if "ROADMAP_DATA" in text or '<details class="paper"' in text:
+                errors.append("index.html: home page should not embed the paper-reading application")
+            if text.count('class="card-icon"') != len(expected_roadmaps):
+                errors.append("index.html: every roadmap card should have a dedicated icon")
+            if text.count('class="product-mark"') < 2:
+                errors.append("index.html: product mark should appear in the header and footer")
+            for roadmap in data["roadmaps"]:
+                legacy_icon = roadmap.get("icon", "")
+                if legacy_icon and legacy_icon in text:
+                    errors.append(
+                        f"index.html: roadmap {roadmap['id']} still renders its legacy emoji icon"
+                    )
+
         if page.parent.parent.name == "roadmaps":
-            required = ["progress-bar", "paper-done", "aria-live=\"polite\"", "BreadcrumbList"]
+            required = [
+                "progress-bar",
+                "paper-done",
+                'aria-live="polite"',
+                "BreadcrumbList",
+                'href="../../">Home</a>',
+                'href="../../#roadmaps">All roadmaps</a>',
+            ]
             for marker in required:
                 if marker not in text:
                     errors.append(f"{label}: missing generated feature {marker}")

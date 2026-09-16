@@ -1,7 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
-  <rect x="2" y="2" width="20" height="20" rx="5" fill="#006b2c"/>
-  <path d="M7 6.5h10v11H7z" fill="#fff"/>
-  <path d="M7 6.5l5 4.5 5-4.5" fill="none" stroke="#006b2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M7 17l5-4.5 5 4.5" fill="none" stroke="#006b2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="8" y="16.5" font-family="Inter, sans-serif" font-size="5.5" font-weight="700" fill="#006b2c">CS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="9" fill="#0b4d31"/>
+  <path d="M7.5 9.25c3.3 0 6 .8 8.5 2.65v12.1c-2.5-1.85-5.2-2.65-8.5-2.65V9.25Zm17 0c-3.3 0-6 .8-8.5 2.65v12.1c2.5-1.85 5.2-2.65 8.5-2.65V9.25Z" fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/>
+  <path d="M11 7.5h6.5m0 0-2-2m2 2-2 2" fill="none" stroke="#bef264" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
